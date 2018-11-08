@@ -8,12 +8,31 @@
 
 /* Begin PBXBuildFile section */
 		5E20707B2184EA1A0084911F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E20707A2184EA1A0084911F /* AppDelegate.swift */; };
-		5E20707D2184EA1A0084911F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E20707C2184EA1A0084911F /* ViewController.swift */; };
-		5E2070802184EA1A0084911F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E20707E2184EA1A0084911F /* Main.storyboard */; };
 		5E2070822184EA1B0084911F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E2070812184EA1B0084911F /* Assets.xcassets */; };
 		5E2070852184EA1B0084911F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E2070832184EA1B0084911F /* LaunchScreen.storyboard */; };
 		5E2070902184EA1C0084911F /* ThePersonalTrainerClubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E20708F2184EA1C0084911F /* ThePersonalTrainerClubTests.swift */; };
 		5E20709B2184EA1C0084911F /* ThePersonalTrainerClubUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E20709A2184EA1C0084911F /* ThePersonalTrainerClubUITests.swift */; };
+		5EBC1C09219205AE00BCBBC7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBC1C07219205AE00BCBBC7 /* LoginViewController.swift */; };
+		5EBC1C0A219205AE00BCBBC7 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EBC1C08219205AE00BCBBC7 /* LoginViewController.xib */; };
+		5EBC1C122193277A00BCBBC7 /* LoginViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBC1C112193277A00BCBBC7 /* LoginViewPresenter.swift */; };
+		5EBC1C14219327E500BCBBC7 /* LoginViewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBC1C13219327E500BCBBC7 /* LoginViewContract.swift */; };
+		5EBC1C1721932A0500BCBBC7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBC1C1621932A0500BCBBC7 /* BaseViewController.swift */; };
+		5EBC1C1921932A1300BCBBC7 /* BaseViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBC1C1821932A1300BCBBC7 /* BaseViewPresenter.swift */; };
+		5EBC1C1B21932A3300BCBBC7 /* BaseViewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBC1C1A21932A3300BCBBC7 /* BaseViewContract.swift */; };
+		5EBC1C1E2193340500BCBBC7 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBC1C1D2193340500BCBBC7 /* WebService.swift */; };
+		5EBC1C202193346600BCBBC7 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBC1C1F2193346600BCBBC7 /* Endpoint.swift */; };
+		5EDB093A2194423C0000A280 /* LoginEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDB09392194423C0000A280 /* LoginEntity.swift */; };
+		5EDB093D21944BC10000A280 /* LoginProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDB093C21944BC10000A280 /* LoginProvider.swift */; };
+		5EDB093F21944CFD0000A280 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDB093E21944CFD0000A280 /* LoginModel.swift */; };
+		5EDB094121944F340000A280 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDB094021944F340000A280 /* LoginUseCase.swift */; };
+		5EDB09442194CCDE0000A280 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDB09422194CCDE0000A280 /* RegisterViewController.swift */; };
+		5EDB09452194CCDE0000A280 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EDB09432194CCDE0000A280 /* RegisterViewController.xib */; };
+		5EDB09472194CD460000A280 /* RegisterViewControllerNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDB09462194CD460000A280 /* RegisterViewControllerNavigator.swift */; };
+		5EDB094B2194CDDA0000A280 /* RegisterViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDB094A2194CDDA0000A280 /* RegisterViewPresenter.swift */; };
+		5EDB094D2194CDE50000A280 /* RegisterViewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDB094C2194CDE50000A280 /* RegisterViewContract.swift */; };
+		5EDB094F2194CF950000A280 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDB094E2194CF950000A280 /* UIViewControllerExtension.swift */; };
+		5EDB09512194D0210000A280 /* LoginViewNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDB09502194D0210000A280 /* LoginViewNavigator.swift */; };
+		5EDB09552194D5080000A280 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDB09542194D5080000A280 /* UIColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,8 +55,6 @@
 /* Begin PBXFileReference section */
 		5E2070772184EA1A0084911F /* ThePersonalTrainerClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThePersonalTrainerClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E20707A2184EA1A0084911F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5E20707C2184EA1A0084911F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5E20707F2184EA1A0084911F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5E2070812184EA1B0084911F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E2070842184EA1B0084911F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E2070862184EA1B0084911F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +64,27 @@
 		5E2070962184EA1C0084911F /* ThePersonalTrainerClubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThePersonalTrainerClubUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E20709A2184EA1C0084911F /* ThePersonalTrainerClubUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThePersonalTrainerClubUITests.swift; sourceTree = "<group>"; };
 		5E20709C2184EA1C0084911F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5EBC1C07219205AE00BCBBC7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5EBC1C08219205AE00BCBBC7 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		5EBC1C112193277A00BCBBC7 /* LoginViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewPresenter.swift; sourceTree = "<group>"; };
+		5EBC1C13219327E500BCBBC7 /* LoginViewContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewContract.swift; sourceTree = "<group>"; };
+		5EBC1C1621932A0500BCBBC7 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		5EBC1C1821932A1300BCBBC7 /* BaseViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewPresenter.swift; sourceTree = "<group>"; };
+		5EBC1C1A21932A3300BCBBC7 /* BaseViewContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewContract.swift; sourceTree = "<group>"; };
+		5EBC1C1D2193340500BCBBC7 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		5EBC1C1F2193346600BCBBC7 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		5EDB09392194423C0000A280 /* LoginEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEntity.swift; sourceTree = "<group>"; };
+		5EDB093C21944BC10000A280 /* LoginProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProvider.swift; sourceTree = "<group>"; };
+		5EDB093E21944CFD0000A280 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		5EDB094021944F340000A280 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
+		5EDB09422194CCDE0000A280 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		5EDB09432194CCDE0000A280 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		5EDB09462194CD460000A280 /* RegisterViewControllerNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewControllerNavigator.swift; sourceTree = "<group>"; };
+		5EDB094A2194CDDA0000A280 /* RegisterViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewPresenter.swift; sourceTree = "<group>"; };
+		5EDB094C2194CDE50000A280 /* RegisterViewContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewContract.swift; sourceTree = "<group>"; };
+		5EDB094E2194CF950000A280 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		5EDB09502194D0210000A280 /* LoginViewNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewNavigator.swift; sourceTree = "<group>"; };
+		5EDB09542194D5080000A280 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +135,11 @@
 		5E2070792184EA1A0084911F /* ThePersonalTrainerClub */ = {
 			isa = PBXGroup;
 			children = (
+				5EBC1C0D219208AE00BCBBC7 /* Utils */,
+				5EBC1C042191902300BCBBC7 /* View */,
+				5EBC1C052192057D00BCBBC7 /* Model */,
+				5EBC1C0E219208D700BCBBC7 /* Network */,
 				5E20707A2184EA1A0084911F /* AppDelegate.swift */,
-				5E20707C2184EA1A0084911F /* ViewController.swift */,
-				5E20707E2184EA1A0084911F /* Main.storyboard */,
 				5E2070812184EA1B0084911F /* Assets.xcassets */,
 				5E2070832184EA1B0084911F /* LaunchScreen.storyboard */,
 				5E2070862184EA1B0084911F /* Info.plist */,
@@ -123,6 +163,111 @@
 				5E20709C2184EA1C0084911F /* Info.plist */,
 			);
 			path = ThePersonalTrainerClubUITests;
+			sourceTree = "<group>";
+		};
+		5EBC1C042191902300BCBBC7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5EBC1C15219329F400BCBBC7 /* Base */,
+				5EBC1C062192058800BCBBC7 /* Login */,
+				5EBC1C1C2193301400BCBBC7 /* Register */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5EBC1C052192057D00BCBBC7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5EDB09362193479A0000A280 /* Model */,
+				5EDB0932219346940000A280 /* UseCase */,
+				5EDB0933219346CC0000A280 /* Provider */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5EBC1C062192058800BCBBC7 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				5EBC1C07219205AE00BCBBC7 /* LoginViewController.swift */,
+				5EBC1C08219205AE00BCBBC7 /* LoginViewController.xib */,
+				5EBC1C112193277A00BCBBC7 /* LoginViewPresenter.swift */,
+				5EBC1C13219327E500BCBBC7 /* LoginViewContract.swift */,
+				5EDB09502194D0210000A280 /* LoginViewNavigator.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		5EBC1C0D219208AE00BCBBC7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5EDB094E2194CF950000A280 /* UIViewControllerExtension.swift */,
+				5EDB09542194D5080000A280 /* UIColorExtension.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		5EBC1C0E219208D700BCBBC7 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				5EDB09352193478B0000A280 /* Entity */,
+				5EBC1C1D2193340500BCBBC7 /* WebService.swift */,
+				5EBC1C1F2193346600BCBBC7 /* Endpoint.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		5EBC1C15219329F400BCBBC7 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				5EBC1C1621932A0500BCBBC7 /* BaseViewController.swift */,
+				5EBC1C1821932A1300BCBBC7 /* BaseViewPresenter.swift */,
+				5EBC1C1A21932A3300BCBBC7 /* BaseViewContract.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		5EBC1C1C2193301400BCBBC7 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				5EDB09422194CCDE0000A280 /* RegisterViewController.swift */,
+				5EDB09432194CCDE0000A280 /* RegisterViewController.xib */,
+				5EDB09462194CD460000A280 /* RegisterViewControllerNavigator.swift */,
+				5EDB094A2194CDDA0000A280 /* RegisterViewPresenter.swift */,
+				5EDB094C2194CDE50000A280 /* RegisterViewContract.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		5EDB0932219346940000A280 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				5EDB094021944F340000A280 /* LoginUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		5EDB0933219346CC0000A280 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				5EDB093C21944BC10000A280 /* LoginProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		5EDB09352193478B0000A280 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				5EDB09392194423C0000A280 /* LoginEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		5EDB09362193479A0000A280 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5EDB093E21944CFD0000A280 /* LoginModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,9 +374,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EBC1C0A219205AE00BCBBC7 /* LoginViewController.xib in Resources */,
 				5E2070852184EA1B0084911F /* LaunchScreen.storyboard in Resources */,
 				5E2070822184EA1B0084911F /* Assets.xcassets in Resources */,
-				5E2070802184EA1A0084911F /* Main.storyboard in Resources */,
+				5EDB09452194CCDE0000A280 /* RegisterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,8 +402,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E20707D2184EA1A0084911F /* ViewController.swift in Sources */,
+				5EDB093A2194423C0000A280 /* LoginEntity.swift in Sources */,
+				5EDB09512194D0210000A280 /* LoginViewNavigator.swift in Sources */,
+				5EDB093F21944CFD0000A280 /* LoginModel.swift in Sources */,
+				5EDB094F2194CF950000A280 /* UIViewControllerExtension.swift in Sources */,
+				5EDB093D21944BC10000A280 /* LoginProvider.swift in Sources */,
+				5EDB094D2194CDE50000A280 /* RegisterViewContract.swift in Sources */,
+				5EBC1C1B21932A3300BCBBC7 /* BaseViewContract.swift in Sources */,
+				5EDB09552194D5080000A280 /* UIColorExtension.swift in Sources */,
+				5EBC1C202193346600BCBBC7 /* Endpoint.swift in Sources */,
+				5EBC1C1721932A0500BCBBC7 /* BaseViewController.swift in Sources */,
+				5EBC1C1E2193340500BCBBC7 /* WebService.swift in Sources */,
+				5EBC1C14219327E500BCBBC7 /* LoginViewContract.swift in Sources */,
+				5EBC1C1921932A1300BCBBC7 /* BaseViewPresenter.swift in Sources */,
+				5EDB09442194CCDE0000A280 /* RegisterViewController.swift in Sources */,
+				5EBC1C09219205AE00BCBBC7 /* LoginViewController.swift in Sources */,
+				5EDB09472194CD460000A280 /* RegisterViewControllerNavigator.swift in Sources */,
 				5E20707B2184EA1A0084911F /* AppDelegate.swift in Sources */,
+				5EDB094121944F340000A280 /* LoginUseCase.swift in Sources */,
+				5EDB094B2194CDDA0000A280 /* RegisterViewPresenter.swift in Sources */,
+				5EBC1C122193277A00BCBBC7 /* LoginViewPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,14 +457,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		5E20707E2184EA1A0084911F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5E20707F2184EA1A0084911F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5E2070832184EA1B0084911F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
