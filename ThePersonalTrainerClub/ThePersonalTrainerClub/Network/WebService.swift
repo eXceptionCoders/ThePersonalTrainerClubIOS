@@ -10,6 +10,7 @@ import Foundation
 
 enum WebServiceError: Error {
     case requestError
+    case unprocessableEntity
     case decodingError
     case forbiddenError
     case genericError
@@ -18,7 +19,6 @@ enum WebServiceError: Error {
 final class WebService {
     private let configuration: URLSessionConfiguration = .default
     private let session = URLSession(configuration: .default)
-    private let baseURL = URL(string: "https://api.themoviedb.org/3")!
     private let decoder = JSONDecoder()
     
     private var task: URLSessionDataTask?
@@ -54,6 +54,8 @@ final class WebService {
                     }
                 case 401:
                     e = WebServiceError.forbiddenError
+                case 422:
+                    e = WebServiceError.unprocessableEntity
                 default:
                     e = WebServiceError.genericError
                 }

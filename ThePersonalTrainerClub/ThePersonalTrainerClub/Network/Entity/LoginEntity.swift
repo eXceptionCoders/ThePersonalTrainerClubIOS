@@ -15,4 +15,6 @@ struct LoginRequest {
     let password: String
 }
 
-struct LoginResponse: Decodable {}
+struct LoginResponse: Decodable {
+    
+}

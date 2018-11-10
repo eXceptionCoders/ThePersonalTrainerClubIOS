@@ -32,7 +32,7 @@ class LoginProvider {
             } else {
                 completion(true, nil)
             }
-            }
+        }
     }
 }
 
