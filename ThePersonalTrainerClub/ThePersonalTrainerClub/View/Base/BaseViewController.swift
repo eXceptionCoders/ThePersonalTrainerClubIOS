@@ -8,10 +8,6 @@
 
 import UIKit
 
-enum LINE_POSITION {
-    case LINE_POSITION_TOP
-    case LINE_POSITION_BOTTOM
-}
 
 class BaseViewController: UIViewController, BaseContract.View {
     override func viewDidLoad() {
@@ -20,25 +16,12 @@ class BaseViewController: UIViewController, BaseContract.View {
         setupNavigationBarTitle()
     }
     
-    func addLineToView(view : UIView, position : LINE_POSITION, color: UIColor, width: Double) {
-        let lineView = UIView()
-        lineView.backgroundColor = color
-        lineView.translatesAutoresizingMaskIntoConstraints = false // This is important!
-        view.addSubview(lineView)
-        
-        let metrics = ["width" : NSNumber(value: width)]
-        let views = ["lineView" : lineView]
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[lineView]|", options:NSLayoutConstraint.FormatOptions(rawValue: 0), metrics:metrics, views:views))
-        
-        switch position {
-        case .LINE_POSITION_TOP:
-            view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[lineView(width)]", options:NSLayoutConstraint.FormatOptions(rawValue: 0), metrics:metrics, views:views))
-            break
-        case .LINE_POSITION_BOTTOM:
-            view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[lineView(width)]|", options:NSLayoutConstraint.FormatOptions(rawValue: 0), metrics:metrics, views:views))
-            break
-        default:
-            break
+    func showMessage(_ message: String) {
+        let alertVC = UIAlertController(title: "MENSAJE!", message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Vale", style: .default) { _ in
+            alertVC.dismiss(animated: true, completion: nil)
         }
+        alertVC.addAction(alertAction)
+        self.present(alertVC, animated: true, completion: nil)
     }
 }

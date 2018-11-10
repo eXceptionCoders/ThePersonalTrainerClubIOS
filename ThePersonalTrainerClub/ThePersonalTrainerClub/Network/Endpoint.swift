@@ -12,7 +12,7 @@ private var baseURL = "https://thepersonaltrainerclubapi.azurewebsites.net"
 
 enum Endpoint {
     case login(requestModel: LoginRequest)
-    case signup(requestModel: SignupRequest)
+    case register(requestModel: RegisterRequest)
 }
 
 extension Endpoint {
@@ -46,7 +46,7 @@ private extension Endpoint {
         switch self {
         case .login(_):
             return .post
-        case .signup(_):
+        case .register(_):
             return .post
         }
     }
@@ -56,7 +56,7 @@ private extension Endpoint {
         case .login(_):
             return "/api/v1/es/users/login"
             
-        case .signup(_):
+        case .register(_):
             return "/api/v1/es/users/signup"
         }
     }
@@ -69,7 +69,7 @@ private extension Endpoint {
                 requestModel.passwordKey: requestModel.password
             ]
             
-        case .signup(let requestModel):
+        case .register(let requestModel):
             return [
                 requestModel.birthdayKey: requestModel.birthday,
                 requestModel.emailKey: requestModel.email,

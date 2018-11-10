@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SignupRequest {
+struct RegisterRequest {
     let nameKey = "name"
     let name: String
     

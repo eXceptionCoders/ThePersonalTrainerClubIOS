@@ -14,8 +14,14 @@ enum RegisterContract {
     typealias Navigator = RegisterNavigator
 }
 
-protocol RegisterView: BaseContract.View {}
+protocol RegisterView: BaseContract.View {
+}
 
-protocol RegisterPresenter: BaseContract.Presenter {}
+protocol RegisterPresenter: BaseContract.Presenter {
+    func onRegister(name: String, lastName: String, gender: String, email: String, password: String)
+}
 
-protocol RegisterNavigator: BaseContract.Navigator {}
+protocol RegisterNavigator: BaseContract.Navigator {
+    func navigateToLoginView()
+    func navigateToMainView()
+}

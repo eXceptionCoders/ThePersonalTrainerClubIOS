@@ -27,17 +27,17 @@
 		5EDB094121944F340000A280 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDB094021944F340000A280 /* LoginUseCase.swift */; };
 		5EDB09442194CCDE0000A280 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDB09422194CCDE0000A280 /* RegisterViewController.swift */; };
 		5EDB09452194CCDE0000A280 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EDB09432194CCDE0000A280 /* RegisterViewController.xib */; };
-		5EDB09472194CD460000A280 /* RegisterViewControllerNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDB09462194CD460000A280 /* RegisterViewControllerNavigator.swift */; };
+		5EDB09472194CD460000A280 /* RegisterViewNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDB09462194CD460000A280 /* RegisterViewNavigator.swift */; };
 		5EDB094B2194CDDA0000A280 /* RegisterViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDB094A2194CDDA0000A280 /* RegisterViewPresenter.swift */; };
 		5EDB094D2194CDE50000A280 /* RegisterViewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDB094C2194CDE50000A280 /* RegisterViewContract.swift */; };
 		5EDB094F2194CF950000A280 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDB094E2194CF950000A280 /* UIViewControllerExtension.swift */; };
 		5EDB09512194D0210000A280 /* LoginViewNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDB09502194D0210000A280 /* LoginViewNavigator.swift */; };
 		5EDB09552194D5080000A280 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDB09542194D5080000A280 /* UIColorExtension.swift */; };
-		630524F521974C8C004C4179 /* SignupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630524F421974C8C004C4179 /* SignupModel.swift */; };
-		630524F721974D0A004C4179 /* SignupUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630524F621974D0A004C4179 /* SignupUseCase.swift */; };
-		630524F921974E20004C4179 /* SignupEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630524F821974E20004C4179 /* SignupEntity.swift */; };
+		630524F521974C8C004C4179 /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630524F421974C8C004C4179 /* RegisterModel.swift */; };
+		630524F721974D0A004C4179 /* RegisterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630524F621974D0A004C4179 /* RegisterUseCase.swift */; };
+		630524F921974E20004C4179 /* RegisterEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630524F821974E20004C4179 /* RegisterEntity.swift */; };
 		630524FB21974E75004C4179 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630524FA21974E75004C4179 /* BaseResponse.swift */; };
-		630524FD21974F92004C4179 /* SignupProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630524FC21974F92004C4179 /* SignupProvider.swift */; };
+		630524FF21978B4B004C4179 /* RegisterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630524FE21978B4B004C4179 /* RegisterProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,17 +84,17 @@
 		5EDB094021944F340000A280 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		5EDB09422194CCDE0000A280 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		5EDB09432194CCDE0000A280 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
-		5EDB09462194CD460000A280 /* RegisterViewControllerNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewControllerNavigator.swift; sourceTree = "<group>"; };
+		5EDB09462194CD460000A280 /* RegisterViewNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewNavigator.swift; sourceTree = "<group>"; };
 		5EDB094A2194CDDA0000A280 /* RegisterViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewPresenter.swift; sourceTree = "<group>"; };
 		5EDB094C2194CDE50000A280 /* RegisterViewContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewContract.swift; sourceTree = "<group>"; };
 		5EDB094E2194CF950000A280 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		5EDB09502194D0210000A280 /* LoginViewNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewNavigator.swift; sourceTree = "<group>"; };
 		5EDB09542194D5080000A280 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
-		630524F421974C8C004C4179 /* SignupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModel.swift; sourceTree = "<group>"; };
-		630524F621974D0A004C4179 /* SignupUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupUseCase.swift; sourceTree = "<group>"; };
-		630524F821974E20004C4179 /* SignupEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupEntity.swift; sourceTree = "<group>"; };
+		630524F421974C8C004C4179 /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
+		630524F621974D0A004C4179 /* RegisterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUseCase.swift; sourceTree = "<group>"; };
+		630524F821974E20004C4179 /* RegisterEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEntity.swift; sourceTree = "<group>"; };
 		630524FA21974E75004C4179 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
-		630524FC21974F92004C4179 /* SignupProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupProvider.swift; sourceTree = "<group>"; };
+		630524FE21978B4B004C4179 /* RegisterProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,7 +241,7 @@
 			children = (
 				5EDB09422194CCDE0000A280 /* RegisterViewController.swift */,
 				5EDB09432194CCDE0000A280 /* RegisterViewController.xib */,
-				5EDB09462194CD460000A280 /* RegisterViewControllerNavigator.swift */,
+				5EDB09462194CD460000A280 /* RegisterViewNavigator.swift */,
 				5EDB094A2194CDDA0000A280 /* RegisterViewPresenter.swift */,
 				5EDB094C2194CDE50000A280 /* RegisterViewContract.swift */,
 			);
@@ -252,7 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				5EDB094021944F340000A280 /* LoginUseCase.swift */,
-				630524F621974D0A004C4179 /* SignupUseCase.swift */,
+				630524F621974D0A004C4179 /* RegisterUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -261,7 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				5EDB093C21944BC10000A280 /* LoginProvider.swift */,
-				630524FC21974F92004C4179 /* SignupProvider.swift */,
+				630524FE21978B4B004C4179 /* RegisterProvider.swift */,
 			);
 			path = Provider;
 			sourceTree = "<group>";
@@ -270,7 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				5EDB09392194423C0000A280 /* LoginEntity.swift */,
-				630524F821974E20004C4179 /* SignupEntity.swift */,
+				630524F821974E20004C4179 /* RegisterEntity.swift */,
 				630524FA21974E75004C4179 /* BaseResponse.swift */,
 			);
 			path = Entity;
@@ -280,7 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				5EDB093E21944CFD0000A280 /* LoginModel.swift */,
-				630524F421974C8C004C4179 /* SignupModel.swift */,
+				630524F421974C8C004C4179 /* RegisterModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -417,12 +417,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				630524F721974D0A004C4179 /* SignupUseCase.swift in Sources */,
+				630524F721974D0A004C4179 /* RegisterUseCase.swift in Sources */,
 				5EDB093A2194423C0000A280 /* LoginEntity.swift in Sources */,
 				5EDB09512194D0210000A280 /* LoginViewNavigator.swift in Sources */,
 				5EDB093F21944CFD0000A280 /* LoginModel.swift in Sources */,
 				5EDB094F2194CF950000A280 /* UIViewControllerExtension.swift in Sources */,
-				630524F921974E20004C4179 /* SignupEntity.swift in Sources */,
+				630524F921974E20004C4179 /* RegisterEntity.swift in Sources */,
 				5EDB093D21944BC10000A280 /* LoginProvider.swift in Sources */,
 				5EDB094D2194CDE50000A280 /* RegisterViewContract.swift in Sources */,
 				5EBC1C1B21932A3300BCBBC7 /* BaseViewContract.swift in Sources */,
@@ -431,16 +431,16 @@
 				5EBC1C1721932A0500BCBBC7 /* BaseViewController.swift in Sources */,
 				5EBC1C1E2193340500BCBBC7 /* WebService.swift in Sources */,
 				5EBC1C14219327E500BCBBC7 /* LoginViewContract.swift in Sources */,
-				630524FD21974F92004C4179 /* SignupProvider.swift in Sources */,
 				5EBC1C1921932A1300BCBBC7 /* BaseViewPresenter.swift in Sources */,
 				630524FB21974E75004C4179 /* BaseResponse.swift in Sources */,
+				630524FF21978B4B004C4179 /* RegisterProvider.swift in Sources */,
 				5EDB09442194CCDE0000A280 /* RegisterViewController.swift in Sources */,
 				5EBC1C09219205AE00BCBBC7 /* LoginViewController.swift in Sources */,
-				5EDB09472194CD460000A280 /* RegisterViewControllerNavigator.swift in Sources */,
+				5EDB09472194CD460000A280 /* RegisterViewNavigator.swift in Sources */,
 				5E20707B2184EA1A0084911F /* AppDelegate.swift in Sources */,
 				5EDB094121944F340000A280 /* LoginUseCase.swift in Sources */,
 				5EDB094B2194CDDA0000A280 /* RegisterViewPresenter.swift in Sources */,
-				630524F521974C8C004C4179 /* SignupModel.swift in Sources */,
+				630524F521974C8C004C4179 /* RegisterModel.swift in Sources */,
 				5EBC1C122193277A00BCBBC7 /* LoginViewPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

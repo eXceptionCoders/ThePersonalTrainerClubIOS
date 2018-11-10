@@ -24,15 +24,6 @@ class LoginViewController: BaseViewController, LoginContract.View {
         activityIndicator.stopAnimating()
     }
     
-    func showMessage(_ message: String) {
-        let alertVC = UIAlertController(title: "MENSAJE!", message: message, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "Vale", style: .default) { _ in
-            alertVC.dismiss(animated: true, completion: nil)
-        }
-        alertVC.addAction(alertAction)
-        self.present(alertVC, animated: true, completion: nil)
-    }
-    
     @IBAction func registerButtonAction(_ sender: Any) {
         presenter.onRegister()
     }

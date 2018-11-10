@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SignupModel {
+struct RegisterModel {
     let name: String
     let lastName: String
     let birthday: String

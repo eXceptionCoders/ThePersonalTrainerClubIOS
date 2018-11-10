@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -24,14 +24,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="5Dn-hc-nDB">
-                    <rect key="frame" x="197" y="358" width="20" height="20"/>
-                </activityIndicatorView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="R4u-Z0-iuM">
-                    <rect key="frame" x="22" y="42" width="370" height="672"/>
+                    <rect key="frame" x="22" y="66" width="370" height="774"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IDN-tC-KhM">
                             <rect key="frame" x="0.0" y="0.0" width="370" height="50"/>
@@ -120,19 +117,23 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xky-qW-60L">
-                            <rect key="frame" x="0.0" y="504" width="370" height="168"/>
+                            <rect key="frame" x="0.0" y="504" width="370" height="270"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                 </stackView>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="5Dn-hc-nDB">
+                    <rect key="frame" x="197" y="438" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="5Dn-hc-nDB" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="7s3-e2-Rqg"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="R4u-Z0-iuM" secondAttribute="bottom" constant="22" id="EJ0-o0-wla"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="R4u-Z0-iuM" secondAttribute="trailing" constant="22" id="NNg-Ko-A61"/>
+                <constraint firstItem="R4u-Z0-iuM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="22" id="d9I-Kx-jxI"/>
                 <constraint firstItem="5Dn-hc-nDB" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="edV-54-oAU"/>
                 <constraint firstItem="R4u-Z0-iuM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="22" id="jjJ-wN-389"/>
             </constraints>

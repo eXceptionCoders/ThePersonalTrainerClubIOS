@@ -22,7 +22,7 @@ class LoginViewPresenter: BaseViewPresenter, LoginContract.Presenter {
         view.showLoading()
         
         if (email.isEmpty || password.isEmpty) {
-            
+            return
         }
         
         let loginModel = LoginModel(email: email, password: password)

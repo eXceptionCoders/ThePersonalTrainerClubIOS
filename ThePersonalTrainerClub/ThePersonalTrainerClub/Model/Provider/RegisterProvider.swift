@@ -1,5 +1,5 @@
 //
-//  SignupProvider.swift
+//  RegisterProvider.swift
 //  ThePersonalTrainerClub
 //
 //  Created by David Lopez Rodriguez on 10/11/2018.
@@ -9,7 +9,7 @@
 import Foundation
 
 class RegisterProvider {
-    enum SignupError: Error {
+    enum RegisterError: Error {
         case userAlreadyExists
         case otherError
     }
@@ -21,13 +21,13 @@ class RegisterProvider {
     }
     
     func signup(model: RegisterModel, completion: @escaping (Bool, Error?) -> Void) {
-        webService.load(SignupResponse.self, from: Endpoint.signup(requestModel: RegisterProviderMapper.mapModelToEntity(model: model))) { responseObject, error in
+        webService.load(SignupResponse.self, from: Endpoint.register(requestModel: RegisterProviderMapper.mapModelToEntity(model: model))) { responseObject, error in
             if let error = error {
                 switch error {
                 case WebServiceError.unprocessableEntity:
-                    completion(false, SignupError.userAlreadyExists)
+                    completion(false, RegisterError.userAlreadyExists)
                 default:
-                    completion(false, SignupError.otherError)
+                    completion(false, RegisterError.otherError)
                 }
             } else {
                 completion(true, nil)
@@ -37,8 +37,8 @@ class RegisterProvider {
 }
 
 private class RegisterProviderMapper {
-    class func mapModelToEntity(model: RegisterModel) -> SignupRequest {
-        return SignupRequest(
+    class func mapModelToEntity(model: RegisterModel) -> RegisterRequest {
+        return RegisterRequest(
             name: model.name,
             lastName: model.lastName,
             birthday: model.birthday,

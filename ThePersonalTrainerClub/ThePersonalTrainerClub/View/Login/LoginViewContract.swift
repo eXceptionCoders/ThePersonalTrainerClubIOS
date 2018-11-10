@@ -15,7 +15,7 @@ enum LoginContract {
 }
 
 protocol LoginView: BaseContract.View {
-    func showMessage(_: String)
+    
 }
 
 protocol LoginPresenter: BaseContract.Presenter {
