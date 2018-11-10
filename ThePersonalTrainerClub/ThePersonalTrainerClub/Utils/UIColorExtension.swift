@@ -9,6 +9,7 @@
 import UIKit
 
 extension UIColor {
+    // #d44622
     class var customOrange: UIColor {
         return UIColor(red: 212.0 / 255.0, green: 70.0 / 255.0, blue: 34.0 / 255.0, alpha: 1.0)
     }
