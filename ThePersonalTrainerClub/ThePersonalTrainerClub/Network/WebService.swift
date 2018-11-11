@@ -9,10 +9,14 @@
 import Foundation
 
 enum WebServiceError: Error {
+    case badRequest
     case requestError
+    case notFound
     case unprocessableEntity
     case decodingError
+    case unauthorized
     case forbiddenError
+    case internalServerError
     case genericError
 }
 
@@ -52,10 +56,18 @@ final class WebService {
                     } catch {
                         e = WebServiceError.decodingError
                     }
+                case 400:
+                    e = WebServiceError.badRequest
                 case 401:
+                    e = WebServiceError.unauthorized
+                case 403:
                     e = WebServiceError.forbiddenError
+                case 404:
+                    e = WebServiceError.notFound
                 case 422:
                     e = WebServiceError.unprocessableEntity
+                case 500:
+                    e = WebServiceError.internalServerError
                 default:
                     e = WebServiceError.genericError
                 }

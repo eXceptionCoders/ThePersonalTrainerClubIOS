@@ -11,8 +11,16 @@ import Foundation
 private var baseURL = "https://thepersonaltrainerclubapi.azurewebsites.net"
 
 enum Endpoint {
+    // Login & Register
     case login(requestModel: LoginRequest)
     case register(requestModel: RegisterRequest)
+    // User methods
+    case userData(requestModel: UserRequest)
+    // Class methods
+    case newClass(requestModel: NewClassRequest)
+    case trainerClasses(requestModel: TrainerClassRequest)
+    // Activities
+    case activities(requestModel: ActivitiesRequest)
 }
 
 extension Endpoint {
@@ -48,6 +56,14 @@ private extension Endpoint {
             return .post
         case .register(_):
             return .post
+        case .userData(_):
+            return .get
+        case .newClass(_):
+            return .post
+        case .trainerClasses(_):
+            return .get
+        case .activities(_):
+            return .get
         }
     }
     
@@ -58,6 +74,18 @@ private extension Endpoint {
             
         case .register(_):
             return "/api/v1/es/users/signup"
+
+        case .userData(let requestModel):
+            return "TODO: /api/v1/es/trainers/\(requestModel.id)"
+            
+        case .newClass(_):
+            return "TODO: /api/v1/es/classes/new"
+            
+        case .trainerClasses(let requestModel):
+            return "TODO: /api/v1/es/classes/trainers/\(requestModel.trainerId)"
+            
+        case .activities(_):
+            return "TODO: /api/v1/es/activities"
         }
     }
 
@@ -78,6 +106,24 @@ private extension Endpoint {
                 requestModel.nameKey: requestModel.name,
                 requestModel.passwordKey: requestModel.password,
             ]
+            
+        case .userData(_):
+            return [:]
+            
+        case .newClass(let requestModel):
+            return [
+                requestModel.nameKey: requestModel.name,
+                requestModel.descriptionKey: requestModel.description,
+                requestModel.priceKey: "\(requestModel.price)",
+                requestModel.quotaKey: "\(requestModel.quota)",
+                requestModel.photoKey: requestModel.photo
+            ]
+            
+        case .trainerClasses(_):
+            return [:]
+            
+        case .activities(_):
+            return [:]
         }
     }
 }

@@ -8,9 +8,10 @@
 
 import Foundation
 
-struct BaseResponse {
-    let version: String;
-    let status: String;
-    let message: String;
-    let datetime: String;
+protocol BaseResponse: Decodable {
+    var version: String { get set }
+    var status: String { get set }
+    var message: String { get set }
+    var datetime: String { get set }
 }
+

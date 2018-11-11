@@ -19,6 +19,10 @@ extension UIViewController {
         navigationController?.navigationBar.isTranslucent = false
     }
     
+    func setupTabBarColor() {
+        
+    }
+    
     func setupNavigationBarTitle() {
         let myType = type(of: self)
         self.title = String(describing: myType)
@@ -26,5 +30,14 @@ extension UIViewController {
     
     func setupNavigationBarTitle(_ title: String) {
         self.title = title
+    }
+    
+    func showMessage(_ message: String) {
+        let alertVC = UIAlertController(title: "MENSAJE!", message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Vale", style: .default) { _ in
+            alertVC.dismiss(animated: true, completion: nil)
+        }
+        alertVC.addAction(alertAction)
+        self.present(alertVC, animated: true, completion: nil)
     }
 }

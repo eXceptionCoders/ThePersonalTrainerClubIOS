@@ -15,6 +15,10 @@ struct LoginRequest {
     let password: String
 }
 
-struct LoginResponse: Decodable {
-    
+struct LoginResponse: BaseResponse {
+    var version: String
+    var status: String
+    var message: String
+    var datetime: String
+    var error: [String: String]
 }
