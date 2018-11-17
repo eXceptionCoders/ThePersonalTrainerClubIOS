@@ -8,12 +8,13 @@
 
 import Foundation
 
+enum LoginError: Error {
+    case userPasswordNotFound
+    case incorrectEntry
+    case otherError
+}
+
 class LoginProvider {
-    enum LoginError: Error {
-        case userPasswordNotFound
-        case otherError
-    }
-    
     private let webService: WebService
     
     init(webService: WebService) {
@@ -24,8 +25,10 @@ class LoginProvider {
         webService.load(LoginResponse.self, from: Endpoint.login(requestModel: LoginProviderMapper.mapModelToEntity(model: model))) { responseObject, error in
             if let error = error {
                 switch error {
-                case WebServiceError.forbiddenError:
+                case WebServiceError.unauthorized:
                     completion(false, LoginError.userPasswordNotFound)
+                case WebServiceError.unprocessableEntity:
+                    completion(false, LoginError.incorrectEntry)
                 default:
                     completion(false, LoginError.otherError)
                 }

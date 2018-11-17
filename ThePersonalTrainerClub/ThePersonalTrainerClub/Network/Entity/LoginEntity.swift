@@ -15,10 +15,4 @@ struct LoginRequest {
     let password: String
 }
 
-struct LoginResponse: BaseResponse {
-    var version: String
-    var status: String
-    var message: String
-    var datetime: String
-    var error: [String: String]
-}
+struct LoginResponse: BaseResponse {}

@@ -36,9 +36,9 @@ class NewClassViewPresenter: BaseViewPresenter, NewClassContract.Presenter {
         )
         newClassUseCase.create(model: model) { loggedIn, error in
             if let error = error {
-                self.view.showMessage("\(error)")
+                self.view.showAlertMessage(title: nil, message: "\(error)")
             } else {
-                self.view.showMessage("OK")
+                self.view.showAlertMessage(title: nil, message: "OK")
             }
             
             self.view.hideLoading()
