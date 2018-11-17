@@ -17,6 +17,8 @@ extension UIViewController {
         navigationController?.navigationBar.barTintColor = UIColor.customOrange
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.white]
     }
     
     func setupTabBarColor() {

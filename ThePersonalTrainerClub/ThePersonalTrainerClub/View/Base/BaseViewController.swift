@@ -15,4 +15,12 @@ class BaseViewController: UIViewController, BaseContract.View {
         setupNavigationBarColor()
         setupNavigationBarTitle()
     }
+    
+    func showAlertMessage(title: String?, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(alertAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
 }

@@ -9,7 +9,8 @@
 import UIKit
 
 class RegisterViewController: BaseViewController, RegisterContract.View {
-
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet weak var nameTextField: UITextField!
     
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -21,6 +22,30 @@ class RegisterViewController: BaseViewController, RegisterContract.View {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     lazy var presenter: RegisterContract.Presenter = RegisterViewPresenter(view: self, registerUseCase: RegisterUseCase(registerProvider: RegisterProvider(webService: WebService())))
+    
+    private var originY: CGFloat = 0
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupNavigationBarTitle("GymUs")
+        
+        onViewTapped()
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.onViewTapped))
+        self.view.addGestureRecognizer(tap)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        onViewTapped()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
     
     func showLoading() {
         activityIndicator.isHidden = false
@@ -39,5 +64,30 @@ class RegisterViewController: BaseViewController, RegisterContract.View {
         let gender = genderTextField.selectedSegmentIndex == 0 ? "male" : "female"
         
         presenter.onRegister(name: nameTextField.text ?? "", lastName: lastNameTextField.text ?? "", gender: gender, email: emailTextField.text ?? "", password: passwordTextField.text ?? "")
+    }
+    
+    @objc func onViewTapped() {
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        scrollView.isScrollEnabled = true
+        var info = notification.userInfo
+        let keyboardSize = (info?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
+        let contentInsets : UIEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize!.height+16, right: 0.0)
+        
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        var info = notification.userInfo!
+        let keyboardSize = (info[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
+        let contentInsets : UIEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: -(keyboardSize!.height+16), right: 0.0)
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+        view.endEditing(true)
+        scrollView.isScrollEnabled = false
     }
 }

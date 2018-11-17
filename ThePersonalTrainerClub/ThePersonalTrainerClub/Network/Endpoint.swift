@@ -8,7 +8,7 @@
 
 import Foundation
 
-private var baseURL = "https://thepersonaltrainerclubapi.azurewebsites.net"
+private var baseURL = "https://thepersonaltrainerappapi.azurewebsites.net"
 
 enum Endpoint {
     // Login & Register

@@ -28,10 +28,4 @@ struct RegisterRequest {
     let password: String
 }
 
-struct SignupResponse: BaseResponse {
-    var version: String
-    var status: String
-    var message: String
-    var datetime: String
-    var error: [String: String]
-}
+struct SignupResponse: BaseResponse {}

@@ -23,7 +23,7 @@ class RegisterViewPresenter: BaseViewPresenter, RegisterContract.Presenter {
         view.showLoading()
         
         if (name.isEmpty || lastName.isEmpty || gender.isEmpty || email.isEmpty || password.isEmpty) {
-            self.view.showMessage("Please fill all required fields")
+            self.view.showAlertMessage(title: nil, message: "Please fill all required fields")
             return
         }
         
@@ -31,7 +31,7 @@ class RegisterViewPresenter: BaseViewPresenter, RegisterContract.Presenter {
         
         registerUseCase.signup(model: model) { (signed, error) in
             if let error = error {
-                self.view.showMessage("\(error)")
+                self.view.showAlertMessage(title: nil, message: "\(error)")
             } else {
                 self.navigator.navigateToLoginView()
             }
