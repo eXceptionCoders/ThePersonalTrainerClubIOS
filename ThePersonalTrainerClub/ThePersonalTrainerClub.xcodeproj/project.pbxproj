@@ -33,6 +33,7 @@
 		5EDB094F2194CF950000A280 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDB094E2194CF950000A280 /* UIViewControllerExtension.swift */; };
 		5EDB09512194D0210000A280 /* LoginViewNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDB09502194D0210000A280 /* LoginViewNavigator.swift */; };
 		5EDB09552194D5080000A280 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDB09542194D5080000A280 /* UIColorExtension.swift */; };
+		5EFB9E10219B495C00D37E6E /* DefaultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFB9E0F219B495C00D37E6E /* DefaultButton.swift */; };
 		630524F521974C8C004C4179 /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630524F421974C8C004C4179 /* RegisterModel.swift */; };
 		630524F721974D0A004C4179 /* RegisterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630524F621974D0A004C4179 /* RegisterUseCase.swift */; };
 		630524F921974E20004C4179 /* RegisterEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630524F821974E20004C4179 /* RegisterEntity.swift */; };
@@ -126,6 +127,7 @@
 		5EDB094E2194CF950000A280 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		5EDB09502194D0210000A280 /* LoginViewNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewNavigator.swift; sourceTree = "<group>"; };
 		5EDB09542194D5080000A280 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		5EFB9E0F219B495C00D37E6E /* DefaultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButton.swift; sourceTree = "<group>"; };
 		630524F421974C8C004C4179 /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
 		630524F621974D0A004C4179 /* RegisterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUseCase.swift; sourceTree = "<group>"; };
 		630524F821974E20004C4179 /* RegisterEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEntity.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 		5EBC1C042191902300BCBBC7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5EFB9E0D219B492C00D37E6E /* SharedViews */,
 				6373040B2198499000E726E2 /* NewClass */,
 				6373040A2198496100E726E2 /* SwitchMode */,
 				637304092198473D00E726E2 /* TrainerManagement  */,
@@ -375,6 +378,22 @@
 				633DA1CC2198A42C00BA028C /* UserModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		5EFB9E0D219B492C00D37E6E /* SharedViews */ = {
+			isa = PBXGroup;
+			children = (
+				5EFB9E0E219B493B00D37E6E /* Button */,
+			);
+			path = SharedViews;
+			sourceTree = "<group>";
+		};
+		5EFB9E0E219B493B00D37E6E /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				5EFB9E0F219B495C00D37E6E /* DefaultButton.swift */,
+			);
+			path = Button;
 			sourceTree = "<group>";
 		};
 		637303F82198432E00E726E2 /* TrainerDashboard */ = {
@@ -582,6 +601,7 @@
 				637304082198467900E726E2 /* BaseTabBarViewController.swift in Sources */,
 				5EDB094D2194CDE50000A280 /* RegisterViewContract.swift in Sources */,
 				6373041321984E1200E726E2 /* SwitchModeViewContract.swift in Sources */,
+				5EFB9E10219B495C00D37E6E /* DefaultButton.swift in Sources */,
 				5EBC1C1B21932A3300BCBBC7 /* BaseViewContract.swift in Sources */,
 				6373043B21985DCB00E726E2 /* UserProvider.swift in Sources */,
 				5EDB09552194D5080000A280 /* UIColorExtension.swift in Sources */,

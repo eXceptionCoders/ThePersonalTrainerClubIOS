@@ -22,15 +22,28 @@ class LoginViewPresenter: BaseViewPresenter, LoginContract.Presenter {
         view.showLoading()
         
         if (email.isEmpty || password.isEmpty) {
+            view.showAlertMessage(title: "Error", message: "Debes rellenar todos los campos")
             return
         }
         
         let loginModel = LoginModel(email: email, password: password)
         loginUseCase.login(model: loginModel) { loggedIn, error in
             if let error = error {
-                self.view.showMessage("\(error)")
+                var message = ""
+                switch error {
+                case LoginError.userPasswordNotFound:
+                    message = "Usuario no encontrado o password incorrecto"
+                case LoginError.incorrectEntry:
+                    message = "El email está mal escrito"
+                case LoginError.otherError:
+                    message = "Ha ocurrido un error durante el login"
+                default:
+                    message = ""
+                }
+                
+                self.view.showAlertMessage(title: nil, message: message)
             } else {
-                self.view.showMessage("OK")
+                self.view.showAlertMessage(title: nil, message: "OK")
             }
             
             self.view.hideLoading()

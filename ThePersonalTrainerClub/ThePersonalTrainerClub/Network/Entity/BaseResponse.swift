@@ -8,10 +8,5 @@
 
 import Foundation
 
-protocol BaseResponse: Decodable {
-    var version: String { get set }
-    var status: String { get set }
-    var message: String { get set }
-    var datetime: String { get set }
-}
+protocol BaseResponse: Decodable {}
 

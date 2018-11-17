@@ -28,7 +28,7 @@ class TrainerManagementViewPresenter: BaseViewPresenter, TrainerManagementContra
         
         trainerManagementUseCase.fetchTrainer(id) { trainer, error in
             if let error = error {
-                self.view.showMessage("\(error)")
+                self.view.showAlertMessage(title: nil, message: "\(error)")
             } else if let data = trainer {
                 self.view.setTrainer(data)
             }
@@ -44,7 +44,7 @@ class TrainerManagementViewPresenter: BaseViewPresenter, TrainerManagementContra
         
         trainerManagementUseCase.fetchClasses(id) { classes, error in
             if let error = error {
-                self.view.showMessage("\(error)")
+                self.view.showAlertMessage(title: nil, message: "\(error)")
             } else if let data = classes {
                 self.view.setClasses(data)
             }

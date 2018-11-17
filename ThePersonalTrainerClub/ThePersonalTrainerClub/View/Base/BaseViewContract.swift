@@ -17,13 +17,13 @@ enum BaseContract {
 protocol BaseView {
     func showLoading()
     func hideLoading()
-    func showMessage(_: String)
+    func showAlertMessage(title: String?, message: String)
 }
 
 extension BaseView {
     func showLoading() {}
     func hideLoading() {}
-    func showMessage(_: String) {}
+    func showAlertMessage(title: String?, message: String) {}
 }
 
 protocol BasePresenter {}
