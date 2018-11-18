@@ -18,15 +18,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         window = UIWindow()
         
-        //let loginVC = LoginViewController().embedInNavigationController()
-        //window?.rootViewController = loginVC
-        
-        let trainerDashboardVC = TrainerDashboardViewController()
-        window?.rootViewController = trainerDashboardVC
+        switchToLoginViewController()
         
         window?.makeKeyAndVisible()
         
         return true
+    }
+    
+    func switchToLoginViewController() {
+        let loginVC = LoginViewController().embedInNavigationController()
+        window?.rootViewController = loginVC
+    }
+    
+    func switchToMainViewController() {
+        let trainerDashboardVC = TrainerDashboardViewController()
+        window?.rootViewController = trainerDashboardVC
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

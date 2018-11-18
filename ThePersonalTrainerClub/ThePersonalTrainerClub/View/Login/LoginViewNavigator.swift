@@ -22,6 +22,6 @@ class LoginViewNavigator: LoginContract.Navigator {
     }
     
     func navigateToMainView() {
-        
+        (UIApplication.shared.delegate as! AppDelegate).switchToMainViewController()
     }
 }

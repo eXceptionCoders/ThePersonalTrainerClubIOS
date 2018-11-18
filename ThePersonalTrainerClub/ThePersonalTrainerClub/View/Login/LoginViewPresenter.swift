@@ -43,7 +43,7 @@ class LoginViewPresenter: BaseViewPresenter, LoginContract.Presenter {
                 
                 self.view.showAlertMessage(title: nil, message: message)
             } else {
-                self.view.showAlertMessage(title: nil, message: "OK")
+                self.navigator.navigateToMainView()
             }
             
             self.view.hideLoading()
