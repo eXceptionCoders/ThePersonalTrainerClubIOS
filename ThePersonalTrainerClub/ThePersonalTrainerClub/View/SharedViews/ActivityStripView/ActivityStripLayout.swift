@@ -10,7 +10,7 @@ import UIKit
 
 final class ActivityStripLayout: UICollectionViewFlowLayout {
     private enum Constants {
-        static let itemSize = CGSize(width: 100, height: 120)
+        static let itemSize = CGSize(width: 60, height: 80)
         static let minimumLineSpacing: CGFloat = 16
         static let sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
     }

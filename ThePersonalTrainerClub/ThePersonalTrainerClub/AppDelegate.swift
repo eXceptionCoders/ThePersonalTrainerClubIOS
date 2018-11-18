@@ -18,11 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         window = UIWindow()
         
-        let loginVC = LoginViewController().embedInNavigationController()
-        window?.rootViewController = loginVC
+        //let loginVC = LoginViewController().embedInNavigationController()
+        //window?.rootViewController = loginVC
         
-        //let trainerDashboardVC = TrainerDashboardViewController()
-        //window?.rootViewController = trainerDashboardVC
+        let trainerDashboardVC = TrainerDashboardViewController()
+        window?.rootViewController = trainerDashboardVC
         
         window?.makeKeyAndVisible()
         

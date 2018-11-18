@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "add-unselected-50.png",
+      "filename" : "add-unselected-30.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "add-unselected-100.png",
+      "filename" : "add-unselected-50.png",
       "scale" : "2x"
     },
     {

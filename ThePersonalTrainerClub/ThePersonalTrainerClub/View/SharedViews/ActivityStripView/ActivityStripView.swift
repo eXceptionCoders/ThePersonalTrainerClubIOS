@@ -11,13 +11,13 @@ import UIKit
 class ActivityStripView: UIView, NibLoadableView, UICollectionViewDelegate,  UICollectionViewDataSource {
 
     private enum Constants {
-        static let height: CGFloat = 240
+        static let height: CGFloat = 80
     }
     
     // MARK: - Outlets
-    
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var titleLabel: UILabel!
     // MARK: - Properties
     
     var items: [ActivityModel] {
@@ -36,7 +36,7 @@ class ActivityStripView: UIView, NibLoadableView, UICollectionViewDelegate,  UIC
         super.awakeFromNib()
         
         // Register the cell
-        collectionView.register(ActivityCell.self)
+        collectionView.register(ActivityStripCell.self)
     }
     
     override var intrinsicContentSize: CGSize {
@@ -50,10 +50,10 @@ class ActivityStripView: UIView, NibLoadableView, UICollectionViewDelegate,  UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "activityCell", for: indexPath) as! ActivityCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ActivityStripCell", for: indexPath) as! ActivityStripCell
         
         let model = items[indexPath.row]
-        cell.titleLabel.text = model.name
+        cell.label.text = model.name
         
         let url = URL(string: model.thumbnail)
         

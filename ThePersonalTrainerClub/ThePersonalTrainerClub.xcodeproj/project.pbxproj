@@ -75,8 +75,6 @@
 		6373043D21985F1900E726E2 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373043C21985F1900E726E2 /* UserEntity.swift */; };
 		6373043F2198608500E726E2 /* LocationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373043E2198608500E726E2 /* LocationEntity.swift */; };
 		637304412198697800E726E2 /* ActivityEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637304402198697800E726E2 /* ActivityEntity.swift */; };
-		63FB2E5A21A09F2C006E0320 /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FB2E5821A09F2C006E0320 /* ActivityCell.swift */; };
-		63FB2E5B21A09F2C006E0320 /* ActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63FB2E5921A09F2C006E0320 /* ActivityCell.xib */; };
 		63FB2E5D21A09FAF006E0320 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FB2E5C21A09FAF006E0320 /* ReusableView.swift */; };
 		63FB2E5F21A09FD4006E0320 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FB2E5E21A09FD4006E0320 /* Date+Utils.swift */; };
 		63FB2E6121A09FF9006E0320 /* DateFormatter+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FB2E6021A09FF9006E0320 /* DateFormatter+Utils.swift */; };
@@ -86,6 +84,8 @@
 		63FB2E6921A0A465006E0320 /* ActivityStripLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FB2E6821A0A465006E0320 /* ActivityStripLayout.swift */; };
 		63FB2E6E21A0A6F7006E0320 /* ActivityStripView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63FB2E6D21A0A6F7006E0320 /* ActivityStripView.xib */; };
 		63FB2E7021A0A710006E0320 /* ActivityStripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FB2E6F21A0A710006E0320 /* ActivityStripView.swift */; };
+		63FB2E7521A19AB5006E0320 /* ActivityStripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FB2E7321A19AB5006E0320 /* ActivityStripCell.swift */; };
+		63FB2E7621A19AB5006E0320 /* ActivityStripCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63FB2E7421A19AB5006E0320 /* ActivityStripCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -180,8 +180,6 @@
 		6373043C21985F1900E726E2 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
 		6373043E2198608500E726E2 /* LocationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationEntity.swift; sourceTree = "<group>"; };
 		637304402198697800E726E2 /* ActivityEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityEntity.swift; sourceTree = "<group>"; };
-		63FB2E5821A09F2C006E0320 /* ActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
-		63FB2E5921A09F2C006E0320 /* ActivityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityCell.xib; sourceTree = "<group>"; };
 		63FB2E5C21A09FAF006E0320 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		63FB2E5E21A09FD4006E0320 /* Date+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
 		63FB2E6021A09FF9006E0320 /* DateFormatter+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Utils.swift"; sourceTree = "<group>"; };
@@ -191,6 +189,8 @@
 		63FB2E6821A0A465006E0320 /* ActivityStripLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStripLayout.swift; sourceTree = "<group>"; };
 		63FB2E6D21A0A6F7006E0320 /* ActivityStripView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityStripView.xib; sourceTree = "<group>"; };
 		63FB2E6F21A0A710006E0320 /* ActivityStripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStripView.swift; sourceTree = "<group>"; };
+		63FB2E7321A19AB5006E0320 /* ActivityStripCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStripCell.swift; sourceTree = "<group>"; };
+		63FB2E7421A19AB5006E0320 /* ActivityStripCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityStripCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -412,7 +412,6 @@
 			isa = PBXGroup;
 			children = (
 				63FB2E6A21A0A5B8006E0320 /* ActivityStripView */,
-				63FB2E5721A09ED7006E0320 /* ActivityCell */,
 				5EFB9E0E219B493B00D37E6E /* Button */,
 			);
 			path = SharedViews;
@@ -474,18 +473,11 @@
 			path = NewClass;
 			sourceTree = "<group>";
 		};
-		63FB2E5721A09ED7006E0320 /* ActivityCell */ = {
-			isa = PBXGroup;
-			children = (
-				63FB2E5821A09F2C006E0320 /* ActivityCell.swift */,
-				63FB2E5921A09F2C006E0320 /* ActivityCell.xib */,
-			);
-			path = ActivityCell;
-			sourceTree = "<group>";
-		};
 		63FB2E6A21A0A5B8006E0320 /* ActivityStripView */ = {
 			isa = PBXGroup;
 			children = (
+				63FB2E7321A19AB5006E0320 /* ActivityStripCell.swift */,
+				63FB2E7421A19AB5006E0320 /* ActivityStripCell.xib */,
 				63FB2E6D21A0A6F7006E0320 /* ActivityStripView.xib */,
 				63FB2E6F21A0A710006E0320 /* ActivityStripView.swift */,
 				63FB2E6821A0A465006E0320 /* ActivityStripLayout.swift */,
@@ -598,6 +590,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EBC1C0A219205AE00BCBBC7 /* LoginViewController.xib in Resources */,
+				63FB2E7621A19AB5006E0320 /* ActivityStripCell.xib in Resources */,
 				5E2070852184EA1B0084911F /* LaunchScreen.storyboard in Resources */,
 				63FB2E6E21A0A6F7006E0320 /* ActivityStripView.xib in Resources */,
 				6373042521984F0400E726E2 /* SwitchModeViewController.xib in Resources */,
@@ -605,7 +598,6 @@
 				5E2070822184EA1B0084911F /* Assets.xcassets in Resources */,
 				6373042921984F4800E726E2 /* TrainerManagementViewController.xib in Resources */,
 				5EDB09452194CCDE0000A280 /* RegisterViewController.xib in Resources */,
-				63FB2E5B21A09F2C006E0320 /* ActivityCell.xib in Resources */,
 				637304062198461C00E726E2 /* TrainerDashboardViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -639,6 +631,7 @@
 				5EDB094F2194CF950000A280 /* UIViewControllerExtension.swift in Sources */,
 				6373043321985BAE00E726E2 /* ActivityModel.swift in Sources */,
 				630524F921974E20004C4179 /* RegisterEntity.swift in Sources */,
+				63FB2E7521A19AB5006E0320 /* ActivityStripCell.swift in Sources */,
 				6373041521984E2600E726E2 /* SwitchModeViewPresenter.swift in Sources */,
 				5EDB093D21944BC10000A280 /* LoginProvider.swift in Sources */,
 				6373042021984EE600E726E2 /* NewClassViewController.swift in Sources */,
@@ -683,7 +676,6 @@
 				637303F721983F7F00E726E2 /* UserSettings.swift in Sources */,
 				6373040F21984DBD00E726E2 /* TrainerManagementViewPresenter.swift in Sources */,
 				5EDB09442194CCDE0000A280 /* RegisterViewController.swift in Sources */,
-				63FB2E5A21A09F2C006E0320 /* ActivityCell.swift in Sources */,
 				5EBC1C09219205AE00BCBBC7 /* LoginViewController.swift in Sources */,
 				63FB2E6521A0A04E006E0320 /* UITableView+Reusable.swift in Sources */,
 				6373043921985DB100E726E2 /* ActivityProvider.swift in Sources */,

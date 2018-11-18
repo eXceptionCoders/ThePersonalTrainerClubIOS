@@ -17,7 +17,7 @@
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="rff-ml-kqD">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <collectionViewLayout key="collectionViewLayout" id="W0e-RY-1ni" customClass="ActivityStripLayout" customModule="ThePersonalTrainerClub" customModuleProvider="target"/>
                     <connections>
                         <outlet property="dataSource" destination="iN0-l3-epB" id="hg2-Wd-twl"/>
@@ -35,7 +35,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="collectionView" destination="rff-ml-kqD" id="SrC-5O-cbj"/>
+                <outlet property="collectionView" destination="rff-ml-kqD" id="yvi-e4-x7c"/>
             </connections>
             <point key="canvasLocation" x="20" y="-569.41529235382313"/>
         </view>

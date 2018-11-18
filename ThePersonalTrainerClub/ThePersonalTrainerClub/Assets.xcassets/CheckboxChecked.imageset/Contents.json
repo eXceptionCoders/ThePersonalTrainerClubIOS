@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "checkbox-checked-50.png",
+      "filename" : "checkbox-checked-30.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "checkbox-checked-51.png",
+      "filename" : "checkbox-checked-50.png",
       "scale" : "2x"
     },
     {
