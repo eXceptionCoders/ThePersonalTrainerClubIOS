@@ -37,6 +37,7 @@ class ActivityStripView: UIView, NibLoadableView, UICollectionViewDelegate,  UIC
         
         // Register the cell
         collectionView.register(ActivityStripCell.self)
+        collectionView.allowsMultipleSelection = false
     }
     
     override var intrinsicContentSize: CGSize {
@@ -61,7 +62,10 @@ class ActivityStripView: UIView, NibLoadableView, UICollectionViewDelegate,  UIC
             let data = try? Data(contentsOf: url)
             
             if let imageData = data {
-                cell.imageView.image = UIImage(data: imageData)
+                let origImage = UIImage(data: imageData)
+                let tintedImage = origImage?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+                cell.imageView.image = tintedImage
+                cell.tintColor = UIColor.customOrange
             }
         }
 

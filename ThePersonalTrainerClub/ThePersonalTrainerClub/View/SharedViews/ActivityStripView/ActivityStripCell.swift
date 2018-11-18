@@ -14,13 +14,41 @@ class ActivityStripCell: UICollectionViewCell, ReusableView, NibLoadableView {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var label: UILabel!
     
+    override var isSelected: Bool {
+        get { return super.isSelected }
+        set {
+            super.isSelected = newValue;
+            
+            if (newValue) {
+                markAsSelected()
+            } else {
+                marAsUnselected()
+            }
+        }
+    }
+    
     // MARK: - Overrides
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.layer.cornerRadius = 5.0
+        self.clipsToBounds = true
+        self.layer.borderWidth = 1.5
+        marAsUnselected()
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
+    }
+    
+    // MARK: - Helpers
+    
+    private func markAsSelected() {
+        self.layer.borderColor = UIColor.customOrange.cgColor
+    }
+    
+    private func marAsUnselected() {
+        self.layer.borderColor = UIColor.white.cgColor
     }
 }
