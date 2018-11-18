@@ -18,6 +18,7 @@ class ActivityStripView: UIView, NibLoadableView, UICollectionViewDelegate,  UIC
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var titleLabel: UILabel!
+    
     // MARK: - Properties
     
     var items: [ActivityModel] {

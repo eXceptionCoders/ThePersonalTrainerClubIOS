@@ -12,6 +12,7 @@ class NewClassViewController: BaseViewController, NewClassContract.View {
     @IBOutlet weak var activityLabel: UILabel!
     @IBOutlet weak var activityStripView: UIView!
     @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var locationStripView: UIView!
     @IBOutlet weak var assistanceLabel: UILabel!
     @IBOutlet weak var assistanceSlider: UISlider!
     @IBOutlet weak var priceLabel: UILabel!
@@ -31,13 +32,23 @@ class NewClassViewController: BaseViewController, NewClassContract.View {
         ActivityModel(id: "5", name: "Bascket", description: "", thumbnail: "https://thepersonaltrainerclubcdn.azureedge.net/activities/ball-on-stick-man-arms.png", category: ""),
     ]
     
+    let locations: [LocationModel] = [
+        LocationModel(type: "Point", coordinates: [], description: "Gym Eurosport"),
+        LocationModel(type: "Point", coordinates: [], description: "Parque García Sanabria"),
+        LocationModel(type: "Point", coordinates: [], description: "Gym Laguna Center"),
+        LocationModel(type: "Point", coordinates: [], description: "Polideportivo Lo Llanos"),
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "New Class"
         
         let activityView = setupActivitiesView()
+        let locationView = setupLocationsView()
         
         activityView.items = activities
+        locationView.items = locations
+        refreshLocationsHeight()
     }
     
     func showLoading() {
@@ -57,13 +68,13 @@ extension NewClassViewController {
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
-        let viewDict = ["collectionView": collectionView]
+        let viewDict = ["activitiesView": collectionView]
         
         // Horizontals
-        var constraints = NSLayoutConstraint.constraints(withVisualFormat: "|-0-[collectionView]-0-|", options: [], metrics: nil, views: viewDict)
+        var constraints = NSLayoutConstraint.constraints(withVisualFormat: "|-0-[activitiesView]-0-|", options: [], metrics: nil, views: viewDict)
         
         // Verticals
-        constraints.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "V:[collectionView]", options: [], metrics: nil, views: viewDict))
+        constraints.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "V:[activitiesView]", options: [], metrics: nil, views: viewDict))
 
         constraints.append(NSLayoutConstraint(item: collectionView, attribute: .width, relatedBy: .equal, toItem: activityStripView, attribute: .width, multiplier: 1, constant: 0))
         constraints.append(NSLayoutConstraint(item: collectionView, attribute: .height, relatedBy: .equal, toItem: activityStripView, attribute: .height, multiplier: 1, constant: 0))
@@ -71,5 +82,35 @@ extension NewClassViewController {
         activityStripView.addConstraints(constraints)
         
         return collectionView
+    }
+    
+    func setupLocationsView() -> LocationStripView {
+        let collectionView = LocationStripView.instantiate()
+    
+        locationStripView.addSubview(collectionView)
+    
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+    
+        let viewDict = ["locationsView": collectionView]
+    
+        // Horizontals
+        var constraints = NSLayoutConstraint.constraints(withVisualFormat: "|-0-[locationsView]-0-|", options: [], metrics: nil, views: viewDict)
+    
+        // Verticals
+        constraints.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "V:[locationsView]", options: [], metrics: nil, views: viewDict))
+    
+        constraints.append(NSLayoutConstraint(item: collectionView, attribute: .width, relatedBy: .equal, toItem: locationStripView, attribute: .width, multiplier: 1, constant: 0))
+        constraints.append(NSLayoutConstraint(item: collectionView, attribute: .height, relatedBy: .equal, toItem: locationStripView, attribute: .height, multiplier: 1, constant: 0))
+    
+        locationStripView.addConstraints(constraints)
+    
+        return collectionView
+    }
+    
+    func refreshLocationsHeight() {
+        let filteredConstraints = locationStripView.constraints.filter { $0.identifier == "locationsHeightConstraint" }
+        if let constraint = filteredConstraints.first {
+            constraint.constant = CGFloat(locations.count * 40)
+        }
     }
 }
