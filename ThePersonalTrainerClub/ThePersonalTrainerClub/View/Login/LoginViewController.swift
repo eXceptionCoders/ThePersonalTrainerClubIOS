@@ -13,6 +13,8 @@ class LoginViewController: BaseViewController, LoginContract.View {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var registerButton: DefaultButton!
+    @IBOutlet weak var loginButton: DefaultButton!
     
     lazy var presenter: LoginContract.Presenter = LoginViewPresenter(view: self, loginUseCase: LoginUseCase(loginProvider: LoginProvider(webService: WebService())))
     
@@ -36,6 +38,13 @@ class LoginViewController: BaseViewController, LoginContract.View {
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func localizeView() {
+        emailTextField.placeholder = NSLocalizedString("login_email_placeholder", comment: "")
+        passwordTextField.placeholder = NSLocalizedString("login_password_placeholder", comment: "")
+        loginButton.setTitle(NSLocalizedString("login_login_button", comment: ""), for: .normal)
+        registerButton.setTitle(NSLocalizedString("login_register_button", comment: ""), for: .normal)
     }
     
     func showLoading() {

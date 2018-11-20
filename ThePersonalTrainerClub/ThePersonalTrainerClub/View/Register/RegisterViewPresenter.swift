@@ -23,7 +23,7 @@ class RegisterViewPresenter: BaseViewPresenter, RegisterContract.Presenter {
         view.showLoading()
         
         if (name.isEmpty || lastName.isEmpty || gender.isEmpty || email.isEmpty || password.isEmpty) {
-            self.view.showAlertMessage(title: nil, message: "Please fill all required fields")
+            self.view.showAlertMessage(title: nil, message: NSLocalizedString("register_error_empty_field", comment: ""))
             return
         }
         
@@ -31,7 +31,17 @@ class RegisterViewPresenter: BaseViewPresenter, RegisterContract.Presenter {
         
         registerUseCase.signup(model: model) { (signed, error) in
             if let error = error {
-                self.view.showAlertMessage(title: nil, message: "\(error)")
+                var message = ""
+                switch error {
+                case RegisterError.userAlreadyExists:
+                    message = NSLocalizedString("register_error_user_exists", comment: "")
+                case LoginError.otherError:
+                    message = NSLocalizedString("register_error_default", comment: "")
+                default:
+                    message = ""
+                }
+                
+                self.view.showAlertMessage(title: nil, message: message)
             } else {
                 self.navigator.navigateToLoginView()
             }

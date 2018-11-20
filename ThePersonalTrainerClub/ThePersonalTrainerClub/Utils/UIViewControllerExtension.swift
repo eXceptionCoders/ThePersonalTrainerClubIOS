@@ -21,10 +21,8 @@ extension UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.white]
     }
     
-    func setupTabBarColor() {
+    func setupTabBarColor() {}
         
-    }
-    
     func setupNavigationBarTitle() {
         let myType = type(of: self)
         self.title = String(describing: myType)

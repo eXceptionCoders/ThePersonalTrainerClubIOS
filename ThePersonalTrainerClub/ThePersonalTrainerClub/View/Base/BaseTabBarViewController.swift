@@ -10,6 +10,10 @@ import Foundation
 import UIKit
 
 class BaseTabBarViewController: UITabBarController, BaseContract.View {
+    func localizeView() {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // setupNavigationBarColor()

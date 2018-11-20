@@ -13,7 +13,9 @@
             <connections>
                 <outlet property="activityIndicator" destination="vUH-iC-H0F" id="k54-O9-FAi"/>
                 <outlet property="emailTextField" destination="W1W-oU-tik" id="omb-uG-vIq"/>
+                <outlet property="loginButton" destination="lMo-Yr-CEZ" id="Icq-05-v0o"/>
                 <outlet property="passwordTextField" destination="yCy-ZM-3hi" id="Zv5-IV-Cf3"/>
+                <outlet property="registerButton" destination="bMv-s1-KmF" id="aHH-70-b2u"/>
                 <outlet property="scrollView" destination="a3K-XP-xUd" id="kbA-Ib-NOi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -110,6 +112,6 @@
         </view>
     </objects>
     <resources>
-        <image name="IconLogo" width="140" height="140"/>
+        <image name="IconLogo" width="118" height="119"/>
     </resources>
 </document>

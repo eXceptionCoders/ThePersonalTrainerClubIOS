@@ -12,6 +12,7 @@
 		5E2070852184EA1B0084911F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E2070832184EA1B0084911F /* LaunchScreen.storyboard */; };
 		5E2070902184EA1C0084911F /* ThePersonalTrainerClubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E20708F2184EA1C0084911F /* ThePersonalTrainerClubTests.swift */; };
 		5E20709B2184EA1C0084911F /* ThePersonalTrainerClubUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E20709A2184EA1C0084911F /* ThePersonalTrainerClubUITests.swift */; };
+		5E63349921A32E83007DD6AD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E63349B21A32E83007DD6AD /* Localizable.strings */; };
 		5EBC1C09219205AE00BCBBC7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBC1C07219205AE00BCBBC7 /* LoginViewController.swift */; };
 		5EBC1C0A219205AE00BCBBC7 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EBC1C08219205AE00BCBBC7 /* LoginViewController.xib */; };
 		5EBC1C122193277A00BCBBC7 /* LoginViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBC1C112193277A00BCBBC7 /* LoginViewPresenter.swift */; };
@@ -122,6 +123,8 @@
 		5E2070962184EA1C0084911F /* ThePersonalTrainerClubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThePersonalTrainerClubUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E20709A2184EA1C0084911F /* ThePersonalTrainerClubUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThePersonalTrainerClubUITests.swift; sourceTree = "<group>"; };
 		5E20709C2184EA1C0084911F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E63349A21A32E83007DD6AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5E63349C21A32E95007DD6AD /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5EBC1C07219205AE00BCBBC7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5EBC1C08219205AE00BCBBC7 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		5EBC1C112193277A00BCBBC7 /* LoginViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewPresenter.swift; sourceTree = "<group>"; };
@@ -259,6 +262,7 @@
 				5E2070812184EA1B0084911F /* Assets.xcassets */,
 				5E2070832184EA1B0084911F /* LaunchScreen.storyboard */,
 				5E2070862184EA1B0084911F /* Info.plist */,
+				5E63349B21A32E83007DD6AD /* Localizable.strings */,
 			);
 			path = ThePersonalTrainerClub;
 			sourceTree = "<group>";
@@ -594,6 +598,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = 5E20706E2184EA1A0084911F;
 			productRefGroup = 5E2070782184EA1A0084911F /* Products */;
@@ -620,6 +625,7 @@
 				63FB2E6E21A0A6F7006E0320 /* ActivityStripView.xib in Resources */,
 				6373042521984F0400E726E2 /* SwitchModeViewController.xib in Resources */,
 				6373042121984EE600E726E2 /* NewClassViewController.xib in Resources */,
+				5E63349921A32E83007DD6AD /* Localizable.strings in Resources */,
 				5E2070822184EA1B0084911F /* Assets.xcassets in Resources */,
 				6373042921984F4800E726E2 /* TrainerManagementViewController.xib in Resources */,
 				5EDB09452194CCDE0000A280 /* RegisterViewController.xib in Resources */,
@@ -761,6 +767,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		5E63349B21A32E83007DD6AD /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5E63349A21A32E83007DD6AD /* en */,
+				5E63349C21A32E95007DD6AD /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -768,6 +783,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -829,6 +845,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
