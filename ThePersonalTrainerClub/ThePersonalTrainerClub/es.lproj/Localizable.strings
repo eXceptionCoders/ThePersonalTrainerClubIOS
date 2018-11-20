@@ -26,3 +26,10 @@
 "register_password_placeholder" = "Contraseña";
 "register_trainer_label_text" = "¿Eres entrenador?";
 "register_sign_up_button" = "Registro";
+
+"newclass_whatactivity_label" = "Que actividad impartes?";
+"newclass_where_label" = "Donde la impartes?";
+"newclass_assistance_label" = "Máxima asistencia";
+"newclass_price_label" = "Precio por clase";
+"newclass_description_label" = "Descripción";
+"newclass_save_button" = "Salvar clase";

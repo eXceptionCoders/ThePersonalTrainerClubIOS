@@ -39,6 +39,16 @@ class NewClassViewController: BaseViewController, NewClassContract.View {
         LocationModel(type: "Point", coordinates: [], description: "Polideportivo Lo Llanos"),
     ]
     
+    override func localizeView() {
+        activityLabel.text = NSLocalizedString("newclass_whatactivity_label", comment: "")
+        locationLabel.text = NSLocalizedString("newclass_where_label", comment: "")
+        assistanceLabel.text = NSLocalizedString("newclass_assistance_label", comment: "")
+        priceLabel.text = NSLocalizedString("newclass_price_label", comment: "")
+        descriptionLabel.text = NSLocalizedString("newclass_description_label", comment: "")
+        
+        saveButton.setTitle(NSLocalizedString("newclass_save_button", comment: ""), for: .normal)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "New Class"
