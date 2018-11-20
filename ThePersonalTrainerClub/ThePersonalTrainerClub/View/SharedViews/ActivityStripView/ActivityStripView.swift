@@ -30,6 +30,7 @@ class ActivityStripView: UIView, NibLoadableView, UICollectionViewDelegate,  UIC
     }
     
     private var _items: [ActivityModel] = []
+    private let operationQueue = OperationQueue()
 
     // MARK: - Overrides
     
@@ -57,18 +58,21 @@ class ActivityStripView: UIView, NibLoadableView, UICollectionViewDelegate,  UIC
         let model = items[indexPath.row]
         cell.label.text = model.name
         
-        let url = URL(string: model.thumbnail)
-        
-        if let url = url {
-            let data = try? Data(contentsOf: url)
+        let downloadOperation = ImageDownloader(urlString: model.thumbnail, indexPath: indexPath) { success, indexPath, image, error in
             
-            if let imageData = data {
-                let origImage = UIImage(data: imageData)
-                let tintedImage = origImage?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-                cell.imageView.image = tintedImage
-                cell.tintColor = UIColor.customOrange
+            if (!success) {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                guard let path = indexPath, let cell = collectionView.cellForItem(at: path) else {
+                    return
+                }
+                
+                (cell as! ActivityStripCell).imageView.image = image
             }
         }
+        operationQueue.addOperation( downloadOperation )
 
         return cell
     }

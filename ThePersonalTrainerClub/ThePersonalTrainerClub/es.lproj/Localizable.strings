@@ -29,7 +29,7 @@
 
 "newclass_whatactivity_label" = "Que actividad impartes?";
 "newclass_where_label" = "Donde la impartes?";
-"newclass_assistance_label" = "Máxima asistencia";
-"newclass_price_label" = "Precio por clase";
+"newclass_assistance_label" = "Máxima asistencia: %.0f";
+"newclass_price_label" = "Precio por clase: %.2f €";
 "newclass_description_label" = "Descripción";
 "newclass_save_button" = "Salvar clase";

@@ -32,7 +32,7 @@
 
 "newclass_whatactivity_label" = "What activity do you go to teach?";
 "newclass_where_label" = "Where do you teach?";
-"newclass_assistance_label" = "Maximum assistance";
-"newclass_price_label" = "Price by class";
+"newclass_assistance_label" = "Maximum assistance: %.0f";
+"newclass_price_label" = "Price by class: %.2f €";
 "newclass_description_label" = "Description";
 "newclass_save_button" = "Save class";

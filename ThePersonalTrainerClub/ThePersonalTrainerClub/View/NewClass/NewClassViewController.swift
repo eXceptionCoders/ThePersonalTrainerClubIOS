@@ -42,8 +42,8 @@ class NewClassViewController: BaseViewController, NewClassContract.View {
     override func localizeView() {
         activityLabel.text = NSLocalizedString("newclass_whatactivity_label", comment: "")
         locationLabel.text = NSLocalizedString("newclass_where_label", comment: "")
-        assistanceLabel.text = NSLocalizedString("newclass_assistance_label", comment: "")
-        priceLabel.text = NSLocalizedString("newclass_price_label", comment: "")
+        assistanceLabel.text = String(format: NSLocalizedString("newclass_assistance_label", comment: ""), assistanceSlider.value)
+        priceLabel.text = String(format: NSLocalizedString("newclass_price_label", comment: ""), priceSlider.value)
         descriptionLabel.text = NSLocalizedString("newclass_description_label", comment: "")
         
         saveButton.setTitle(NSLocalizedString("newclass_save_button", comment: ""), for: .normal)
@@ -59,6 +59,20 @@ class NewClassViewController: BaseViewController, NewClassContract.View {
         activityView.items = activities
         locationView.items = locations
         refreshLocationsHeight()
+    }
+    
+    @IBAction func assisntanceSliderValueChanged(_ sender: Any) {
+        let fixed = roundf((sender as! UISlider).value);
+        (sender as! UISlider).setValue(fixed, animated: true)
+        
+        assistanceLabel.text = String(format: NSLocalizedString("newclass_assistance_label", comment: ""), assistanceSlider.value)
+    }
+    
+    @IBAction func priceSliderValueChanged(_ sender: Any) {
+        let fixed = roundf((sender as! UISlider).value);
+        (sender as! UISlider).setValue(fixed, animated: true)
+        
+        priceLabel.text = String(format: NSLocalizedString("newclass_price_label", comment: ""), priceSlider.value)
     }
     
     func showLoading() {

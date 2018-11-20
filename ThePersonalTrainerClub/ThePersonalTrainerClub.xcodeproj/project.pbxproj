@@ -42,6 +42,7 @@
 		630524FF21978B4B004C4179 /* RegisterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630524FE21978B4B004C4179 /* RegisterProvider.swift */; };
 		633DA1CB21989D1D00BA028C /* ClassEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633DA1CA21989D1D00BA028C /* ClassEntity.swift */; };
 		633DA1CD2198A42C00BA028C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633DA1CC2198A42C00BA028C /* UserModel.swift */; };
+		633E8EAE21A4C10B00A95C3B /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633E8EAD21A4C10B00A95C3B /* ImageDownloader.swift */; };
 		637303F721983F7F00E726E2 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637303F621983F7F00E726E2 /* UserSettings.swift */; };
 		637303FA219843A400E726E2 /* TrainerDashboardViewNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637303F9219843A400E726E2 /* TrainerDashboardViewNavigator.swift */; };
 		637303FC219843BA00E726E2 /* TrainerDashboardViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637303FB219843BA00E726E2 /* TrainerDashboardViewPresenter.swift */; };
@@ -154,6 +155,7 @@
 		630524FE21978B4B004C4179 /* RegisterProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProvider.swift; sourceTree = "<group>"; };
 		633DA1CA21989D1D00BA028C /* ClassEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassEntity.swift; sourceTree = "<group>"; };
 		633DA1CC2198A42C00BA028C /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		633E8EAD21A4C10B00A95C3B /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		637303F621983F7F00E726E2 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		637303F9219843A400E726E2 /* TrainerDashboardViewNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerDashboardViewNavigator.swift; sourceTree = "<group>"; };
 		637303FB219843BA00E726E2 /* TrainerDashboardViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerDashboardViewPresenter.swift; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 				63FB2E6221A0A01C006E0320 /* NibLoadableView.swift */,
 				63FB2E6421A0A04E006E0320 /* UITableView+Reusable.swift */,
 				63FB2E6621A0A07A006E0320 /* UICollectionView+Reusable.swift */,
+				633E8EAD21A4C10B00A95C3B /* ImageDownloader.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -704,6 +707,7 @@
 				5EBC1C1921932A1300BCBBC7 /* BaseViewPresenter.swift in Sources */,
 				630524FB21974E75004C4179 /* BaseResponse.swift in Sources */,
 				630524FF21978B4B004C4179 /* RegisterProvider.swift in Sources */,
+				633E8EAE21A4C10B00A95C3B /* ImageDownloader.swift in Sources */,
 				637304052198461C00E726E2 /* TrainerDashboardViewController.swift in Sources */,
 				637303FE219843D800E726E2 /* TrainerDashboardViewContract.swift in Sources */,
 				637303F721983F7F00E726E2 /* UserSettings.swift in Sources */,
