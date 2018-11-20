@@ -1,0 +1,31 @@
+/* 
+  Localizable.strings
+  ThePersonalTrainerClub
+
+  Created by VINACHES LOPEZ JORGE on 19/11/2018.
+  Copyright © 2018 eXceptionCoders. All rights reserved.
+*/
+
+"app_name" = "GymUs";
+
+"login_email_placeholder" = "user@domain.com";
+"login_password_placeholder" = "Password";
+"login_login_button" = "Login";
+"login_register_button" = "Register";
+"login_error_title" = "Error";
+"login_error_empty_field" = "There are empty fields";
+"login_error_wrong_user" = "User or password incorrect";
+"login_error_invalid_email" = "Wrong_email";
+"login_error_default" = "An error occurs while login";
+
+"register_name_placeholder" = "Name";
+"register_last_name_placeholder" = "Last name";
+"register_gender_male_title" = "Male";
+"register_gender_female_title" = "Female";
+"register_email_placeholder" = "Email";
+"register_password_placeholder" = "Password";
+"register_trainer_label_text" = "Are you a trainer?";
+"register_sign_up_button" = "Sign up";
+"register_error_empty_field" = "Please fill all required fields";
+"register_error_user_exists" = "This user already exists";
+"register_error_default" = "An error occurs while register";

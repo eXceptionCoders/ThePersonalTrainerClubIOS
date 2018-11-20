@@ -22,7 +22,7 @@ class LoginViewPresenter: BaseViewPresenter, LoginContract.Presenter {
         view.showLoading()
         
         if (email.isEmpty || password.isEmpty) {
-            view.showAlertMessage(title: "Error", message: "Debes rellenar todos los campos")
+            view.showAlertMessage(title: NSLocalizedString("login_error_title", comment: ""), message: NSLocalizedString("login_error_empty_field", comment: ""))
             return
         }
         
@@ -32,11 +32,11 @@ class LoginViewPresenter: BaseViewPresenter, LoginContract.Presenter {
                 var message = ""
                 switch error {
                 case LoginError.userPasswordNotFound:
-                    message = "Usuario no encontrado o password incorrecto"
+                    message = NSLocalizedString("login_error_wrong_user", comment: "")
                 case LoginError.incorrectEntry:
-                    message = "El email está mal escrito"
+                    message = NSLocalizedString("login_error_invalid_email", comment: "")
                 case LoginError.otherError:
-                    message = "Ha ocurrido un error durante el login"
+                    message = NSLocalizedString("login_error_default", comment: "")
                 default:
                     message = ""
                 }

@@ -8,12 +8,12 @@
 
 import Foundation
 
+enum RegisterError: Error {
+    case userAlreadyExists
+    case otherError
+}
+
 class RegisterProvider {
-    enum RegisterError: Error {
-        case userAlreadyExists
-        case otherError
-    }
-    
     private let webService: WebService
     
     init(webService: WebService) {

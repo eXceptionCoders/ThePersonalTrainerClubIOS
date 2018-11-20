@@ -20,6 +20,7 @@
                 <outlet property="scrollView" destination="azx-3a-rUu" id="ZuZ-CB-T5C"/>
                 <outlet property="signupButton" destination="29c-Qa-vim" id="hYb-jF-eBS"/>
                 <outlet property="trainerButton" destination="UFe-Uz-UI9" id="AQ2-lt-Oph"/>
+                <outlet property="trainerLabel" destination="2dr-3f-FFm" id="6jR-Qg-0Mo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

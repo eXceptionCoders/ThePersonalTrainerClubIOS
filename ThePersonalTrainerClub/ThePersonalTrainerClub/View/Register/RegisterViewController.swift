@@ -12,7 +12,6 @@ class RegisterViewController: BaseViewController, RegisterContract.View {
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var nameTextField: UITextField!
-    
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var genderTextField: UISegmentedControl!
     @IBOutlet weak var emailTextField: UITextField!
@@ -20,6 +19,7 @@ class RegisterViewController: BaseViewController, RegisterContract.View {
     @IBOutlet weak var trainerButton: UIButton!
     @IBOutlet weak var signupButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var trainerLabel: UILabel!
     
     lazy var presenter: RegisterContract.Presenter = RegisterViewPresenter(view: self, registerUseCase: RegisterUseCase(registerProvider: RegisterProvider(webService: WebService())))
     
@@ -45,6 +45,17 @@ class RegisterViewController: BaseViewController, RegisterContract.View {
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func localizeView() {
+        nameTextField.placeholder = NSLocalizedString("register_name_placeholder", comment: "")
+        lastNameTextField.placeholder = NSLocalizedString("register_last_name_placeholder", comment: "")
+        genderTextField.setTitle(NSLocalizedString("register_gender_male_title", comment: ""), forSegmentAt: 0)
+        genderTextField.setTitle(NSLocalizedString("register_gender_female_title", comment: ""), forSegmentAt: 1)
+        emailTextField.placeholder = NSLocalizedString("register_email_placeholder", comment: "")
+        passwordTextField.placeholder = NSLocalizedString("register_password_placeholder", comment: "")
+        trainerLabel.text = NSLocalizedString("register_trainer_label_text", comment: "")
+        signupButton.setTitle(NSLocalizedString("register_sign_up_button", comment: ""), for: .normal)
     }
     
     func showLoading() {

@@ -17,6 +17,7 @@ enum BaseContract {
 protocol BaseView {
     func showLoading()
     func hideLoading()
+    func localizeView()
     func showAlertMessage(title: String?, message: String)
 }
 

@@ -14,6 +14,7 @@ class BaseViewController: UIViewController, BaseContract.View {
         super.viewDidLoad()
         setupNavigationBarColor()
         setupNavigationBarTitle()
+        localizeView()
     }
     
     func showAlertMessage(title: String?, message: String) {
@@ -23,4 +24,6 @@ class BaseViewController: UIViewController, BaseContract.View {
         
         present(alertController, animated: true, completion: nil)
     }
+    
+    func localizeView() {}
 }
