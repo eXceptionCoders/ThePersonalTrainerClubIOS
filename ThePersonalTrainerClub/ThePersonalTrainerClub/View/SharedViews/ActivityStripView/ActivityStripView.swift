@@ -69,7 +69,8 @@ class ActivityStripView: UIView, NibLoadableView, UICollectionViewDelegate,  UIC
                     return
                 }
                 
-                (cell as! ActivityStripCell).imageView.image = image
+                (cell as! ActivityStripCell).imageView.image = image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+                cell.tintColor = UIColor.customOrange
             }
         }
         operationQueue.addOperation( downloadOperation )

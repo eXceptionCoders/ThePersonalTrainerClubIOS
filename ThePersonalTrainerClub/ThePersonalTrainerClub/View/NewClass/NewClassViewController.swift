@@ -9,6 +9,24 @@
 import UIKit
 
 class NewClassViewController: BaseViewController, NewClassContract.View {
+    
+    let activities: [ActivityModel] = [
+        ActivityModel(id: "1", name: "Arch", description: "", thumbnail: "https://thepersonaltrainerclubcdn.azureedge.net/activities/archer-stick-man-with-an-arch.png", category: ""),
+        ActivityModel(id: "2", name: "Soccer", description: "", thumbnail: "https://thepersonaltrainerclubcdn.azureedge.net/activities/stick-man-playing-soccer.png", category: ""),
+        ActivityModel(id: "3", name: "Athlete", description: "", thumbnail: "https://thepersonaltrainerclubcdn.azureedge.net/activities/athlete-stick-man.png", category: ""),
+        ActivityModel(id: "4", name: "Skiing", description: "", thumbnail: "https://thepersonaltrainerclubcdn.azureedge.net/activities/skiing-stick-man.png", category: ""),
+        ActivityModel(id: "5", name: "Bascket", description: "", thumbnail: "https://thepersonaltrainerclubcdn.azureedge.net/activities/ball-on-stick-man-arms.png", category: ""),
+        ]
+    
+    let locations: [LocationModel] = [
+        LocationModel(type: "Point", coordinates: [], description: "Gym Eurosport"),
+        LocationModel(type: "Point", coordinates: [], description: "Parque García Sanabria"),
+        LocationModel(type: "Point", coordinates: [], description: "Gym Laguna Center"),
+        LocationModel(type: "Point", coordinates: [], description: "Polideportivo Lo Llanos"),
+        ]
+    
+    
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var activityLabel: UILabel!
     @IBOutlet weak var activityStripView: UIView!
     @IBOutlet weak var locationLabel: UILabel!
@@ -20,25 +38,10 @@ class NewClassViewController: BaseViewController, NewClassContract.View {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var saveButton: DefaultButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     lazy var presenter: NewClassContract.Presenter = NewClassViewPresenter(view: self, newClassUseCase: NewClassUseCase(newClassProvider: ClassProvider(webService: WebService())))
 
-    
-    let activities: [ActivityModel] = [
-        ActivityModel(id: "1", name: "Arch", description: "", thumbnail: "https://thepersonaltrainerclubcdn.azureedge.net/activities/archer-stick-man-with-an-arch.png", category: ""),
-        ActivityModel(id: "2", name: "Soccer", description: "", thumbnail: "https://thepersonaltrainerclubcdn.azureedge.net/activities/stick-man-playing-soccer.png", category: ""),
-        ActivityModel(id: "3", name: "Athlete", description: "", thumbnail: "https://thepersonaltrainerclubcdn.azureedge.net/activities/athlete-stick-man.png", category: ""),
-        ActivityModel(id: "4", name: "Skiing", description: "", thumbnail: "https://thepersonaltrainerclubcdn.azureedge.net/activities/skiing-stick-man.png", category: ""),
-        ActivityModel(id: "5", name: "Bascket", description: "", thumbnail: "https://thepersonaltrainerclubcdn.azureedge.net/activities/ball-on-stick-man-arms.png", category: ""),
-    ]
-    
-    let locations: [LocationModel] = [
-        LocationModel(type: "Point", coordinates: [], description: "Gym Eurosport"),
-        LocationModel(type: "Point", coordinates: [], description: "Parque García Sanabria"),
-        LocationModel(type: "Point", coordinates: [], description: "Gym Laguna Center"),
-        LocationModel(type: "Point", coordinates: [], description: "Polideportivo Lo Llanos"),
-    ]
-    
     override func localizeView() {
         activityLabel.text = NSLocalizedString("newclass_whatactivity_label", comment: "")
         locationLabel.text = NSLocalizedString("newclass_where_label", comment: "")
@@ -53,12 +56,36 @@ class NewClassViewController: BaseViewController, NewClassContract.View {
         super.viewDidLoad()
         title = "New Class"
         
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(NewClassViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        
+        descriptionTextView.layer.borderWidth = 1.0
+        descriptionTextView.layer.borderColor = UIColor.customDark.cgColor
+        
         let activityView = setupActivitiesView()
         let locationView = setupLocationsView()
         
         activityView.items = activities
         locationView.items = locations
         refreshLocationsHeight()
+        hideLoading()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        refreshLocationsLayout()
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: nil, completion: { _ in
+            self.refreshLocationsLayout()
+        })
     }
     
     @IBAction func assisntanceSliderValueChanged(_ sender: Any) {
@@ -75,12 +102,31 @@ class NewClassViewController: BaseViewController, NewClassContract.View {
         priceLabel.text = String(format: NSLocalizedString("newclass_price_label", comment: ""), priceSlider.value)
     }
     
+    @objc func adjustForKeyboard(notification: Notification) {
+        let userInfo = notification.userInfo!
+        
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            scrollView.contentInset = UIEdgeInsets.zero
+            //scrollView.isScrollEnabled = true
+        } else {
+            let keyboardScreenEndFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+            let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+            
+            scrollView.contentInset =  UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
+            //scrollView.isScrollEnabled = false
+        }
+    }
+    
     func showLoading() {
-        // activityIndicator.startAnimating()
+        activityIndicator.startAnimating()
     }
     
     func hideLoading() {
-        // activityIndicator.stopAnimating()
+        activityIndicator.stopAnimating()
+    }
+    
+    @objc func dismissKeyboard(){
+        view.endEditing(true)
     }
 }
 
@@ -136,5 +182,9 @@ extension NewClassViewController {
         if let constraint = filteredConstraints.first {
             constraint.constant = CGFloat(locations.count * 40)
         }
+    }
+    
+    func refreshLocationsLayout() {
+        (self.locationStripView.subviews.first as! LocationStripView).invalidateLayout()
     }
 }

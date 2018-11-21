@@ -24,12 +24,12 @@ final class LocationStripLayout: UICollectionViewFlowLayout {
         
         scrollDirection = .vertical
         minimumInteritemSpacing = 0
-        minimumLineSpacing = 1
+        minimumLineSpacing = Constants.minimumLineSpacing
         // sectionInset = Constants.sectionInset
     }
-    
+    /*
     func itemWidth() -> CGFloat {
-        return collectionView!.frame.width - 12
+        return collectionView!.bounds.size.width - 40
     }
     
     func itemHeight() -> CGFloat {
@@ -48,4 +48,6 @@ final class LocationStripLayout: UICollectionViewFlowLayout {
     override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint {
         return collectionView!.contentOffset
     }
+    */
+
 }

@@ -28,8 +28,10 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="JPQ-o8-YQw" secondAttribute="bottom" id="2gJ-Q2-vhh"/>
+                <constraint firstItem="JPQ-o8-YQw" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="Jgl-3O-OH0"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="JPQ-o8-YQw" secondAttribute="trailing" id="Qmj-YA-5Mx"/>
                 <constraint firstItem="JPQ-o8-YQw" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="cu2-Pd-spg"/>
+                <constraint firstItem="JPQ-o8-YQw" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="dH2-GZ-DM4"/>
                 <constraint firstItem="JPQ-o8-YQw" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ftB-h0-Huz"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

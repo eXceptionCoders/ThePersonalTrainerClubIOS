@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LocationStripView: UIView, NibLoadableView, UICollectionViewDelegate,  UICollectionViewDataSource {
+class LocationStripView: UIView, NibLoadableView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     private enum Constants {
         static let height: CGFloat = 40
@@ -30,6 +30,12 @@ class LocationStripView: UIView, NibLoadableView, UICollectionViewDelegate,  UIC
     
     private var _items: [LocationModel] = []
 
+    // MARK: - Methods
+    
+    func invalidateLayout() {
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
+    
     // MARK: - Overrides
     
     override func awakeFromNib() {
@@ -53,5 +59,14 @@ class LocationStripView: UIView, NibLoadableView, UICollectionViewDelegate,  UIC
         cell.locationLabel.text = "  \( model.description)"
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                                 layout collectionViewLayout: UICollectionViewLayout,
+                                 sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let height = 40.0
+        // let width = UIScreen.main.bounds.width
+        let width = bounds.size.width
+        return CGSize(width: width, height: CGFloat( height ))
     }
 }
