@@ -29,3 +29,6 @@
 "register_error_empty_field" = "Please fill all required fields";
 "register_error_user_exists" = "This user already exists";
 "register_error_default" = "An error occurs while register";
+
+"type_selection_title" = "Settings";
+"type_selection_title_label" = "Choose your role";

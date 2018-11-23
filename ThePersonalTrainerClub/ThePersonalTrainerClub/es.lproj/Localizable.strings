@@ -26,3 +26,7 @@
 "register_password_placeholder" = "Contraseña";
 "register_trainer_label_text" = "¿Eres entrenador?";
 "register_sign_up_button" = "Registro";
+
+"type_selection_title" = "Configuración";
+"type_selection_title_label" = "Elige tu estado";
+
