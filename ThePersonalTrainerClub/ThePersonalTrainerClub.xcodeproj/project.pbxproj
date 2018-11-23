@@ -13,6 +13,11 @@
 		5E2070902184EA1C0084911F /* ThePersonalTrainerClubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E20708F2184EA1C0084911F /* ThePersonalTrainerClubTests.swift */; };
 		5E20709B2184EA1C0084911F /* ThePersonalTrainerClubUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E20709A2184EA1C0084911F /* ThePersonalTrainerClubUITests.swift */; };
 		5E63349921A32E83007DD6AD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E63349B21A32E83007DD6AD /* Localizable.strings */; };
+		5E92C2CC21A834CA00699A37 /* TypeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E92C2CA21A834CA00699A37 /* TypeSelectionViewController.swift */; };
+		5E92C2CD21A834CA00699A37 /* TypeSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E92C2CB21A834CA00699A37 /* TypeSelectionViewController.xib */; };
+		5E92C2CF21A8362400699A37 /* TypeSelectionViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E92C2CE21A8362400699A37 /* TypeSelectionViewPresenter.swift */; };
+		5E92C2D121A8363700699A37 /* TypeSelectionViewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E92C2D021A8363700699A37 /* TypeSelectionViewContract.swift */; };
+		5E92C2D321A8364400699A37 /* TypeSelectionViewNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E92C2D221A8364400699A37 /* TypeSelectionViewNavigator.swift */; };
 		5EBC1C09219205AE00BCBBC7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBC1C07219205AE00BCBBC7 /* LoginViewController.swift */; };
 		5EBC1C0A219205AE00BCBBC7 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EBC1C08219205AE00BCBBC7 /* LoginViewController.xib */; };
 		5EBC1C122193277A00BCBBC7 /* LoginViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBC1C112193277A00BCBBC7 /* LoginViewPresenter.swift */; };
@@ -52,16 +57,11 @@
 		6373040D21984DA300E726E2 /* TrainerManagementViewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373040C21984DA300E726E2 /* TrainerManagementViewContract.swift */; };
 		6373040F21984DBD00E726E2 /* TrainerManagementViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373040E21984DBD00E726E2 /* TrainerManagementViewPresenter.swift */; };
 		6373041121984DD800E726E2 /* TrainerManagementViewNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373041021984DD800E726E2 /* TrainerManagementViewNavigator.swift */; };
-		6373041321984E1200E726E2 /* SwitchModeViewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373041221984E1200E726E2 /* SwitchModeViewContract.swift */; };
-		6373041521984E2600E726E2 /* SwitchModeViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373041421984E2600E726E2 /* SwitchModeViewPresenter.swift */; };
-		6373041721984E5D00E726E2 /* SwitchModeViewNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373041621984E5D00E726E2 /* SwitchModeViewNavigator.swift */; };
 		6373041921984E9B00E726E2 /* NewClassViewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373041821984E9B00E726E2 /* NewClassViewContract.swift */; };
 		6373041B21984EA800E726E2 /* NewClassViewNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373041A21984EA800E726E2 /* NewClassViewNavigator.swift */; };
 		6373041D21984EBA00E726E2 /* NewClassViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373041C21984EBA00E726E2 /* NewClassViewPresenter.swift */; };
 		6373042021984EE600E726E2 /* NewClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373041E21984EE600E726E2 /* NewClassViewController.swift */; };
 		6373042121984EE600E726E2 /* NewClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6373041F21984EE600E726E2 /* NewClassViewController.xib */; };
-		6373042421984F0400E726E2 /* SwitchModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373042221984F0400E726E2 /* SwitchModeViewController.swift */; };
-		6373042521984F0400E726E2 /* SwitchModeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6373042321984F0400E726E2 /* SwitchModeViewController.xib */; };
 		6373042821984F4800E726E2 /* TrainerManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373042621984F4800E726E2 /* TrainerManagementViewController.swift */; };
 		6373042921984F4800E726E2 /* TrainerManagementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6373042721984F4800E726E2 /* TrainerManagementViewController.xib */; };
 		6373042B2198506E00E726E2 /* ClassModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373042A2198506E00E726E2 /* ClassModel.swift */; };
@@ -125,6 +125,11 @@
 		5E20709C2184EA1C0084911F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E63349A21A32E83007DD6AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5E63349C21A32E95007DD6AD /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5E92C2CA21A834CA00699A37 /* TypeSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeSelectionViewController.swift; sourceTree = "<group>"; };
+		5E92C2CB21A834CA00699A37 /* TypeSelectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TypeSelectionViewController.xib; sourceTree = "<group>"; };
+		5E92C2CE21A8362400699A37 /* TypeSelectionViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeSelectionViewPresenter.swift; sourceTree = "<group>"; };
+		5E92C2D021A8363700699A37 /* TypeSelectionViewContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeSelectionViewContract.swift; sourceTree = "<group>"; };
+		5E92C2D221A8364400699A37 /* TypeSelectionViewNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeSelectionViewNavigator.swift; sourceTree = "<group>"; };
 		5EBC1C07219205AE00BCBBC7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5EBC1C08219205AE00BCBBC7 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		5EBC1C112193277A00BCBBC7 /* LoginViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewPresenter.swift; sourceTree = "<group>"; };
@@ -164,16 +169,11 @@
 		6373040C21984DA300E726E2 /* TrainerManagementViewContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerManagementViewContract.swift; sourceTree = "<group>"; };
 		6373040E21984DBD00E726E2 /* TrainerManagementViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerManagementViewPresenter.swift; sourceTree = "<group>"; };
 		6373041021984DD800E726E2 /* TrainerManagementViewNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerManagementViewNavigator.swift; sourceTree = "<group>"; };
-		6373041221984E1200E726E2 /* SwitchModeViewContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchModeViewContract.swift; sourceTree = "<group>"; };
-		6373041421984E2600E726E2 /* SwitchModeViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchModeViewPresenter.swift; sourceTree = "<group>"; };
-		6373041621984E5D00E726E2 /* SwitchModeViewNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchModeViewNavigator.swift; sourceTree = "<group>"; };
 		6373041821984E9B00E726E2 /* NewClassViewContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewClassViewContract.swift; sourceTree = "<group>"; };
 		6373041A21984EA800E726E2 /* NewClassViewNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewClassViewNavigator.swift; sourceTree = "<group>"; };
 		6373041C21984EBA00E726E2 /* NewClassViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewClassViewPresenter.swift; sourceTree = "<group>"; };
 		6373041E21984EE600E726E2 /* NewClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewClassViewController.swift; sourceTree = "<group>"; };
 		6373041F21984EE600E726E2 /* NewClassViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewClassViewController.xib; sourceTree = "<group>"; };
-		6373042221984F0400E726E2 /* SwitchModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchModeViewController.swift; sourceTree = "<group>"; };
-		6373042321984F0400E726E2 /* SwitchModeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchModeViewController.xib; sourceTree = "<group>"; };
 		6373042621984F4800E726E2 /* TrainerManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerManagementViewController.swift; sourceTree = "<group>"; };
 		6373042721984F4800E726E2 /* TrainerManagementViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrainerManagementViewController.xib; sourceTree = "<group>"; };
 		6373042A2198506E00E726E2 /* ClassModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassModel.swift; sourceTree = "<group>"; };
@@ -285,12 +285,24 @@
 			path = ThePersonalTrainerClubUITests;
 			sourceTree = "<group>";
 		};
+		5E92C2C721A8346C00699A37 /* TypeSelectionDashboard */ = {
+			isa = PBXGroup;
+			children = (
+				5E92C2CA21A834CA00699A37 /* TypeSelectionViewController.swift */,
+				5E92C2CB21A834CA00699A37 /* TypeSelectionViewController.xib */,
+				5E92C2CE21A8362400699A37 /* TypeSelectionViewPresenter.swift */,
+				5E92C2D021A8363700699A37 /* TypeSelectionViewContract.swift */,
+				5E92C2D221A8364400699A37 /* TypeSelectionViewNavigator.swift */,
+			);
+			path = TypeSelectionDashboard;
+			sourceTree = "<group>";
+		};
 		5EBC1C042191902300BCBBC7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5E92C2C721A8346C00699A37 /* TypeSelectionDashboard */,
 				5EFB9E0D219B492C00D37E6E /* SharedViews */,
 				6373040B2198499000E726E2 /* NewClass */,
-				6373040A2198496100E726E2 /* SwitchMode */,
 				637304092198473D00E726E2 /* TrainerManagement  */,
 				637303F82198432E00E726E2 /* TrainerDashboard */,
 				5EBC1C15219329F400BCBBC7 /* Base */,
@@ -464,18 +476,6 @@
 			path = "TrainerManagement ";
 			sourceTree = "<group>";
 		};
-		6373040A2198496100E726E2 /* SwitchMode */ = {
-			isa = PBXGroup;
-			children = (
-				6373041221984E1200E726E2 /* SwitchModeViewContract.swift */,
-				6373041421984E2600E726E2 /* SwitchModeViewPresenter.swift */,
-				6373041621984E5D00E726E2 /* SwitchModeViewNavigator.swift */,
-				6373042221984F0400E726E2 /* SwitchModeViewController.swift */,
-				6373042321984F0400E726E2 /* SwitchModeViewController.xib */,
-			);
-			path = SwitchMode;
-			sourceTree = "<group>";
-		};
 		6373040B2198499000E726E2 /* NewClass */ = {
 			isa = PBXGroup;
 			children = (
@@ -623,11 +623,11 @@
 				63FB2E7621A19AB5006E0320 /* ActivityStripCell.xib in Resources */,
 				5E2070852184EA1B0084911F /* LaunchScreen.storyboard in Resources */,
 				63FB2E6E21A0A6F7006E0320 /* ActivityStripView.xib in Resources */,
-				6373042521984F0400E726E2 /* SwitchModeViewController.xib in Resources */,
 				6373042121984EE600E726E2 /* NewClassViewController.xib in Resources */,
 				5E63349921A32E83007DD6AD /* Localizable.strings in Resources */,
 				5E2070822184EA1B0084911F /* Assets.xcassets in Resources */,
 				6373042921984F4800E726E2 /* TrainerManagementViewController.xib in Resources */,
+				5E92C2CD21A834CA00699A37 /* TypeSelectionViewController.xib in Resources */,
 				5EDB09452194CCDE0000A280 /* RegisterViewController.xib in Resources */,
 				637304062198461C00E726E2 /* TrainerDashboardViewController.xib in Resources */,
 			);
@@ -655,7 +655,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				630524F721974D0A004C4179 /* RegisterUseCase.swift in Sources */,
-				6373041721984E5D00E726E2 /* SwitchModeViewNavigator.swift in Sources */,
 				5EDB093A2194423C0000A280 /* LoginEntity.swift in Sources */,
 				5EDB09512194D0210000A280 /* LoginViewNavigator.swift in Sources */,
 				5EDB093F21944CFD0000A280 /* LoginModel.swift in Sources */,
@@ -663,9 +662,9 @@
 				6373043321985BAE00E726E2 /* ActivityModel.swift in Sources */,
 				630524F921974E20004C4179 /* RegisterEntity.swift in Sources */,
 				63FB2E7521A19AB5006E0320 /* ActivityStripCell.swift in Sources */,
-				6373041521984E2600E726E2 /* SwitchModeViewPresenter.swift in Sources */,
 				5EDB093D21944BC10000A280 /* LoginProvider.swift in Sources */,
 				6373042021984EE600E726E2 /* NewClassViewController.swift in Sources */,
+				5E92C2CF21A8362400699A37 /* TypeSelectionViewPresenter.swift in Sources */,
 				637304412198697800E726E2 /* ActivityEntity.swift in Sources */,
 				6373043D21985F1900E726E2 /* UserEntity.swift in Sources */,
 				6373042821984F4800E726E2 /* TrainerManagementViewController.swift in Sources */,
@@ -675,7 +674,6 @@
 				6373043721985D4500E726E2 /* TrainerManagementUseCase.swift in Sources */,
 				637304082198467900E726E2 /* BaseTabBarViewController.swift in Sources */,
 				5EDB094D2194CDE50000A280 /* RegisterViewContract.swift in Sources */,
-				6373041321984E1200E726E2 /* SwitchModeViewContract.swift in Sources */,
 				5EFB9E10219B495C00D37E6E /* DefaultButton.swift in Sources */,
 				5EBC1C1B21932A3300BCBBC7 /* BaseViewContract.swift in Sources */,
 				6373043B21985DCB00E726E2 /* UserProvider.swift in Sources */,
@@ -686,10 +684,10 @@
 				63FB2E6121A09FF9006E0320 /* DateFormatter+Utils.swift in Sources */,
 				63FB2E8121A1F786006E0320 /* LocationStripView.swift in Sources */,
 				637303FC219843BA00E726E2 /* TrainerDashboardViewPresenter.swift in Sources */,
-				6373042421984F0400E726E2 /* SwitchModeViewController.swift in Sources */,
 				5EBC1C202193346600BCBBC7 /* Endpoint.swift in Sources */,
 				63FB2E6321A0A01C006E0320 /* NibLoadableView.swift in Sources */,
 				6373043F2198608500E726E2 /* LocationEntity.swift in Sources */,
+				5E92C2CC21A834CA00699A37 /* TypeSelectionViewController.swift in Sources */,
 				6373042D219850F700E726E2 /* ClassProvider.swift in Sources */,
 				6373041D21984EBA00E726E2 /* NewClassViewPresenter.swift in Sources */,
 				5EBC1C1721932A0500BCBBC7 /* BaseViewController.swift in Sources */,
@@ -710,6 +708,7 @@
 				6373040F21984DBD00E726E2 /* TrainerManagementViewPresenter.swift in Sources */,
 				63FB2E7F21A1F681006E0320 /* LocationStipLayout.swift in Sources */,
 				5EDB09442194CCDE0000A280 /* RegisterViewController.swift in Sources */,
+				5E92C2D321A8364400699A37 /* TypeSelectionViewNavigator.swift in Sources */,
 				5EBC1C09219205AE00BCBBC7 /* LoginViewController.swift in Sources */,
 				63FB2E6521A0A04E006E0320 /* UITableView+Reusable.swift in Sources */,
 				6373043921985DB100E726E2 /* ActivityProvider.swift in Sources */,
@@ -722,6 +721,7 @@
 				5EDB094B2194CDDA0000A280 /* RegisterViewPresenter.swift in Sources */,
 				630524F521974C8C004C4179 /* RegisterModel.swift in Sources */,
 				5EBC1C122193277A00BCBBC7 /* LoginViewPresenter.swift in Sources */,
+				5E92C2D121A8363700699A37 /* TypeSelectionViewContract.swift in Sources */,
 				63FB2E7021A0A710006E0320 /* ActivityStripView.swift in Sources */,
 				6373043521985BC700E726E2 /* LocationModel.swift in Sources */,
 			);

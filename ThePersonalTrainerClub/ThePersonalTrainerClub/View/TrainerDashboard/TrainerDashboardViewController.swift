@@ -19,7 +19,7 @@ class TrainerDashboardViewController: BaseTabBarViewController {
         firstVC.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.customDark], for: .normal)
         firstVC.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
         
-        let switchModeVC = SwitchModeViewController()
+        let switchModeVC = TypeSelectionViewController()
         let secondVC = switchModeVC.embedInNavigationController()
         secondVC.tabBarItem = UITabBarItem(title: "Switch", image: UIImage(named: "SwitchUnselected")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "SwitchSelected")?.withRenderingMode(.alwaysOriginal))
         secondVC.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.customDark], for: .normal)
