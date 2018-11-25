@@ -33,3 +33,6 @@
 "newclass_price_label" = "Precio por clase: %.2f €";
 "newclass_description_label" = "Descripción";
 "newclass_save_button" = "Salvar clase";
+
+"type_selection_title" = "Configuración";
+"type_selection_title_label" = "Elige tu estado";

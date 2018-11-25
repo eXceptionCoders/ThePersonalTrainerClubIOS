@@ -36,3 +36,7 @@
 "newclass_price_label" = "Price by class: %.2f €";
 "newclass_description_label" = "Description";
 "newclass_save_button" = "Save class";
+
+"type_selection_title" = "Settings";
+"type_selection_title_label" = "Choose your role";
+
