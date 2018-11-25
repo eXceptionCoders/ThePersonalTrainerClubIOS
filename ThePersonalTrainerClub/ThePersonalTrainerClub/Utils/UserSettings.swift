@@ -47,33 +47,4 @@ final class UserSettings {
             }
         }
     }
-    
-    /*
-    static var name: String {
-        get {
-            return UserDefaults.standard.string(forKey: "name") ?? ""
-        }
-        set(newValue) {
-            UserDefaults.standard.set(name, forKey: "name")
-        }
-    }
-    
-    static var lastName: String {
-        get {
-            return UserDefaults.standard.string(forKey: "lastName") ?? ""
-        }
-        set(newValue) {
-            UserDefaults.standard.set(lastName, forKey: "lastName")
-        }
-    }
-    
-    static var isCoach: Bool {
-        get {
-            return UserDefaults.standard.bool(forKey: "isCoach")
-        }
-        set {
-            UserDefaults.standard.set(isCoach, forKey: "isCoach")
-        }
-    }
-    */
 }
