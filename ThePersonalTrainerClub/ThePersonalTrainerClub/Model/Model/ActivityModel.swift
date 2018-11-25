@@ -11,7 +11,6 @@ import Foundation
 struct ActivityModel: Codable {
     let id: String
     let name: String
-    let description: String
-    let thumbnail: String
+    let icon: String
     let category: String
 }

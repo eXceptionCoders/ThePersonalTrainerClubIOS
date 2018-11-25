@@ -10,6 +10,6 @@ import Foundation
 
 struct LocationModel: Codable {
     let type: String
-    let coordinates: [String]
+    let coordinates: [Float]
     let description: String
 }

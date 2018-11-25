@@ -44,7 +44,8 @@ private class RegisterProviderMapper {
             birthday: model.birthday,
             gender: model.gender,
             email: model.email,
-            password: model.password
+            password: model.password,
+            coach: model.coach
         )
     }
 }

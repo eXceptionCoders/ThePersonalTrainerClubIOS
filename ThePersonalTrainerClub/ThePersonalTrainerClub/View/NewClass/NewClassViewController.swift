@@ -10,22 +10,6 @@ import UIKit
 
 class NewClassViewController: BaseViewController, NewClassContract.View {
     
-    let activities: [ActivityModel] = [
-        ActivityModel(id: "1", name: "Arch", description: "", thumbnail: "https://thepersonaltrainerclubcdn.azureedge.net/activities/archer-stick-man-with-an-arch.png", category: ""),
-        ActivityModel(id: "2", name: "Soccer", description: "", thumbnail: "https://thepersonaltrainerclubcdn.azureedge.net/activities/stick-man-playing-soccer.png", category: ""),
-        ActivityModel(id: "3", name: "Athlete", description: "", thumbnail: "https://thepersonaltrainerclubcdn.azureedge.net/activities/athlete-stick-man.png", category: ""),
-        ActivityModel(id: "4", name: "Skiing", description: "", thumbnail: "https://thepersonaltrainerclubcdn.azureedge.net/activities/skiing-stick-man.png", category: ""),
-        ActivityModel(id: "5", name: "Bascket", description: "", thumbnail: "https://thepersonaltrainerclubcdn.azureedge.net/activities/ball-on-stick-man-arms.png", category: ""),
-        ]
-    
-    let locations: [LocationModel] = [
-        LocationModel(type: "Point", coordinates: [], description: "Gym Eurosport"),
-        LocationModel(type: "Point", coordinates: [], description: "Parque García Sanabria"),
-        LocationModel(type: "Point", coordinates: [], description: "Gym Laguna Center"),
-        LocationModel(type: "Point", coordinates: [], description: "Polideportivo Lo Llanos"),
-        ]
-    
-    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var activityLabel: UILabel!
     @IBOutlet weak var activityStripView: UIView!
@@ -70,8 +54,8 @@ class NewClassViewController: BaseViewController, NewClassContract.View {
         let activityView = setupActivitiesView()
         let locationView = setupLocationsView()
         
-        activityView.items = activities
-        locationView.items = locations
+        activityView.items = UserSettings.user?.activities ?? []
+        locationView.items = UserSettings.user?.locations ?? []
         refreshLocationsHeight()
         hideLoading()
     }
@@ -180,7 +164,7 @@ extension NewClassViewController {
     func refreshLocationsHeight() {
         let filteredConstraints = locationStripView.constraints.filter { $0.identifier == "locationsHeightConstraint" }
         if let constraint = filteredConstraints.first {
-            constraint.constant = CGFloat(locations.count * 40)
+            constraint.constant = CGFloat((UserSettings.user?.locations ?? []).count * 40)
         }
     }
     

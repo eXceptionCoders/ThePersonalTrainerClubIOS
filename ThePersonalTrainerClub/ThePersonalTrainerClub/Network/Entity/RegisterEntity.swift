@@ -26,6 +26,9 @@ struct RegisterRequest {
     
     let passwordKey = "password"
     let password: String
+    
+    let coachKey = "coach"
+    let coach: Bool
 }
 
 struct SignupResponse: BaseResponse {

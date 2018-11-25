@@ -24,8 +24,8 @@ class LoginViewController: BaseViewController, LoginContract.View {
         
         onViewTapped()
         
-        emailTextField.text = "dloprodu@gmail.com"
-        passwordTextField.text = "12345"
+        emailTextField.text = "test08@gmail.com"
+        passwordTextField.text = "1234"
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.onViewTapped))
         self.view.addGestureRecognizer(tap)

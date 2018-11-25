@@ -18,7 +18,7 @@ protocol RegisterView: BaseContract.View {
 }
 
 protocol RegisterPresenter: BaseContract.Presenter {
-    func onRegister(name: String, lastName: String, gender: String, email: String, password: String)
+    func onRegister(name: String, lastName: String, gender: String, email: String, password: String, coach: Bool)
 }
 
 protocol RegisterNavigator: BaseContract.Navigator {

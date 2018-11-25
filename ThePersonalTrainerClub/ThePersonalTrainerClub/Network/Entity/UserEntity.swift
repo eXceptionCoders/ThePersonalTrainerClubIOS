@@ -21,12 +21,13 @@ struct UserResponse: BaseResponse {
 }
 
 struct UserEntity: Decodable {
-    let _id: String?
+    let _id: String
     let coach: Bool
     let name: String
-    let gender: String?
     let lastname: String?
+    let gender: String
+    let email: String
     let thumbnail: String?
     let locations: [LocationEntity]?
-    let sport: [SportEntity]?
+    let sports: [SportEntity]?
 }

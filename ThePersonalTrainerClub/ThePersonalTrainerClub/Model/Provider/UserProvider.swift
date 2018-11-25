@@ -43,16 +43,40 @@ class UserProvider {
 
 private class UserProviderMapper {
     class func mapEntityToModel(data: UserEntity) -> UserModel {
+        
+        var locations: [LocationModel] = []
+        if let loc = data.locations {
+            locations = loc.map {
+                return LocationModel(
+                    type: $0.type,
+                    coordinates: $0.coordinates,
+                    description: $0.description
+                )
+            }
+        }
+        
+        var activities: [ActivityModel] = []
+        if let act = data.sports {
+            activities = act.map {
+                return ActivityModel(
+                    id: $0._id,
+                    name: $0.name,
+                    icon: $0.icon,
+                    category: ""
+                )
+            }
+        }
+        
         let user = UserModel(
-            id: data._id ?? "",
+            id: data._id,
             name: data.name,
             lastName: data.lastname ?? "",
             birthday: "", // data.birthday,
-            gender: data.gender ?? "male",
+            gender: data.gender,
             thumbnail: data.thumbnail ?? "",
-            email: "", // data.email,
-            locations: [],
-            activities: [],
+            email: data.email,
+            locations: locations,
+            activities: activities,
             description: "" // data.description
         )
         

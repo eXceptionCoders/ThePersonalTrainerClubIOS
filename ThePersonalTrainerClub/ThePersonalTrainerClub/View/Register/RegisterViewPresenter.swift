@@ -19,7 +19,7 @@ class RegisterViewPresenter: BaseViewPresenter, RegisterContract.Presenter {
         self.registerUseCase = registerUseCase
     }
     
-    func onRegister(name: String, lastName: String, gender: String, email: String, password: String) {
+    func onRegister(name: String, lastName: String, gender: String, email: String, password: String, coach: Bool) {
         view.showLoading()
         
         if (name.isEmpty || lastName.isEmpty || gender.isEmpty || email.isEmpty || password.isEmpty) {
@@ -27,7 +27,7 @@ class RegisterViewPresenter: BaseViewPresenter, RegisterContract.Presenter {
             return
         }
         
-        let model = RegisterModel(name: name, lastName: lastName, birthday: "1900-1-1", gender: gender, email: email, password: password)
+        let model = RegisterModel(name: name, lastName: lastName, birthday: "1900-1-1", gender: gender, email: email, password: password, coach: coach)
         
         registerUseCase.signup(model: model) { (signed, error) in
             if let error = error {

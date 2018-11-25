@@ -23,6 +23,6 @@ struct SportResponse: BaseResponse {
 struct SportEntity: Decodable {
     let _id: String
     let name: String
-    let category: String
-    let thumbnail: String
+    // let category: String?
+    let icon: String
 }

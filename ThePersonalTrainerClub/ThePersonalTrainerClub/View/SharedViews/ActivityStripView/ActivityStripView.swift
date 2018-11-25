@@ -58,7 +58,7 @@ class ActivityStripView: UIView, NibLoadableView, UICollectionViewDelegate,  UIC
         let model = items[indexPath.row]
         cell.label.text = model.name
         
-        let downloadOperation = ImageDownloader(urlString: model.thumbnail, indexPath: indexPath) { success, indexPath, image, error in
+        let downloadOperation = ImageDownloader(urlString: model.icon, indexPath: indexPath) { success, indexPath, image, error in
             
             if (!success) {
                 return

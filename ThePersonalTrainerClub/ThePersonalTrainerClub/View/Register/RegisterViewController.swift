@@ -74,7 +74,7 @@ class RegisterViewController: BaseViewController, RegisterContract.View {
     @IBAction func signUp(_ sender: UIButton) {
         let gender = genderTextField.selectedSegmentIndex == 0 ? "male" : "female"
         
-        presenter.onRegister(name: nameTextField.text ?? "", lastName: lastNameTextField.text ?? "", gender: gender, email: emailTextField.text ?? "", password: passwordTextField.text ?? "")
+        presenter.onRegister(name: nameTextField.text ?? "", lastName: lastNameTextField.text ?? "", gender: gender, email: emailTextField.text ?? "", password: passwordTextField.text ?? "", coach: trainerButton.isSelected)
     }
     
     @objc func onViewTapped() {

@@ -11,5 +11,5 @@ import Foundation
 struct LocationEntity: Decodable {
     let type: String
     let description: String
-    let coordinates: [Decimal]
+    let coordinates: [Float]
 }

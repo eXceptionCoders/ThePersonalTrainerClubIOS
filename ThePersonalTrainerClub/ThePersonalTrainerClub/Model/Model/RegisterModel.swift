@@ -15,4 +15,5 @@ struct RegisterModel: Codable {
     let gender: String
     let email: String
     let password: String
+    let coach: Bool
 }

@@ -108,6 +108,7 @@ private extension Endpoint {
                 requestModel.genderKey: requestModel.gender,
                 requestModel.lastNameKey: requestModel.lastName,
                 requestModel.nameKey: requestModel.name,
+                requestModel.coachKey: String( requestModel.coach ),
                 requestModel.passwordKey: requestModel.password,
             ]
             
