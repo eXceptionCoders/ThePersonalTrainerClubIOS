@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct RegisterModel {
+struct RegisterModel: Codable {
     let name: String
     let lastName: String
     let birthday: String

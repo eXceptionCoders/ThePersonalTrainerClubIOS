@@ -23,5 +23,4 @@ protocol RegisterPresenter: BaseContract.Presenter {
 
 protocol RegisterNavigator: BaseContract.Navigator {
     func navigateToLoginView()
-    func navigateToMainView()
 }

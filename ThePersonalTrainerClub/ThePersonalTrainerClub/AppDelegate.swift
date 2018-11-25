@@ -18,8 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         window = UIWindow()
         
-        // switchToLoginViewController()
-        switchToMainViewController();
+        //if (UserSettings.token.isEmpty) {
+            switchToLoginViewController()
+        //} else {
+        //    switchToMainViewController();
+        //}
         window?.makeKeyAndVisible()
         
         return true

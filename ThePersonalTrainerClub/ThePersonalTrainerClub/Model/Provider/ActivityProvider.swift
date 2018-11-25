@@ -20,7 +20,7 @@ class ActivityProvider {
     }
     
     func fetchActivities(completion: @escaping ([ActivityModel]?, Error?) -> Void) {
-        webService.load(ActivitiesResponse.self, from: Endpoint.activities(requestModel: ActivitiesRequest())) { responseObject, error in
+        webService.load(SportResponse.self, from: Endpoint.sports(requestModel: SportRequest())) { responseObject, error in
             if let error = error {
                 switch error {
                 default:
@@ -36,12 +36,12 @@ class ActivityProvider {
 }
 
 private class ActivityProviderMapper {
-    class func mapEntityToModel(response: ActivitiesResponse) -> [ActivityModel] {
+    class func mapEntityToModel(response: SportResponse) -> [ActivityModel] {
         return response.data.map {
             return ActivityModel(
                 id: $0._id,
                 name: $0.name,
-                description: $0.description,
+                description: "", // $0.description,
                 thumbnail: $0.thumbnail,
                 category: $0.category
             )

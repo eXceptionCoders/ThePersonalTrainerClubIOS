@@ -9,6 +9,7 @@
 import Foundation
 
 enum LoginError: Error {
+    case notFound
     case userPasswordNotFound
     case incorrectEntry
     case otherError
@@ -32,8 +33,11 @@ class LoginProvider {
                 default:
                     completion(false, LoginError.otherError)
                 }
-            } else {
+            } else if let response = responseObject, let data = response.data {
+                LoginProviderMapper.mapEntityToModel(data: data)
                 completion(true, nil)
+            } else {
+                completion(false, LoginError.otherError)
             }
         }
     }
@@ -43,5 +47,9 @@ private class LoginProviderMapper {
     class func mapModelToEntity(model: LoginModel) -> LoginRequest {
         return LoginRequest(email: model.email,
                             password: model.password)
+    }
+    
+    class func mapEntityToModel(data: LoginEntity) {
+        UserSettings.token = data.token
     }
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct LocationModel {
+struct LocationModel: Codable {
     let type: String
     let coordinates: [String]
     let description: String

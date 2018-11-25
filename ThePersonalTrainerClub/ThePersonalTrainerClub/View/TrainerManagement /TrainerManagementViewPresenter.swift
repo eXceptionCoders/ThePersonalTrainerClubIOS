@@ -26,10 +26,10 @@ class TrainerManagementViewPresenter: BaseViewPresenter, TrainerManagementContra
             return
         }
         
-        trainerManagementUseCase.fetchTrainer(id) { trainer, error in
+        trainerManagementUseCase.fetchUser() { user, error in
             if let error = error {
                 self.view.showAlertMessage(title: nil, message: "\(error)")
-            } else if let data = trainer {
+            } else if let data = user {
                 self.view.setTrainer(data)
             }
             

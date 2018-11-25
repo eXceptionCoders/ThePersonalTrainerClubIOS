@@ -16,13 +16,16 @@ class LoginViewController: BaseViewController, LoginContract.View {
     @IBOutlet weak var registerButton: DefaultButton!
     @IBOutlet weak var loginButton: DefaultButton!
     
-    lazy var presenter: LoginContract.Presenter = LoginViewPresenter(view: self, loginUseCase: LoginUseCase(loginProvider: LoginProvider(webService: WebService())))
+    lazy var presenter: LoginContract.Presenter = LoginViewPresenter(view: self, loginUseCase: LoginUseCase(loginProvider: LoginProvider(webService: WebService()), userProvider: UserProvider(webService: WebService())))
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBarTitle("GymUs")
         
         onViewTapped()
+        
+        emailTextField.text = "dloprodu@gmail.com"
+        passwordTextField.text = "12345"
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.onViewTapped))
         self.view.addGestureRecognizer(tap)

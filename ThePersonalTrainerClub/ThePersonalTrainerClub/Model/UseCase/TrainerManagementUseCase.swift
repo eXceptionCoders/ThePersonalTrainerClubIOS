@@ -18,8 +18,8 @@ class TrainerManagementUseCase {
         self.classProvider = classProvider
     }
     
-    func fetchTrainer(_ id: String, completion: @escaping (UserModel?, Error?) -> Void) {
-        userProvider.fetchUser(id, completion: completion)
+    func fetchUser(completion: @escaping (UserModel?, Error?) -> Void) {
+        userProvider.fetchUser(completion: completion)
     }
     
     func fetchClasses(_ id: String, completion: @escaping ([ClassModel]?, Error?) -> Void) {

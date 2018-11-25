@@ -8,22 +8,21 @@
 
 import Foundation
 
-struct ActivitiesRequest {
+struct SportRequest {
 }
 
-struct ActivitiesResponse: BaseResponse {
+struct SportResponse: BaseResponse {
     var version: String
     var status: String
     var message: String
     var datetime: String
-    var data: [ActivityEntity];
+    var data: [SportEntity];
     var error: [String: String]
 }
 
-struct ActivityEntity: Decodable {
+struct SportEntity: Decodable {
     let _id: String
     let name: String
-    let description: String
     let category: String
     let thumbnail: String
 }

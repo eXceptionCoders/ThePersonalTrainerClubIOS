@@ -20,7 +20,7 @@ enum Endpoint {
     case newClass(requestModel: NewClassRequest)
     case trainerClasses(requestModel: TrainerClassRequest)
     // Activities
-    case activities(requestModel: ActivitiesRequest)
+    case sports(requestModel: SportRequest)
 }
 
 extension Endpoint {
@@ -31,11 +31,15 @@ extension Endpoint {
         
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(UserSettings.token, forHTTPHeaderField: "x-access-token")
+        
         request.httpMethod = self.method.rawValue
         
         do {
-            let postBody = try JSONEncoder().encode(self.parameters)
-            request.httpBody = postBody
+            if (self.method == HTTPMethod.post) {
+                let postBody = try JSONEncoder().encode(self.parameters)
+                request.httpBody = postBody
+            }
         } catch {
             return nil
         }
@@ -62,7 +66,7 @@ private extension Endpoint {
             return .post
         case .trainerClasses(_):
             return .get
-        case .activities(_):
+        case .sports(_):
             return .get
         }
     }
@@ -75,8 +79,8 @@ private extension Endpoint {
         case .register(_):
             return "/api/v1/es/users/signup"
 
-        case .userData(let requestModel):
-            return "TODO: /api/v1/es/trainers/\(requestModel.id)"
+        case .userData(_):
+            return "/api/v1/es/data/user"
             
         case .newClass(_):
             return "TODO: /api/v1/es/classes/new"
@@ -84,7 +88,7 @@ private extension Endpoint {
         case .trainerClasses(let requestModel):
             return "TODO: /api/v1/es/classes/trainers/\(requestModel.trainerId)"
             
-        case .activities(_):
+        case .sports(_):
             return "TODO: /api/v1/es/activities"
         }
     }
@@ -122,7 +126,7 @@ private extension Endpoint {
         case .trainerClasses(_):
             return [:]
             
-        case .activities(_):
+        case .sports(_):
             return [:]
         }
     }

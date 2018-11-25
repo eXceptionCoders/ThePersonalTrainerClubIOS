@@ -19,8 +19,4 @@ class RegisterViewNavigator: RegisterContract.Navigator {
     func navigateToLoginView() {
         (view as! UIViewController).navigationController?.popViewController(animated: true)
     }
-    
-    func navigateToMainView() {
-        // TODO
-    }
 }

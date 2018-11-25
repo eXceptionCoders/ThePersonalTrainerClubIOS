@@ -9,8 +9,6 @@
 import Foundation
 
 struct UserRequest {
-    let idKey = "id"
-    let id: String
 }
 
 struct UserResponse: BaseResponse {
@@ -18,19 +16,17 @@ struct UserResponse: BaseResponse {
     var status: String
     var message: String
     var datetime: String
-    var data: UserEntity;
-    var error: [String: String]
+    var data: UserEntity?;
+    var error: [String: String]?
 }
 
 struct UserEntity: Decodable {
-    let _id: String
+    let _id: String?
+    let coach: Bool
     let name: String
-    let lastName: String
-    let email: String
-    let birthday: String
-    let gender: String
-    let thumbnail: String
-    let locations: [LocationEntity]
-    let activities: [ActivityEntity]
-    let description: String
+    let gender: String?
+    let lastname: String?
+    let thumbnail: String?
+    let locations: [LocationEntity]?
+    let sport: [SportEntity]?
 }

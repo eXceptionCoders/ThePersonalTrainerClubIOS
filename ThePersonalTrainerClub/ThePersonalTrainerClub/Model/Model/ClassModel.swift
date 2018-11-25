@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ClassModel {
+struct ClassModel: Codable {
     let id: String
     let name: String
     let description: String

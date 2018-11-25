@@ -31,7 +31,13 @@ class TrainerDashboardViewController: BaseTabBarViewController {
         thirdVC.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.customDark], for: .normal)
         thirdVC.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
         
-        let tabBarList = [firstVC, secondVC, thirdVC]
+        let settingsVC = UserSettingsViewController()
+        let fourth = settingsVC.embedInNavigationController()
+        fourth.tabBarItem = UITabBarItem(title: "User Settings", image: UIImage(named: "SettingsUnselected")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "SettingsSelected")?.withRenderingMode(.alwaysOriginal))
+        fourth.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.customDark], for: .normal)
+        fourth.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
+        
+        let tabBarList = [firstVC, secondVC, thirdVC, fourth]
         
         viewControllers = tabBarList
     }

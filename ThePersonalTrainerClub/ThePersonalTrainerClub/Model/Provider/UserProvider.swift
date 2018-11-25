@@ -8,20 +8,20 @@
 
 import Foundation
 
-class UserProvider {
-    enum UserError: Error {
-        case notFound
-        case otherError
-    }
-    
+enum UserError: Error {
+    case notFound
+    case otherError
+}
+
+class UserProvider {    
     private let webService: WebService
     
     init(webService: WebService) {
         self.webService = webService
     }
     
-    func fetchUser(_ userId: String, completion: @escaping (UserModel?, Error?) -> Void) {
-        webService.load(UserResponse.self, from: Endpoint.userData(requestModel: UserRequest(id: userId))) { responseObject, error in
+    func fetchUser(completion: @escaping (UserModel?, Error?) -> Void) {
+        webService.load(UserResponse.self, from: Endpoint.userData(requestModel: UserRequest())) { responseObject, error in
             if let error = error {
                 switch error {
                 case WebServiceError.notFound:
@@ -29,28 +29,35 @@ class UserProvider {
                 default:
                     completion(nil, UserError.otherError)
                 }
-            } else if let response = responseObject {
-                completion(UserProviderMapper.mapEntityToModel(response: response), nil)
+                
+                UserSettings.token = ""
+            } else if let response = responseObject, let data = response.data {
+                completion(UserProviderMapper.mapEntityToModel(data: data), nil)
             } else {
                 completion(nil, UserError.otherError)
+                UserSettings.token = ""
             }
         }
     }
 }
 
 private class UserProviderMapper {
-    class func mapEntityToModel(response: UserResponse) -> UserModel {
-        return UserModel(
-            id: response.data._id,
-            name: response.data.name,
-            lastName: response.data.lastName,
-            birthday: response.data.birthday,
-            gender: response.data.gender,
-            thumbnail: response.data.thumbnail,
-            email: response.data.email,
+    class func mapEntityToModel(data: UserEntity) -> UserModel {
+        let user = UserModel(
+            id: data._id ?? "",
+            name: data.name,
+            lastName: data.lastname ?? "",
+            birthday: "", // data.birthday,
+            gender: data.gender ?? "male",
+            thumbnail: data.thumbnail ?? "",
+            email: "", // data.email,
             locations: [],
             activities: [],
-            description: response.data.description
+            description: "" // data.description
         )
+        
+        UserSettings.user = user
+        
+        return user
     }
 }
