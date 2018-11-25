@@ -20,7 +20,7 @@ struct SportResponse: BaseResponse {
     var error: [String: String]
 }
 
-struct SportEntity: Decodable {
+struct SportEntity: Decodable, Encodable {
     let _id: String
     let name: String
     // let category: String?

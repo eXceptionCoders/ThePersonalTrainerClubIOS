@@ -83,7 +83,7 @@ private extension Endpoint {
             return "/api/v1/es/data/user"
             
         case .newClass(_):
-            return "TODO: /api/v1/es/classes/new"
+            return "/api/v1/es/class/add"
             
         case .trainerClasses(let requestModel):
             return "TODO: /api/v1/es/classes/trainers/\(requestModel.trainerId)"
@@ -116,12 +116,21 @@ private extension Endpoint {
             return [:]
             
         case .newClass(let requestModel):
+            var location = ""
+            do {
+                let data = try JSONEncoder().encode(requestModel.location)
+                location = String(data: data, encoding: String.Encoding.utf8)!
+            } catch {
+                
+            }
+            
             return [
-                requestModel.nameKey: requestModel.name,
+                requestModel.sportKey: requestModel.sport,
+                requestModel.locationKey: location,
                 requestModel.descriptionKey: requestModel.description,
                 requestModel.priceKey: "\(requestModel.price)",
                 requestModel.quotaKey: "\(requestModel.quota)",
-                requestModel.photoKey: requestModel.photo
+                requestModel.durationKey: "\(requestModel.duration)"
             ]
             
         case .trainerClasses(_):

@@ -18,15 +18,16 @@ struct TrainerClassResponse: BaseResponse {
     var status: String
     var message: String
     var datetime: String
-    var data: [ClassEntity]
+    var data: [TrainerClassEntity]
     var error: [String: String]
 }
 
-struct ClassEntity: Decodable {
+struct TrainerClassEntity: Decodable, Encodable {
     let _id: String
-    let name: String
+    let sport: SportEntity
+    let location: LocationEntity
     let description: String
-    let price: Decimal
-    let photo: String
+    let price: Float
+    let duration: Int
     let quota: Int
 }

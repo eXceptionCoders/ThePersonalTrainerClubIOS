@@ -1,16 +1,16 @@
 //
-//  Class.swift
+//  NewClassModel.swift
 //  ThePersonalTrainerClub
 //
-//  Created by David Lopez Rodriguez on 11/11/2018.
+//  Created by David Lopez Rodriguez on 25/11/2018.
 //  Copyright © 2018 eXceptionCoders. All rights reserved.
 //
 
 import Foundation
 
-struct ClassModel: Codable {
+struct NewClassModel: Codable {
     let id: String
-    let sport: ActivityModel
+    let sport: String
     let location: LocationModel
     let description: String
     let price: Float

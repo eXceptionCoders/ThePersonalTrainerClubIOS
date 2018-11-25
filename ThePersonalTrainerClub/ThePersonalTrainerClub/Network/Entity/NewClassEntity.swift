@@ -9,17 +9,20 @@
 import Foundation
 
 struct NewClassRequest {
-    let nameKey = "name"
-    let name: String
+    let sportKey = "sport"
+    let sport: String
+    
+    let locationKey = "location"
+    let location: LocationEntity
     
     let descriptionKey = "description"
     let description: String
     
     let priceKey = "priceKey"
-    let price: Decimal
+    let price: Float
     
-    let photoKey = "photo"
-    let photo: String
+    let durationKey = "duration"
+    let duration: Int
     
     let quotaKey = "quota"
     let quota: Int
@@ -30,5 +33,5 @@ struct NewClassResponse: BaseResponse {
     var status: String
     var message: String
     var datetime: String
-    var error: [String: String]
+    var error: [String: String]?
 }

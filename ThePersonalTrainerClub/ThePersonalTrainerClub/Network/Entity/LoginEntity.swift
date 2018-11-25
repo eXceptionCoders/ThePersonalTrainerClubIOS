@@ -24,6 +24,6 @@ struct LoginResponse: BaseResponse {
     var error: [String: String]?
 }
 
-struct LoginEntity: Decodable {
+struct LoginEntity: Decodable, Encodable {
     let token: String
 }

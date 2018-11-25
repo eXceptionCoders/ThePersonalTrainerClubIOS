@@ -21,7 +21,7 @@ class ClassProvider {
         self.webService = webService
     }
     
-    func create(model: ClassModel, completion: @escaping (Bool, Error?) -> Void) {
+    func create(model: NewClassModel, completion: @escaping (Bool, Error?) -> Void) {
         webService.load(NewClassResponse.self, from: Endpoint.newClass(requestModel: ClassProviderMapper.mapModelToEntity(model: model))) { responseObject, error in
             if let error = error {
                 switch error {
@@ -55,12 +55,17 @@ class ClassProvider {
 }
 
 private class ClassProviderMapper {
-    class func mapModelToEntity(model: ClassModel) -> NewClassRequest {
+    class func mapModelToEntity(model: NewClassModel) -> NewClassRequest {
         return NewClassRequest(
-            name: model.name,
+            sport: model.sport,
+            location: LocationEntity(
+                type: model.location.type,
+                description: model.location.description,
+                coordinates: model.location.coordinates
+            ),
             description: model.description,
             price: model.price,
-            photo: model.photo,
+            duration: model.duration,
             quota: model.quota
         )
     }
@@ -69,11 +74,21 @@ private class ClassProviderMapper {
         return response.data.map {
             return ClassModel(
                 id: $0._id,
-                name: $0.name,
+                sport: ActivityModel(
+                    id: $0.sport._id,
+                    name: $0.sport.name,
+                    icon: $0.sport.icon,
+                    category: ""
+                ),
+                location: LocationModel(
+                    type: $0.location.type,
+                    coordinates: $0.location.coordinates,
+                    description: $0.location.description
+                ),
                 description: $0.description,
                 price: $0.price,
-                photo: $0.photo,
-                quota: $0.quota
+                quota: $0.quota,
+                duration: $0.duration
             )
         }
     }

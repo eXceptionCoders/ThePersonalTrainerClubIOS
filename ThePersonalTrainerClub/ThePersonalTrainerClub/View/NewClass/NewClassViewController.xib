@@ -82,7 +82,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="15" minValue="5" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="ujC-Yn-Zti">
+                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="15" minValue="5" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="ujC-Yn-Zti">
                                             <rect key="frame" x="-2" y="280" width="363" height="31"/>
                                             <color key="tintColor" red="0.83137254900000002" green="0.27450980390000002" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
@@ -137,6 +137,9 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qrH-1E-jfG" customClass="DefaultButton" customModule="ThePersonalTrainerClub" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="530" width="359" height="30"/>
                                             <state key="normal" title="Save"/>
+                                            <connections>
+                                                <action selector="saveClass:" destination="-1" eventType="touchUpInside" id="vYy-UU-wOc"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aH7-bv-oBB">
                                             <rect key="frame" x="0.0" y="560" width="359" height="20"/>

@@ -50,6 +50,7 @@
 		633D77E021AAEF2000A6FEE1 /* UserSettingsViewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633D77DF21AAEF2000A6FEE1 /* UserSettingsViewContract.swift */; };
 		633D77E221AAEF3400A6FEE1 /* UserSettingsViewNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633D77E121AAEF3400A6FEE1 /* UserSettingsViewNavigator.swift */; };
 		633D77E421AAEF4400A6FEE1 /* UserSettingsViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633D77E321AAEF4400A6FEE1 /* UserSettingsViewPresenter.swift */; };
+		633D77E621AB569C00A6FEE1 /* NewClassModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633D77E521AB569C00A6FEE1 /* NewClassModel.swift */; };
 		633DA1CB21989D1D00BA028C /* ClassEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633DA1CA21989D1D00BA028C /* ClassEntity.swift */; };
 		633DA1CD2198A42C00BA028C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633DA1CC2198A42C00BA028C /* UserModel.swift */; };
 		633E8EAE21A4C10B00A95C3B /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633E8EAD21A4C10B00A95C3B /* ImageDownloader.swift */; };
@@ -168,6 +169,7 @@
 		633D77DF21AAEF2000A6FEE1 /* UserSettingsViewContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsViewContract.swift; sourceTree = "<group>"; };
 		633D77E121AAEF3400A6FEE1 /* UserSettingsViewNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsViewNavigator.swift; sourceTree = "<group>"; };
 		633D77E321AAEF4400A6FEE1 /* UserSettingsViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsViewPresenter.swift; sourceTree = "<group>"; };
+		633D77E521AB569C00A6FEE1 /* NewClassModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewClassModel.swift; sourceTree = "<group>"; };
 		633DA1CA21989D1D00BA028C /* ClassEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassEntity.swift; sourceTree = "<group>"; };
 		633DA1CC2198A42C00BA028C /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		633E8EAD21A4C10B00A95C3B /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
@@ -444,6 +446,7 @@
 				6373043221985BAE00E726E2 /* ActivityModel.swift */,
 				6373043421985BC700E726E2 /* LocationModel.swift */,
 				633DA1CC2198A42C00BA028C /* UserModel.swift */,
+				633D77E521AB569C00A6FEE1 /* NewClassModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -732,6 +735,7 @@
 				5EBC1C1921932A1300BCBBC7 /* BaseViewPresenter.swift in Sources */,
 				630524FB21974E75004C4179 /* BaseResponse.swift in Sources */,
 				630524FF21978B4B004C4179 /* RegisterProvider.swift in Sources */,
+				633D77E621AB569C00A6FEE1 /* NewClassModel.swift in Sources */,
 				633E8EAE21A4C10B00A95C3B /* ImageDownloader.swift in Sources */,
 				637304052198461C00E726E2 /* TrainerDashboardViewController.swift in Sources */,
 				637303FE219843D800E726E2 /* TrainerDashboardViewContract.swift in Sources */,

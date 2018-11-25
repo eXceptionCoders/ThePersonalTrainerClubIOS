@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct LocationEntity: Decodable {
+struct LocationEntity: Decodable, Encodable {
     let type: String
     let description: String
     let coordinates: [Float]

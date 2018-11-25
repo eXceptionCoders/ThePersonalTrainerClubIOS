@@ -86,6 +86,20 @@ class NewClassViewController: BaseViewController, NewClassContract.View {
         priceLabel.text = String(format: NSLocalizedString("newclass_price_label", comment: ""), priceSlider.value)
     }
     
+    @IBAction func saveClass(_ sender: Any) {
+        let selectedSport = (activityStripView.subviews.first as! ActivityStripView).collectionView.indexPathsForSelectedItems?.first
+        let selectedLocat = (locationStripView.subviews.first as! LocationStripView).collectionView.indexPathsForSelectedItems?.first
+        
+        guard let pathSport = selectedSport, let pathLocation = selectedLocat else {
+            return
+        }
+        
+        let sport = UserSettings.user?.activities[pathSport.row]
+        let location = UserSettings.user?.locations[pathLocation.row]
+        
+        presenter.onCreate(sport: sport!.id, description: descriptionTextView.text, price: priceSlider.value, quota: Int(assistanceSlider.value), location: location!)
+    }
+    
     @objc func adjustForKeyboard(notification: Notification) {
         let userInfo = notification.userInfo!
         

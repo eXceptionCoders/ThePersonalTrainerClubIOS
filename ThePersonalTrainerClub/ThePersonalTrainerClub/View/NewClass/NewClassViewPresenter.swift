@@ -19,20 +19,22 @@ class NewClassViewPresenter: BaseViewPresenter, NewClassContract.Presenter {
         self.newClassUseCase = newClassUseCase
     }
     
-    func onCreate(name: String, description: String, price: Decimal, quota: Int, photo: String) {
+    func onCreate(sport: String, description: String, price: Float, quota: Int, location: LocationModel) {
         view.showLoading()
         
-        if (name.isEmpty || description.isEmpty) {
+        if (sport.isEmpty || description.isEmpty) {
+            view.showAlertMessage(title: "Check the data", message: "Please, fills the required fields")
             return
         }
         
-        let model = ClassModel(
+        let model = NewClassModel(
             id: "",
-            name: name,
+            sport: sport,
+            location: location,
             description: description,
             price: price,
-            photo: photo,
-            quota: quota
+            quota: quota,
+            duration: 30
         )
         newClassUseCase.create(model: model) { loggedIn, error in
             if let error = error {

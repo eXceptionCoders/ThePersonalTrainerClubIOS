@@ -20,7 +20,7 @@ struct UserResponse: BaseResponse {
     var error: [String: String]?
 }
 
-struct UserEntity: Decodable {
+struct UserEntity: Decodable, Encodable {
     let _id: String
     let coach: Bool
     let name: String

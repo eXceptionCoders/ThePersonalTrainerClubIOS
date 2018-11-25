@@ -16,7 +16,7 @@ class NewClassUseCase {
         self.newClassProvider = newClassProvider
     }
     
-    func create(model: ClassModel, completion: @escaping (Bool?, Error?) -> Void) {
+    func create(model: NewClassModel, completion: @escaping (Bool?, Error?) -> Void) {
         newClassProvider.create(model: model, completion: completion)
     }
     

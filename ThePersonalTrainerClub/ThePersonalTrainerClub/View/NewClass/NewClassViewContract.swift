@@ -19,7 +19,7 @@ protocol NewClassView: BaseContract.View {
 }
 
 protocol NewClassPresenter: BaseContract.Presenter {
-    func onCreate(name: String, description: String, price: Decimal, quota: Int, photo: String)
+    func onCreate(sport: String, description: String, price: Float, quota: Int, location: LocationModel)
 }
 
 protocol NewClassNavigator: BaseContract.Navigator {
