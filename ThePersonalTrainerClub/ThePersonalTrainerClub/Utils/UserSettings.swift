@@ -22,6 +22,16 @@ final class UserSettings {
         }
     }
     
+    static var showCoachView: Bool {
+        get {
+            let value = UserDefaults.standard.bool(forKey: "showCoachView")
+            return value
+        }
+        set(newValue) {
+            UserDefaults.standard.set(newValue, forKey: "showCoachView")
+        }
+    }
+    
     static var user: UserModel? {
         get {
             guard let data = _user else {

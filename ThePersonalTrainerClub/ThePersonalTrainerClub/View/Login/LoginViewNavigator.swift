@@ -22,6 +22,7 @@ class LoginViewNavigator: LoginContract.Navigator {
     }
     
     func navigateToMainView() {
-        (UIApplication.shared.delegate as! AppDelegate).switchToMainViewController()
+        let trainerDashboardVC = TrainerDashboardViewController()
+        (view as! UIViewController).present(trainerDashboardVC, animated: true, completion: nil)
     }
 }

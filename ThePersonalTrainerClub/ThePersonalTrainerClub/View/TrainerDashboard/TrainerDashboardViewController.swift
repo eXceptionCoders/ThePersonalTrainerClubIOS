@@ -9,10 +9,21 @@
 import UIKit
 
 class TrainerDashboardViewController: BaseTabBarViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
+        if (UserSettings.user?.coach ?? false) && UserSettings.showCoachView {
+            initTrainerView()
+        } else {
+            initClientView()
+        }
+    }
+    
+    func initTrainerView() {
         let trainerManagerVC = TrainerManagementViewController()
         let firstVC = trainerManagerVC.embedInNavigationController()
         firstVC.tabBarItem = UITabBarItem(title: "Management", image: UIImage(named: "TaskListUnselected")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named:"TaskListSelected")?.withRenderingMode(.alwaysOriginal))
@@ -42,5 +53,27 @@ class TrainerDashboardViewController: BaseTabBarViewController {
         viewControllers = tabBarList
     }
     
-
+    func initClientView() {
+        var tabBarList: [UIViewController] = []
+        
+        if UserSettings.user?.coach ?? false {
+            let switchModeVC = TypeSelectionViewController()
+            let secondVC = switchModeVC.embedInNavigationController()
+            secondVC.tabBarItem = UITabBarItem(title: "Switch", image: UIImage(named: "SwitchUnselected")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "SwitchSelected")?.withRenderingMode(.alwaysOriginal))
+            secondVC.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.customDark], for: .normal)
+            secondVC.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
+            
+            tabBarList.append(secondVC)
+        }
+        
+        let settingsVC = UserSettingsViewController()
+        let fourth = settingsVC.embedInNavigationController()
+        fourth.tabBarItem = UITabBarItem(title: "User Settings", image: UIImage(named: "SettingsUnselected")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "SettingsSelected")?.withRenderingMode(.alwaysOriginal))
+        fourth.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.customDark], for: .normal)
+        fourth.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
+        
+        tabBarList.append(fourth)
+        
+        viewControllers = tabBarList
+    }
 }

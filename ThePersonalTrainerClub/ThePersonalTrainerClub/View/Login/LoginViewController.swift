@@ -50,11 +50,21 @@ class LoginViewController: BaseViewController, LoginContract.View {
         registerButton.setTitle(NSLocalizedString("login_register_button", comment: ""), for: .normal)
     }
     
-    func showLoading() {
+    override func showLoading() {
+        emailTextField.isEnabled = false
+        passwordTextField.isEnabled = false
+        loginButton.isEnabled = false
+        registerButton.isEnabled = false
+        
         activityIndicator.startAnimating()
     }
     
-    func hideLoading() {
+    override func hideLoading() {
+        emailTextField.isEnabled = true
+        passwordTextField.isEnabled = true
+        loginButton.isEnabled = true
+        registerButton.isEnabled = true
+        
         activityIndicator.stopAnimating()
     }
     

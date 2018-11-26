@@ -14,7 +14,7 @@ class TypeSelectionViewController: BaseViewController, TypeSelectionContract.Vie
     @IBOutlet weak var trainerImage: UIImageView!
     @IBOutlet weak var clientImage: UIImageView!
     
-        lazy var presenter: TypeSelectionContract.Presenter = TypeSelectionViewPresenter(view: self)
+    lazy var presenter: TypeSelectionContract.Presenter = TypeSelectionViewPresenter(view: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()

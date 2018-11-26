@@ -115,11 +115,11 @@ class NewClassViewController: BaseViewController, NewClassContract.View {
         }
     }
     
-    func showLoading() {
+    override func showLoading() {
         activityIndicator.startAnimating()
     }
     
-    func hideLoading() {
+    override func hideLoading() {
         activityIndicator.stopAnimating()
     }
     

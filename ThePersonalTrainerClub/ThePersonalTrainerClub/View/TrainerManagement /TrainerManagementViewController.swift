@@ -23,11 +23,11 @@ class TrainerManagementViewController: BaseViewController, TrainerManagementCont
         title = "Management"
     }
     
-    func showLoading() {
+    override func showLoading() {
         // activityIndicator.startAnimating()
     }
     
-    func hideLoading() {
+    override func hideLoading() {
         // activityIndicator.stopAnimating()
     }
     
