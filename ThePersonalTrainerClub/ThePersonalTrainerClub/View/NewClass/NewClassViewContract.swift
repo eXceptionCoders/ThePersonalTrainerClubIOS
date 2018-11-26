@@ -15,7 +15,7 @@ enum NewClassContract {
 }
 
 protocol NewClassView: BaseContract.View {
-    
+    func resetInputs()
 }
 
 protocol NewClassPresenter: BaseContract.Presenter {

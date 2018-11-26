@@ -125,6 +125,7 @@ private extension Endpoint {
             }
             
             return [
+                requestModel.instructorKey: requestModel.instructor,
                 requestModel.sportKey: requestModel.sport,
                 requestModel.locationKey: location,
                 requestModel.descriptionKey: requestModel.description,

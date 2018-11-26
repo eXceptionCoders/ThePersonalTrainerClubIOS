@@ -57,6 +57,7 @@ class ClassProvider {
 private class ClassProviderMapper {
     class func mapModelToEntity(model: NewClassModel) -> NewClassRequest {
         return NewClassRequest(
+            instructor: model.instructor,
             sport: model.sport,
             location: LocationEntity(
                 type: model.location.type,

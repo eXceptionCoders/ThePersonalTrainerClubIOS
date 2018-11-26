@@ -9,6 +9,9 @@
 import Foundation
 
 struct NewClassRequest {
+    let instructorKey = "instructor"
+    let instructor: String
+    
     let sportKey = "sport"
     let sport: String
     

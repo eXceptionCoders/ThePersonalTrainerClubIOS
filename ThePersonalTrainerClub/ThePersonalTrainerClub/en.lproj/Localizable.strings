@@ -30,12 +30,16 @@
 "register_error_user_exists" = "This user already exists";
 "register_error_default" = "An error occurs while register";
 
+"newclass_title" = "New Class";
 "newclass_whatactivity_label" = "What activity do you go to teach?";
 "newclass_where_label" = "Where do you teach?";
 "newclass_assistance_label" = "Maximum assistance: %.0f";
 "newclass_price_label" = "Price by class: %.2f €";
 "newclass_description_label" = "Description";
 "newclass_save_button" = "Save class";
+"newclass_checkfields" = "Please, fills the required fields";
+"newclass_server_error" = "Some error has occurred: %@";
+"newclass_class_created" = "Class created successfully";
 
 "type_selection_title" = "Settings";
 "type_selection_title_label" = "Choose your role";
