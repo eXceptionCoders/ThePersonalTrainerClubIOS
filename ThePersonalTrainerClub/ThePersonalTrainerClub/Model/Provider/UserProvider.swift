@@ -71,6 +71,7 @@ private class UserProviderMapper {
             id: data._id,
             name: data.name,
             lastName: data.lastname ?? "",
+            coach: data.coach,
             birthday: "", // data.birthday,
             gender: data.gender,
             thumbnail: data.thumbnail ?? "",
@@ -81,6 +82,7 @@ private class UserProviderMapper {
         )
         
         UserSettings.user = user
+        UserSettings.showCoachView = data.coach
         
         return user
     }

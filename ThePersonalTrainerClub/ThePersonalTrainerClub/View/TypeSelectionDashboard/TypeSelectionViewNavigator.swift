@@ -17,10 +17,17 @@ class TypeSelectionViewNavigator: TypeSelectionContract.Navigator {
     }
     
     func navigateToTrainerView() {
-        //TODO: Perform navigation when view is implemented: TrainerDashboardViewController()
+        UserSettings.showCoachView = true
+        navigateToMainView()
     }
     
     func navigateToClientView() {
-        //TODO: Perform navigation when view is implemented
+        UserSettings.showCoachView = false
+        navigateToMainView()
+    }
+    
+    private func navigateToMainView() {
+        let trainerDashboardVC = TrainerDashboardViewController()
+        (view as! UIViewController).present(trainerDashboardVC, animated: true, completion: nil)
     }
 }

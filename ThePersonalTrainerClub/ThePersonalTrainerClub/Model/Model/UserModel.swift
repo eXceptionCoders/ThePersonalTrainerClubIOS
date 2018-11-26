@@ -12,6 +12,7 @@ struct UserModel: Codable {
     let id: String
     let name: String
     let lastName: String
+    let coach: Bool
     let birthday: String
     let gender: String
     let thumbnail: String

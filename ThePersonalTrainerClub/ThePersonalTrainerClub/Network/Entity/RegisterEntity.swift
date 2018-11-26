@@ -12,7 +12,7 @@ struct RegisterRequest {
     let nameKey = "name"
     let name: String
     
-    let lastNameKey = "lastName"
+    let lastNameKey = "lastname"
     let lastName: String
     
     let birthdayKey = "birthday"

@@ -26,4 +26,7 @@ class BaseViewController: UIViewController, BaseContract.View {
     }
     
     func localizeView() {}
+    
+    func showLoading() {}
+    func hideLoading() {}
 }

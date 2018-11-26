@@ -58,12 +58,12 @@ class RegisterViewController: BaseViewController, RegisterContract.View {
         signupButton.setTitle(NSLocalizedString("register_sign_up_button", comment: ""), for: .normal)
     }
     
-    func showLoading() {
+    override func showLoading() {
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
     }
     
-    func hideLoading() {
+    override func hideLoading() {
         activityIndicator.stopAnimating()
     }
     

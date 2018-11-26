@@ -93,16 +93,15 @@
                         <constraint firstAttribute="bottom" secondItem="K69-z6-39p" secondAttribute="bottom" id="cRc-Ic-Jeq"/>
                     </constraints>
                 </scrollView>
-                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="vUH-iC-H0F">
-                    <rect key="frame" x="188.66666666666666" y="429.66666666666669" width="37" height="37"/>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="vUH-iC-H0F">
+                    <rect key="frame" x="188" y="429" width="37" height="37"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="color" cocoaTouchSystemColor="darkTextColor"/>
                 </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="a3K-XP-xUd" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="82y-eX-qY2"/>
-                <constraint firstItem="vUH-iC-H0F" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="9jV-jG-gUY"/>
-                <constraint firstItem="vUH-iC-H0F" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Is1-Cv-Kbx"/>
                 <constraint firstItem="a3K-XP-xUd" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="biw-lQ-cGQ"/>
                 <constraint firstItem="a3K-XP-xUd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="mmw-h2-4lT"/>
                 <constraint firstItem="a3K-XP-xUd" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ymM-wO-9e5"/>
