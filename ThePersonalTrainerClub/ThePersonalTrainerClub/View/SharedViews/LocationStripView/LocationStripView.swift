@@ -18,6 +18,10 @@ class LocationStripView: UIView, NibLoadableView, UICollectionViewDelegate, UICo
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    func allowSelection(_ allow: Bool) {
+        collectionView.allowsSelection = allow
+    }
+    
     // MARK: - Properties
     
     var items: [LocationModel] {

@@ -178,7 +178,7 @@ extension NewClassViewController {
     func refreshLocationsHeight() {
         let filteredConstraints = locationStripView.constraints.filter { $0.identifier == "locationsHeightConstraint" }
         if let constraint = filteredConstraints.first {
-            constraint.constant = CGFloat((UserSettings.user?.locations ?? []).count * 40)
+            constraint.constant = CGFloat((UserSettings.user?.locations ?? []).count * 40 + 8)
         }
     }
     

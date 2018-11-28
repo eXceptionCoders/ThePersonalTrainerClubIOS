@@ -46,6 +46,10 @@ class ActivityStripView: UIView, NibLoadableView, UICollectionViewDelegate,  UIC
         return CGSize(width: UIView.noIntrinsicMetric, height: Constants.height)
     }
     
+    func allowSelection(_ allow: Bool) {
+        collectionView.allowsSelection = allow
+    }
+    
     // MARK: - UICollectionViewDatasource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
