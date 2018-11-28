@@ -52,4 +52,12 @@ class TrainerManagementViewPresenter: BaseViewPresenter, TrainerManagementContra
             self.view.hideLoading()
         }
     }
+    
+    func onAddSportTapped() {
+        navigator.navigateToAddSport()
+    }
+    
+    func onAddLocationTapped() {
+        navigator.navigateToAddLocation()
+    }
 }

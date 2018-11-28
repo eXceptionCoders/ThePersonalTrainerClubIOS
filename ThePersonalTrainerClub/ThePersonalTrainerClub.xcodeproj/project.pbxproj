@@ -18,6 +18,17 @@
 		5E92C2CF21A8362400699A37 /* TypeSelectionViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E92C2CE21A8362400699A37 /* TypeSelectionViewPresenter.swift */; };
 		5E92C2D121A8363700699A37 /* TypeSelectionViewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E92C2D021A8363700699A37 /* TypeSelectionViewContract.swift */; };
 		5E92C2D321A8364400699A37 /* TypeSelectionViewNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E92C2D221A8364400699A37 /* TypeSelectionViewNavigator.swift */; };
+		5E92C2D821AC7FDB00699A37 /* AddSportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E92C2D621AC7FDB00699A37 /* AddSportViewController.swift */; };
+		5E92C2D921AC7FDB00699A37 /* AddSportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E92C2D721AC7FDB00699A37 /* AddSportViewController.xib */; };
+		5E92C2E221AC802200699A37 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E92C2E021AC802200699A37 /* AddLocationViewController.swift */; };
+		5E92C2E321AC802200699A37 /* AddLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E92C2E121AC802200699A37 /* AddLocationViewController.xib */; };
+		5E92C2E721AC804300699A37 /* AddLocationViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E92C2E621AC804300699A37 /* AddLocationViewPresenter.swift */; };
+		5E92C2E921AC804F00699A37 /* AddLocationViewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E92C2E821AC804F00699A37 /* AddLocationViewContract.swift */; };
+		5E92C2EB21AC805D00699A37 /* AddLocationViewNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E92C2EA21AC805D00699A37 /* AddLocationViewNavigator.swift */; };
+		5E92C2ED21AC807200699A37 /* AddSportViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E92C2EC21AC807200699A37 /* AddSportViewPresenter.swift */; };
+		5E92C2EF21AC807D00699A37 /* AddSportViewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E92C2EE21AC807D00699A37 /* AddSportViewContract.swift */; };
+		5E92C2F121AC808700699A37 /* AddSportViewNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E92C2F021AC808700699A37 /* AddSportViewNavigator.swift */; };
+		5E977F3D21AF257D00DD6E50 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E977F3C21AF257D00DD6E50 /* UIViewExtension.swift */; };
 		5EBC1C09219205AE00BCBBC7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBC1C07219205AE00BCBBC7 /* LoginViewController.swift */; };
 		5EBC1C0A219205AE00BCBBC7 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EBC1C08219205AE00BCBBC7 /* LoginViewController.xib */; };
 		5EBC1C122193277A00BCBBC7 /* LoginViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBC1C112193277A00BCBBC7 /* LoginViewPresenter.swift */; };
@@ -137,6 +148,17 @@
 		5E92C2CE21A8362400699A37 /* TypeSelectionViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeSelectionViewPresenter.swift; sourceTree = "<group>"; };
 		5E92C2D021A8363700699A37 /* TypeSelectionViewContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeSelectionViewContract.swift; sourceTree = "<group>"; };
 		5E92C2D221A8364400699A37 /* TypeSelectionViewNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeSelectionViewNavigator.swift; sourceTree = "<group>"; };
+		5E92C2D621AC7FDB00699A37 /* AddSportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSportViewController.swift; sourceTree = "<group>"; };
+		5E92C2D721AC7FDB00699A37 /* AddSportViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddSportViewController.xib; sourceTree = "<group>"; };
+		5E92C2E021AC802200699A37 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
+		5E92C2E121AC802200699A37 /* AddLocationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddLocationViewController.xib; sourceTree = "<group>"; };
+		5E92C2E621AC804300699A37 /* AddLocationViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewPresenter.swift; sourceTree = "<group>"; };
+		5E92C2E821AC804F00699A37 /* AddLocationViewContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewContract.swift; sourceTree = "<group>"; };
+		5E92C2EA21AC805D00699A37 /* AddLocationViewNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewNavigator.swift; sourceTree = "<group>"; };
+		5E92C2EC21AC807200699A37 /* AddSportViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSportViewPresenter.swift; sourceTree = "<group>"; };
+		5E92C2EE21AC807D00699A37 /* AddSportViewContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSportViewContract.swift; sourceTree = "<group>"; };
+		5E92C2F021AC808700699A37 /* AddSportViewNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSportViewNavigator.swift; sourceTree = "<group>"; };
+		5E977F3C21AF257D00DD6E50 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		5EBC1C07219205AE00BCBBC7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5EBC1C08219205AE00BCBBC7 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		5EBC1C112193277A00BCBBC7 /* LoginViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewPresenter.swift; sourceTree = "<group>"; };
@@ -311,9 +333,35 @@
 			path = TypeSelectionDashboard;
 			sourceTree = "<group>";
 		};
+		5E92C2D421AC7F6500699A37 /* AddSport */ = {
+			isa = PBXGroup;
+			children = (
+				5E92C2D621AC7FDB00699A37 /* AddSportViewController.swift */,
+				5E92C2D721AC7FDB00699A37 /* AddSportViewController.xib */,
+				5E92C2EC21AC807200699A37 /* AddSportViewPresenter.swift */,
+				5E92C2EE21AC807D00699A37 /* AddSportViewContract.swift */,
+				5E92C2F021AC808700699A37 /* AddSportViewNavigator.swift */,
+			);
+			path = AddSport;
+			sourceTree = "<group>";
+		};
+		5E92C2D521AC7F8D00699A37 /* AddLocation */ = {
+			isa = PBXGroup;
+			children = (
+				5E92C2E021AC802200699A37 /* AddLocationViewController.swift */,
+				5E92C2E121AC802200699A37 /* AddLocationViewController.xib */,
+				5E92C2E621AC804300699A37 /* AddLocationViewPresenter.swift */,
+				5E92C2E821AC804F00699A37 /* AddLocationViewContract.swift */,
+				5E92C2EA21AC805D00699A37 /* AddLocationViewNavigator.swift */,
+			);
+			path = AddLocation;
+			sourceTree = "<group>";
+		};
 		5EBC1C042191902300BCBBC7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5E92C2D521AC7F8D00699A37 /* AddLocation */,
+				5E92C2D421AC7F6500699A37 /* AddSport */,
 				633D77DA21AAEC5A00A6FEE1 /* UserSettings */,
 				5E92C2C721A8346C00699A37 /* TypeSelectionDashboard */,
 				5EFB9E0D219B492C00D37E6E /* SharedViews */,
@@ -362,6 +410,7 @@
 				63FB2E6421A0A04E006E0320 /* UITableView+Reusable.swift */,
 				63FB2E6621A0A07A006E0320 /* UICollectionView+Reusable.swift */,
 				633E8EAD21A4C10B00A95C3B /* ImageDownloader.swift */,
+				5E977F3C21AF257D00DD6E50 /* UIViewExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -652,6 +701,7 @@
 				63FB2E7621A19AB5006E0320 /* ActivityStripCell.xib in Resources */,
 				5E2070852184EA1B0084911F /* LaunchScreen.storyboard in Resources */,
 				63FB2E6E21A0A6F7006E0320 /* ActivityStripView.xib in Resources */,
+				5E92C2D921AC7FDB00699A37 /* AddSportViewController.xib in Resources */,
 				6373042121984EE600E726E2 /* NewClassViewController.xib in Resources */,
 				5E63349921A32E83007DD6AD /* Localizable.strings in Resources */,
 				5E2070822184EA1B0084911F /* Assets.xcassets in Resources */,
@@ -660,6 +710,7 @@
 				5E92C2CD21A834CA00699A37 /* TypeSelectionViewController.xib in Resources */,
 				5EDB09452194CCDE0000A280 /* RegisterViewController.xib in Resources */,
 				637304062198461C00E726E2 /* TrainerDashboardViewController.xib in Resources */,
+				5E92C2E321AC802200699A37 /* AddLocationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -690,6 +741,7 @@
 				5EDB09512194D0210000A280 /* LoginViewNavigator.swift in Sources */,
 				5EDB093F21944CFD0000A280 /* LoginModel.swift in Sources */,
 				633D77DD21AAEC8800A6FEE1 /* UserSettingsViewController.swift in Sources */,
+				5E92C2E721AC804300699A37 /* AddLocationViewPresenter.swift in Sources */,
 				5EDB094F2194CF950000A280 /* UIViewControllerExtension.swift in Sources */,
 				6373043321985BAE00E726E2 /* ActivityModel.swift in Sources */,
 				630524F921974E20004C4179 /* RegisterEntity.swift in Sources */,
@@ -706,7 +758,9 @@
 				6373043721985D4500E726E2 /* TrainerManagementUseCase.swift in Sources */,
 				637304082198467900E726E2 /* BaseTabBarViewController.swift in Sources */,
 				5EDB094D2194CDE50000A280 /* RegisterViewContract.swift in Sources */,
+				5E92C2E921AC804F00699A37 /* AddLocationViewContract.swift in Sources */,
 				5EFB9E10219B495C00D37E6E /* DefaultButton.swift in Sources */,
+				5E977F3D21AF257D00DD6E50 /* UIViewExtension.swift in Sources */,
 				5EBC1C1B21932A3300BCBBC7 /* BaseViewContract.swift in Sources */,
 				6373043B21985DCB00E726E2 /* UserProvider.swift in Sources */,
 				5EDB09552194D5080000A280 /* UIColorExtension.swift in Sources */,
@@ -715,6 +769,7 @@
 				63FB2E6721A0A07A006E0320 /* UICollectionView+Reusable.swift in Sources */,
 				63FB2E6121A09FF9006E0320 /* DateFormatter+Utils.swift in Sources */,
 				63FB2E8121A1F786006E0320 /* LocationStripView.swift in Sources */,
+				5E92C2EB21AC805D00699A37 /* AddLocationViewNavigator.swift in Sources */,
 				637303FC219843BA00E726E2 /* TrainerDashboardViewPresenter.swift in Sources */,
 				5EBC1C202193346600BCBBC7 /* Endpoint.swift in Sources */,
 				63FB2E6321A0A01C006E0320 /* NibLoadableView.swift in Sources */,
@@ -727,6 +782,7 @@
 				637303FA219843A400E726E2 /* TrainerDashboardViewNavigator.swift in Sources */,
 				5EBC1C1E2193340500BCBBC7 /* WebService.swift in Sources */,
 				5EBC1C14219327E500BCBBC7 /* LoginViewContract.swift in Sources */,
+				5E92C2D821AC7FDB00699A37 /* AddSportViewController.swift in Sources */,
 				633DA1CD2198A42C00BA028C /* UserModel.swift in Sources */,
 				6373041B21984EA800E726E2 /* NewClassViewNavigator.swift in Sources */,
 				6373040D21984DA300E726E2 /* TrainerManagementViewContract.swift in Sources */,
@@ -736,12 +792,16 @@
 				630524FB21974E75004C4179 /* BaseResponse.swift in Sources */,
 				630524FF21978B4B004C4179 /* RegisterProvider.swift in Sources */,
 				633D77E621AB569C00A6FEE1 /* NewClassModel.swift in Sources */,
+				5E92C2ED21AC807200699A37 /* AddSportViewPresenter.swift in Sources */,
 				633E8EAE21A4C10B00A95C3B /* ImageDownloader.swift in Sources */,
 				637304052198461C00E726E2 /* TrainerDashboardViewController.swift in Sources */,
 				637303FE219843D800E726E2 /* TrainerDashboardViewContract.swift in Sources */,
 				637303F721983F7F00E726E2 /* UserSettings.swift in Sources */,
+				5E92C2F121AC808700699A37 /* AddSportViewNavigator.swift in Sources */,
 				6373040F21984DBD00E726E2 /* TrainerManagementViewPresenter.swift in Sources */,
+				5E92C2E221AC802200699A37 /* AddLocationViewController.swift in Sources */,
 				63FB2E7F21A1F681006E0320 /* LocationStipLayout.swift in Sources */,
+				5E92C2EF21AC807D00699A37 /* AddSportViewContract.swift in Sources */,
 				5EDB09442194CCDE0000A280 /* RegisterViewController.swift in Sources */,
 				5E92C2D321A8364400699A37 /* TypeSelectionViewNavigator.swift in Sources */,
 				5EBC1C09219205AE00BCBBC7 /* LoginViewController.swift in Sources */,

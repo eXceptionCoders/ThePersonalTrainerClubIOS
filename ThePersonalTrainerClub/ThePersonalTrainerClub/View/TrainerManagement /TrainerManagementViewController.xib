@@ -1,35 +1,154 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TrainerManagementViewController" customModule="ThePersonalTrainerClub" customModuleProvider="target">
             <connections>
+                <outlet property="contentView" destination="dpW-Nh-w7j" id="GAT-od-Dos"/>
+                <outlet property="lessonsLabel" destination="2lg-hC-V5n" id="GeX-fC-bsX"/>
+                <outlet property="lessonsView" destination="H5J-I9-KNi" id="2dG-ds-9kk"/>
+                <outlet property="scrollView" destination="D04-Lg-EgO" id="lhd-G0-TUK"/>
+                <outlet property="sportsLabel" destination="jF8-uI-Jrc" id="Jq8-mE-6FX"/>
+                <outlet property="sportsView" destination="OuE-uE-0qQ" id="XVu-ed-DQU"/>
+                <outlet property="trainerTitleLabel" destination="dbB-Gb-aLQ" id="eQ3-cN-59C"/>
+                <outlet property="userNameLabel" destination="DrC-gK-9GG" id="KcN-0Q-xMT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="whereLabel" destination="92S-CT-Yv9" id="g5e-RW-ild"/>
+                <outlet property="whereView" destination="tXO-A9-UNF" id="7BR-xm-SbZ"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TrainerManagementViewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLM-YN-0wS">
-                    <rect key="frame" x="36" y="321" width="302" height="24"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D04-Lg-EgO">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dpW-Nh-w7j">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ont-RZ-p4p">
+                                    <rect key="frame" x="16" y="16" width="382" height="457"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entrenador" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbB-Gb-aLQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="382" height="28.666666666666668"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hola adios" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DrC-gK-9GG">
+                                            <rect key="frame" x="0.0" y="28.666666666666671" width="382" height="20.333333333333329"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hlf-Rf-o7s">
+                                            <rect key="frame" x="0.0" y="49" width="382" height="16"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="16" id="ukb-jY-wBR"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Que enseñas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jF8-uI-Jrc">
+                                            <rect key="frame" x="0.0" y="65" width="382" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="HOo-cu-Uoz"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OuE-uE-0qQ">
+                                            <rect key="frame" x="0.0" y="105" width="382" height="80"/>
+                                            <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="80" id="0Tp-oY-K0o"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PUn-Nk-z5J">
+                                            <rect key="frame" x="0.0" y="185" width="382" height="16"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="16" id="eCa-so-Fsr"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Donde enseñas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="92S-CT-Yv9">
+                                            <rect key="frame" x="0.0" y="201" width="382" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="thV-uA-zwa"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tXO-A9-UNF">
+                                            <rect key="frame" x="0.0" y="241" width="382" height="80"/>
+                                            <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="80" identifier="locationsHeightConstraint" id="203-lo-gBp"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x5R-lS-6Ae">
+                                            <rect key="frame" x="0.0" y="321" width="382" height="16"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="16" id="0HX-Ii-CWA"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clases abiertas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2lg-hC-V5n">
+                                            <rect key="frame" x="0.0" y="337" width="382" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="M2k-vw-1Dg"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H5J-I9-KNi">
+                                            <rect key="frame" x="0.0" y="377" width="382" height="80"/>
+                                            <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="80" id="atm-A4-Pmc"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="Ont-RZ-p4p" secondAttribute="trailing" constant="16" id="By1-iY-JyC"/>
+                                <constraint firstItem="Ont-RZ-p4p" firstAttribute="leading" secondItem="dpW-Nh-w7j" secondAttribute="leading" constant="16" id="XRC-t2-isD"/>
+                                <constraint firstItem="Ont-RZ-p4p" firstAttribute="top" secondItem="dpW-Nh-w7j" secondAttribute="top" constant="16" id="rnZ-Zu-0NG"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="dpW-Nh-w7j" secondAttribute="trailing" id="25h-e8-kaP"/>
+                        <constraint firstItem="dpW-Nh-w7j" firstAttribute="centerX" secondItem="D04-Lg-EgO" secondAttribute="centerX" id="HtV-0I-6d9"/>
+                        <constraint firstAttribute="bottom" secondItem="dpW-Nh-w7j" secondAttribute="bottom" id="RNI-NH-uFL"/>
+                        <constraint firstItem="dpW-Nh-w7j" firstAttribute="top" secondItem="D04-Lg-EgO" secondAttribute="top" id="Sh1-as-krJ"/>
+                        <constraint firstItem="dpW-Nh-w7j" firstAttribute="centerY" secondItem="D04-Lg-EgO" secondAttribute="centerY" id="b82-D7-9k3"/>
+                        <constraint firstItem="dpW-Nh-w7j" firstAttribute="leading" secondItem="D04-Lg-EgO" secondAttribute="leading" id="qHJ-ny-rM7"/>
+                    </constraints>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="D04-Lg-EgO" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="1Tc-Tt-nlF"/>
+                <constraint firstItem="D04-Lg-EgO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="MST-f3-Q82"/>
+                <constraint firstItem="D04-Lg-EgO" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="bNS-0A-3N0"/>
+                <constraint firstItem="D04-Lg-EgO" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="gT8-Xk-fUw"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="130.43478260869566" y="153.34821428571428"/>
         </view>
     </objects>
 </document>
