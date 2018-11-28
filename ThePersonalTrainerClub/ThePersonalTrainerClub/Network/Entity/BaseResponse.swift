@@ -13,5 +13,6 @@ protocol BaseResponse: Decodable {
     var status: String { get set }
     var message: String { get set }
     var datetime: String { get set }
+    var error: [String: String]? { get set }
 }
 

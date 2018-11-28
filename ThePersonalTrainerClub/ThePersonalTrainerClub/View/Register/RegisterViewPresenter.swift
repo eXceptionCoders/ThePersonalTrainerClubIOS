@@ -20,25 +20,39 @@ class RegisterViewPresenter: BaseViewPresenter, RegisterContract.Presenter {
     }
     
     func onRegister(name: String, lastName: String, gender: String, email: String, password: String, coach: Bool) {
-        view.showLoading()
-        
         if (name.isEmpty || lastName.isEmpty || gender.isEmpty || email.isEmpty || password.isEmpty) {
             self.view.showAlertMessage(title: nil, message: NSLocalizedString("register_error_empty_field", comment: ""))
             return
         }
+
+        view.showLoading()
         
-        let model = RegisterModel(name: name, lastName: lastName, birthday: "1900-1-1", gender: gender, email: email, password: password, coach: coach)
+        let model = RegisterModel(
+            name: name,
+            lastName: lastName,
+            birthday: "1900-1-1",
+            gender: gender,
+            email: email,
+            password: password,
+            coach: coach)
         
-        registerUseCase.signup(model: model) { (signed, error) in
+        registerUseCase.signup(model: model) { (signed, error, errorsMap) in
+            self.view.hideLoading()
+
             if let error = error {
+                
                 var message = ""
                 switch error {
-                case RegisterError.userAlreadyExists:
-                    message = NSLocalizedString("register_error_user_exists", comment: "")
+                case RegisterError.unprocessableEntity:
+                    message = NSLocalizedString("register_server_error", comment: "")
                 case LoginError.otherError:
-                    message = NSLocalizedString("register_error_default", comment: "")
+                    message = NSLocalizedString("register_server_error", comment: "")
                 default:
                     message = ""
+                }
+                
+                for (key, detail) in errorsMap ?? [:] {
+                    message = String(format: "%@ \n%@: %@", message, key, detail)
                 }
                 
                 self.view.showAlertMessage(title: nil, message: message)

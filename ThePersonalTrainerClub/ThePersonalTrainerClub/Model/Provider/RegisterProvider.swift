@@ -9,7 +9,7 @@
 import Foundation
 
 enum RegisterError: Error {
-    case userAlreadyExists
+    case unprocessableEntity
     case otherError
 }
 
@@ -20,17 +20,17 @@ class RegisterProvider {
         self.webService = webService
     }
     
-    func signup(model: RegisterModel, completion: @escaping (Bool, Error?) -> Void) {
+    func signup(model: RegisterModel, completion: @escaping (Bool, Error?, [String: String]?) -> Void) {
         webService.load(SignupResponse.self, from: Endpoint.register(requestModel: RegisterProviderMapper.mapModelToEntity(model: model))) { responseObject, error in
             if let error = error {
                 switch error {
                 case WebServiceError.unprocessableEntity:
-                    completion(false, RegisterError.userAlreadyExists)
+                    completion(false, RegisterError.unprocessableEntity, responseObject?.error)
                 default:
-                    completion(false, RegisterError.otherError)
+                    completion(false, RegisterError.otherError, responseObject?.error)
                 }
             } else {
-                completion(true, nil)
+                completion(true, nil, nil)
             }
         }
     }

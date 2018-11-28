@@ -26,6 +26,8 @@
 "register_password_placeholder" = "Contraseña";
 "register_trainer_label_text" = "¿Eres entrenador?";
 "register_sign_up_button" = "Registro";
+"register_error_empty_field" = "Rellene todos los campos";
+"register_server_error" = "Ha ocurrido algún error";
 
 "newclass_title" = "Crear clase";
 "newclass_whatactivity_label" = "Que actividad impartes?";
@@ -35,7 +37,7 @@
 "newclass_description_label" = "Descripción";
 "newclass_save_button" = "Salvar clase";
 "newclass_checkfields" = "Rellene los campos requeridos";
-"newclass_server_error" = "Ha ocurrido algún error: %@";
+"newclass_server_error" = "Ha ocurrido algún error";
 "newclass_class_created" = "Clase creada";
 
 "type_selection_title" = "Configuración";

@@ -37,8 +37,14 @@ extension Endpoint {
         
         do {
             if (self.method == HTTPMethod.post) {
-                let postBody = try JSONEncoder().encode(self.parameters)
-                request.httpBody = postBody
+                switch self {
+                case .newClass(let requestModel):
+                    let postBody = try JSONEncoder().encode(requestModel)
+                    request.httpBody = postBody
+                default:
+                    let postBody = try JSONEncoder().encode(self.parameters)
+                    request.httpBody = postBody
+                }
             }
         } catch {
             return nil
@@ -115,29 +121,26 @@ private extension Endpoint {
         case .userData(_):
             return [:]
             
+        /*
         case .newClass(let requestModel):
-            var location = ""
-            do {
-                let data = try JSONEncoder().encode(requestModel.location)
-                location = String(data: data, encoding: String.Encoding.utf8)!
-            } catch {
-                
-            }
-            
             return [
                 requestModel.instructorKey: requestModel.instructor,
                 requestModel.sportKey: requestModel.sport,
-                requestModel.locationKey: location,
+                requestModel.locationKey: "{type: \"\(requestModel.location.type)\", description: \"\(requestModel.location.description)\", coordinates: [\(requestModel.location.coordinates[0]),\(requestModel.location.coordinates[1])]}",
                 requestModel.descriptionKey: requestModel.description,
                 requestModel.priceKey: "\(requestModel.price)",
                 requestModel.quotaKey: "\(requestModel.quota)",
                 requestModel.durationKey: "\(requestModel.duration)"
             ]
-            
+        */
+
         case .trainerClasses(_):
             return [:]
             
         case .sports(_):
+            return [:]
+            
+        default:
             return [:]
         }
     }

@@ -19,17 +19,17 @@ class ActivityProvider {
         self.webService = webService
     }
     
-    func fetchActivities(completion: @escaping ([ActivityModel]?, Error?) -> Void) {
+    func fetchActivities(completion: @escaping ([ActivityModel]?, Error?, [String: String]?) -> Void) {
         webService.load(SportResponse.self, from: Endpoint.sports(requestModel: SportRequest())) { responseObject, error in
             if let error = error {
                 switch error {
                 default:
-                    completion(nil, ActivityError.otherError)
+                    completion(nil, ActivityError.otherError, responseObject?.error)
                 }
             } else if let response = responseObject {
-                completion(ActivityProviderMapper.mapEntityToModel(response: response), nil)
+                completion(ActivityProviderMapper.mapEntityToModel(response: response), nil, nil)
             } else {
-                completion(nil, ActivityError.otherError)
+                completion(nil, ActivityError.otherError, responseObject?.error)
             }
         }
     }
@@ -37,7 +37,7 @@ class ActivityProvider {
 
 private class ActivityProviderMapper {
     class func mapEntityToModel(response: SportResponse) -> [ActivityModel] {
-        return response.data.map {
+        return (response.data ?? []).map {
             return ActivityModel(
                 id: $0._id,
                 name: $0.name,

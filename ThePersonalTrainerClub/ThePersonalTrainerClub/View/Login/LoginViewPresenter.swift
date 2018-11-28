@@ -19,15 +19,17 @@ class LoginViewPresenter: BaseViewPresenter, LoginContract.Presenter {
     }
     
     func onLogin(email: String, password: String) {
-        view.showLoading()
-        
         if (email.isEmpty || password.isEmpty) {
             view.showAlertMessage(title: NSLocalizedString("login_error_title", comment: ""), message: NSLocalizedString("login_error_empty_field", comment: ""))
             return
         }
         
+        view.showLoading()
+        
         let loginModel = LoginModel(email: email, password: password)
-        loginUseCase.login(model: loginModel) { loggedIn, error in
+        loginUseCase.login(model: loginModel) { loggedIn, error, errorsMap in
+            self.view.hideLoading()
+
             if let error = error {
                 var message = ""
                 switch error {
@@ -41,12 +43,14 @@ class LoginViewPresenter: BaseViewPresenter, LoginContract.Presenter {
                     message = ""
                 }
                 
+                for (key, detail) in errorsMap ?? [:] {
+                    message = String(format: "%@ \n%@: %@", message, key, detail)
+                }
+                
                 self.view.showAlertMessage(title: nil, message: message)
             } else {
                 self.navigator.navigateToMainView()
             }
-            
-            self.view.hideLoading()
         }
     }
     

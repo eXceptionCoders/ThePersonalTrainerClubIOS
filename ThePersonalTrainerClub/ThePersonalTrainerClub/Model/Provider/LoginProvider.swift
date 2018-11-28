@@ -22,22 +22,22 @@ class LoginProvider {
         self.webService = webService
     }
     
-    func login(model: LoginModel, completion: @escaping (Bool, Error?) -> Void) {
+    func login(model: LoginModel, completion: @escaping (Bool, Error?, [String: String]?) -> Void) {
         webService.load(LoginResponse.self, from: Endpoint.login(requestModel: LoginProviderMapper.mapModelToEntity(model: model))) { responseObject, error in
             if let error = error {
                 switch error {
                 case WebServiceError.unauthorized:
-                    completion(false, LoginError.userPasswordNotFound)
+                    completion(false, LoginError.userPasswordNotFound, responseObject?.error)
                 case WebServiceError.unprocessableEntity:
-                    completion(false, LoginError.incorrectEntry)
+                    completion(false, LoginError.incorrectEntry, responseObject?.error)
                 default:
-                    completion(false, LoginError.otherError)
+                    completion(false, LoginError.otherError, responseObject?.error)
                 }
             } else if let response = responseObject, let data = response.data {
                 LoginProviderMapper.mapEntityToModel(data: data)
-                completion(true, nil)
+                completion(true, nil, nil)
             } else {
-                completion(false, LoginError.otherError)
+                completion(false, LoginError.otherError, responseObject?.error)
             }
         }
     }

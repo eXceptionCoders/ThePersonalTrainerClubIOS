@@ -48,14 +48,16 @@ final class WebService {
                 return
             }
             
-            if let httpResponse = response as? HTTPURLResponse {                
+            if let httpResponse = response as? HTTPURLResponse {
+                do {
+                    v = try self.decoder.decode(type, from: data)
+                } catch {
+                    e = WebServiceError.decodingError
+                }
+                
                 switch httpResponse.statusCode {
                 case 200, 201:
-                    do {
-                        v = try self.decoder.decode(type, from: data)
-                    } catch {
-                        e = WebServiceError.decodingError
-                    }
+                    break
                 case 400:
                     e = WebServiceError.badRequest
                 case 401:

@@ -18,23 +18,23 @@ class LoginUseCase {
         self.userProvider = userProvider
     }
     
-    func login(model: LoginModel, completion: @escaping (UserModel?, Error?) -> Void) {
-        loginProvider.login(model: model) { success, error in
+    func login(model: LoginModel, completion: @escaping (UserModel?, Error?, [String: String]?) -> Void) {
+        loginProvider.login(model: model) { success, error, errorsMap in
             if let error = error {
-                completion(nil, error)
+                completion(nil, error, errorsMap)
             } else {
-                self.userProvider.fetchUser() { user, error in
+                self.userProvider.fetchUser() { user, error, errorsMap in
                     if let error = error {
                         switch error {
                         case UserError.notFound:
-                            completion(nil, LoginError.notFound)
+                            completion(nil, LoginError.notFound, errorsMap)
                             break
                         default:
-                            completion(nil, LoginError.otherError)
+                            completion(nil, LoginError.otherError, errorsMap)
                             break
                         }
                     } else {
-                        completion(user, error)
+                        completion(user, error, errorsMap)
                     }
                 }
             }

@@ -18,8 +18,8 @@ struct TrainerClassResponse: BaseResponse {
     var status: String
     var message: String
     var datetime: String
-    var data: [TrainerClassEntity]
-    var error: [String: String]
+    var data: [TrainerClassEntity]?
+    var error: [String: String]?
 }
 
 struct TrainerClassEntity: Decodable, Encodable {

@@ -16,7 +16,7 @@ class RegisterUseCase {
         self.registerProvider = registerProvider
     }
     
-    func signup(model: RegisterModel, completion: @escaping (Bool?, Error?) -> Void) {
+    func signup(model: RegisterModel, completion: @escaping (Bool?, Error?, [String: String]?) -> Void) {
         registerProvider.signup(model: model, completion: completion)
     }
     

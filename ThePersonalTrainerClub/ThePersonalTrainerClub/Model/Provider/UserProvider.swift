@@ -20,21 +20,21 @@ class UserProvider {
         self.webService = webService
     }
     
-    func fetchUser(completion: @escaping (UserModel?, Error?) -> Void) {
+    func fetchUser(completion: @escaping (UserModel?, Error?, [String: String]?) -> Void) {
         webService.load(UserResponse.self, from: Endpoint.userData(requestModel: UserRequest())) { responseObject, error in
             if let error = error {
                 switch error {
                 case WebServiceError.notFound:
-                    completion(nil, UserError.notFound)
+                    completion(nil, UserError.notFound, responseObject?.error)
                 default:
-                    completion(nil, UserError.otherError)
+                    completion(nil, UserError.otherError, responseObject?.error)
                 }
                 
                 UserSettings.token = ""
             } else if let response = responseObject, let data = response.data {
-                completion(UserProviderMapper.mapEntityToModel(data: data), nil)
+                completion(UserProviderMapper.mapEntityToModel(data: data), nil, nil)
             } else {
-                completion(nil, UserError.otherError)
+                completion(nil, UserError.otherError, responseObject?.error)
                 UserSettings.token = ""
             }
         }

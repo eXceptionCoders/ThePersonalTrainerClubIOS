@@ -20,12 +20,12 @@ class NewClassViewPresenter: BaseViewPresenter, NewClassContract.Presenter {
     }
     
     func onCreate(sport: String, description: String, price: Float, quota: Int, location: LocationModel) {
-        view.showLoading()
-        
         if (sport.isEmpty || description.isEmpty) {
             view.showAlertMessage(title: nil, message: NSLocalizedString("newclass_checkfields", comment: ""))
             return
         }
+
+        view.showLoading()
         
         let model = NewClassModel(
             instructor: UserSettings.user?.id ?? "",
@@ -36,15 +36,21 @@ class NewClassViewPresenter: BaseViewPresenter, NewClassContract.Presenter {
             quota: quota,
             duration: 30
         )
-        newClassUseCase.create(model: model) { loggedIn, error in
-            if let error = error {
-                self.view.showAlertMessage(title: nil, message: String(format: NSLocalizedString("newclass_server_error", comment: ""), error.localizedDescription))
+        newClassUseCase.create(model: model) { loggedIn, error, errorsMap in
+            self.view.hideLoading()
+            
+            if error != nil {
+                var message = String(format: NSLocalizedString("newclass_server_error", comment: ""))
+                
+                for (key, detail) in errorsMap ?? [:] {
+                    message = String(format: "%@ \n%@: %@", message, key, detail)
+                }
+                
+                self.view.showAlertMessage(title: nil, message: message)
             } else {
                 self.view.showAlertMessage(title: nil, message: NSLocalizedString("newclass_class_created", comment: ""))
                 self.view.resetInputs()
             }
-            
-            self.view.hideLoading()
         }
     }
 }

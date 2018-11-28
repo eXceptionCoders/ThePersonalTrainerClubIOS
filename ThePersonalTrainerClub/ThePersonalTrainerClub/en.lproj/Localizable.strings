@@ -27,8 +27,7 @@
 "register_trainer_label_text" = "Are you a trainer?";
 "register_sign_up_button" = "Sign up";
 "register_error_empty_field" = "Please fill all required fields";
-"register_error_user_exists" = "This user already exists";
-"register_error_default" = "An error occurs while register";
+"register_server_error" = "Some error has occurred";
 
 "newclass_title" = "New Class";
 "newclass_whatactivity_label" = "What activity do you go to teach?";
@@ -38,7 +37,7 @@
 "newclass_description_label" = "Description";
 "newclass_save_button" = "Save class";
 "newclass_checkfields" = "Please, fills the required fields";
-"newclass_server_error" = "Some error has occurred: %@";
+"newclass_server_error" = "Some error has occurred";
 "newclass_class_created" = "Class created successfully";
 
 "type_selection_title" = "Settings";

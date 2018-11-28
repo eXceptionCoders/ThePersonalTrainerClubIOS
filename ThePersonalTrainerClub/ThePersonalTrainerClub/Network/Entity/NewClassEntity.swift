@@ -8,26 +8,13 @@
 
 import Foundation
 
-struct NewClassRequest {
-    let instructorKey = "instructor"
+struct NewClassRequest: Decodable, Encodable {
     let instructor: String
-    
-    let sportKey = "sport"
     let sport: String
-    
-    let locationKey = "location"
     let location: LocationEntity
-    
-    let descriptionKey = "description"
     let description: String
-    
-    let priceKey = "priceKey"
     let price: Float
-    
-    let durationKey = "duration"
     let duration: Int
-    
-    let quotaKey = "quota"
     let quota: Int
 }
 

@@ -26,7 +26,7 @@ class TrainerManagementViewPresenter: BaseViewPresenter, TrainerManagementContra
             return
         }
         
-        trainerManagementUseCase.fetchUser() { user, error in
+        trainerManagementUseCase.fetchUser() { user, error, errorsMap in
             if let error = error {
                 self.view.showAlertMessage(title: nil, message: "\(error)")
             } else if let data = user {
@@ -42,7 +42,7 @@ class TrainerManagementViewPresenter: BaseViewPresenter, TrainerManagementContra
             return
         }
         
-        trainerManagementUseCase.fetchClasses(id) { classes, error in
+        trainerManagementUseCase.fetchClasses(id) { classes, error, errorsMap in
             if let error = error {
                 self.view.showAlertMessage(title: nil, message: "\(error)")
             } else if let data = classes {

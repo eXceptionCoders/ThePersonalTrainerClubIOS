@@ -16,8 +16,8 @@ struct SportResponse: BaseResponse {
     var status: String
     var message: String
     var datetime: String
-    var data: [SportEntity];
-    var error: [String: String]
+    var data: [SportEntity]?
+    var error: [String: String]?
 }
 
 struct SportEntity: Decodable, Encodable {

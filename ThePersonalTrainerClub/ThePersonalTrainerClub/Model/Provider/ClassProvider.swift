@@ -21,34 +21,34 @@ class ClassProvider {
         self.webService = webService
     }
     
-    func create(model: NewClassModel, completion: @escaping (Bool, Error?) -> Void) {
+    func create(model: NewClassModel, completion: @escaping (Bool, Error?, [String: String]?) -> Void) {
         webService.load(NewClassResponse.self, from: Endpoint.newClass(requestModel: ClassProviderMapper.mapModelToEntity(model: model))) { responseObject, error in
             if let error = error {
                 switch error {
                 case WebServiceError.unprocessableEntity:
-                    completion(false, ClassError.unprocessableEntity)
+                    completion(false, ClassError.unprocessableEntity, responseObject?.error)
                 default:
-                    completion(false, ClassError.otherError)
+                    completion(false, ClassError.otherError, responseObject?.error)
                 }
             } else {
-                completion(true, nil)
+                completion(true, nil, nil)
             }
         }
     }
     
-    func fetchClassesForTrainer(_ trainerId: String, completion: @escaping ([ClassModel]?, Error?) -> Void) {
+    func fetchClassesForTrainer(_ trainerId: String, completion: @escaping ([ClassModel]?, Error?, [String: String]?) -> Void) {
         webService.load(TrainerClassResponse.self, from: Endpoint.trainerClasses(requestModel: TrainerClassRequest(trainerId: trainerId))) { responseObject, error in
             if let error = error {
                 switch error {
                 case WebServiceError.notFound:
-                    completion(nil, ClassError.notFound)
+                    completion(nil, ClassError.notFound, responseObject?.error)
                 default:
-                    completion(nil, ClassError.otherError)
+                    completion(nil, ClassError.otherError, responseObject?.error)
                 }
             } else if let response = responseObject {
-                completion(ClassProviderMapper.mapEntityToModel(response: response), nil)
+                completion(ClassProviderMapper.mapEntityToModel(response: response), nil, nil)
             } else {
-                completion(nil, ClassError.otherError)
+                completion(nil, ClassError.otherError, responseObject?.error)
             }
         }
     }
@@ -72,7 +72,7 @@ private class ClassProviderMapper {
     }
     
     class func mapEntityToModel(response: TrainerClassResponse) -> [ClassModel] {
-        return response.data.map {
+        return (response.data ?? []).map {
             return ClassModel(
                 id: $0._id,
                 sport: ActivityModel(
