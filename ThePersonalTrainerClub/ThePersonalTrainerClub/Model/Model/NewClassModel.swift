@@ -9,7 +9,7 @@
 import Foundation
 
 struct NewClassModel: Codable {
-    let id: String
+    let instructor: String
     let sport: String
     let location: LocationModel
     let description: String

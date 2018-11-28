@@ -32,12 +32,22 @@ class LocationStripView: UIView, NibLoadableView, UICollectionViewDelegate, UICo
         }
     }
     
+    var indexPathsForSelectedItems: [IndexPath]? {
+        get {
+            return collectionView.indexPathsForSelectedItems
+        }
+    }
+    
     private var _items: [LocationModel] = []
 
     // MARK: - Methods
     
     func invalidateLayout() {
         collectionView.collectionViewLayout.invalidateLayout()
+    }
+    
+    func selectFirst() {
+        collectionView.selectItem(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: UICollectionView.ScrollPosition.top)
     }
     
     // MARK: - Overrides

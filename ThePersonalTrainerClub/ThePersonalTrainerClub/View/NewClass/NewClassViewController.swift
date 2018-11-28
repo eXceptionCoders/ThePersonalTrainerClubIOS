@@ -38,7 +38,7 @@ class NewClassViewController: BaseViewController, NewClassContract.View {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "New Class"
+        title = NSLocalizedString("newclass_title", comment: "")
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -58,6 +58,7 @@ class NewClassViewController: BaseViewController, NewClassContract.View {
         locationView.items = UserSettings.user?.locations ?? []
         refreshLocationsHeight()
         hideLoading()
+        resetInputs()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -87,8 +88,8 @@ class NewClassViewController: BaseViewController, NewClassContract.View {
     }
     
     @IBAction func saveClass(_ sender: Any) {
-        let selectedSport = (activityStripView.subviews.first as! ActivityStripView).collectionView.indexPathsForSelectedItems?.first
-        let selectedLocat = (locationStripView.subviews.first as! LocationStripView).collectionView.indexPathsForSelectedItems?.first
+        let selectedSport = (activityStripView.subviews.first as! ActivityStripView).indexPathsForSelectedItems?.first
+        let selectedLocat = (locationStripView.subviews.first as! LocationStripView).indexPathsForSelectedItems?.first
         
         guard let pathSport = selectedSport, let pathLocation = selectedLocat else {
             return
@@ -129,6 +130,20 @@ class NewClassViewController: BaseViewController, NewClassContract.View {
 }
 
 extension NewClassViewController {
+    func resetInputs() {
+        if (UserSettings.user?.locations.count ?? 0 > 0) {
+            (locationStripView.subviews.first as! LocationStripView).selectFirst()
+        }
+        
+        if (UserSettings.user?.activities.count ?? 0 > 0) {
+            (activityStripView.subviews.first as! ActivityStripView).selectFirst()
+        }
+
+        priceSlider.value = 15
+        assistanceSlider.value = 20
+        descriptionTextView.text = ""
+    }
+    
     func setupActivitiesView() -> ActivityStripView {
         let collectionView = ActivityStripView.instantiate()
         

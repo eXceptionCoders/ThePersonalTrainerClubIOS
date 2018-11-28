@@ -23,12 +23,12 @@ class NewClassViewPresenter: BaseViewPresenter, NewClassContract.Presenter {
         view.showLoading()
         
         if (sport.isEmpty || description.isEmpty) {
-            view.showAlertMessage(title: "Check the data", message: "Please, fills the required fields")
+            view.showAlertMessage(title: nil, message: NSLocalizedString("newclass_checkfields", comment: ""))
             return
         }
         
         let model = NewClassModel(
-            id: "",
+            instructor: UserSettings.user?.id ?? "",
             sport: sport,
             location: location,
             description: description,
@@ -38,9 +38,10 @@ class NewClassViewPresenter: BaseViewPresenter, NewClassContract.Presenter {
         )
         newClassUseCase.create(model: model) { loggedIn, error in
             if let error = error {
-                self.view.showAlertMessage(title: nil, message: "\(error)")
+                self.view.showAlertMessage(title: nil, message: String(format: NSLocalizedString("newclass_server_error", comment: ""), error.localizedDescription))
             } else {
-                self.view.showAlertMessage(title: nil, message: "OK")
+                self.view.showAlertMessage(title: nil, message: NSLocalizedString("newclass_class_created", comment: ""))
+                self.view.resetInputs()
             }
             
             self.view.hideLoading()
