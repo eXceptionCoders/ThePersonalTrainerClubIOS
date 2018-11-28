@@ -30,7 +30,7 @@
 "register_server_error" = "Some error has occurred";
 
 "newclass_title" = "New Class";
-"newclass_whatactivity_label" = "What activity do you go to teach?";
+"newclass_whatactivity_label" = "What activity do you want to teach?";
 "newclass_where_label" = "Where do you teach?";
 "newclass_assistance_label" = "Maximum assistance: %.0f";
 "newclass_price_label" = "Price by class: %.2f €";
@@ -43,3 +43,10 @@
 "type_selection_title" = "Settings";
 "type_selection_title_label" = "Choose your role";
 
+"trainer_management_title" = "Management";
+"trainer_management_trainer_label" = "Trainer";
+"trainer_management_name_unknown_first_text" = "Name:";
+"trainer_management_name_unknown_second_text" = "Unknown";
+"trainer_management_sports_label" = "What do you teach?";
+"trainer_management_locations_label" = "Where do you teach?";
+"trainer_management_lessons_label" = "Open lessons";

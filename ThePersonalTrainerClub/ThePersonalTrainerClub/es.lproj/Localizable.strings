@@ -42,3 +42,11 @@
 
 "type_selection_title" = "Configuración";
 "type_selection_title_label" = "Elige tu estado";
+
+"trainer_management_title" = "Gestion";
+"trainer_management_trainer_label" = "Entrenador";
+"trainer_management_name_unknown_first_text" = "Nombre:";
+"trainer_management_name_unknown_second_text" = "Desconocido";
+"trainer_management_sports_label" = "¿Qué enseñas?";
+"trainer_management_locations_label" = "¿Dónde enseñas?";
+"trainer_management_lessons_label" = "Clases abiertas";
