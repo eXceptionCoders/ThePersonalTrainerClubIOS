@@ -27,6 +27,7 @@
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Location" translatesAutoresizingMaskIntoConstraints="NO" id="jjL-uS-xwr">
                         <rect key="frame" x="357" y="8" width="22" height="22"/>
+                        <color key="tintColor" red="0.83137254900000002" green="0.27450980390000002" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="22" id="2tC-YG-zMM"/>
                             <constraint firstAttribute="width" constant="22" id="Vra-Y7-Fdz"/>
@@ -45,6 +46,7 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="387" height="39"/>
             <connections>
+                <outlet property="locationImage" destination="jjL-uS-xwr" id="fNH-ca-dvs"/>
                 <outlet property="locationLabel" destination="0h6-Vn-xuI" id="uil-4t-m9j"/>
             </connections>
             <point key="canvasLocation" x="240.80000000000001" y="136.73163418290855"/>

@@ -13,6 +13,7 @@ class LocationStripCell: UICollectionViewCell, ReusableView, NibLoadableView {
     // MARK: - Outlets
     
     @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var locationImage: UIImageView!
     
     override var isSelected: Bool {
         get { return super.isSelected }
@@ -35,6 +36,8 @@ class LocationStripCell: UICollectionViewCell, ReusableView, NibLoadableView {
         locationLabel.layer.cornerRadius = 14.0
         locationLabel.clipsToBounds = true
         locationLabel.layer.borderWidth = 1.0
+        locationImage.tintColor = UIColor.customOrange
+        
         marAsUnselected()
     }
 
