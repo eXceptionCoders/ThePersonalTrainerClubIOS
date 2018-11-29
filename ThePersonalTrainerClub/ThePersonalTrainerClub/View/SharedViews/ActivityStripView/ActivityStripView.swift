@@ -36,6 +36,7 @@ class ActivityStripView: UIView, NibLoadableView, UICollectionViewDelegate,  UIC
     }
     
     private var _items: [ActivityModel] = []
+    private var _preselectedItems: [ActivityModel] = []
     private let operationQueue = OperationQueue()
 
     // MARK: - Methods
@@ -58,12 +59,34 @@ class ActivityStripView: UIView, NibLoadableView, UICollectionViewDelegate,  UIC
         collectionView.allowsMultipleSelection = false
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        if (!_preselectedItems.isEmpty) {
+            for preselected in _preselectedItems {
+                //TODO: Cambiar name por id
+                if let i = items.firstIndex(where: {$0.name == preselected.name}) {
+                    collectionView.selectItem(at: IndexPath(row: i, section: 0), animated: false, scrollPosition: .top)
+                }
+            }
+
+        }
+    }
+    
     override var intrinsicContentSize: CGSize {
         return CGSize(width: UIView.noIntrinsicMetric, height: Constants.height)
     }
     
     func allowSelection(_ allow: Bool) {
         collectionView.allowsSelection = allow
+    }
+    
+    func setSelectedItems(items: [ActivityModel]) {
+        _preselectedItems = items
+    }
+    
+    func allowsMultipleSelection(_ allows: Bool) {
+        collectionView.allowsMultipleSelection = allows
     }
     
     // MARK: - UICollectionViewDatasource

@@ -21,6 +21,9 @@ class TrainerManagementViewController: BaseViewController, TrainerManagementCont
     @IBOutlet weak var whereView: UIView!
     @IBOutlet weak var lessonsView: UIView!
     
+    private lazy var activityView: ActivityStripView = setupActivitiesView()
+    private lazy var locationView: LocationStripView = setupLocationsView()
+    
     lazy var presenter: TrainerManagementContract.Presenter = TrainerManagementViewPresenter(
         view: self,
         trainerManagementUseCase: TrainerManagementUseCase(
@@ -42,15 +45,20 @@ class TrainerManagementViewController: BaseViewController, TrainerManagementCont
         self.tabBarController?.tabBar.isHidden = false
         
         userNameLabel.text = "\(UserSettings.user?.name ?? NSLocalizedString("trainer_management_name_unknown_first_text", comment: "")) \(UserSettings.user?.lastName ?? NSLocalizedString("trainer_management_name_unknown_second_text", comment: ""))"
+
+        addRightButtons([.RightButtonTypeLocation, .RightButtonTypeSport], action: #selector(navigationButtonTapped(sender:)))
         
-        let activityView = setupActivitiesView()
-        let locationView = setupLocationsView()
-        
+        activityView = setupActivitiesView()
+        locationView = setupLocationsView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
         activityView.items = UserSettings.user?.activities ?? []
         locationView.items = UserSettings.user?.locations ?? []
-        refreshLocationsHeight()
         
-        addRightButtons([.RightButtonTypeLocation, .RightButtonTypeSport], action: #selector(navigationButtonTapped(sender:)))
+        refreshLocationsHeight()
     }
     
     @objc func navigationButtonTapped(sender: UIButton) {

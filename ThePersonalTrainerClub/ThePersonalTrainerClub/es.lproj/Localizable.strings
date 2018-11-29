@@ -50,3 +50,6 @@
 "trainer_management_sports_label" = "¿Qué enseñas?";
 "trainer_management_locations_label" = "¿Dónde enseñas?";
 "trainer_management_lessons_label" = "Clases abiertas";
+
+"add_sport_title" = "Alta deporte";
+"add_sport_error" = "Error al añadir deportes";

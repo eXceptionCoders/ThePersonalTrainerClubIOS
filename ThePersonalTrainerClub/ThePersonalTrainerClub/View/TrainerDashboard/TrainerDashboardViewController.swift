@@ -26,7 +26,7 @@ class TrainerDashboardViewController: BaseTabBarViewController {
     func initTrainerView() {
         let trainerManagerVC = TrainerManagementViewController()
         let firstVC = trainerManagerVC.embedInNavigationController()
-        firstVC.tabBarItem = UITabBarItem(title: "Management", image: UIImage(named: "TaskListUnselected")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named:"TaskListSelected")?.withRenderingMode(.alwaysOriginal))
+        firstVC.tabBarItem = UITabBarItem(title: NSLocalizedString("trainer_management_title", comment: ""), image: UIImage(named: "TaskListUnselected")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named:"TaskListSelected")?.withRenderingMode(.alwaysOriginal))
         firstVC.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.customDark], for: .normal)
         firstVC.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
         
@@ -55,6 +55,12 @@ class TrainerDashboardViewController: BaseTabBarViewController {
     
     func initClientView() {
         var tabBarList: [UIViewController] = []
+        
+        let athleteManagerVC = AthleteManagementViewController()
+        let firstVC = athleteManagerVC.embedInNavigationController()
+        firstVC.tabBarItem = UITabBarItem(title: "Management", image: UIImage(named: "TaskListUnselected")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named:"TaskListSelected")?.withRenderingMode(.alwaysOriginal))
+        firstVC.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.customDark], for: .normal)
+        firstVC.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
         
         if UserSettings.user?.coach ?? false {
             let switchModeVC = TypeSelectionViewController()
