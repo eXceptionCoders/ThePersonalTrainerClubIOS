@@ -21,6 +21,7 @@ enum Endpoint {
     case trainerClasses(requestModel: TrainerClassRequest)
     // Activities
     case sports(requestModel: SportRequest)
+    case setSports(requestModel: SetSportRequest)
 }
 
 extension Endpoint {
@@ -74,6 +75,8 @@ private extension Endpoint {
             return .get
         case .sports(_):
             return .get
+        case .setSports(_):
+            return .post
         }
     }
     
@@ -95,7 +98,10 @@ private extension Endpoint {
             return "TODO: /api/v1/es/classes/trainers/\(requestModel.trainerId)"
             
         case .sports(_):
-            return "TODO: /api/v1/es/activities"
+            return "/api/v1/es/sports"
+            
+        case .setSports(_):
+            return "/api/v1/es/data/sport"
         }
     }
 
@@ -140,6 +146,9 @@ private extension Endpoint {
         case .sports(_):
             return [:]
             
+        case .setSports(let requestModel):
+            return [requestModel.listSportKey: requestModel.listSport]
+
         default:
             return [:]
         }

@@ -15,11 +15,15 @@ enum AddSportContract {
 }
 
 protocol AddSportView: BaseContract.View {
-    
+    func showSports(sports: [ActivityModel])
+    func showError()
 }
 
 protocol AddSportPresenter: BaseContract.Presenter {
+    func create()
+    func saveSports(indexPaths: [IndexPath]?)
 }
 
 protocol AddSportNavigator: BaseContract.Navigator {
+    func popBack()
 }

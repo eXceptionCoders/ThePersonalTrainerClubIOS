@@ -62,6 +62,10 @@ extension UIViewController {
         }
     }
     
+    func addDoneButton(action: Selector) {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: action)
+    }
+    
     private func buttonForType<T: RawRepresentable>(_ type: T) -> UIButton where T.RawValue == String {
         let image = UIImage(named: type.rawValue)
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 44, height: 44))

@@ -50,3 +50,6 @@
 "trainer_management_sports_label" = "What do you teach?";
 "trainer_management_locations_label" = "Where do you teach?";
 "trainer_management_lessons_label" = "Open lessons";
+
+"add_sport_title" = "Set activity";
+"add_sport_error" = "Error setting activities";

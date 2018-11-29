@@ -51,9 +51,16 @@ final class UserSettings {
             return data
         }
         set(newValue) {
-            let encoder = JSONEncoder()
-            if let encoded = try? encoder.encode(newValue) {
-                UserDefaults.standard.set(encoded, forKey: "user")
+            if let newValue = newValue {
+                _user = newValue
+                
+                let encoder = JSONEncoder()
+                if let encoded = try? encoder.encode(newValue) {
+                    UserDefaults.standard.set(encoded, forKey: "user")
+                }
+            } else {
+                UserDefaults.standard.removeObject(forKey: "user")
+                _user = nil
             }
         }
     }
