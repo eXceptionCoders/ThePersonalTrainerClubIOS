@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TrainerManagementViewController" customModule="ThePersonalTrainerClub" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="Yl8-Uc-9gz" id="UFn-Th-2SS"/>
                 <outlet property="contentView" destination="dpW-Nh-w7j" id="GAT-od-Dos"/>
                 <outlet property="lessonsLabel" destination="2lg-hC-V5n" id="GeX-fC-bsX"/>
                 <outlet property="lessonsView" destination="H5J-I9-KNi" id="2dG-ds-9kk"/>
@@ -33,7 +34,7 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dpW-Nh-w7j">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="489"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ont-RZ-p4p">
                                     <rect key="frame" x="16" y="16" width="382" height="457"/>
@@ -116,7 +117,7 @@
                                             <rect key="frame" x="0.0" y="377" width="382" height="80"/>
                                             <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="80" id="atm-A4-Pmc"/>
+                                                <constraint firstAttribute="height" constant="80" identifier="classHeightConstraint" id="atm-A4-Pmc"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -126,23 +127,29 @@
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="Ont-RZ-p4p" secondAttribute="trailing" constant="16" id="By1-iY-JyC"/>
                                 <constraint firstItem="Ont-RZ-p4p" firstAttribute="leading" secondItem="dpW-Nh-w7j" secondAttribute="leading" constant="16" id="XRC-t2-isD"/>
+                                <constraint firstAttribute="bottom" secondItem="Ont-RZ-p4p" secondAttribute="bottom" constant="16" id="fd9-li-tKo"/>
                                 <constraint firstItem="Ont-RZ-p4p" firstAttribute="top" secondItem="dpW-Nh-w7j" secondAttribute="top" constant="16" id="rnZ-Zu-0NG"/>
                             </constraints>
                         </view>
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="dpW-Nh-w7j" secondAttribute="trailing" id="25h-e8-kaP"/>
-                        <constraint firstItem="dpW-Nh-w7j" firstAttribute="centerX" secondItem="D04-Lg-EgO" secondAttribute="centerX" id="HtV-0I-6d9"/>
                         <constraint firstAttribute="bottom" secondItem="dpW-Nh-w7j" secondAttribute="bottom" id="RNI-NH-uFL"/>
                         <constraint firstItem="dpW-Nh-w7j" firstAttribute="top" secondItem="D04-Lg-EgO" secondAttribute="top" id="Sh1-as-krJ"/>
-                        <constraint firstItem="dpW-Nh-w7j" firstAttribute="centerY" secondItem="D04-Lg-EgO" secondAttribute="centerY" id="b82-D7-9k3"/>
+                        <constraint firstItem="dpW-Nh-w7j" firstAttribute="width" secondItem="D04-Lg-EgO" secondAttribute="width" id="gyh-8S-A0K"/>
                         <constraint firstItem="dpW-Nh-w7j" firstAttribute="leading" secondItem="D04-Lg-EgO" secondAttribute="leading" id="qHJ-ny-rM7"/>
                     </constraints>
                 </scrollView>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Yl8-Uc-9gz">
+                    <rect key="frame" x="188.66666666666666" y="429.66666666666669" width="37" height="37"/>
+                    <color key="color" cocoaTouchSystemColor="darkTextColor"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="D04-Lg-EgO" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="1Tc-Tt-nlF"/>
+                <constraint firstItem="Yl8-Uc-9gz" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="GN2-Ke-cbN"/>
+                <constraint firstItem="Yl8-Uc-9gz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="IgL-Rz-C3r"/>
                 <constraint firstItem="D04-Lg-EgO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="MST-f3-Q82"/>
                 <constraint firstItem="D04-Lg-EgO" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="bNS-0A-3N0"/>
                 <constraint firstItem="D04-Lg-EgO" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="gT8-Xk-fUw"/>

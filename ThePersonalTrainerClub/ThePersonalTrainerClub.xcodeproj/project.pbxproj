@@ -29,15 +29,18 @@
 		5E92C2EF21AC807D00699A37 /* AddSportViewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E92C2EE21AC807D00699A37 /* AddSportViewContract.swift */; };
 		5E92C2F121AC808700699A37 /* AddSportViewNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E92C2F021AC808700699A37 /* AddSportViewNavigator.swift */; };
 		5E977F3D21AF257D00DD6E50 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E977F3C21AF257D00DD6E50 /* UIViewExtension.swift */; };
-		5E977F4121AF2F7200DD6E50 /* AthleteManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E977F3F21AF2F7200DD6E50 /* AthleteManagementViewController.swift */; };
-		5E977F4221AF2F7200DD6E50 /* AthleteManagementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E977F4021AF2F7200DD6E50 /* AthleteManagementViewController.xib */; };
-		5E977F4421AF2F8200DD6E50 /* AthleteManagementViewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E977F4321AF2F8200DD6E50 /* AthleteManagementViewContract.swift */; };
-		5E977F4621AF2F8F00DD6E50 /* AthleteManagementViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E977F4521AF2F8F00DD6E50 /* AthleteManagementViewPresenter.swift */; };
 		5E977F4821AFF1B600DD6E50 /* ActivityUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E977F4721AFF1B600DD6E50 /* ActivityUseCase.swift */; };
 		5E977F4A21B03CC100DD6E50 /* SetActivitiesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E977F4921B03CC100DD6E50 /* SetActivitiesProvider.swift */; };
 		5E977F4C21B03D9400DD6E50 /* SetSportRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E977F4B21B03D9400DD6E50 /* SetSportRequest.swift */; };
 		5E977F4E21B03E7F00DD6E50 /* SetActivitiesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E977F4D21B03E7F00DD6E50 /* SetActivitiesModel.swift */; };
 		5E977F5021B0406400DD6E50 /* SetActivityUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E977F4F21B0406400DD6E50 /* SetActivityUseCase.swift */; };
+		5E977F5821B1620300DD6E50 /* ClassStripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E977F5621B1620300DD6E50 /* ClassStripCell.swift */; };
+		5E977F5921B1620300DD6E50 /* ClassStripCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E977F5721B1620300DD6E50 /* ClassStripCell.xib */; };
+		5E977F5B21B1621000DD6E50 /* ClassStripLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E977F5A21B1621000DD6E50 /* ClassStripLayout.swift */; };
+		5E977F5D21B1623D00DD6E50 /* ClassStripView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E977F5C21B1623D00DD6E50 /* ClassStripView.xib */; };
+		5E977F5F21B1624900DD6E50 /* ClassStripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E977F5E21B1624900DD6E50 /* ClassStripView.swift */; };
+		5E977F6121B1F63B00DD6E50 /* FindAthleteClassesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E977F6021B1F63B00DD6E50 /* FindAthleteClassesUseCase.swift */; };
+		5E977F6321B267C100DD6E50 /* LocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E977F6221B267C100DD6E50 /* LocationProvider.swift */; };
 		5EBC1C09219205AE00BCBBC7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBC1C07219205AE00BCBBC7 /* LoginViewController.swift */; };
 		5EBC1C0A219205AE00BCBBC7 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EBC1C08219205AE00BCBBC7 /* LoginViewController.xib */; };
 		5EBC1C122193277A00BCBBC7 /* LoginViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBC1C112193277A00BCBBC7 /* LoginViewPresenter.swift */; };
@@ -168,15 +171,18 @@
 		5E92C2EE21AC807D00699A37 /* AddSportViewContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSportViewContract.swift; sourceTree = "<group>"; };
 		5E92C2F021AC808700699A37 /* AddSportViewNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSportViewNavigator.swift; sourceTree = "<group>"; };
 		5E977F3C21AF257D00DD6E50 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
-		5E977F3F21AF2F7200DD6E50 /* AthleteManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteManagementViewController.swift; sourceTree = "<group>"; };
-		5E977F4021AF2F7200DD6E50 /* AthleteManagementViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AthleteManagementViewController.xib; sourceTree = "<group>"; };
-		5E977F4321AF2F8200DD6E50 /* AthleteManagementViewContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteManagementViewContract.swift; sourceTree = "<group>"; };
-		5E977F4521AF2F8F00DD6E50 /* AthleteManagementViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteManagementViewPresenter.swift; sourceTree = "<group>"; };
 		5E977F4721AFF1B600DD6E50 /* ActivityUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityUseCase.swift; sourceTree = "<group>"; };
 		5E977F4921B03CC100DD6E50 /* SetActivitiesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetActivitiesProvider.swift; sourceTree = "<group>"; };
 		5E977F4B21B03D9400DD6E50 /* SetSportRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetSportRequest.swift; sourceTree = "<group>"; };
 		5E977F4D21B03E7F00DD6E50 /* SetActivitiesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetActivitiesModel.swift; sourceTree = "<group>"; };
 		5E977F4F21B0406400DD6E50 /* SetActivityUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetActivityUseCase.swift; sourceTree = "<group>"; };
+		5E977F5621B1620300DD6E50 /* ClassStripCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassStripCell.swift; sourceTree = "<group>"; };
+		5E977F5721B1620300DD6E50 /* ClassStripCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClassStripCell.xib; sourceTree = "<group>"; };
+		5E977F5A21B1621000DD6E50 /* ClassStripLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassStripLayout.swift; sourceTree = "<group>"; };
+		5E977F5C21B1623D00DD6E50 /* ClassStripView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClassStripView.xib; sourceTree = "<group>"; };
+		5E977F5E21B1624900DD6E50 /* ClassStripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassStripView.swift; sourceTree = "<group>"; };
+		5E977F6021B1F63B00DD6E50 /* FindAthleteClassesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAthleteClassesUseCase.swift; sourceTree = "<group>"; };
+		5E977F6221B267C100DD6E50 /* LocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProvider.swift; sourceTree = "<group>"; };
 		5EBC1C07219205AE00BCBBC7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5EBC1C08219205AE00BCBBC7 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		5EBC1C112193277A00BCBBC7 /* LoginViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewPresenter.swift; sourceTree = "<group>"; };
@@ -375,21 +381,21 @@
 			path = AddLocation;
 			sourceTree = "<group>";
 		};
-		5E977F3E21AF2F4A00DD6E50 /* AthleteManagement */ = {
+		5E977F5121B1619500DD6E50 /* ClassesStripView */ = {
 			isa = PBXGroup;
 			children = (
-				5E977F3F21AF2F7200DD6E50 /* AthleteManagementViewController.swift */,
-				5E977F4021AF2F7200DD6E50 /* AthleteManagementViewController.xib */,
-				5E977F4321AF2F8200DD6E50 /* AthleteManagementViewContract.swift */,
-				5E977F4521AF2F8F00DD6E50 /* AthleteManagementViewPresenter.swift */,
+				5E977F5621B1620300DD6E50 /* ClassStripCell.swift */,
+				5E977F5721B1620300DD6E50 /* ClassStripCell.xib */,
+				5E977F5A21B1621000DD6E50 /* ClassStripLayout.swift */,
+				5E977F5E21B1624900DD6E50 /* ClassStripView.swift */,
+				5E977F5C21B1623D00DD6E50 /* ClassStripView.xib */,
 			);
-			path = AthleteManagement;
+			path = ClassesStripView;
 			sourceTree = "<group>";
 		};
 		5EBC1C042191902300BCBBC7 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5E977F3E21AF2F4A00DD6E50 /* AthleteManagement */,
 				5E92C2D521AC7F8D00699A37 /* AddLocation */,
 				5E92C2D421AC7F6500699A37 /* AddSport */,
 				633D77DA21AAEC5A00A6FEE1 /* UserSettings */,
@@ -487,6 +493,7 @@
 				6373043621985D4500E726E2 /* TrainerManagementUseCase.swift */,
 				5E977F4721AFF1B600DD6E50 /* ActivityUseCase.swift */,
 				5E977F4F21B0406400DD6E50 /* SetActivityUseCase.swift */,
+				5E977F6021B1F63B00DD6E50 /* FindAthleteClassesUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -500,6 +507,7 @@
 				6373043821985DB100E726E2 /* ActivityProvider.swift */,
 				6373043A21985DCB00E726E2 /* UserProvider.swift */,
 				5E977F4921B03CC100DD6E50 /* SetActivitiesProvider.swift */,
+				5E977F6221B267C100DD6E50 /* LocationProvider.swift */,
 			);
 			path = Provider;
 			sourceTree = "<group>";
@@ -538,6 +546,7 @@
 		5EFB9E0D219B492C00D37E6E /* SharedViews */ = {
 			isa = PBXGroup;
 			children = (
+				5E977F5121B1619500DD6E50 /* ClassesStripView */,
 				63FB2E7721A1EE0F006E0320 /* LocationStripView */,
 				63FB2E6A21A0A5B8006E0320 /* ActivityStripView */,
 				5EFB9E0E219B493B00D37E6E /* Button */,
@@ -732,11 +741,11 @@
 			files = (
 				63FB2E8321A1F7A3006E0320 /* LocationStripView.xib in Resources */,
 				63FB2E7B21A1EE48006E0320 /* LocationStripCell.xib in Resources */,
+				5E977F5D21B1623D00DD6E50 /* ClassStripView.xib in Resources */,
 				5EBC1C0A219205AE00BCBBC7 /* LoginViewController.xib in Resources */,
 				63FB2E7621A19AB5006E0320 /* ActivityStripCell.xib in Resources */,
 				5E2070852184EA1B0084911F /* LaunchScreen.storyboard in Resources */,
 				63FB2E6E21A0A6F7006E0320 /* ActivityStripView.xib in Resources */,
-				5E977F4221AF2F7200DD6E50 /* AthleteManagementViewController.xib in Resources */,
 				5E92C2D921AC7FDB00699A37 /* AddSportViewController.xib in Resources */,
 				6373042121984EE600E726E2 /* NewClassViewController.xib in Resources */,
 				5E63349921A32E83007DD6AD /* Localizable.strings in Resources */,
@@ -746,6 +755,7 @@
 				5E92C2CD21A834CA00699A37 /* TypeSelectionViewController.xib in Resources */,
 				5EDB09452194CCDE0000A280 /* RegisterViewController.xib in Resources */,
 				637304062198461C00E726E2 /* TrainerDashboardViewController.xib in Resources */,
+				5E977F5921B1620300DD6E50 /* ClassStripCell.xib in Resources */,
 				5E92C2E321AC802200699A37 /* AddLocationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -800,9 +810,11 @@
 				5E977F3D21AF257D00DD6E50 /* UIViewExtension.swift in Sources */,
 				5EBC1C1B21932A3300BCBBC7 /* BaseViewContract.swift in Sources */,
 				6373043B21985DCB00E726E2 /* UserProvider.swift in Sources */,
+				5E977F5821B1620300DD6E50 /* ClassStripCell.swift in Sources */,
 				5EDB09552194D5080000A280 /* UIColorExtension.swift in Sources */,
 				63FB2E5F21A09FD4006E0320 /* Date+Utils.swift in Sources */,
 				63FB2E6921A0A465006E0320 /* ActivityStripLayout.swift in Sources */,
+				5E977F6121B1F63B00DD6E50 /* FindAthleteClassesUseCase.swift in Sources */,
 				63FB2E6721A0A07A006E0320 /* UICollectionView+Reusable.swift in Sources */,
 				63FB2E6121A09FF9006E0320 /* DateFormatter+Utils.swift in Sources */,
 				63FB2E8121A1F786006E0320 /* LocationStripView.swift in Sources */,
@@ -814,6 +826,7 @@
 				6373043F2198608500E726E2 /* LocationEntity.swift in Sources */,
 				5E92C2CC21A834CA00699A37 /* TypeSelectionViewController.swift in Sources */,
 				6373042D219850F700E726E2 /* ClassProvider.swift in Sources */,
+				5E977F5F21B1624900DD6E50 /* ClassStripView.swift in Sources */,
 				6373041D21984EBA00E726E2 /* NewClassViewPresenter.swift in Sources */,
 				633D77E221AAEF3400A6FEE1 /* UserSettingsViewNavigator.swift in Sources */,
 				5EBC1C1721932A0500BCBBC7 /* BaseViewController.swift in Sources */,
@@ -822,12 +835,12 @@
 				5EBC1C14219327E500BCBBC7 /* LoginViewContract.swift in Sources */,
 				5E92C2D821AC7FDB00699A37 /* AddSportViewController.swift in Sources */,
 				633DA1CD2198A42C00BA028C /* UserModel.swift in Sources */,
-				5E977F4421AF2F8200DD6E50 /* AthleteManagementViewContract.swift in Sources */,
 				6373041B21984EA800E726E2 /* NewClassViewNavigator.swift in Sources */,
 				6373040D21984DA300E726E2 /* TrainerManagementViewContract.swift in Sources */,
 				637304312198531C00E726E2 /* NewClassUseCase.swift in Sources */,
 				63FB2E7A21A1EE48006E0320 /* LocationStripCell.swift in Sources */,
 				5EBC1C1921932A1300BCBBC7 /* BaseViewPresenter.swift in Sources */,
+				5E977F6321B267C100DD6E50 /* LocationProvider.swift in Sources */,
 				630524FB21974E75004C4179 /* BaseResponse.swift in Sources */,
 				630524FF21978B4B004C4179 /* RegisterProvider.swift in Sources */,
 				633D77E621AB569C00A6FEE1 /* NewClassModel.swift in Sources */,
@@ -845,8 +858,8 @@
 				5E92C2EF21AC807D00699A37 /* AddSportViewContract.swift in Sources */,
 				5EDB09442194CCDE0000A280 /* RegisterViewController.swift in Sources */,
 				5E92C2D321A8364400699A37 /* TypeSelectionViewNavigator.swift in Sources */,
-				5E977F4121AF2F7200DD6E50 /* AthleteManagementViewController.swift in Sources */,
 				5EBC1C09219205AE00BCBBC7 /* LoginViewController.swift in Sources */,
+				5E977F5B21B1621000DD6E50 /* ClassStripLayout.swift in Sources */,
 				63FB2E6521A0A04E006E0320 /* UITableView+Reusable.swift in Sources */,
 				6373043921985DB100E726E2 /* ActivityProvider.swift in Sources */,
 				5EDB09472194CD460000A280 /* RegisterViewNavigator.swift in Sources */,
@@ -854,7 +867,6 @@
 				6373041921984E9B00E726E2 /* NewClassViewContract.swift in Sources */,
 				5E977F4A21B03CC100DD6E50 /* SetActivitiesProvider.swift in Sources */,
 				5E20707B2184EA1A0084911F /* AppDelegate.swift in Sources */,
-				5E977F4621AF2F8F00DD6E50 /* AthleteManagementViewPresenter.swift in Sources */,
 				6373042F2198510D00E726E2 /* NewClassEntity.swift in Sources */,
 				5EDB094121944F340000A280 /* LoginUseCase.swift in Sources */,
 				5EDB094B2194CDDA0000A280 /* RegisterViewPresenter.swift in Sources */,

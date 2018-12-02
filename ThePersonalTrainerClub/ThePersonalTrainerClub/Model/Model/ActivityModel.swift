@@ -11,6 +11,6 @@ import Foundation
 struct ActivityModel: Codable {
     let id: String
     let name: String
-    let icon: String
+    let icon: String?
     let category: String
 }

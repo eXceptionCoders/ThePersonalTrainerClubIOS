@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol LocationStripViewDelegate {
+    func onLocationTapped(_ model: LocationModel)
+}
+
 class LocationStripView: UIView, NibLoadableView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     private enum Constants {
@@ -18,9 +22,9 @@ class LocationStripView: UIView, NibLoadableView, UICollectionViewDelegate, UICo
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    func allowSelection(_ allow: Bool) {
-        collectionView.allowsSelection = allow
-    }
+    var delegate: LocationStripViewDelegate?
+    
+    var allowSelection: Bool = true
     
     // MARK: - Properties
     
@@ -68,6 +72,7 @@ class LocationStripView: UIView, NibLoadableView, UICollectionViewDelegate, UICo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LocationStripCell", for: indexPath) as! LocationStripCell
+        cell.allowSelection = allowSelection
         
         let model = items[indexPath.row]
         cell.locationLabel.text = "  \( model.description)"
@@ -82,5 +87,10 @@ class LocationStripView: UIView, NibLoadableView, UICollectionViewDelegate, UICo
         // let width = UIScreen.main.bounds.width
         let width = bounds.size.width
         return CGSize(width: width, height: CGFloat( height ))
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let model = items[indexPath.row]
+        delegate?.onLocationTapped(model)
     }
 }

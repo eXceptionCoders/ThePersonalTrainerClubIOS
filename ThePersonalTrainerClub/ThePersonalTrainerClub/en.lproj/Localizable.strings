@@ -53,3 +53,18 @@
 
 "add_sport_title" = "Set activity";
 "add_sport_error" = "Error setting activities";
+
+"athlete_management_title" = "Management";
+"athlete_management_trainer_label" = "Athlete";
+"athlete_management_name_unknown_first_text" = "Name:";
+"athlete_management_name_unknown_second_text" = "Unknown";
+"athlete_management_sports_label" = "What do you practise?";
+"athlete_management_locations_label" = "Where do you find classes?";
+"athlete_management_lessons_label" = "Open lessons";
+
+"cancel_button_title" = "Cancel";
+"trainer_title_label" = "Trainer";
+
+"remove_location_title" = "Delete location";
+"remove_location_message" = "Do you want to delete the \"%@\" location?";
+"remove_button_title" = "Delete";

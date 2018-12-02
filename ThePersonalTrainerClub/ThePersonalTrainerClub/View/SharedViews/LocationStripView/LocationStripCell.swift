@@ -15,6 +15,8 @@ class LocationStripCell: UICollectionViewCell, ReusableView, NibLoadableView {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var locationImage: UIImageView!
     
+    var allowSelection: Bool = true
+    
     override var isSelected: Bool {
         get { return super.isSelected }
         set {
@@ -42,10 +44,14 @@ class LocationStripCell: UICollectionViewCell, ReusableView, NibLoadableView {
     }
 
     private func markAsSelected() {
-        self.locationLabel.layer.borderColor = UIColor.customOrange.cgColor
+        if allowSelection {
+            self.locationLabel.layer.borderColor = UIColor.customOrange.cgColor
+        }
     }
     
     private func marAsUnselected() {
-        self.locationLabel.layer.borderColor = UIColor.white.cgColor
+        if allowSelection {
+            self.locationLabel.layer.borderColor = UIColor.white.cgColor
+        }
     }
 }

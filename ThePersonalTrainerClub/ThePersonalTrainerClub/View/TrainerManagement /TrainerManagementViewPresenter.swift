@@ -9,14 +9,15 @@
 import Foundation
 
 class TrainerManagementViewPresenter: BaseViewPresenter, TrainerManagementContract.Presenter {
-    
     private var view: TrainerManagementContract.View
     private var trainerManagementUseCase: TrainerManagementUseCase
+    private var findAthleteClassesUseCase: FindAthleteClassesUseCase
     private lazy var navigator: TrainerManagementContract.Navigator = TrainerManagementViewNavigator(view: view)
     
-    init(view: TrainerManagementContract.View, trainerManagementUseCase: TrainerManagementUseCase) {
+    init(view: TrainerManagementContract.View, trainerManagementUseCase: TrainerManagementUseCase, findAthleteClassesUseCase: FindAthleteClassesUseCase) {
         self.view = view
         self.trainerManagementUseCase = trainerManagementUseCase
+        self.findAthleteClassesUseCase = findAthleteClassesUseCase
     }
     
     func fetchTrainer(_ id: String) {
@@ -37,19 +38,23 @@ class TrainerManagementViewPresenter: BaseViewPresenter, TrainerManagementContra
         }
     }
     
-    func fetchClasses(_ id: String) {
-        if (id.isEmpty) {
-            return
-        }
+    func fetchClasses() {
+        view.showLoading()
         
-        trainerManagementUseCase.fetchClasses(id) { classes, error, errorsMap in
-            if let error = error {
-                self.view.showAlertMessage(title: nil, message: "\(error)")
-            } else if let data = classes {
-                self.view.setClasses(data)
-            }
+        if (UserSettings.user?.coach ?? false) && UserSettings.showCoachView {
+            //Trainer: Obtener clases de UserSettings.user
+            view.hideLoading()
             
-            self.view.hideLoading()
+        } else {
+            findAthleteClassesUseCase.findClasses { (athleteModel, error) in
+                self.view.hideLoading()
+                
+                if error != nil {
+                    self.view.showAlertMessage(title: "Error", message: error.debugDescription)
+                } else {
+                    self.view.setClasses(athleteModel!)
+                }
+            }
         }
     }
     
@@ -59,5 +64,11 @@ class TrainerManagementViewPresenter: BaseViewPresenter, TrainerManagementContra
     
     func onAddLocationTapped() {
         navigator.navigateToAddLocation()
+    }
+    
+    func onLocationTapped(location: LocationModel) {
+        view.showLoading()
+        
+        
     }
 }

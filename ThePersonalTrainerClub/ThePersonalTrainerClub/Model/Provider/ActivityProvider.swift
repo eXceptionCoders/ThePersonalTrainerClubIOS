@@ -129,7 +129,7 @@ private class ActivityProviderMapper {
             return ActivityModel(
                 id: $0._id,
                 name: $0.name,
-                icon: $0.icon,
+                icon: $0.icon ?? "",
                 category: "" // $0.category ?? ""
             )
         }

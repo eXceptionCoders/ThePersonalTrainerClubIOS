@@ -43,7 +43,7 @@
 "type_selection_title" = "Configuración";
 "type_selection_title_label" = "Elige tu estado";
 
-"trainer_management_title" = "Gestion";
+"trainer_management_title" = "Gestión";
 "trainer_management_trainer_label" = "Entrenador";
 "trainer_management_name_unknown_first_text" = "Nombre:";
 "trainer_management_name_unknown_second_text" = "Desconocido";
@@ -53,3 +53,18 @@
 
 "add_sport_title" = "Alta deporte";
 "add_sport_error" = "Error al añadir deportes";
+
+"athlete_management_title" = "Gestión";
+"athlete_management_trainer_label" = "Deportista";
+"athlete_management_name_unknown_first_text" = "Nombre:";
+"athlete_management_name_unknown_second_text" = "Desconocido";
+"athlete_management_sports_label" = "¿Qué practicas?";
+"athlete_management_locations_label" = "¿Dónde buscas clases?";
+"athlete_management_lessons_label" = "Clases abiertas";
+
+"cancel_button_title" = "Cancelar";
+"trainer_title_label" = "Entrenador";
+
+"remove_location_title" = "Borrar ubicación";
+"remove_location_message" = "¿Quieres borrar la ubicación \"%@\"?";
+"remove_button_title" = "Borrar";

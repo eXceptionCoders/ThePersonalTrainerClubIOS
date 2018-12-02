@@ -48,6 +48,7 @@ private class UserProviderMapper {
         if let loc = data.locations {
             locations = loc.map {
                 return LocationModel(
+                    id: $0._id,
                     type: $0.type,
                     coordinates: $0.coordinates,
                     description: $0.description
@@ -61,7 +62,7 @@ private class UserProviderMapper {
                 return ActivityModel(
                     id: $0._id,
                     name: $0.name,
-                    icon: $0.icon,
+                    icon: $0.icon ?? "",
                     category: ""
                 )
             }
