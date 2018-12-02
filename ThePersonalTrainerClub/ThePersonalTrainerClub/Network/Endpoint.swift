@@ -22,6 +22,8 @@ enum Endpoint {
     // Activities
     case sports(requestModel: SportRequest)
     case setSports(requestModel: SetSportRequest)
+    case findAthleteClass()
+    case deleteLocation(requestModel: DeleteLocationRequest)
 }
 
 extension Endpoint {
@@ -77,6 +79,10 @@ private extension Endpoint {
             return .get
         case .setSports(_):
             return .post
+        case .findAthleteClass():
+            return .get
+        case .deleteLocation(_):
+            return .post
         }
     }
     
@@ -102,6 +108,12 @@ private extension Endpoint {
             
         case .setSports(_):
             return "/api/v1/es/data/sport"
+            
+        case .findAthleteClass():
+            return "/api/v1/es/class/find"
+            
+        case .deleteLocation(_):
+            return "/api/v1/es/location/delete"
         }
     }
 
@@ -124,9 +136,6 @@ private extension Endpoint {
                 requestModel.passwordKey: requestModel.password,
             ]
             
-        case .userData(_):
-            return [:]
-            
         /*
         case .newClass(let requestModel):
             return [
@@ -140,15 +149,12 @@ private extension Endpoint {
             ]
         */
 
-        case .trainerClasses(_):
-            return [:]
-            
-        case .sports(_):
-            return [:]
-            
         case .setSports(let requestModel):
             return [requestModel.listSportKey: requestModel.listSport]
 
+        case .deleteLocation(let requestModel):
+            return [requestModel.idKey : requestModel.id]
+            
         default:
             return [:]
         }

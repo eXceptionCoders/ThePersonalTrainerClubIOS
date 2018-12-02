@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="FQl-dJ-HU2" customClass="ClassStripView" customModule="ThePersonalTrainerClub" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="418" height="184"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="quW-oS-A7S">
+                    <rect key="frame" x="0.0" y="0.0" width="418" height="184"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewLayout key="collectionViewLayout" id="Ktq-3g-CBG" customClass="LocationStripLayout" customModule="ThePersonalTrainerClub" customModuleProvider="target"/>
+                    <connections>
+                        <outlet property="dataSource" destination="FQl-dJ-HU2" id="F6N-JA-Mc6"/>
+                        <outlet property="delegate" destination="FQl-dJ-HU2" id="kvO-vM-Fcp"/>
+                    </connections>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="quW-oS-A7S" firstAttribute="width" secondItem="FQl-dJ-HU2" secondAttribute="width" id="6LG-tv-S1O"/>
+                <constraint firstItem="quW-oS-A7S" firstAttribute="height" secondItem="FQl-dJ-HU2" secondAttribute="height" id="X2L-z2-avP"/>
+                <constraint firstItem="quW-oS-A7S" firstAttribute="top" secondItem="fL0-QH-IPX" secondAttribute="top" id="eCK-7e-soC"/>
+                <constraint firstItem="fL0-QH-IPX" firstAttribute="bottom" secondItem="quW-oS-A7S" secondAttribute="bottom" id="r3c-kC-Mp1"/>
+                <constraint firstItem="fL0-QH-IPX" firstAttribute="trailing" secondItem="quW-oS-A7S" secondAttribute="trailing" id="tZl-rS-UQi"/>
+                <constraint firstItem="quW-oS-A7S" firstAttribute="leading" secondItem="fL0-QH-IPX" secondAttribute="leading" id="yUm-SK-fMS"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="fL0-QH-IPX"/>
+            <connections>
+                <outlet property="collectionView" destination="quW-oS-A7S" id="DDq-s1-Kj2"/>
+            </connections>
+            <point key="canvasLocation" x="73.599999999999994" y="-170.91454272863569"/>
+        </view>
+    </objects>
+</document>

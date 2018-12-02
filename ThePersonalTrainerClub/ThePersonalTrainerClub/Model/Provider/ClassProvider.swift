@@ -52,6 +52,23 @@ class ClassProvider {
             }
         }
     }
+    
+    func fetchClassesForAthlete(completion: @escaping ([ClassModel]?, Error?, [String: String]?) -> Void) {
+        webService.load(AthleteClassResponse.self, from: Endpoint.findAthleteClass()) { responseObject, error in
+            if let error = error {
+                switch error {
+                case WebServiceError.notFound:
+                    completion(nil, ClassError.notFound, responseObject?.error)
+                default:
+                    completion(nil, ClassError.otherError, responseObject?.error)
+                }
+            } else if let response = responseObject {
+                completion(AthleteClassProviderMapper.mapEntityToModel(response: response), nil, nil)
+            } else {
+                completion(nil, ClassError.otherError, responseObject?.error)
+            }
+        }
+    }
 }
 
 private class ClassProviderMapper {
@@ -60,6 +77,7 @@ private class ClassProviderMapper {
             instructor: model.instructor,
             sport: model.sport,
             location: LocationEntity(
+                _id: model.location.id,
                 type: model.location.type,
                 description: model.location.description,
                 coordinates: model.location.coordinates
@@ -78,10 +96,11 @@ private class ClassProviderMapper {
                 sport: ActivityModel(
                     id: $0.sport._id,
                     name: $0.sport.name,
-                    icon: $0.sport.icon,
+                    icon: $0.sport.icon ?? "",
                     category: ""
                 ),
                 location: LocationModel(
+                    id: $0.location._id,
                     type: $0.location.type,
                     coordinates: $0.location.coordinates,
                     description: $0.location.description
@@ -89,7 +108,42 @@ private class ClassProviderMapper {
                 description: $0.description,
                 price: $0.price,
                 quota: $0.quota,
-                duration: $0.duration
+                duration: $0.duration,
+                registered: nil,
+                instructor: nil
+            )
+        }
+    }
+}
+
+private class AthleteClassProviderMapper {
+    class func mapEntityToModel(response: AthleteClassResponse) -> [ClassModel] {
+        return (response.data ?? []).map {
+            return ClassModel(
+                id: $0._id,
+                sport: ActivityModel(
+                    id: $0.sport._id,
+                    name: $0.sport.name,
+                    icon: $0.sport.icon ?? "",
+                    category: ""
+                ),
+                location: LocationModel(
+                    id: $0.location._id,
+                    type: $0.location.type,
+                    coordinates: $0.location.coordinates,
+                    description: $0.location.description
+                ),
+                description: $0.description,
+                price: $0.price,
+                quota: $0.quota,
+                duration: $0.duration,
+                registered: $0.registered ?? 0,
+                instructor: TrainerModel (
+                    id: $0.instructor._id,
+                    name: $0.instructor.name,
+                    lastname: $0.instructor.lastname,
+                    thumbnail: $0.instructor.thumbnail
+                )
             )
         }
     }

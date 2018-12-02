@@ -16,4 +16,13 @@ struct ClassModel: Codable {
     let price: Float
     let quota: Int
     let duration: Int
+    let registered: Int?
+    let instructor: TrainerModel?
+}
+
+struct TrainerModel: Decodable, Encodable {
+    let id: String
+    let name: String
+    let lastname: String
+    let thumbnail: String
 }

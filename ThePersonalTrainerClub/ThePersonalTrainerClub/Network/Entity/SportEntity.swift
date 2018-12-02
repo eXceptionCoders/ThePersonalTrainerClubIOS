@@ -24,5 +24,5 @@ struct SportEntity: Decodable, Encodable {
     let _id: String
     let name: String
     // let category: String?
-    let icon: String
+    let icon: String?
 }

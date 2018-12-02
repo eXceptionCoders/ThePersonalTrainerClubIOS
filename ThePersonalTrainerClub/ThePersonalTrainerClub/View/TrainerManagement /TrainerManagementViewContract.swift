@@ -21,7 +21,8 @@ protocol TrainerManagementView: BaseContract.View {
 
 protocol TrainerManagementPresenter: BaseContract.Presenter {
     func fetchTrainer(_ id: String)
-    func fetchClasses(_ id: String)
+    func fetchClasses()
+    func onLocationTapped(location: LocationModel)
     func onAddSportTapped()
     func onAddLocationTapped()
 }
