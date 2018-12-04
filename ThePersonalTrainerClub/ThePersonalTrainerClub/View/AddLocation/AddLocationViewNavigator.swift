@@ -6,4 +6,12 @@
 //  Copyright © 2018 eXceptionCoders. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class AddLocationViewNavigator: AddLocationContract.Navigator {
+    private var view: AddLocationContract.View
+    
+    init(view: AddLocationContract.View) {
+        self.view = view
+    }
+}

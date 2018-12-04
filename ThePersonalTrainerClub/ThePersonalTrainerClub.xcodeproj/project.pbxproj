@@ -41,6 +41,11 @@
 		5E977F5F21B1624900DD6E50 /* ClassStripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E977F5E21B1624900DD6E50 /* ClassStripView.swift */; };
 		5E977F6121B1F63B00DD6E50 /* FindAthleteClassesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E977F6021B1F63B00DD6E50 /* FindAthleteClassesUseCase.swift */; };
 		5E977F6321B267C100DD6E50 /* LocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E977F6221B267C100DD6E50 /* LocationProvider.swift */; };
+		5E977F6721B53B7100DD6E50 /* SearchLocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E977F6521B53B7100DD6E50 /* SearchLocationTableViewController.swift */; };
+		5E977F6821B53B7100DD6E50 /* SearchLocationTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E977F6621B53B7100DD6E50 /* SearchLocationTableViewController.xib */; };
+		5E977F6B21B540A400DD6E50 /* SearchLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E977F6921B540A400DD6E50 /* SearchLocationTableViewCell.swift */; };
+		5E977F6C21B540A400DD6E50 /* SearchLocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E977F6A21B540A400DD6E50 /* SearchLocationTableViewCell.xib */; };
+		5E977F6E21B5E67300DD6E50 /* AddLocationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E977F6D21B5E67300DD6E50 /* AddLocationUseCase.swift */; };
 		5EBC1C09219205AE00BCBBC7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBC1C07219205AE00BCBBC7 /* LoginViewController.swift */; };
 		5EBC1C0A219205AE00BCBBC7 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EBC1C08219205AE00BCBBC7 /* LoginViewController.xib */; };
 		5EBC1C122193277A00BCBBC7 /* LoginViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBC1C112193277A00BCBBC7 /* LoginViewPresenter.swift */; };
@@ -183,6 +188,11 @@
 		5E977F5E21B1624900DD6E50 /* ClassStripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassStripView.swift; sourceTree = "<group>"; };
 		5E977F6021B1F63B00DD6E50 /* FindAthleteClassesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAthleteClassesUseCase.swift; sourceTree = "<group>"; };
 		5E977F6221B267C100DD6E50 /* LocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProvider.swift; sourceTree = "<group>"; };
+		5E977F6521B53B7100DD6E50 /* SearchLocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationTableViewController.swift; sourceTree = "<group>"; };
+		5E977F6621B53B7100DD6E50 /* SearchLocationTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchLocationTableViewController.xib; sourceTree = "<group>"; };
+		5E977F6921B540A400DD6E50 /* SearchLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationTableViewCell.swift; sourceTree = "<group>"; };
+		5E977F6A21B540A400DD6E50 /* SearchLocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchLocationTableViewCell.xib; sourceTree = "<group>"; };
+		5E977F6D21B5E67300DD6E50 /* AddLocationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationUseCase.swift; sourceTree = "<group>"; };
 		5EBC1C07219205AE00BCBBC7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5EBC1C08219205AE00BCBBC7 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		5EBC1C112193277A00BCBBC7 /* LoginViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewPresenter.swift; sourceTree = "<group>"; };
@@ -372,6 +382,7 @@
 		5E92C2D521AC7F8D00699A37 /* AddLocation */ = {
 			isa = PBXGroup;
 			children = (
+				5E977F6421B5334A00DD6E50 /* SearchController */,
 				5E92C2E021AC802200699A37 /* AddLocationViewController.swift */,
 				5E92C2E121AC802200699A37 /* AddLocationViewController.xib */,
 				5E92C2E621AC804300699A37 /* AddLocationViewPresenter.swift */,
@@ -391,6 +402,17 @@
 				5E977F5C21B1623D00DD6E50 /* ClassStripView.xib */,
 			);
 			path = ClassesStripView;
+			sourceTree = "<group>";
+		};
+		5E977F6421B5334A00DD6E50 /* SearchController */ = {
+			isa = PBXGroup;
+			children = (
+				5E977F6521B53B7100DD6E50 /* SearchLocationTableViewController.swift */,
+				5E977F6621B53B7100DD6E50 /* SearchLocationTableViewController.xib */,
+				5E977F6921B540A400DD6E50 /* SearchLocationTableViewCell.swift */,
+				5E977F6A21B540A400DD6E50 /* SearchLocationTableViewCell.xib */,
+			);
+			path = SearchController;
 			sourceTree = "<group>";
 		};
 		5EBC1C042191902300BCBBC7 /* View */ = {
@@ -494,6 +516,7 @@
 				5E977F4721AFF1B600DD6E50 /* ActivityUseCase.swift */,
 				5E977F4F21B0406400DD6E50 /* SetActivityUseCase.swift */,
 				5E977F6021B1F63B00DD6E50 /* FindAthleteClassesUseCase.swift */,
+				5E977F6D21B5E67300DD6E50 /* AddLocationUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -749,9 +772,11 @@
 				5E92C2D921AC7FDB00699A37 /* AddSportViewController.xib in Resources */,
 				6373042121984EE600E726E2 /* NewClassViewController.xib in Resources */,
 				5E63349921A32E83007DD6AD /* Localizable.strings in Resources */,
+				5E977F6C21B540A400DD6E50 /* SearchLocationTableViewCell.xib in Resources */,
 				5E2070822184EA1B0084911F /* Assets.xcassets in Resources */,
 				6373042921984F4800E726E2 /* TrainerManagementViewController.xib in Resources */,
 				633D77DE21AAEC8800A6FEE1 /* UserSettingsViewController.xib in Resources */,
+				5E977F6821B53B7100DD6E50 /* SearchLocationTableViewController.xib in Resources */,
 				5E92C2CD21A834CA00699A37 /* TypeSelectionViewController.xib in Resources */,
 				5EDB09452194CCDE0000A280 /* RegisterViewController.xib in Resources */,
 				637304062198461C00E726E2 /* TrainerDashboardViewController.xib in Resources */,
@@ -801,12 +826,15 @@
 				6373041121984DD800E726E2 /* TrainerManagementViewNavigator.swift in Sources */,
 				5E977F4C21B03D9400DD6E50 /* SetSportRequest.swift in Sources */,
 				633DA1CB21989D1D00BA028C /* ClassEntity.swift in Sources */,
+				5E977F6E21B5E67300DD6E50 /* AddLocationUseCase.swift in Sources */,
 				6373042B2198506E00E726E2 /* ClassModel.swift in Sources */,
 				6373043721985D4500E726E2 /* TrainerManagementUseCase.swift in Sources */,
 				637304082198467900E726E2 /* BaseTabBarViewController.swift in Sources */,
 				5EDB094D2194CDE50000A280 /* RegisterViewContract.swift in Sources */,
+				5E977F6721B53B7100DD6E50 /* SearchLocationTableViewController.swift in Sources */,
 				5E92C2E921AC804F00699A37 /* AddLocationViewContract.swift in Sources */,
 				5EFB9E10219B495C00D37E6E /* DefaultButton.swift in Sources */,
+				5E977F6B21B540A400DD6E50 /* SearchLocationTableViewCell.swift in Sources */,
 				5E977F3D21AF257D00DD6E50 /* UIViewExtension.swift in Sources */,
 				5EBC1C1B21932A3300BCBBC7 /* BaseViewContract.swift in Sources */,
 				6373043B21985DCB00E726E2 /* UserProvider.swift in Sources */,

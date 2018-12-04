@@ -33,7 +33,7 @@ class AddSportViewController: BaseViewController, AddSportContract.View {
     }
     
     func showError() {
-        showMessage(NSLocalizedString("add_sport_error", comment: ""))
+        showAlertMessage(title: nil, message: NSLocalizedString("add_sport_error", comment: ""))
     }
     
     func showSports(sports: [ActivityModel]) {

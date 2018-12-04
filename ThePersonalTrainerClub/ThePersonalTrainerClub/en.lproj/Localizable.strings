@@ -68,3 +68,14 @@
 "remove_location_title" = "Delete location";
 "remove_location_message" = "Do you want to delete the \"%@\" location?";
 "remove_button_title" = "Delete";
+
+"add_location_search_placeholder" = "Search for places";
+"add_location_set_location_title" = "Set new location";
+"add_location_location_description_placeholder" = "Location description";
+"add_location_location_placeholder" = "Location";
+"add_location_use_current_location_button_title" = "Use current location";
+"add_location_save_button_title" = "Save";
+"add_location_no_address_found" = "No matching addresses found";
+"add_location_no_last_location_message" = "No last location known";
+"add_location_user_location_error_message" = "Cannot get user location";
+"add_location_on_save_error_message" = "You need to provide a description and a location";
