@@ -68,3 +68,14 @@
 "remove_location_title" = "Borrar ubicación";
 "remove_location_message" = "¿Quieres borrar la ubicación \"%@\"?";
 "remove_button_title" = "Borrar";
+
+"add_location_search_placeholder" = "Busca ubicaciones";
+"add_location_set_location_title" = "Añadir una nueva ubicación";
+"add_location_location_description_placeholder" = "Descripción";
+"add_location_location_placeholder" = "Ubicación";
+"add_location_use_current_location_button_title" = "Usar ubicación actual";
+"add_location_save_button_title" = "Guardar";
+"add_location_no_address_found" = "No existe una ubicación que coincida";
+"add_location_no_last_location_message" = "No existe una última ubicación del usuario";
+"add_location_user_location_error_message" = "No se puede obtener la ubicación";
+"add_location_on_save_error_message" = "Necesitas proveer una descripción y una ubicación";

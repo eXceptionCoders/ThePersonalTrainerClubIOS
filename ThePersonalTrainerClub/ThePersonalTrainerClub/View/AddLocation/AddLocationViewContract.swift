@@ -7,3 +7,21 @@
 //
 
 import Foundation
+
+enum AddLocationContract {
+    typealias View = AddLocationView
+    typealias Presenter = AddLocationPresenter
+    typealias Navigator = AddLocationNavigator
+}
+
+protocol AddLocationView: BaseContract.View {
+    func onLocationSaved()
+    func onLocationError()
+}
+
+protocol AddLocationPresenter: BaseContract.Presenter {
+    func onAddLocation(description: String, latitude: Double, longitude: Double)
+}
+
+protocol AddLocationNavigator: BaseContract.Navigator {
+}

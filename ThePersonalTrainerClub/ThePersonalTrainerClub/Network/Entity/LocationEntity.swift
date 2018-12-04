@@ -12,7 +12,7 @@ struct LocationEntity: Decodable, Encodable {
     let _id: String
     let type: String
     let description: String
-    let coordinates: [Float]
+    let coordinates: [Double]
 }
 
 struct DeleteLocationRequest {
@@ -21,6 +21,23 @@ struct DeleteLocationRequest {
 }
 
 struct DeleteLocationResponse: BaseResponse {
+    var version: String
+    var status: String
+    var message: String
+    var datetime: String
+    var error: [String: String]?
+}
+
+struct AddLocationRequest {
+    let descriptionKey = "description"
+    let description: String
+    let longitudeKey = "longitude"
+    let longitude: Double
+    let latitudeKey = "latitude"
+    let latitude: Double
+}
+
+struct AddLocationResponse: BaseResponse {
     var version: String
     var status: String
     var message: String

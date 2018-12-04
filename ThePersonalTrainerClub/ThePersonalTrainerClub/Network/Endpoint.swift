@@ -23,7 +23,9 @@ enum Endpoint {
     case sports(requestModel: SportRequest)
     case setSports(requestModel: SetSportRequest)
     case findAthleteClass()
+    //Location
     case deleteLocation(requestModel: DeleteLocationRequest)
+    case addLocation(requestModel: AddLocationRequest)
 }
 
 extension Endpoint {
@@ -83,6 +85,8 @@ private extension Endpoint {
             return .get
         case .deleteLocation(_):
             return .post
+        case .addLocation(_):
+            return .post
         }
     }
     
@@ -114,6 +118,9 @@ private extension Endpoint {
             
         case .deleteLocation(_):
             return "/api/v1/es/location/delete"
+            
+        case .addLocation(_):
+            return "/api/v1/es/location/add"
         }
     }
 
@@ -154,6 +161,13 @@ private extension Endpoint {
 
         case .deleteLocation(let requestModel):
             return [requestModel.idKey : requestModel.id]
+            
+        case .addLocation(let requestModel):
+            return [
+                requestModel.descriptionKey: requestModel.description,
+                requestModel.longitudeKey: String(requestModel.longitude),
+                requestModel.latitudeKey: String(requestModel.latitude)
+            ]
             
         default:
             return [:]
