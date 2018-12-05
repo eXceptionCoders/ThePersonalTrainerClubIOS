@@ -14,6 +14,6 @@ struct NewClassModel: Codable {
     let location: LocationModel
     let description: String
     let price: Float
-    let quota: Int
+    let maxusers: Int
     let duration: Int
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-private var baseURL = "https://thepersonaltrainerappapi.azurewebsites.net"
+private var baseURL = "https://thepersonaltrainerclubapi-dev.azurewebsites.net"
 
 enum Endpoint {
     // Login & Register
@@ -18,11 +18,9 @@ enum Endpoint {
     case userData(requestModel: UserRequest)
     // Class methods
     case newClass(requestModel: NewClassRequest)
-    case trainerClasses(requestModel: TrainerClassRequest)
     // Activities
     case sports(requestModel: SportRequest)
     case setSports(requestModel: SetSportRequest)
-    case findAthleteClass()
     //Location
     case deleteLocation(requestModel: DeleteLocationRequest)
     case addLocation(requestModel: AddLocationRequest)
@@ -75,14 +73,10 @@ private extension Endpoint {
             return .get
         case .newClass(_):
             return .post
-        case .trainerClasses(_):
-            return .get
         case .sports(_):
             return .get
         case .setSports(_):
             return .post
-        case .findAthleteClass():
-            return .get
         case .deleteLocation(_):
             return .post
         case .addLocation(_):
@@ -99,22 +93,16 @@ private extension Endpoint {
             return "/api/v1/es/users/signup"
 
         case .userData(_):
-            return "/api/v1/es/data/user"
+            return "/api/v1/es/datauser"
             
         case .newClass(_):
             return "/api/v1/es/class/add"
-            
-        case .trainerClasses(let requestModel):
-            return "TODO: /api/v1/es/classes/trainers/\(requestModel.trainerId)"
             
         case .sports(_):
             return "/api/v1/es/sports"
             
         case .setSports(_):
             return "/api/v1/es/data/sport"
-            
-        case .findAthleteClass():
-            return "/api/v1/es/class/find"
             
         case .deleteLocation(_):
             return "/api/v1/es/location/delete"

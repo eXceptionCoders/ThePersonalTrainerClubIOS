@@ -15,7 +15,7 @@ struct NewClassRequest: Decodable, Encodable {
     let description: String
     let price: Float
     let duration: Int
-    let quota: Int
+    let maxusers: Int
 }
 
 struct NewClassResponse: BaseResponse {

@@ -9,9 +9,8 @@
 import Foundation
 
 struct LocationEntity: Decodable, Encodable {
-    let _id: String
     let type: String
-    let description: String
+    let description: String?
     let coordinates: [Double]
 }
 

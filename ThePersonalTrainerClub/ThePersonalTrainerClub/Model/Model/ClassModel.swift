@@ -10,14 +10,14 @@ import Foundation
 
 struct ClassModel: Codable {
     let id: String
+    let instructor: TrainerModel
     let sport: ActivityModel
     let location: LocationModel
     let description: String
     let price: Float
-    let quota: Int
+    let maxusers: Int
     let duration: Int
     let registered: Int?
-    let instructor: TrainerModel?
 }
 
 struct TrainerModel: Decodable, Encodable {

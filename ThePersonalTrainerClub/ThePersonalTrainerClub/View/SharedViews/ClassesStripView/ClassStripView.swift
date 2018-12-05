@@ -76,9 +76,9 @@ class ClassStripView: UIView, NibLoadableView, UICollectionViewDelegate, UIColle
         cell.sportNameLabel.text = model.sport.name
         cell.locationLabel.text = model.location.description
         cell.dateLabel.text = String(model.duration)
-        cell.registeredLabel.text = "\(model.registered ?? 0)/\(model.quota)"
+        cell.registeredLabel.text = "\(model.registered ?? 0)/\(model.maxusers)"
         cell.priceLabel.text = "\(model.price)€"
-        cell.trainerLabel.text = "\(model.instructor!.name) \(model.instructor!.lastname)"
+        cell.trainerLabel.text = "\(model.instructor.name) \(model.instructor.lastname)"
         cell.deleteButton.setTitle(NSLocalizedString("cancel_button_title", comment: ""), for: .normal)
         cell.trainerTitleLabel.text = NSLocalizedString("trainer_title_label", comment: "")
 

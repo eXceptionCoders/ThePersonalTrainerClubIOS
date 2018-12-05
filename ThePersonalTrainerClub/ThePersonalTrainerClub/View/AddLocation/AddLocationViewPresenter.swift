@@ -20,9 +20,8 @@ class AddLocationViewPresenter: BaseViewPresenter, AddLocationContract.Presenter
     }
     
     func onAddLocation(description: String, latitude: Double, longitude: Double) {
-        let locationModel = LocationModel(id: "",
-                                          type: "",
-                                          coordinates: [latitude,longitude],
+        let locationModel = LocationModel(type: "Point",
+                                          coordinates: [latitude, longitude],
                                           description: description)
         
         addLocationUseCase.addLocation(location: locationModel) { (success, error) in

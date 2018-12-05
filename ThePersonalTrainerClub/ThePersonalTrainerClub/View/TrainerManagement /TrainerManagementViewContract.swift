@@ -15,13 +15,12 @@ enum TrainerManagementContract {
 }
 
 protocol TrainerManagementView: BaseContract.View {
-    func setTrainer(_ trainer: UserModel)
+    func setUser(_ user: UserModel)
     func setClasses(_ classes: [ClassModel])
 }
 
 protocol TrainerManagementPresenter: BaseContract.Presenter {
-    func fetchTrainer(_ id: String)
-    func fetchClasses()
+    func fetchUser()
     func onLocationTapped(location: LocationModel)
     func onAddSportTapped()
     func onAddLocationTapped()

@@ -33,7 +33,7 @@ class NewClassViewPresenter: BaseViewPresenter, NewClassContract.Presenter {
             location: location,
             description: description,
             price: price,
-            quota: quota,
+            maxusers: quota,
             duration: 30
         )
         newClassUseCase.create(model: model) { loggedIn, error, errorsMap in

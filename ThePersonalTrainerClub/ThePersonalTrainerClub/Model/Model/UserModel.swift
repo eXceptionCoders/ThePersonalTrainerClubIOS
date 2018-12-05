@@ -20,4 +20,6 @@ struct UserModel: Codable {
     let locations: [LocationModel]
     let activities: [ActivityModel]
     let description: String
+    let classes: [ClassModel]?
+    let activeBookings: [ClassModel]?
 }

@@ -30,4 +30,26 @@ struct UserEntity: Decodable, Encodable {
     let thumbnail: String?
     let locations: [LocationEntity]?
     let sports: [SportEntity]?
+    let classes: [ClassEntity]?
+    let activeBookings: [ClassEntity]?
+}
+
+struct ClassEntity: Decodable, Encodable {
+    let _id: String
+    let instructor: TrainerEntity
+    let sport: SportEntity
+    let location: LocationEntity
+    let description: String
+    let place: String
+    let price: Float
+    let maxusers: Int
+    let duration: Int
+    let registered: Int?
+}
+
+struct TrainerEntity: Decodable, Encodable {
+    let _id: String
+    let name: String
+    let lastname: String
+    let thumbnail: String
 }

@@ -9,6 +9,7 @@
 import UIKit
 
 class TrainerManagementViewController: BaseViewController, TrainerManagementContract.View, LocationStripViewDelegate {
+
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
@@ -31,9 +32,7 @@ class TrainerManagementViewController: BaseViewController, TrainerManagementCont
         trainerManagementUseCase: TrainerManagementUseCase(
             userProvider: UserProvider(webService: WebService()),
             classProvider: ClassProvider(webService: WebService())
-        ),
-        findAthleteClassesUseCase: FindAthleteClassesUseCase(
-            provider: ClassProvider(webService: WebService()))
+        )
     )
     
     override func localizeView() {
@@ -59,12 +58,12 @@ class TrainerManagementViewController: BaseViewController, TrainerManagementCont
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = false
-        
-        userNameLabel.text = "\(UserSettings.user?.name ?? NSLocalizedString("trainer_management_name_unknown_first_text", comment: "")) \(UserSettings.user?.lastName ?? NSLocalizedString("trainer_management_name_unknown_second_text", comment: ""))"
+
+        if (UserSettings.user != nil) {
+            setUser(UserSettings.user!)
+        }
 
         addRightButtons([.RightButtonTypeLocation, .RightButtonTypeSport], action: #selector(navigationButtonTapped(sender:)))
-        
-        presenter.fetchClasses()
         
         activityView = setupActivitiesView()
         locationView = setupLocationsView()
@@ -74,10 +73,7 @@ class TrainerManagementViewController: BaseViewController, TrainerManagementCont
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        activityView.items = UserSettings.user?.activities ?? []
-        locationView.items = UserSettings.user?.locations ?? []
-        
-        refreshLocationsHeight()
+        presenter.fetchUser()
     }
     
     @objc func navigationButtonTapped(sender: UIButton) {
@@ -113,8 +109,13 @@ class TrainerManagementViewController: BaseViewController, TrainerManagementCont
         activityIndicator.stopAnimating()
     }
     
-    func setTrainer(_ trainer: UserModel) {
-        // TODO
+    func setUser(_ user: UserModel) {
+        userNameLabel.text = "\(user.name) \(user.lastName)"
+        
+        activityView.items = user.activities
+        locationView.items = user.locations
+        
+        refreshLocationsHeight()
     }
     
     func setClasses(_ classes: [ClassModel]) {

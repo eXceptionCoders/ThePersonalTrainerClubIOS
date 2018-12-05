@@ -48,10 +48,10 @@ private class UserProviderMapper {
         if let loc = data.locations {
             locations = loc.map {
                 return LocationModel(
-                    id: $0._id,
+                    // id: $0._id,
                     type: $0.type,
                     coordinates: $0.coordinates,
-                    description: $0.description
+                    description: $0.description ?? ""
                 )
             }
         }
@@ -79,12 +79,47 @@ private class UserProviderMapper {
             email: data.email,
             locations: locations,
             activities: activities,
-            description: "" // data.description
+            description: "", // data.description
+            classes: (data.classes ?? []).map { ClassProviderMapper.mapEntityToModel(data: $0) },
+            activeBookings: (data.activeBookings ?? []).map { ClassProviderMapper.mapEntityToModel(data: $0) }
         )
         
         UserSettings.user = user
         UserSettings.showCoachView = data.coach
         
         return user
+    }
+}
+
+
+private class ClassProviderMapper {
+    class func mapEntityToModel(data: ClassEntity) -> ClassModel {
+        let classData = ClassModel(
+            id: data._id,
+            instructor: TrainerModel(
+                id: data.instructor._id,
+                name: data.instructor.name,
+                lastname: data.instructor.lastname,
+                thumbnail: data.instructor.thumbnail
+            ),
+            sport: ActivityModel(
+                id: data.sport._id,
+                name: data.sport.name,
+                icon: data.sport.icon,
+                category: data.sport.category ?? ""
+            ),
+            location: LocationModel(
+                type: data.location.type,
+                coordinates: data.location.coordinates,
+                description: data.place
+            ),
+            description: data.description,
+            price: data.price,
+            maxusers: data.maxusers,
+            duration: data.duration,
+            registered: data.registered
+        )
+        
+        return classData
     }
 }

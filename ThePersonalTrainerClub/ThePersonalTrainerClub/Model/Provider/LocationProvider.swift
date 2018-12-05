@@ -52,9 +52,10 @@ class LocationProvider {
 }
 
 private class LocationProviderMapper {
+    // TODO: The locations don't have an id
     class func mapModelToEntity(model: LocationModel) -> DeleteLocationRequest {
         return DeleteLocationRequest(
-            id: model.id
+            id: "" // model.id
         )
     }
 }
