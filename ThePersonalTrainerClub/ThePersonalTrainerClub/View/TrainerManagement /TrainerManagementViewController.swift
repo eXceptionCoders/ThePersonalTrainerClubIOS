@@ -11,6 +11,7 @@ import UIKit
 class TrainerManagementViewController: BaseViewController, TrainerManagementContract.View, LocationStripViewDelegate {
 
     
+    @IBOutlet weak var thumbnailView: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var trainerTitleLabel: UILabel!
@@ -22,6 +23,8 @@ class TrainerManagementViewController: BaseViewController, TrainerManagementCont
     @IBOutlet weak var whereView: UIView!
     @IBOutlet weak var lessonsView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    private let operationQueue = OperationQueue()
     
     private lazy var activityView: ActivityStripView = setupActivitiesView()
     private lazy var locationView: LocationStripView = setupLocationsView()
@@ -63,6 +66,11 @@ class TrainerManagementViewController: BaseViewController, TrainerManagementCont
             setUser(UserSettings.user!)
         }
 
+        thumbnailView.layer.cornerRadius = thumbnailView.frame.size.width / 2
+        thumbnailView.clipsToBounds = true
+        thumbnailView.layer.borderWidth = 3
+        thumbnailView.layer.borderColor = UIColor.customOrange.cgColor
+        
         addRightButtons([.RightButtonTypeLocation, .RightButtonTypeSport], action: #selector(navigationButtonTapped(sender:)))
         
         activityView = setupActivitiesView()
@@ -116,6 +124,20 @@ class TrainerManagementViewController: BaseViewController, TrainerManagementCont
         locationView.items = user.locations
         
         refreshLocationsHeight()
+        
+        if !user.thumbnail.isEmpty {
+            let downloadOperation = ImageDownloader(urlString: user.thumbnail, indexPath: nil) { success, indexPath, image, error in
+                
+                if (!success) {
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    self.thumbnailView.image = image
+                }
+            }
+            operationQueue.addOperation( downloadOperation )
+        }
     }
     
     func setClasses(_ classes: [ClassModel]) {
