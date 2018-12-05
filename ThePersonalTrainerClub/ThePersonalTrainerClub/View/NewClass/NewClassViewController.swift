@@ -198,6 +198,14 @@ extension NewClassViewController {
     }
     
     func refreshLocationsLayout() {
-        (self.locationStripView.subviews.first as! LocationStripView).invalidateLayout()
+        guard let stripView = self.locationStripView else {
+            return
+        }
+        
+        guard let locationView = stripView.subviews.first else {
+            return
+        }
+        
+        (locationView as! LocationStripView).invalidateLayout()
     }
 }

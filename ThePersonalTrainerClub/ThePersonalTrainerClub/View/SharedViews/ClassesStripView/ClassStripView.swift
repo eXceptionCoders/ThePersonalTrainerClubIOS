@@ -108,7 +108,7 @@ class ClassStripView: UIView, NibLoadableView, UICollectionViewDelegate, UIColle
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let model = items[indexPath.row]
+        // let model = items[indexPath.row]
         
         let height = 185.0
         // let width = UIScreen.main.bounds.width

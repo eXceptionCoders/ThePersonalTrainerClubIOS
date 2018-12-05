@@ -205,7 +205,15 @@ extension TrainerManagementViewController {
     }
     
     func refreshLocationsLayout() {
-        (self.whereView.subviews.first as! LocationStripView).invalidateLayout()
+        guard let stripView = self.whereView else {
+            return
+        }
+        
+        guard let locationView = stripView.subviews.first else {
+            return
+        }
+        
+        (locationView as! LocationStripView).invalidateLayout()
     }
     
     func setupLessonsView() -> ClassStripView {
@@ -240,7 +248,15 @@ extension TrainerManagementViewController {
     }
     
     func refreshLessonsLayout() {
-        (self.lessonsView.subviews.first as! ClassStripView).invalidateLayout()
+        guard let stripView = self.lessonsView else {
+            return
+        }
+        
+        guard let locationView = stripView.subviews.first else {
+            return
+        }
+        
+        (locationView as! ClassStripView).invalidateLayout()
     }
     
     func onLocationTapped(_ model: LocationModel) {
