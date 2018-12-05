@@ -28,7 +28,7 @@ class TrainerManagementViewPresenter: BaseViewPresenter, TrainerManagementContra
             } else if let data = user {
                 self.view.setUser(data)
                 
-                if (data.coach) && UserSettings.showCoachView {
+                if (data.coach && UserSettings.showCoachView) {
                     self.view.setClasses(data.classes ?? [])
                 } else {
                     self.view.setClasses(data.activeBookings ?? [])

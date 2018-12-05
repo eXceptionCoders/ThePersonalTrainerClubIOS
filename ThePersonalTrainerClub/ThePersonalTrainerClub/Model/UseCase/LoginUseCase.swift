@@ -34,6 +34,7 @@ class LoginUseCase {
                             break
                         }
                     } else {
+                        UserSettings.showCoachView = user?.coach ?? false
                         completion(user, error, errorsMap)
                     }
                 }

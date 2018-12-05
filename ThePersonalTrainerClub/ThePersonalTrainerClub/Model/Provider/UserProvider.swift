@@ -85,7 +85,6 @@ private class UserProviderMapper {
         )
         
         UserSettings.user = user
-        UserSettings.showCoachView = data.coach
         
         return user
     }
