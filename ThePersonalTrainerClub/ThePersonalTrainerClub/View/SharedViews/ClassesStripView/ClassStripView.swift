@@ -73,7 +73,7 @@ class ClassStripView: UIView, NibLoadableView, UICollectionViewDelegate, UIColle
         
         let model = items[indexPath.row]
         
-        cell.sportNameLabel.text = model.sport.name
+        cell.sportNameLabel.text = "\(model.sport.name.prefix(1).capitalized)\(model.sport.name.dropFirst())"
         cell.locationLabel.text = model.location.description
         cell.dateLabel.text = String(model.duration)
         cell.registeredLabel.text = "\(model.registered ?? 0)/\(model.maxusers)"
