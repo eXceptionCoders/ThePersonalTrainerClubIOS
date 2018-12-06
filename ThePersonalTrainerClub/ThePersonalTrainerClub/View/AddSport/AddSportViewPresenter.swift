@@ -26,7 +26,7 @@ class AddSportViewPresenter: BaseViewPresenter, AddSportContract.Presenter {
     func create() {
         view.showLoading()
         
-        activityUseCase.getAllActivities { (activities, error) in
+        activityUseCase.getAllActivities { (activities, error, errorsMap) in
             self.view.hideLoading()
             
             guard error == nil else {

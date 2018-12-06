@@ -15,12 +15,12 @@ class ActivityUseCase {
         self.activityProvider = activityProvider
     }
     
-    func getAllActivities(completion: @escaping ([ActivityModel]?, Error?) -> Void) {
-        activityProvider.fetchActivities { success, error in
+    func getAllActivities(completion: @escaping ([ActivityModel]?, Error?, [String: String]?) -> Void) {
+        activityProvider.fetchActivities { success, error, errorsMap in
             if let error = error {
-                completion(nil, error)
+                completion(nil, error, errorsMap)
             } else {
-                completion(success, nil)
+                completion(success, nil, nil)
             }
         }
     }

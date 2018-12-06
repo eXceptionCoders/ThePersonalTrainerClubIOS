@@ -19,8 +19,8 @@ class ActivityProvider {
         self.webService = webService
     }
     
-    func fetchActivities(completion: @escaping ([ActivityModel]?, Error?) -> Void) {
-        /*webService.load(SportResponse.self, from: Endpoint.sports(requestModel: SportRequest())) { responseObject, error in
+    func fetchActivities(completion: @escaping ([ActivityModel]?, Error?, [String: String]?) -> Void) {
+        webService.load(SportResponse.self, from: Endpoint.sports(requestModel: SportRequest())) { responseObject, error in
             if let error = error {
                 switch error {
                 default:
@@ -31,8 +31,9 @@ class ActivityProvider {
             } else {
                 completion(nil, ActivityError.otherError, responseObject?.error)
             }
-        }*/
+        }
         
+        /*
         //TODO: Remove mock
         completion([
             ActivityModel(
@@ -120,6 +121,7 @@ class ActivityProvider {
                 category: "c"
             )
         ], nil)
+        */
     }
 }
 
