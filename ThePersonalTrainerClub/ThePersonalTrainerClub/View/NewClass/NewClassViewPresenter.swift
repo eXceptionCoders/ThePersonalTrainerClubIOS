@@ -19,6 +19,12 @@ class NewClassViewPresenter: BaseViewPresenter, NewClassContract.Presenter {
         self.newClassUseCase = newClassUseCase
     }
     
+    func fetchUser() {
+        if let user = UserSettings.user {
+            view.setUser(user)
+        }
+    }
+    
     func onCreate(sport: String, description: String, price: Float, quota: Int, location: LocationModel) {
         if (sport.isEmpty || description.isEmpty) {
             view.showAlertMessage(title: nil, message: NSLocalizedString("newclass_checkfields", comment: ""))

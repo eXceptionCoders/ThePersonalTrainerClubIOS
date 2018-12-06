@@ -21,6 +21,8 @@ class ClassFinderViewController: BaseViewController, ClassFinderContract.View {
     @IBOutlet weak var searchButton: DefaultButton!
     
     let priceRangeSlider = RangeSlider(frame: CGRect.zero)
+    var activityView: ActivityStripView!
+    var locationView: LocationStripView!
     
     lazy var presenter: ClassFinderContract.Presenter = ClassFinderViewPresenter(view: self)
     
@@ -38,12 +40,24 @@ class ClassFinderViewController: BaseViewController, ClassFinderContract.View {
         
         localizeView()
         
+        activityView = setupActivitiesView()
+        locationView = setupLocationsView()
+        
         priceRangeSlider.addTarget(self, action: #selector(ClassFinderViewController.priceRangeSliderValueChanged(_:)), for: .valueChanged)
+        
+        presenter.fetchUser()
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         priceRangeSlider.frame = CGRect(x: 0, y: 0, width: priceRangeSliderView.bounds.width, height: 40.0)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: nil, completion: { _ in
+            self.refreshLocationsLayout()
+        })
     }
     
     override func localizeView() {
@@ -55,7 +69,9 @@ class ClassFinderViewController: BaseViewController, ClassFinderContract.View {
     }
     
     func setUser(_ user: UserModel) {
-        // TODO
+        activityView.items = user.activities
+        locationView.items = user.locations
+        refreshLocationsHeight()
     }
     
     func getPriceLabel() -> String {
@@ -64,11 +80,11 @@ class ClassFinderViewController: BaseViewController, ClassFinderContract.View {
         }
         
         if priceRangeSlider.lowerValue == priceRangeSlider.minimumValue {
-            return " < \( round( priceRangeSlider.upperValue ) ) €"
+            return " ≤ \( round( priceRangeSlider.upperValue ) ) €"
         }
         
         if priceRangeSlider.upperValue == priceRangeSlider.maximumValue {
-            return " > \( round( priceRangeSlider.lowerValue ) ) €"
+            return " ≥ \( round( priceRangeSlider.lowerValue ) ) €"
         }
         
         return "\( round( priceRangeSlider.lowerValue ) ) € - \( round( priceRangeSlider.upperValue ) ) €"
@@ -83,5 +99,69 @@ class ClassFinderViewController: BaseViewController, ClassFinderContract.View {
     }
 
     @IBAction func search(_ sender: Any) {
+    }
+}
+
+extension ClassFinderViewController {
+    
+    func setupActivitiesView() -> ActivityStripView {
+        let collectionView = ActivityStripView.instantiate()
+        
+        activityStripView.addSubview(collectionView)
+        
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let viewDict = ["activitiesView": collectionView]
+        
+        // Horizontals
+        var constraints = NSLayoutConstraint.constraints(withVisualFormat: "|-0-[activitiesView]-0-|", options: [], metrics: nil, views: viewDict)
+        
+        // Verticals
+        constraints.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "V:[activitiesView]", options: [], metrics: nil, views: viewDict))
+        
+        constraints.append(NSLayoutConstraint(item: collectionView, attribute: .width, relatedBy: .equal, toItem: activityStripView, attribute: .width, multiplier: 1, constant: 0))
+        constraints.append(NSLayoutConstraint(item: collectionView, attribute: .height, relatedBy: .equal, toItem: activityStripView, attribute: .height, multiplier: 1, constant: 0))
+        
+        activityStripView.addConstraints(constraints)
+        
+        return collectionView
+    }
+    
+    func setupLocationsView() -> LocationStripView {
+        let collectionView = LocationStripView.instantiate()
+        
+        locationStripView.addSubview(collectionView)
+        
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let viewDict = ["locationsView": collectionView]
+        
+        // Horizontals
+        var constraints = NSLayoutConstraint.constraints(withVisualFormat: "|-0-[locationsView]-0-|", options: [], metrics: nil, views: viewDict)
+        
+        // Verticals
+        constraints.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "V:[locationsView]", options: [], metrics: nil, views: viewDict))
+        
+        constraints.append(NSLayoutConstraint(item: collectionView, attribute: .width, relatedBy: .equal, toItem: locationStripView, attribute: .width, multiplier: 1, constant: 0))
+        constraints.append(NSLayoutConstraint(item: collectionView, attribute: .height, relatedBy: .equal, toItem: locationStripView, attribute: .height, multiplier: 1, constant: 0))
+        
+        locationStripView.addConstraints(constraints)
+        
+        return collectionView
+    }
+    
+    func refreshLocationsHeight() {
+        let filteredConstraints = locationStripView.constraints.filter { $0.identifier == "locationsHeightConstraint" }
+        if let constraint = filteredConstraints.first {
+            constraint.constant = CGFloat((UserSettings.user?.locations ?? []).count * 40 + 8)
+        }
+    }
+    
+    func refreshLocationsLayout() {
+        guard let locationView = locationView else {
+            return
+        }
+        
+        locationView.invalidateLayout()
     }
 }

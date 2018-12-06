@@ -15,10 +15,12 @@ enum NewClassContract {
 }
 
 protocol NewClassView: BaseContract.View {
+    func setUser(_ user: UserModel)
     func resetInputs()
 }
 
 protocol NewClassPresenter: BaseContract.Presenter {
+    func fetchUser()
     func onCreate(sport: String, description: String, price: Float, quota: Int, location: LocationModel)
 }
 

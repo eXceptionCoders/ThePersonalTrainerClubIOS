@@ -24,6 +24,8 @@ class NewClassViewController: BaseViewController, NewClassContract.View {
     @IBOutlet weak var saveButton: DefaultButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    var activityView: ActivityStripView!
+    var locationView: LocationStripView!
     lazy var presenter: NewClassContract.Presenter = NewClassViewPresenter(view: self, newClassUseCase: NewClassUseCase(newClassProvider: ClassProvider(webService: WebService())))
 
     override func localizeView() {
@@ -51,14 +53,10 @@ class NewClassViewController: BaseViewController, NewClassContract.View {
         descriptionTextView.layer.borderWidth = 1.0
         descriptionTextView.layer.borderColor = UIColor.customDark.cgColor
         
-        let activityView = setupActivitiesView()
-        let locationView = setupLocationsView()
-        
-        activityView.items = UserSettings.user?.activities ?? []
-        locationView.items = UserSettings.user?.locations ?? []
-        refreshLocationsHeight()
+        activityView = setupActivitiesView()
+        locationView = setupLocationsView()
         hideLoading()
-        resetInputs()
+        presenter.fetchUser()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -71,6 +69,13 @@ class NewClassViewController: BaseViewController, NewClassContract.View {
         coordinator.animate(alongsideTransition: nil, completion: { _ in
             self.refreshLocationsLayout()
         })
+    }
+    
+    func setUser(_ user: UserModel) {
+        activityView.items = user.activities
+        locationView.items = user.locations
+        refreshLocationsHeight()
+        resetInputs()
     }
     
     @IBAction func assisntanceSliderValueChanged(_ sender: Any) {
@@ -198,14 +203,10 @@ extension NewClassViewController {
     }
     
     func refreshLocationsLayout() {
-        guard let stripView = self.locationStripView else {
+        guard let locationView = locationView else {
             return
         }
         
-        guard let locationView = stripView.subviews.first else {
-            return
-        }
-        
-        (locationView as! LocationStripView).invalidateLayout()
+        locationView.invalidateLayout()
     }
 }
