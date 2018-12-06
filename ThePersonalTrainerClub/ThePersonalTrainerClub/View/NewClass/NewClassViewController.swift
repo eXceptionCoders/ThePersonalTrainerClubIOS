@@ -136,13 +136,8 @@ class NewClassViewController: BaseViewController, NewClassContract.View {
 
 extension NewClassViewController {
     func resetInputs() {
-        if (UserSettings.user?.locations.count ?? 0 > 0) {
-            (locationStripView.subviews.first as! LocationStripView).selectFirst()
-        }
-        
-        if (UserSettings.user?.activities.count ?? 0 > 0) {
-            (activityStripView.subviews.first as! ActivityStripView).selectFirst()
-        }
+        locationView.selectFirst()
+        activityView.selectFirst()
 
         priceSlider.value = 15
         assistanceSlider.value = 20

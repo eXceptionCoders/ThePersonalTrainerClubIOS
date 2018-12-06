@@ -31,11 +31,7 @@ class ClassFinderViewController: BaseViewController, ClassFinderContract.View {
         
         title = NSLocalizedString("class_finder_title", comment: "")
         
-        priceRangeSlider.trackHighlightTintColor = UIColor.customOrange
-        priceRangeSlider.maximumValue = 50;
-        priceRangeSlider.upperValue = 50
-        priceRangeSlider.minimumValue = 1;
-        priceRangeSlider.lowerValue = 1
+        resetPriceRange()
         priceRangeSliderView.addSubview(priceRangeSlider)
         
         localizeView()
@@ -72,6 +68,7 @@ class ClassFinderViewController: BaseViewController, ClassFinderContract.View {
         activityView.items = user.activities
         locationView.items = user.locations
         refreshLocationsHeight()
+        resetInputs()
     }
     
     func getPriceLabel() -> String {
@@ -103,6 +100,20 @@ class ClassFinderViewController: BaseViewController, ClassFinderContract.View {
 }
 
 extension ClassFinderViewController {
+    func resetPriceRange() {
+        priceRangeSlider.trackHighlightTintColor = UIColor.customOrange
+        priceRangeSlider.maximumValue = 50;
+        priceRangeSlider.upperValue = 50
+        priceRangeSlider.minimumValue = 1;
+        priceRangeSlider.lowerValue = 1
+    }
+    
+    func resetInputs() {
+        locationView.selectFirst()
+        activityView.selectFirst()
+        distanceSlider.value = 15
+        resetPriceRange()
+    }
     
     func setupActivitiesView() -> ActivityStripView {
         let collectionView = ActivityStripView.instantiate()

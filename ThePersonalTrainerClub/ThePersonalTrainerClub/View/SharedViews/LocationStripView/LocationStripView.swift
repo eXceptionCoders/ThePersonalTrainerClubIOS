@@ -51,6 +51,10 @@ class LocationStripView: UIView, NibLoadableView, UICollectionViewDelegate, UICo
     }
     
     func selectFirst() {
+        if collectionView.numberOfItems(inSection: 0) == 0 {
+            return
+        }
+        
         collectionView.selectItem(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: UICollectionView.ScrollPosition.top)
     }
     
