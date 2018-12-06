@@ -25,18 +25,21 @@ class NewClassViewPresenter: BaseViewPresenter, NewClassContract.Presenter {
         }
     }
     
-    func onCreate(sport: String, description: String, price: Float, quota: Int, location: LocationModel) {
-        if (sport.isEmpty || description.isEmpty) {
+    func onCreate(sportIndex: Int, locationIndex: Int, description: String, price: Float, quota: Int) {
+        if (description.isEmpty) {
             view.showAlertMessage(title: nil, message: NSLocalizedString("newclass_checkfields", comment: ""))
             return
         }
-
+        
+        let sport = UserSettings.user?.activities[sportIndex]
+        let location = UserSettings.user?.locations[locationIndex]
+        
         view.showLoading()
         
         let model = NewClassModel(
             instructor: UserSettings.user?.id ?? "",
-            sport: sport,
-            location: location,
+            sport: sport!.id,
+            location: location!,
             description: description,
             price: price,
             maxusers: quota,

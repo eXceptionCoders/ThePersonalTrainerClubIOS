@@ -93,17 +93,15 @@ class NewClassViewController: BaseViewController, NewClassContract.View {
     }
     
     @IBAction func saveClass(_ sender: Any) {
-        let selectedSport = (activityStripView.subviews.first as! ActivityStripView).indexPathsForSelectedItems?.first
-        let selectedLocat = (locationStripView.subviews.first as! LocationStripView).indexPathsForSelectedItems?.first
+        let selectedSport = activityView.indexPathsForSelectedItems?.first
+        let selectedLocat = locationView.indexPathsForSelectedItems?.first
         
         guard let pathSport = selectedSport, let pathLocation = selectedLocat else {
+            showAlertMessage(title: nil, message: NSLocalizedString("newclass_checkfields", comment: ""))
             return
         }
         
-        let sport = UserSettings.user?.activities[pathSport.row]
-        let location = UserSettings.user?.locations[pathLocation.row]
-        
-        presenter.onCreate(sport: sport!.id, description: descriptionTextView.text, price: priceSlider.value, quota: Int(assistanceSlider.value), location: location!)
+        presenter.onCreate(sportIndex: pathSport.row, locationIndex: pathLocation.row, description: descriptionTextView.text, price: priceSlider.value, quota: Int(assistanceSlider.value))
     }
     
     @objc func adjustForKeyboard(notification: Notification) {

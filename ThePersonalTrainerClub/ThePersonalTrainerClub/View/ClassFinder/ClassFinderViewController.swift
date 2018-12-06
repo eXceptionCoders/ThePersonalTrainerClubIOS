@@ -96,6 +96,20 @@ class ClassFinderViewController: BaseViewController, ClassFinderContract.View {
     }
 
     @IBAction func search(_ sender: Any) {
+        let selectedSport = activityView.indexPathsForSelectedItems?.first
+        let selectedLocat = locationView.indexPathsForSelectedItems?.first
+        
+        guard let pathSport = selectedSport, let pathLocation = selectedLocat else {
+            return
+        }
+        
+        presenter.onSearch(
+            sportIndex: pathSport.row,
+            locationIndex: pathLocation.row,
+            distance: Int( roundf(distanceSlider.value) ),
+            priceFrom: Int( round(priceRangeSlider.lowerValue) ),
+            priceTo: Int( round(priceRangeSlider.lowerValue))
+        )
     }
 }
 

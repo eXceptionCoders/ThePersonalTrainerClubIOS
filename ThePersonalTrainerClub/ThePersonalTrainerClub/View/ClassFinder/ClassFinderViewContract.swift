@@ -20,7 +20,7 @@ protocol ClassFinderView: BaseContract.View {
 
 protocol ClassFinderPresenter: BaseContract.Presenter {
     func fetchUser()
-    func onSearch(sport: String, location: LocationModel, distance: Int)
+    func onSearch(sportIndex: Int, locationIndex: Int, distance: Int, priceFrom: Int, priceTo: Int)
 }
 
 protocol ClassFinderNavigator: BaseContract.Navigator {

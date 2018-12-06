@@ -21,7 +21,12 @@ class ClassFinderViewPresenter: BaseViewPresenter, ClassFinderContract.Presenter
         }
     }
     
-    func onSearch(sport: String, location: LocationModel, distance: Int) {
-        // TODO
+    func onSearch(sportIndex: Int, locationIndex: Int, distance: Int, priceFrom: Int, priceTo: Int) {
+        /* TODO
+        let sport = UserSettings.user?.activities[sportIndex]
+        let location = UserSettings.user?.locations[locationIndex]
+        
+        view.showLoading()
+        */
     }
 }

@@ -21,7 +21,7 @@ protocol NewClassView: BaseContract.View {
 
 protocol NewClassPresenter: BaseContract.Presenter {
     func fetchUser()
-    func onCreate(sport: String, description: String, price: Float, quota: Int, location: LocationModel)
+    func onCreate(sportIndex: Int, locationIndex: Int, description: String, price: Float, quota: Int)
 }
 
 protocol NewClassNavigator: BaseContract.Navigator {
