@@ -15,10 +15,11 @@ enum ClassFinderContract {
 }
 
 protocol ClassFinderView: BaseContract.View {
-    
+    func setUser(_ user: UserModel)
 }
 
 protocol ClassFinderPresenter: BaseContract.Presenter {
+    func fetchUser()
     func onSearch(sport: String, location: LocationModel, distance: Int)
 }
 

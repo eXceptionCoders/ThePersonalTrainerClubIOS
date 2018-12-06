@@ -9,6 +9,18 @@
 import Foundation
 
 class ClassFinderViewPresenter: BaseViewPresenter, ClassFinderContract.Presenter {
+    private var view: ClassFinderContract.View
+    
+    init(view: ClassFinderContract.View) {
+        self.view = view
+    }
+    
+    func fetchUser() {
+        if let user = UserSettings.user {
+            view.setUser(user)
+        }
+    }
+    
     func onSearch(sport: String, location: LocationModel, distance: Int) {
         // TODO
     }

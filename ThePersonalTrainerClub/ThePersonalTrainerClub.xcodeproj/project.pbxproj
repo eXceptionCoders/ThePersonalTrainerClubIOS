@@ -96,6 +96,7 @@
 		6344A22E21B9A12E00E2A65C /* ClassDetailViewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6344A22D21B9A12E00E2A65C /* ClassDetailViewContract.swift */; };
 		6344A23021B9A14700E2A65C /* ClassDetailViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6344A22F21B9A14700E2A65C /* ClassDetailViewPresenter.swift */; };
 		6344A23221B9A15F00E2A65C /* ClassDetailViewNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6344A23121B9A15F00E2A65C /* ClassDetailViewNavigator.swift */; };
+		6344A23521B9B1C300E2A65C /* RangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6344A23421B9B1C300E2A65C /* RangeSlider.swift */; };
 		637303F721983F7F00E726E2 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637303F621983F7F00E726E2 /* UserSettings.swift */; };
 		637303FA219843A400E726E2 /* TrainerDashboardViewNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637303F9219843A400E726E2 /* TrainerDashboardViewNavigator.swift */; };
 		637303FC219843BA00E726E2 /* TrainerDashboardViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637303FB219843BA00E726E2 /* TrainerDashboardViewPresenter.swift */; };
@@ -257,6 +258,7 @@
 		6344A22D21B9A12E00E2A65C /* ClassDetailViewContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassDetailViewContract.swift; sourceTree = "<group>"; };
 		6344A22F21B9A14700E2A65C /* ClassDetailViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassDetailViewPresenter.swift; sourceTree = "<group>"; };
 		6344A23121B9A15F00E2A65C /* ClassDetailViewNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassDetailViewNavigator.swift; sourceTree = "<group>"; };
+		6344A23421B9B1C300E2A65C /* RangeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeSlider.swift; sourceTree = "<group>"; };
 		637303F621983F7F00E726E2 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		637303F9219843A400E726E2 /* TrainerDashboardViewNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerDashboardViewNavigator.swift; sourceTree = "<group>"; };
 		637303FB219843BA00E726E2 /* TrainerDashboardViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerDashboardViewPresenter.swift; sourceTree = "<group>"; };
@@ -599,6 +601,7 @@
 		5EFB9E0D219B492C00D37E6E /* SharedViews */ = {
 			isa = PBXGroup;
 			children = (
+				6344A23321B9B19E00E2A65C /* RangeSlider */,
 				5E977F5121B1619500DD6E50 /* ClassesStripView */,
 				63FB2E7721A1EE0F006E0320 /* LocationStripView */,
 				63FB2E6A21A0A5B8006E0320 /* ActivityStripView */,
@@ -661,6 +664,14 @@
 				6344A23121B9A15F00E2A65C /* ClassDetailViewNavigator.swift */,
 			);
 			path = ClassDetail;
+			sourceTree = "<group>";
+		};
+		6344A23321B9B19E00E2A65C /* RangeSlider */ = {
+			isa = PBXGroup;
+			children = (
+				6344A23421B9B1C300E2A65C /* RangeSlider.swift */,
+			);
+			path = RangeSlider;
 			sourceTree = "<group>";
 		};
 		637303F82198432E00E726E2 /* TrainerDashboard */ = {
@@ -891,6 +902,7 @@
 				6373042021984EE600E726E2 /* NewClassViewController.swift in Sources */,
 				5E92C2CF21A8362400699A37 /* TypeSelectionViewPresenter.swift in Sources */,
 				637304412198697800E726E2 /* SportEntity.swift in Sources */,
+				6344A23521B9B1C300E2A65C /* RangeSlider.swift in Sources */,
 				6373043D21985F1900E726E2 /* UserEntity.swift in Sources */,
 				6373042821984F4800E726E2 /* TrainerManagementViewController.swift in Sources */,
 				6373041121984DD800E726E2 /* TrainerManagementViewNavigator.swift in Sources */,

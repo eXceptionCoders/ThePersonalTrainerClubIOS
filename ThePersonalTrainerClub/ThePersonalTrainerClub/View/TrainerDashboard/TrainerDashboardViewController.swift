@@ -74,6 +74,14 @@ class TrainerDashboardViewController: BaseTabBarViewController {
             tabBarList.append(switchModeNC)
         }
         
+        let classFinderVC = ClassFinderViewController()
+        let classFinderNV = classFinderVC.embedInNavigationController()
+        classFinderNV.tabBarItem = UITabBarItem(title: "Search Classes", image: UIImage(named: "SearchUnselected")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "SearchSelected")?.withRenderingMode(.alwaysOriginal))
+        classFinderNV.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.customDark], for: .normal)
+        classFinderNV.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
+        
+        tabBarList.append(classFinderNV)
+        
         let settingsVC = UserSettingsViewController()
         let settingsNV = settingsVC.embedInNavigationController()
         settingsNV.tabBarItem = UITabBarItem(title: "User Settings", image: UIImage(named: "SettingsUnselected")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "SettingsSelected")?.withRenderingMode(.alwaysOriginal))
