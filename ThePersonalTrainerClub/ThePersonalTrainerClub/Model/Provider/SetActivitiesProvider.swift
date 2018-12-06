@@ -22,21 +22,19 @@ class SetActivitiesProvider {
         self.webService = webService
     }
     
-    func setSports(model: SetActivitiesModel, completion: @escaping (Bool, Error?) -> Void) {
+    func setSports(model: SetActivitiesModel, completion: @escaping (Bool, Error?, [String: String]?) -> Void) {
         webService.load(SetSportResponse.self, from: Endpoint.setSports(requestModel: SetActivitiesProviderMapper.mapModelToEntity(model: model))) { responseObject, error in
             if let error = error {
                 switch error {
                 case WebServiceError.unauthorized:
-                    completion(false, SetActivitiesError.userPasswordNotFound)
+                    completion(false, SetActivitiesError.userPasswordNotFound, responseObject?.error)
                 case WebServiceError.unprocessableEntity:
-                    completion(false, SetActivitiesError.incorrectEntry)
+                    completion(false, SetActivitiesError.incorrectEntry, responseObject?.error)
                 default:
-                    completion(false, SetActivitiesError.otherError)
+                    completion(false, SetActivitiesError.otherError, responseObject?.error)
                 }
-            } else if let response = responseObject {
-                completion(true, nil)
             } else {
-                completion(false, SetActivitiesError.otherError)
+                completion(true, nil, nil)
             }
         }
     }
@@ -44,6 +42,6 @@ class SetActivitiesProvider {
 
 private class SetActivitiesProviderMapper {
     class func mapModelToEntity(model: SetActivitiesModel) -> SetSportRequest {
-        return SetSportRequest(listSport: model.activities)
+        return SetSportRequest(sports: model.activities)
     }
 }

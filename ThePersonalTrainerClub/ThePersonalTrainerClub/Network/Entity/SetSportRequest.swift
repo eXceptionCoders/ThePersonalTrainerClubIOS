@@ -8,9 +8,8 @@
 
 import Foundation
 
-struct SetSportRequest {
-    let listSportKey = "listsport"
-    let listSport: String
+struct SetSportRequest: Decodable, Encodable {
+    let sports: [String]
 }
 
 struct SetSportResponse: BaseResponse {

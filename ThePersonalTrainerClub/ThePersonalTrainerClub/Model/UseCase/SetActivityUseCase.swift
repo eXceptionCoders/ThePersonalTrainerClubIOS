@@ -17,16 +17,18 @@ class SetActivityUseCase {
         self.userProvider = userProvider
     }
     
-    func setActivities(model: SetActivitiesModel, completion: @escaping (Bool?, Error?) -> Void) {
-        activityProvider.setSports(model: model) { (success, error) in
+    func setActivities(model: SetActivitiesModel, completion: @escaping (Bool?, Error?, [String:String]?) -> Void) {
+        activityProvider.setSports(model: model) { (success, error, errorsMap) in
             if success {
                 self.userProvider.fetchUser(completion: { (model, error, errorResponse) in
                     if error == nil {
-                        completion(success, error)
+                        completion(success, error, errorsMap)
                     } else {
-                        completion(nil, error)
+                        completion(nil, error, errorsMap)
                     }
                 })
+            } else {
+                completion(nil, error, errorsMap)
             }
         }
     }

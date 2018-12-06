@@ -42,21 +42,29 @@ class AddSportViewPresenter: BaseViewPresenter, AddSportContract.Presenter {
     func saveSports(indexPaths: [IndexPath]?) {
         view.showLoading()
         
-        var str = ""
+        var activities: [String] = []
         
         if let indexPaths = indexPaths {
             for ip in indexPaths {
-                if str.isEmpty {
-                    str = "\(sports[ip.row].name)"
-                } else {
-                    str += ",\(sports[ip.row].name)"
-                }
+                activities.append(sports[ip.row].id)
             }
         }
         
-        setActivitiesUseCase.setActivities(model: SetActivitiesModel(activities: str)) { (success, error) in
+        setActivitiesUseCase.setActivities(model: SetActivitiesModel(activities: activities)) { (success, error, errorsMap) in
+            
             self.view.hideLoading()
-            self.navigator.popBack()
+            
+            if error != nil {
+                var message = String(format: NSLocalizedString("add_sport_error", comment: ""))
+                
+                for (key, detail) in errorsMap ?? [:] {
+                    message = String(format: "%@ \n%@: %@", message, key, detail)
+                }
+                
+                self.view.showAlertMessage(title: nil, message: message)
+            } else {
+                self.navigator.popBack()
+            }
         }
     }
 }

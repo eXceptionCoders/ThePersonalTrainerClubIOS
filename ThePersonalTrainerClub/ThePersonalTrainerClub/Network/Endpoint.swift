@@ -44,6 +44,9 @@ extension Endpoint {
                 case .newClass(let requestModel):
                     let postBody = try JSONEncoder().encode(requestModel)
                     request.httpBody = postBody
+                case .setSports(let requestModel):
+                    let postBody = try JSONEncoder().encode(requestModel)
+                    request.httpBody = postBody
                 default:
                     let postBody = try JSONEncoder().encode(self.parameters)
                     request.httpBody = postBody
@@ -102,7 +105,7 @@ private extension Endpoint {
             return "/api/v1/es/sports"
             
         case .setSports(_):
-            return "/api/v1/es/data/sport"
+            return "/api/v1/es/sports/update"
             
         case .deleteLocation(_):
             return "/api/v1/es/location/delete"
@@ -144,8 +147,10 @@ private extension Endpoint {
             ]
         */
 
+        /*
         case .setSports(let requestModel):
-            return [requestModel.listSportKey: requestModel.listSport]
+            return [requestModel.sports: requestModel.sports]
+        */
 
         case .deleteLocation(let requestModel):
             return [requestModel.idKey : requestModel.id]

@@ -9,5 +9,5 @@
 import Foundation
 
 struct SetActivitiesModel: Codable {
-    let activities: String
+    let activities: [String]
 }
