@@ -35,7 +35,8 @@ class TrainerManagementViewController: BaseViewController, TrainerManagementCont
         trainerManagementUseCase: TrainerManagementUseCase(
             userProvider: UserProvider(webService: WebService()),
             classProvider: ClassProvider(webService: WebService())
-        )
+        ),
+        removeLocationUseCase: RemoveLocationUseCase(provider: LocationProvider(webService: WebService()))
     )
     
     override func localizeView() {

@@ -20,12 +20,24 @@ class AddLocationViewPresenter: BaseViewPresenter, AddLocationContract.Presenter
     }
     
     func onAddLocation(description: String, latitude: Double, longitude: Double) {
+        self.view.showLoading()
+        
         let locationModel = LocationModel(type: "Point",
                                           coordinates: [latitude, longitude],
                                           description: description)
         
-        addLocationUseCase.addLocation(location: locationModel) { (success, error) in
-            print("")
+        addLocationUseCase.addLocation(location: locationModel) { (success, error, errorsMap) in
+            if error != nil {
+                var message = String(format: NSLocalizedString("add_location_server_error", comment: ""))
+                
+                for (key, detail) in errorsMap ?? [:] {
+                    message = String(format: "%@ \n%@: %@", message, key, detail)
+                }
+                
+                self.view.showAlertMessage(title: nil, message: message)
+            } else {
+                self.navigator.popBack()
+            }
         }
     }
 }

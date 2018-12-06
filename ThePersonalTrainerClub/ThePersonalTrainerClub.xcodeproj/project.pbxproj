@@ -80,6 +80,7 @@
 		633D77E621AB569C00A6FEE1 /* NewClassModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633D77E521AB569C00A6FEE1 /* NewClassModel.swift */; };
 		633DA1CD2198A42C00BA028C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633DA1CC2198A42C00BA028C /* UserModel.swift */; };
 		633E8EAE21A4C10B00A95C3B /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633E8EAD21A4C10B00A95C3B /* ImageDownloader.swift */; };
+		6344A21121B9846F00E2A65C /* RemoveLocationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6344A21021B9846F00E2A65C /* RemoveLocationUseCase.swift */; };
 		637303F721983F7F00E726E2 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637303F621983F7F00E726E2 /* UserSettings.swift */; };
 		637303FA219843A400E726E2 /* TrainerDashboardViewNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637303F9219843A400E726E2 /* TrainerDashboardViewNavigator.swift */; };
 		637303FC219843BA00E726E2 /* TrainerDashboardViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637303FB219843BA00E726E2 /* TrainerDashboardViewPresenter.swift */; };
@@ -225,6 +226,7 @@
 		633D77E521AB569C00A6FEE1 /* NewClassModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewClassModel.swift; sourceTree = "<group>"; };
 		633DA1CC2198A42C00BA028C /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		633E8EAD21A4C10B00A95C3B /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		6344A21021B9846F00E2A65C /* RemoveLocationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveLocationUseCase.swift; sourceTree = "<group>"; };
 		637303F621983F7F00E726E2 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		637303F9219843A400E726E2 /* TrainerDashboardViewNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerDashboardViewNavigator.swift; sourceTree = "<group>"; };
 		637303FB219843BA00E726E2 /* TrainerDashboardViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerDashboardViewPresenter.swift; sourceTree = "<group>"; };
@@ -512,6 +514,7 @@
 				5E977F4721AFF1B600DD6E50 /* ActivityUseCase.swift */,
 				5E977F4F21B0406400DD6E50 /* SetActivityUseCase.swift */,
 				5E977F6D21B5E67300DD6E50 /* AddLocationUseCase.swift */,
+				6344A21021B9846F00E2A65C /* RemoveLocationUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -866,6 +869,7 @@
 				633D77E621AB569C00A6FEE1 /* NewClassModel.swift in Sources */,
 				5E92C2ED21AC807200699A37 /* AddSportViewPresenter.swift in Sources */,
 				633E8EAE21A4C10B00A95C3B /* ImageDownloader.swift in Sources */,
+				6344A21121B9846F00E2A65C /* RemoveLocationUseCase.swift in Sources */,
 				637304052198461C00E726E2 /* TrainerDashboardViewController.swift in Sources */,
 				637303FE219843D800E726E2 /* TrainerDashboardViewContract.swift in Sources */,
 				637303F721983F7F00E726E2 /* UserSettings.swift in Sources */,

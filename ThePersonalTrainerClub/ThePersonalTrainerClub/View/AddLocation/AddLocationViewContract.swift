@@ -24,4 +24,5 @@ protocol AddLocationPresenter: BaseContract.Presenter {
 }
 
 protocol AddLocationNavigator: BaseContract.Navigator {
+    func popBack()
 }

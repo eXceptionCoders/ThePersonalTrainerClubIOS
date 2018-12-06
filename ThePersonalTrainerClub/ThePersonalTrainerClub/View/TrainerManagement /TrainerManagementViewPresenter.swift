@@ -11,12 +11,14 @@ import Foundation
 class TrainerManagementViewPresenter: BaseViewPresenter, TrainerManagementContract.Presenter {
     private var view: TrainerManagementContract.View
     private var trainerManagementUseCase: TrainerManagementUseCase
+    private var removeLocationUseCase: RemoveLocationUseCase
     
     private lazy var navigator: TrainerManagementContract.Navigator = TrainerManagementViewNavigator(view: view)
     
-    init(view: TrainerManagementContract.View, trainerManagementUseCase: TrainerManagementUseCase) {
+    init(view: TrainerManagementContract.View, trainerManagementUseCase: TrainerManagementUseCase, removeLocationUseCase: RemoveLocationUseCase) {
         self.view = view
         self.trainerManagementUseCase = trainerManagementUseCase
+        self.removeLocationUseCase = removeLocationUseCase
     }
     
     func fetchUser() {
@@ -48,9 +50,20 @@ class TrainerManagementViewPresenter: BaseViewPresenter, TrainerManagementContra
     }
     
     func onLocationTapped(location: LocationModel) {
-        // TODO
-        // view.showLoading()
-        
-        
+        removeLocationUseCase.removeLocation(location: location) { success, error, errorsMap in
+            self.view.hideLoading()
+            
+            if error != nil {
+                var message = String(format: NSLocalizedString("remove_location_error", comment: ""))
+                
+                for (key, detail) in errorsMap ?? [:] {
+                    message = String(format: "%@ \n%@: %@", message, key, detail)
+                }
+                
+                self.view.showAlertMessage(title: nil, message: message)
+            } else {
+                self.fetchUser()
+            }
+        }
     }
 }

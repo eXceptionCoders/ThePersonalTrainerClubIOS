@@ -15,8 +15,12 @@ struct LocationEntity: Decodable, Encodable {
 }
 
 struct DeleteLocationRequest {
-    let idKey = "id"
-    let id: String
+    let descriptionKey = "description"
+    let description: String
+    let longitudeKey = "longitude"
+    let longitude: Double
+    let latitudeKey = "latitude"
+    let latitude: Double
 }
 
 struct DeleteLocationResponse: BaseResponse {

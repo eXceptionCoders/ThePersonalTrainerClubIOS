@@ -14,4 +14,8 @@ class AddLocationViewNavigator: AddLocationContract.Navigator {
     init(view: AddLocationContract.View) {
         self.view = view
     }
+    
+    func popBack() {
+        (view as! UIViewController).navigationController?.popViewController(animated: true)
+    }
 }

@@ -68,6 +68,7 @@
 "remove_location_title" = "Delete location";
 "remove_location_message" = "Do you want to delete the \"%@\" location?";
 "remove_button_title" = "Delete";
+"remove_location_error" =  "Some error has occurred";
 
 "add_location_search_placeholder" = "Search for places";
 "add_location_set_location_title" = "Set new location";
@@ -79,3 +80,4 @@
 "add_location_no_last_location_message" = "No last location known";
 "add_location_user_location_error_message" = "Cannot get user location";
 "add_location_on_save_error_message" = "You need to provide a description and a location";
+"add_location_server_error" = "Some error has occurred";
