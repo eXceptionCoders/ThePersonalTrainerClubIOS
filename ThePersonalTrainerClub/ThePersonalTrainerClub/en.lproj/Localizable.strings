@@ -81,3 +81,13 @@
 "add_location_user_location_error_message" = "Cannot get user location";
 "add_location_on_save_error_message" = "You need to provide a description and a location";
 "add_location_server_error" = "Some error has occurred";
+
+"class_finder_title" = "Search classes";
+"class_finder_activity_label" = "What activity are you looking for?";
+"class_finder_location_label" = "Where are you looking for?";
+"class_finder_distance_label" = "In a radio of %.0f Km";
+"class_finder_price_label" = "Price: %@";
+"class_finder_search_button" = "Search";
+"class_finder_any_label" = "Any";
+
+"user_settings_title" = "User Settings";

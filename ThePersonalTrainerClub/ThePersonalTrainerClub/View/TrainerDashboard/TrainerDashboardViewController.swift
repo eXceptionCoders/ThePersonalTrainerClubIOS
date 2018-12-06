@@ -32,19 +32,19 @@ class TrainerDashboardViewController: BaseTabBarViewController {
         
         let switchModeVC = TypeSelectionViewController()
         let switchModeNC = switchModeVC.embedInNavigationController()
-        switchModeNC.tabBarItem = UITabBarItem(title: "Switch", image: UIImage(named: "SwitchUnselected")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "SwitchSelected")?.withRenderingMode(.alwaysOriginal))
+        switchModeNC.tabBarItem = UITabBarItem(title: NSLocalizedString("type_selection_title", comment: ""), image: UIImage(named: "SwitchUnselected")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "SwitchSelected")?.withRenderingMode(.alwaysOriginal))
         switchModeNC.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.customDark], for: .normal)
         switchModeNC.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
         
         let newClassVC = NewClassViewController()
         let newClassNC = newClassVC.embedInNavigationController()
-        newClassNC.tabBarItem = UITabBarItem(title: "New Class", image: UIImage(named: "AddUnselected")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "AddSelected")?.withRenderingMode(.alwaysOriginal))
+        newClassNC.tabBarItem = UITabBarItem(title: NSLocalizedString("newclass_title", comment: ""), image: UIImage(named: "AddUnselected")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "AddSelected")?.withRenderingMode(.alwaysOriginal))
         newClassNC.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.customDark], for: .normal)
         newClassNC.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
         
         let settingsVC = UserSettingsViewController()
         let settingsNC = settingsVC.embedInNavigationController()
-        settingsNC.tabBarItem = UITabBarItem(title: "User Settings", image: UIImage(named: "SettingsUnselected")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "SettingsSelected")?.withRenderingMode(.alwaysOriginal))
+        settingsNC.tabBarItem = UITabBarItem(title: NSLocalizedString("user_settings_title", comment: ""), image: UIImage(named: "SettingsUnselected")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "SettingsSelected")?.withRenderingMode(.alwaysOriginal))
         settingsNC.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.customDark], for: .normal)
         settingsNC.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
         
@@ -67,7 +67,7 @@ class TrainerDashboardViewController: BaseTabBarViewController {
         if UserSettings.user?.coach ?? false {
             let switchModeVC = TypeSelectionViewController()
             let switchModeNC = switchModeVC.embedInNavigationController()
-            switchModeNC.tabBarItem = UITabBarItem(title: "Switch", image: UIImage(named: "SwitchUnselected")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "SwitchSelected")?.withRenderingMode(.alwaysOriginal))
+            switchModeNC.tabBarItem = UITabBarItem(title: NSLocalizedString("type_selection_title", comment: ""), image: UIImage(named: "SwitchUnselected")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "SwitchSelected")?.withRenderingMode(.alwaysOriginal))
             switchModeNC.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.customDark], for: .normal)
             switchModeNC.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
             
@@ -76,7 +76,7 @@ class TrainerDashboardViewController: BaseTabBarViewController {
         
         let classFinderVC = ClassFinderViewController()
         let classFinderNV = classFinderVC.embedInNavigationController()
-        classFinderNV.tabBarItem = UITabBarItem(title: "Search Classes", image: UIImage(named: "SearchUnselected")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "SearchSelected")?.withRenderingMode(.alwaysOriginal))
+        classFinderNV.tabBarItem = UITabBarItem(title: NSLocalizedString("class_finder_title", comment: ""), image: UIImage(named: "SearchUnselected")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "SearchSelected")?.withRenderingMode(.alwaysOriginal))
         classFinderNV.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.customDark], for: .normal)
         classFinderNV.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
         
@@ -84,7 +84,7 @@ class TrainerDashboardViewController: BaseTabBarViewController {
         
         let settingsVC = UserSettingsViewController()
         let settingsNV = settingsVC.embedInNavigationController()
-        settingsNV.tabBarItem = UITabBarItem(title: "User Settings", image: UIImage(named: "SettingsUnselected")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "SettingsSelected")?.withRenderingMode(.alwaysOriginal))
+        settingsNV.tabBarItem = UITabBarItem(title: NSLocalizedString("user_settings_title", comment: ""), image: UIImage(named: "SettingsUnselected")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "SettingsSelected")?.withRenderingMode(.alwaysOriginal))
         settingsNV.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.customDark], for: .normal)
         settingsNV.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
         

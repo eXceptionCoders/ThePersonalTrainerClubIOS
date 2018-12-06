@@ -81,3 +81,13 @@
 "add_location_user_location_error_message" = "No se puede obtener la ubicación";
 "add_location_on_save_error_message" = "Necesitas proveer una descripción y una ubicación";
 "add_location_server_error" = "Ha ocurrido algún error";
+
+"class_finder_title" = "Buscar clases";
+"class_finder_activity_label" = "¿Qué actividad estás buscando?";
+"class_finder_location_label" = "¿Dónde estás buscando?";
+"class_finder_distance_label" = "En un radio de %.0f Km";
+"class_finder_price_label" = "Precio: %@";
+"class_finder_search_button" = "Buscar";
+"class_finder_any_label" = "Cualquiera";
+
+"user_settings_title" = "Ajustes de usuario";
