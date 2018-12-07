@@ -57,6 +57,7 @@ class ClassFinderViewController: BaseViewController, ClassFinderContract.View {
         locationView = setupLocationsView()
         
         priceRangeSlider.addTarget(self, action: #selector(ClassFinderViewController.priceRangeSliderValueChanged(_:)), for: .valueChanged)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -98,8 +99,8 @@ class ClassFinderViewController: BaseViewController, ClassFinderContract.View {
     func setUser(_ user: UserModel) {
         activityView.items = user.activities
         locationView.items = user.locations
-        refreshLocationsHeight()
         resetInputs()
+        refreshLocationsHeight()
     }
     
     // MARK: - Helpers
@@ -143,7 +144,7 @@ class ClassFinderViewController: BaseViewController, ClassFinderContract.View {
             locationIndex: pathLocation.row,
             distance: Int( roundf(distanceSlider.value) ),
             priceFrom: Int( round(priceRangeSlider.lowerValue) ),
-            priceTo: Int( round(priceRangeSlider.lowerValue))
+            priceTo: Int( round(priceRangeSlider.upperValue))
         )
     }
 }
@@ -158,10 +159,15 @@ extension ClassFinderViewController {
     }
     
     func resetInputs() {
-        locationView.selectFirst()
-        activityView.selectFirst()
-        distanceSlider.value = 15
-        resetPriceRange()
+        if locationView.indexPathsForSelectedItems == nil || locationView.indexPathsForSelectedItems?.count == 0 {
+            locationView.selectFirst()
+        }
+        
+        if activityView.indexPathsForSelectedItems == nil || activityView.indexPathsForSelectedItems?.count == 0 {
+            activityView.selectFirst()
+        }
+        // distanceSlider.value = 15
+        // resetPriceRange()
     }
     
     func setupPriceRangeSliderView() {

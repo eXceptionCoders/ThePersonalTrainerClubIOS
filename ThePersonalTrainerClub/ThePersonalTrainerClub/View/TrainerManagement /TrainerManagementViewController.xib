@@ -96,7 +96,6 @@
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OuE-uE-0qQ">
                                             <rect key="frame" x="0.0" y="120" width="382" height="80"/>
-                                            <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="80" id="0Tp-oY-K0o"/>
                                             </constraints>
@@ -119,7 +118,6 @@
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tXO-A9-UNF">
                                             <rect key="frame" x="0.0" y="256" width="382" height="80"/>
-                                            <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="80" identifier="locationsHeightConstraint" id="203-lo-gBp"/>
                                             </constraints>
@@ -142,7 +140,6 @@
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H5J-I9-KNi">
                                             <rect key="frame" x="0.0" y="392" width="382" height="80"/>
-                                            <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="80" identifier="classHeightConstraint" id="atm-A4-Pmc"/>
                                             </constraints>

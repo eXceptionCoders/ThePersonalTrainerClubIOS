@@ -52,7 +52,6 @@
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xub-kc-kzj">
                                             <rect key="frame" x="0.0" y="40" width="343" height="80"/>
-                                            <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="80" id="x0p-2m-Y9G"/>
                                             </constraints>
@@ -68,7 +67,6 @@
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xfo-Fo-OIF">
                                             <rect key="frame" x="0.0" y="160" width="343" height="80"/>
-                                            <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="80" identifier="locationsHeightConstraint" id="e5s-jz-exR"/>
                                             </constraints>
