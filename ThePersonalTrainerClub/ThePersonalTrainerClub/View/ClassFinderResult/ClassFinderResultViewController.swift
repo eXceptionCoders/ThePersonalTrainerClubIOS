@@ -86,7 +86,7 @@ class ClassFinderResultViewController: BaseViewController, ClassFinderResultCont
 extension ClassFinderResultViewController {
     func setupLessonsView() -> ClassStripView {
         let collectionView = ClassStripView.instantiate()
-        collectionView.showCancelButton = false
+        collectionView.showBookingButton = true
         collectionView.allowSelection(false)
         
         lessonsView.addSubview(collectionView)

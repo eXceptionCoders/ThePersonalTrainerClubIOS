@@ -34,10 +34,10 @@ class ClassStripView: UIView, NibLoadableView, UICollectionViewDelegate, UIColle
         }
     }
     
-    var showCancelButton: Bool {
-        get { return _showCancelButton }
+    var showBookingButton: Bool {
+        get { return _showBookingButton }
         set {
-            _showCancelButton = newValue
+            _showBookingButton = newValue
         }
     }
     
@@ -48,7 +48,7 @@ class ClassStripView: UIView, NibLoadableView, UICollectionViewDelegate, UIColle
     }
     
     private var _items: [ClassModel] = []
-    private var _showCancelButton = true
+    private var _showBookingButton = false
     
     // MARK: - Methods
     
@@ -88,8 +88,10 @@ class ClassStripView: UIView, NibLoadableView, UICollectionViewDelegate, UIColle
         cell.registeredLabel.text = "\(model.registered ?? 0)/\(model.maxusers)"
         cell.priceLabel.text = "\(model.price)€"
         cell.trainerLabel.text = "\(model.instructor.name) \(model.instructor.lastname)"
-        cell.deleteButton.setTitle(NSLocalizedString("cancel_button_title", comment: ""), for: .normal)
-        cell.deleteButton.isHidden = !showCancelButton
+        cell.deleteButton.setTitle( !showBookingButton
+            ? NSLocalizedString("cancel_button_title", comment: "")
+            : NSLocalizedString("booking_button_title", comment: "")
+            , for: .normal)
         cell.trainerTitleLabel.text = NSLocalizedString("trainer_title_label", comment: "")
   
         return cell

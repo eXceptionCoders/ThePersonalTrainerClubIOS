@@ -17,6 +17,7 @@ class ClassStripCell: UICollectionViewCell, ReusableView, NibLoadableView {
     @IBOutlet weak var registeredLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var trainerLabel: UILabel!
+    @IBOutlet weak var footerView: UIView!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var trainerTitleLabel: UILabel!
     
@@ -49,6 +50,10 @@ class ClassStripCell: UICollectionViewCell, ReusableView, NibLoadableView {
         self.layer.cornerRadius = 5.0
         self.clipsToBounds = true
         self.layer.borderWidth = 1.5
+        
+        self.layer.borderWidth = 1.0
+        self.layer.borderColor = UIColor.customOrange.cgColor
+        
         marAsUnselected()
     }
     

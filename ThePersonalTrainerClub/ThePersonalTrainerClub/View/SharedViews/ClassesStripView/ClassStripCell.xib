@@ -22,13 +22,13 @@
                         <rect key="frame" x="8" y="8" width="100" height="83"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9m-oC-c9V">
-                                <rect key="frame" x="0.0" y="0.0" width="100" height="19.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="20"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconLogo" translatesAutoresizingMaskIntoConstraints="NO" id="r0s-4n-WZL">
-                                <rect key="frame" x="23" y="27.5" width="54" height="57"/>
+                                <rect key="frame" x="23" y="28" width="54" height="57"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="57" id="587-B2-065"/>
                                     <constraint firstAttribute="width" constant="54" id="Z6f-dm-qTS"/>
@@ -163,6 +163,13 @@
                             <constraint firstItem="Gxg-Xy-ALt" firstAttribute="leading" secondItem="GRa-rL-idJ" secondAttribute="leading" constant="8" id="ymJ-DG-11I"/>
                         </constraints>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fJg-IZ-ufW">
+                        <rect key="frame" x="16" y="136" width="355" height="1"/>
+                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="phh-ug-ClG"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -174,6 +181,9 @@
                 <constraint firstItem="GRa-rL-idJ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="O10-NV-YGP"/>
                 <constraint firstItem="GRa-rL-idJ" firstAttribute="top" secondItem="jpw-gH-TWd" secondAttribute="bottom" constant="8" id="PD9-gi-HLY"/>
                 <constraint firstAttribute="trailing" secondItem="GRa-rL-idJ" secondAttribute="trailing" constant="8" id="Z4M-zB-ekV"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="fJg-IZ-ufW" secondAttribute="trailing" constant="16" id="ftN-1D-FMM"/>
+                <constraint firstItem="fJg-IZ-ufW" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="16" id="k4c-jn-1ug"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="fJg-IZ-ufW" secondAttribute="bottom" constant="48" id="l05-bM-znR"/>
                 <constraint firstAttribute="trailing" secondItem="jpw-gH-TWd" secondAttribute="trailing" constant="8" id="vgo-bq-aXX"/>
                 <constraint firstItem="jpw-gH-TWd" firstAttribute="leading" secondItem="V2x-j1-eyL" secondAttribute="trailing" constant="8" id="zEB-lq-oDu"/>
             </constraints>
@@ -182,6 +192,7 @@
             <connections>
                 <outlet property="dateLabel" destination="mem-eL-9C0" id="oJO-ZI-W8W"/>
                 <outlet property="deleteButton" destination="xWK-8E-sjQ" id="Uhp-14-dGe"/>
+                <outlet property="footerView" destination="GRa-rL-idJ" id="5dd-ia-pqU"/>
                 <outlet property="locationLabel" destination="UeQ-oy-D8k" id="Eob-iL-gZn"/>
                 <outlet property="priceLabel" destination="Gyy-ba-QrG" id="RsB-8i-eY4"/>
                 <outlet property="registeredLabel" destination="TAI-tP-vbs" id="HCj-NF-YKa"/>
