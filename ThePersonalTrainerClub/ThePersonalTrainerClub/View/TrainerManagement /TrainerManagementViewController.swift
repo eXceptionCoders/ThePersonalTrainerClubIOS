@@ -90,10 +90,6 @@ class TrainerManagementViewController: BaseViewController, TrainerManagementCont
         thumbnailView.layer.borderColor = UIColor.customOrange.cgColor
         
         addRightButtons([.RightButtonTypeLocation, .RightButtonTypeSport], action: #selector(navigationButtonTapped(sender:)))
-        
-        activityView = setupActivitiesView()
-        locationView = setupLocationsView()
-        classesView = setupLessonsView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -233,15 +229,15 @@ extension TrainerManagementViewController {
     }
     
     func refreshLocationsLayout() {
-        guard let stripView = self.whereView else {
+        guard let wrapper = self.whereView else {
             return
         }
         
-        guard let locationView = stripView.subviews.first else {
+        guard let stripView = wrapper.subviews.first else {
             return
         }
         
-        (locationView as! LocationStripView).invalidateLayout()
+        (stripView as! LocationStripView).invalidateLayout()
     }
     
     func setupLessonsView() -> ClassStripView {
@@ -276,14 +272,14 @@ extension TrainerManagementViewController {
     }
     
     func refreshLessonsLayout() {
-        guard let stripView = self.lessonsView else {
+        guard let wrapper = self.lessonsView else {
             return
         }
         
-        guard let locationView = stripView.subviews.first else {
+        guard let stripView = wrapper.subviews.first else {
             return
         }
         
-        (locationView as! ClassStripView).invalidateLayout()
+        (stripView as! ClassStripView).invalidateLayout()
     }
 }

@@ -48,8 +48,6 @@ class ClassFinderViewController: BaseViewController, ClassFinderContract.View {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = NSLocalizedString("class_finder_title", comment: "")
-        
         resetPriceRange()
         setupPriceRangeSliderView()
         
@@ -83,6 +81,8 @@ class ClassFinderViewController: BaseViewController, ClassFinderContract.View {
     // MARK: - BaseViewController methods
     
     override func localizeView() {
+        title = NSLocalizedString("class_finder_title", comment: "")
+        
         activityLabel.text = NSLocalizedString("class_finder_activity_label", comment: "")
         locationLabel.text = NSLocalizedString("class_finder_location_label", comment: "")
         distanceLabel.text = String(format: NSLocalizedString("class_finder_distance_label", comment: ""), roundf( distanceSlider.value ))

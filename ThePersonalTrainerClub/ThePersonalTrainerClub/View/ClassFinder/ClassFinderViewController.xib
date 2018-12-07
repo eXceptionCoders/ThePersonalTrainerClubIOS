@@ -36,10 +36,10 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="460"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="78c-eU-fRb">
-                                    <rect key="frame" x="8" y="0.0" width="359" height="460"/>
+                                    <rect key="frame" x="16" y="0.0" width="343" height="460"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What activity are you looking for?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rgm-Uu-zgU">
-                                            <rect key="frame" x="0.0" y="0.0" width="359" height="40"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="6ET-4J-s0I"/>
                                             </constraints>
@@ -48,14 +48,14 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZQ0-in-Zsv">
-                                            <rect key="frame" x="0.0" y="40" width="359" height="80"/>
+                                            <rect key="frame" x="0.0" y="40" width="343" height="80"/>
                                             <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="80" id="snB-RV-FLA"/>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where are you looking for?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVf-WT-l4H">
-                                            <rect key="frame" x="0.0" y="120" width="359" height="40"/>
+                                            <rect key="frame" x="0.0" y="120" width="343" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="0gs-Ux-bxx"/>
                                             </constraints>
@@ -64,14 +64,14 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gVO-dk-rl6">
-                                            <rect key="frame" x="0.0" y="160" width="359" height="80"/>
+                                            <rect key="frame" x="0.0" y="160" width="343" height="80"/>
                                             <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="80" identifier="locationsHeightConstraint" id="PUn-VP-8zo"/>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In a radio of" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOv-hH-sg8">
-                                            <rect key="frame" x="0.0" y="240" width="359" height="40"/>
+                                            <rect key="frame" x="0.0" y="240" width="343" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="jv3-EG-ptm"/>
                                             </constraints>
@@ -80,14 +80,14 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="15" minValue="5" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="Mzd-OS-BjE">
-                                            <rect key="frame" x="-2" y="280" width="363" height="31"/>
+                                            <rect key="frame" x="-2" y="280" width="347" height="31"/>
                                             <color key="tintColor" red="0.83137254900000002" green="0.27450980390000002" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="radioSliderValueChange:" destination="-1" eventType="valueChanged" id="Z2K-eF-muf"/>
                                             </connections>
                                         </slider>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zvI-aR-PYk">
-                                            <rect key="frame" x="0.0" y="310" width="359" height="40"/>
+                                            <rect key="frame" x="0.0" y="310" width="343" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="rkk-0m-F7V"/>
                                             </constraints>
@@ -96,14 +96,14 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n8z-Z0-l8n">
-                                            <rect key="frame" x="0.0" y="350" width="359" height="40"/>
+                                            <rect key="frame" x="0.0" y="350" width="343" height="40"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="jhb-8L-2nL"/>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPz-4B-caL">
-                                            <rect key="frame" x="0.0" y="390" width="359" height="20"/>
+                                            <rect key="frame" x="0.0" y="390" width="343" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="yck-JI-NZ6"/>
                                             </constraints>
@@ -112,14 +112,14 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L95-Ht-Sci" customClass="DefaultButton" customModule="ThePersonalTrainerClub" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="410" width="359" height="30"/>
+                                            <rect key="frame" x="0.0" y="410" width="343" height="30"/>
                                             <state key="normal" title="Search"/>
                                             <connections>
                                                 <action selector="search:" destination="-1" eventType="touchUpInside" id="UU7-BS-cve"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVM-FW-sVR">
-                                            <rect key="frame" x="0.0" y="440" width="359" height="20"/>
+                                            <rect key="frame" x="0.0" y="440" width="343" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="cFh-PW-8zH"/>
                                             </constraints>
@@ -132,9 +132,9 @@
                             </subviews>
                             <constraints>
                                 <constraint firstItem="78c-eU-fRb" firstAttribute="top" secondItem="x3I-63-DuM" secondAttribute="top" id="1FY-5g-XdD"/>
-                                <constraint firstItem="78c-eU-fRb" firstAttribute="leading" secondItem="x3I-63-DuM" secondAttribute="leading" constant="8" id="F31-yU-udg"/>
+                                <constraint firstItem="78c-eU-fRb" firstAttribute="leading" secondItem="x3I-63-DuM" secondAttribute="leading" constant="16" id="F31-yU-udg"/>
                                 <constraint firstAttribute="bottom" secondItem="78c-eU-fRb" secondAttribute="bottom" id="HdL-ss-iUO"/>
-                                <constraint firstAttribute="trailing" secondItem="78c-eU-fRb" secondAttribute="trailing" constant="8" id="f2g-Hx-7wy"/>
+                                <constraint firstAttribute="trailing" secondItem="78c-eU-fRb" secondAttribute="trailing" constant="16" id="f2g-Hx-7wy"/>
                             </constraints>
                         </view>
                     </subviews>

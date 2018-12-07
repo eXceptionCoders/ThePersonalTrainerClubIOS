@@ -28,8 +28,11 @@ class NewClassViewController: BaseViewController, NewClassContract.View {
     
     // MARK: - Properties
     
-    var activityView: ActivityStripView!
-    var locationView: LocationStripView!
+    private lazy var activityView: ActivityStripView = setupActivitiesView()
+    private lazy var locationView: LocationStripView = setupLocationsView()
+    
+    // MARK: - Presenter
+    
     lazy var presenter: NewClassContract.Presenter = NewClassViewPresenter(view: self, newClassUseCase: NewClassUseCase(newClassProvider: ClassProvider(webService: WebService())))
 
     // MARK: - BaseViewController methods
@@ -69,8 +72,6 @@ class NewClassViewController: BaseViewController, NewClassContract.View {
         descriptionTextView.layer.borderWidth = 1.0
         descriptionTextView.layer.borderColor = UIColor.customDark.cgColor
         
-        activityView = setupActivitiesView()
-        locationView = setupLocationsView()
         hideLoading()
         presenter.fetchUser()
     }
@@ -208,10 +209,15 @@ extension NewClassViewController {
     }
     
     func refreshLocationsLayout() {
-        guard let locationView = locationView else {
+        guard let wrapper = self.locationStripView else {
             return
         }
         
-        locationView.invalidateLayout()
+        guard let stripView = wrapper.subviews.first else {
+            return
+        }
+        
+        (stripView as! LocationStripView).invalidateLayout()
     }
+    
 }

@@ -15,10 +15,11 @@ enum ClassFinderResultContract {
 }
 
 protocol ClassFinderResultView: BaseContract.View {
-    
+    func setClasses(_ classes: [ClassModel])
 }
 
 protocol ClassFinderResultPresenter: BaseContract.Presenter {
+    func fetchClasses(_ query: ClassFinderQuery)
     func onClassTapped()
 }
 

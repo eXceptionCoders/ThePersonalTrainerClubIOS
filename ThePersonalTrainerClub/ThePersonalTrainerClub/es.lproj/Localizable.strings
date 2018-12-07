@@ -92,4 +92,8 @@
 "class_finder_search_button" = "Buscar";
 "class_finder_any_label" = "Cualquiera";
 
+"class_finder_result_title" = "Clases";
+"class_finder_result_found" = "%d clases";
+"class_finder_result_classes_not_found" = "Lo sentimos, todavía no hay clases disponibles con los criterios especificados.";
+
 "user_settings_title" = "Ajustes de usuario";

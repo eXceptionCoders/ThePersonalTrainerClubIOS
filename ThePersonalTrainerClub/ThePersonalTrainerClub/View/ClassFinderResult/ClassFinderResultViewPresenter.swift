@@ -9,6 +9,18 @@
 import Foundation
 
 class ClassFinderResultViewPresenter: BaseViewPresenter, ClassFinderResultContract.Presenter {
+    private var view: ClassFinderResultContract.View
+    
+    init(view: ClassFinderResultContract.View) {
+        self.view = view
+    }
+    
+    func fetchClasses(_ query: ClassFinderQuery) {
+        //view.showLoading()
+        
+        view.setClasses(UserSettings.user?.classes ?? [])
+    }
+    
     func onClassTapped() {
         
     }

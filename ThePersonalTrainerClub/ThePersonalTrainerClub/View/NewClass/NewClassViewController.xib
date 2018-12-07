@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -39,10 +39,10 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="580"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gR5-5i-cNP">
-                                    <rect key="frame" x="8" y="0.0" width="359" height="580"/>
+                                    <rect key="frame" x="16" y="0.0" width="343" height="580"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What activity do you go to teach?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="STE-Ue-BEk">
-                                            <rect key="frame" x="0.0" y="0.0" width="359" height="40"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="O9r-TM-VZA"/>
                                             </constraints>
@@ -51,14 +51,14 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xub-kc-kzj">
-                                            <rect key="frame" x="0.0" y="40" width="359" height="80"/>
+                                            <rect key="frame" x="0.0" y="40" width="343" height="80"/>
                                             <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="80" id="x0p-2m-Y9G"/>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where do you teach?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8DY-fU-1bb">
-                                            <rect key="frame" x="0.0" y="120" width="359" height="40"/>
+                                            <rect key="frame" x="0.0" y="120" width="343" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="YFh-Jd-rmb"/>
                                             </constraints>
@@ -67,14 +67,14 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xfo-Fo-OIF">
-                                            <rect key="frame" x="0.0" y="160" width="359" height="80"/>
+                                            <rect key="frame" x="0.0" y="160" width="343" height="80"/>
                                             <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="80" identifier="locationsHeightConstraint" id="e5s-jz-exR"/>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price by class" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAi-Kc-2yG">
-                                            <rect key="frame" x="0.0" y="240" width="359" height="40"/>
+                                            <rect key="frame" x="0.0" y="240" width="343" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="meJ-6z-eeb"/>
                                             </constraints>
@@ -83,14 +83,14 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="15" minValue="5" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="ujC-Yn-Zti">
-                                            <rect key="frame" x="-2" y="280" width="363" height="31"/>
+                                            <rect key="frame" x="-2" y="280" width="347" height="31"/>
                                             <color key="tintColor" red="0.83137254900000002" green="0.27450980390000002" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="priceSliderValueChanged:" destination="-1" eventType="valueChanged" id="JhE-Yn-Pn3"/>
                                             </connections>
                                         </slider>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cSg-xy-xDv">
-                                            <rect key="frame" x="0.0" y="310" width="359" height="40"/>
+                                            <rect key="frame" x="0.0" y="310" width="343" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="nFE-Kn-KAl"/>
                                             </constraints>
@@ -101,14 +101,14 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="1" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="nui-YW-lEb">
-                                            <rect key="frame" x="-2" y="350" width="363" height="31"/>
+                                            <rect key="frame" x="-2" y="350" width="347" height="31"/>
                                             <color key="tintColor" red="0.83137254900000002" green="0.27450980390000002" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="assisntanceSliderValueChanged:" destination="-1" eventType="valueChanged" id="gmy-Ut-25z"/>
                                             </connections>
                                         </slider>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ljO-fH-WTS">
-                                            <rect key="frame" x="0.0" y="380" width="359" height="40"/>
+                                            <rect key="frame" x="0.0" y="380" width="343" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="fc0-LV-dgN"/>
                                             </constraints>
@@ -117,7 +117,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KPQ-hY-R8I">
-                                            <rect key="frame" x="0.0" y="420" width="359" height="90"/>
+                                            <rect key="frame" x="0.0" y="420" width="343" height="90"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="90" id="eI6-IV-Gm4"/>
@@ -126,7 +126,7 @@
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hjN-PR-Gwf">
-                                            <rect key="frame" x="0.0" y="510" width="359" height="20"/>
+                                            <rect key="frame" x="0.0" y="510" width="343" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="xvk-nE-OVq"/>
                                             </constraints>
@@ -135,14 +135,14 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qrH-1E-jfG" customClass="DefaultButton" customModule="ThePersonalTrainerClub" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="530" width="359" height="30"/>
+                                            <rect key="frame" x="0.0" y="530" width="343" height="30"/>
                                             <state key="normal" title="Save"/>
                                             <connections>
                                                 <action selector="saveClass:" destination="-1" eventType="touchUpInside" id="vYy-UU-wOc"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aH7-bv-oBB">
-                                            <rect key="frame" x="0.0" y="560" width="359" height="20"/>
+                                            <rect key="frame" x="0.0" y="560" width="343" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="hCq-as-bWK"/>
                                             </constraints>
@@ -154,9 +154,9 @@
                                 </stackView>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="gR5-5i-cNP" firstAttribute="leading" secondItem="yz5-Ea-YPt" secondAttribute="leading" constant="8" id="6TZ-e6-uqn"/>
+                                <constraint firstItem="gR5-5i-cNP" firstAttribute="leading" secondItem="yz5-Ea-YPt" secondAttribute="leading" constant="16" id="6TZ-e6-uqn"/>
                                 <constraint firstAttribute="bottom" secondItem="gR5-5i-cNP" secondAttribute="bottom" id="Bv4-BX-STg"/>
-                                <constraint firstAttribute="trailing" secondItem="gR5-5i-cNP" secondAttribute="trailing" constant="8" id="LgL-xX-Uay"/>
+                                <constraint firstAttribute="trailing" secondItem="gR5-5i-cNP" secondAttribute="trailing" constant="16" id="LgL-xX-Uay"/>
                                 <constraint firstItem="gR5-5i-cNP" firstAttribute="top" secondItem="yz5-Ea-YPt" secondAttribute="top" id="QBL-Ha-hbl"/>
                             </constraints>
                         </view>
