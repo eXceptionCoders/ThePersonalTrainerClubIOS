@@ -23,6 +23,14 @@ class ClassFinderViewPresenter: BaseViewPresenter, ClassFinderContract.Presenter
         }
     }
     
+    func saveLastQuery(_ query: ClassFinderQuery) {
+        UserSettings.lastQuery = query
+    }
+    
+    func lastQuery() -> ClassFinderQuery? {
+        return UserSettings.lastQuery
+    }
+    
     func onSearch(sportIndex: Int, locationIndex: Int, distance: Int, priceFrom: Int, priceTo: Int) {
         let query = ClassFinderQuery(
             sportIndex: sportIndex,
@@ -31,6 +39,8 @@ class ClassFinderViewPresenter: BaseViewPresenter, ClassFinderContract.Presenter
             priceFrom: priceFrom > 1 ? priceFrom : nil,
             priceTo: priceTo < 50 ? priceTo : nil
         )
+        
+        saveLastQuery(query)
         
         navigator.navigateToClassFinderResult(query)
     }

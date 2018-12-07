@@ -8,6 +8,10 @@
 
 import UIKit
 
+enum ClassFinderViewControllerKeys: String {
+    case LastQuery
+}
+
 class ClassFinderViewController: BaseViewController, ClassFinderContract.View {
     
     // MARK: - Outlets
@@ -100,6 +104,7 @@ class ClassFinderViewController: BaseViewController, ClassFinderContract.View {
         activityView.items = user.activities
         locationView.items = user.locations
         resetInputs()
+        restoreLastQuery()
         refreshLocationsHeight()
     }
     
@@ -166,8 +171,22 @@ extension ClassFinderViewController {
         if activityView.indexPathsForSelectedItems == nil || activityView.indexPathsForSelectedItems?.count == 0 {
             activityView.selectFirst()
         }
-        // distanceSlider.value = 15
-        // resetPriceRange()
+        
+        distanceSlider.value = 15
+        resetPriceRange()
+    }
+    
+    func restoreLastQuery() {
+        guard let query = presenter.lastQuery() else {
+            return
+        }
+        
+        distanceSlider.value = Float( query.distance )
+        priceRangeSlider.upperValue = Double( query.priceTo ?? 50 )
+        priceRangeSlider.lowerValue = Double( query.priceFrom ?? 1 )
+        
+        activityView.selectItemAt(query.sportIndex)
+        locationView.selectItemAt(query.locationIndex)
     }
     
     func setupPriceRangeSliderView() {

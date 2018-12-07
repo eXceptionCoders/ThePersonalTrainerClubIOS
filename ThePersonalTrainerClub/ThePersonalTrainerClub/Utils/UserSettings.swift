@@ -11,6 +11,7 @@ import Foundation
 final class UserSettings {
     
     private static var _user: UserModel?;
+    private static var _lastQuery: ClassFinderQuery?
     
     static var token: String {
         get {
@@ -29,6 +30,39 @@ final class UserSettings {
         }
         set(newValue) {
             UserDefaults.standard.set(newValue, forKey: "showCoachView")
+        }
+    }
+    
+    static var lastQuery: ClassFinderQuery? {
+        get {
+            guard let data = _lastQuery else {
+                if let savedQuery = UserDefaults.standard.object(forKey: "query") as? Data {
+                    let decoder = JSONDecoder()
+                    if let loadedQuery = try? decoder.decode(ClassFinderQuery.self, from: savedQuery) {
+                        _lastQuery = loadedQuery
+                        return _lastQuery
+                    } else {
+                        return nil
+                    }
+                } else {
+                    return nil
+                }
+            }
+            
+            return data
+        }
+        set(newValue) {
+            if let newValue = newValue {
+                _lastQuery = newValue
+                
+                let encoder = JSONEncoder()
+                if let encoded = try? encoder.encode(newValue) {
+                    UserDefaults.standard.set(encoded, forKey: "query")
+                }
+            } else {
+                UserDefaults.standard.removeObject(forKey: "query")
+                _lastQuery = nil
+            }
         }
     }
     

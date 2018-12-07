@@ -20,6 +20,7 @@ protocol ClassFinderView: BaseContract.View {
 
 protocol ClassFinderPresenter: BaseContract.Presenter {
     func fetchUser()
+    func lastQuery() -> ClassFinderQuery?
     func onSearch(sportIndex: Int, locationIndex: Int, distance: Int, priceFrom: Int, priceTo: Int)
 }
 

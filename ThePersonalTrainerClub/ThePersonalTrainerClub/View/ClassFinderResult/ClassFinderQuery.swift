@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ClassFinderQuery {
+struct ClassFinderQuery: Codable {
     var sportIndex: Int;
     var locationIndex: Int;
     var distance: Int;

@@ -57,7 +57,7 @@
                                     <constraint firstAttribute="width" constant="25" id="lUj-0n-PtO"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Settings" translatesAutoresizingMaskIntoConstraints="NO" id="w37-gG-vPF">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Time" translatesAutoresizingMaskIntoConstraints="NO" id="w37-gG-vPF">
                                 <rect key="frame" x="8" y="33" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="CP7-3l-4Nw"/>
@@ -71,7 +71,7 @@
                                     <constraint firstAttribute="height" constant="25" id="uco-Ho-EFb"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RadioChecked" translatesAutoresizingMaskIntoConstraints="NO" id="eEs-io-4fs">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Price" translatesAutoresizingMaskIntoConstraints="NO" id="eEs-io-4fs">
                                 <rect key="frame" x="8" y="99" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="2Uk-qs-zeR"/>
@@ -196,8 +196,8 @@
     <resources>
         <image name="IconLogo" width="118" height="119"/>
         <image name="Location" width="36" height="36"/>
-        <image name="RadioChecked" width="36" height="36"/>
-        <image name="Settings" width="37.5" height="37.5"/>
+        <image name="Price" width="180" height="180"/>
+        <image name="Time" width="180" height="180"/>
         <image name="UserMale" width="37.5" height="37.5"/>
     </resources>
 </document>
