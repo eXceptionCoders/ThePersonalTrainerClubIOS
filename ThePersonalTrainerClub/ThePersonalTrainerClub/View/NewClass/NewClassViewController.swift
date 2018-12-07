@@ -73,6 +73,10 @@ class NewClassViewController: BaseViewController, NewClassContract.View {
         descriptionTextView.layer.borderColor = UIColor.customDark.cgColor
         
         hideLoading()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         presenter.fetchUser()
     }
     

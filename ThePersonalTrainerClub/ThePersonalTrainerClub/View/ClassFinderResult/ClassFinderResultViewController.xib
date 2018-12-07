@@ -41,8 +41,11 @@
                         </view>
                     </subviews>
                 </stackView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Classes not found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKj-hN-LJO">
-                    <rect key="frame" x="99" y="331" width="177.5" height="25.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKj-hN-LJO">
+                    <rect key="frame" x="16" y="303.5" width="343" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="HQD-BS-YbD"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -53,6 +56,7 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="leading" secondItem="KKj-hN-LJO" secondAttribute="leading" constant="-16" id="0Bt-A1-MqO"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Kx1-Ma-wcE" secondAttribute="bottom" id="6ga-lU-7qr"/>
                 <constraint firstItem="Kx1-Ma-wcE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="79J-iO-e9z"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Kx1-Ma-wcE" secondAttribute="trailing" constant="16" id="CT4-dE-DhL"/>
@@ -60,6 +64,7 @@
                 <constraint firstItem="Kx1-Ma-wcE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="EZG-qa-tIw"/>
                 <constraint firstItem="p6h-UZ-TVh" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="LhL-Yn-BLs"/>
                 <constraint firstItem="p6h-UZ-TVh" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="bmF-Ir-xVq"/>
+                <constraint firstItem="KKj-hN-LJO" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-16" id="fuM-Zv-8n7"/>
                 <constraint firstItem="KKj-hN-LJO" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="w0Z-h5-pgu"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

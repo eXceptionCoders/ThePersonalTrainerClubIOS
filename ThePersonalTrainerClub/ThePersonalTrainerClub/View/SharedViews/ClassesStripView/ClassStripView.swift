@@ -34,6 +34,13 @@ class ClassStripView: UIView, NibLoadableView, UICollectionViewDelegate, UIColle
         }
     }
     
+    var showCancelButton: Bool {
+        get { return _showCancelButton }
+        set {
+            _showCancelButton = newValue
+        }
+    }
+    
     var indexPathsForSelectedItems: [IndexPath]? {
         get {
             return collectionView.indexPathsForSelectedItems
@@ -41,6 +48,7 @@ class ClassStripView: UIView, NibLoadableView, UICollectionViewDelegate, UIColle
     }
     
     private var _items: [ClassModel] = []
+    private var _showCancelButton = true
     
     // MARK: - Methods
     
@@ -71,7 +79,8 @@ class ClassStripView: UIView, NibLoadableView, UICollectionViewDelegate, UIColle
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ClassStripCell", for: indexPath) as! ClassStripCell
         
-        let model = items[indexPath.row]
+        let row = indexPath.row
+        let model = items[row]
         
         cell.sportNameLabel.text = "\(model.sport.name.prefix(1).capitalized)\(model.sport.name.dropFirst())"
         cell.locationLabel.text = model.location.description
@@ -80,25 +89,34 @@ class ClassStripView: UIView, NibLoadableView, UICollectionViewDelegate, UIColle
         cell.priceLabel.text = "\(model.price)€"
         cell.trainerLabel.text = "\(model.instructor.name) \(model.instructor.lastname)"
         cell.deleteButton.setTitle(NSLocalizedString("cancel_button_title", comment: ""), for: .normal)
+        cell.deleteButton.isHidden = !showCancelButton
         cell.trainerTitleLabel.text = NSLocalizedString("trainer_title_label", comment: "")
-
-        if let icon = model.sport.icon, !icon.isEmpty {
-            let downloadOperation = ImageDownloader(urlString: icon, indexPath: indexPath) { success, indexPath, image, error in
-                
-                if (!success) {
-                    return
-                }
-                
-                DispatchQueue.main.async {
-                    guard let path = indexPath, let cell = collectionView.cellForItem(at: path) else {
+        
+        if let icon = model.sport.icon {
+            if !icon.isEmpty && !cell.imageLoaded {
+                let downloadOperation = ImageDownloader(urlString: icon, indexPath: indexPath) { success, indexPath, image, error in
+                    
+                    if (!success) {
                         return
                     }
                     
-                    (cell as! ClassStripCell).sportIcon.image = image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-                    cell.tintColor = UIColor.customOrange
+                    DispatchQueue.main.async {
+
+                        guard let path = indexPath else {
+                            return
+                        }
+                        
+                        guard let cell = collectionView.cellForItem(at: path) else {
+                            return
+                        }
+                        
+                        (cell as! ClassStripCell).sportIcon.image = image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+                        cell.tintColor = UIColor.customOrange
+                        (cell as! ClassStripCell).imageLoaded = true
+                    }
                 }
+                operationQueue.addOperation( downloadOperation )
             }
-            operationQueue.addOperation( downloadOperation )
         }
   
         return cell

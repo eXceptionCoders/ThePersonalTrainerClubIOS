@@ -57,7 +57,10 @@ class ClassFinderViewController: BaseViewController, ClassFinderContract.View {
         locationView = setupLocationsView()
         
         priceRangeSlider.addTarget(self, action: #selector(ClassFinderViewController.priceRangeSliderValueChanged(_:)), for: .valueChanged)
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         presenter.fetchUser()
     }
     
