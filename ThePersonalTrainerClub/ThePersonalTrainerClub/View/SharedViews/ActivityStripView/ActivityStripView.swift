@@ -104,24 +104,38 @@ class ActivityStripView: UIView, NibLoadableView, UICollectionViewDelegate,  UIC
         
         let model = items[indexPath.row]
         cell.label.text = model.name
-        
-        let downloadOperation = ImageDownloader(urlString: model.icon!, indexPath: indexPath) { success, indexPath, image, error in
-            
-            if (!success) {
-                return
-            }
-            
-            DispatchQueue.main.async {
-                guard let path = indexPath, let cell = collectionView.cellForItem(at: path) else {
-                    return
-                }
-                
-                (cell as! ActivityStripCell).imageView.image = image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-                cell.tintColor = UIColor.customOrange
-            }
-        }
-        operationQueue.addOperation( downloadOperation )
 
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let model = items[indexPath.row]
+        
+        if let icon = model.icon {
+            if !icon.isEmpty {
+                let downloadOperation = ImageDownloader(urlString: icon, indexPath: indexPath) { success, indexPath, image, error in
+                    
+                    if (!success) {
+                        return
+                    }
+                    
+                    DispatchQueue.main.async {
+                        guard let path = indexPath else {
+                            return
+                        }
+                        
+                        guard let cell = collectionView.cellForItem(at: path) else {
+                            return
+                        }
+                        
+                        (cell as! ActivityStripCell).imageView.image = image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+                        cell.tintColor = UIColor.customOrange
+                    }
+                }
+                
+                operationQueue.addOperation( downloadOperation )
+            }
+        }
+    }
+    
 }

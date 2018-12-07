@@ -91,9 +91,15 @@ class ClassStripView: UIView, NibLoadableView, UICollectionViewDelegate, UIColle
         cell.deleteButton.setTitle(NSLocalizedString("cancel_button_title", comment: ""), for: .normal)
         cell.deleteButton.isHidden = !showCancelButton
         cell.trainerTitleLabel.text = NSLocalizedString("trainer_title_label", comment: "")
+  
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let model = items[indexPath.row]
         
         if let icon = model.sport.icon {
-            if !icon.isEmpty && !cell.imageLoaded {
+            if !icon.isEmpty {
                 let downloadOperation = ImageDownloader(urlString: icon, indexPath: indexPath) { success, indexPath, image, error in
                     
                     if (!success) {
@@ -101,7 +107,6 @@ class ClassStripView: UIView, NibLoadableView, UICollectionViewDelegate, UIColle
                     }
                     
                     DispatchQueue.main.async {
-
                         guard let path = indexPath else {
                             return
                         }
@@ -112,14 +117,11 @@ class ClassStripView: UIView, NibLoadableView, UICollectionViewDelegate, UIColle
                         
                         (cell as! ClassStripCell).sportIcon.image = image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
                         cell.tintColor = UIColor.customOrange
-                        (cell as! ClassStripCell).imageLoaded = true
                     }
                 }
                 operationQueue.addOperation( downloadOperation )
             }
         }
-  
-        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView,

@@ -27,6 +27,14 @@ class ActivityStripCell: UICollectionViewCell, ReusableView, NibLoadableView {
         }
     }
     
+    var _imageLoaded = false;
+    var imageLoaded: Bool {
+        get { return _imageLoaded }
+        set {
+            _imageLoaded = true
+        }
+    }
+    
     // MARK: - Overrides
     
     override func awakeFromNib() {
