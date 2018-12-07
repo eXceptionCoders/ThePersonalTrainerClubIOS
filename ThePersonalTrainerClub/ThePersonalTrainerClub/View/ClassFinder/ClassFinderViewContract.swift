@@ -24,5 +24,5 @@ protocol ClassFinderPresenter: BaseContract.Presenter {
 }
 
 protocol ClassFinderNavigator: BaseContract.Navigator {
-    func navigateToClassFinderResult()
+    func navigateToClassFinderResult(_ query: ClassFinderQuery)
 }

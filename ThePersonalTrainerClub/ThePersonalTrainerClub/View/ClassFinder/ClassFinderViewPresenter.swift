@@ -11,6 +11,8 @@ import Foundation
 class ClassFinderViewPresenter: BaseViewPresenter, ClassFinderContract.Presenter {
     private var view: ClassFinderContract.View
     
+    private lazy var navigator: ClassFinderContract.Navigator = ClassFinderViewNavigator(view: view)
+    
     init(view: ClassFinderContract.View) {
         self.view = view
     }
@@ -22,11 +24,14 @@ class ClassFinderViewPresenter: BaseViewPresenter, ClassFinderContract.Presenter
     }
     
     func onSearch(sportIndex: Int, locationIndex: Int, distance: Int, priceFrom: Int, priceTo: Int) {
-        /* TODO
-        let sport = UserSettings.user?.activities[sportIndex]
-        let location = UserSettings.user?.locations[locationIndex]
+        let query = ClassFinderQuery(
+            sportIndex: sportIndex,
+            locationIndex: locationIndex,
+            distance: distance * 1000, // KM to meters
+            priceFrom: priceFrom > 1 ? priceFrom : nil,
+            priceTo: priceTo < 50 ? priceTo : nil
+        )
         
-        view.showLoading()
-        */
+        navigator.navigateToClassFinderResult(query)
     }
 }

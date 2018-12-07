@@ -17,7 +17,10 @@ class ClassFinderViewNavigator: ClassFinderContract.Navigator {
         self.view = view
     }
 
-    func navigateToClassFinderResult() {
-        // TODO
+    func navigateToClassFinderResult(_ query: ClassFinderQuery) {
+        let classFinderResultViewController = ClassFinderResultViewController(model: query)
+        classFinderResultViewController.hidesBottomBarWhenPushed = true
+        
+        (view as! UIViewController).navigationController?.pushViewController(classFinderResultViewController, animated: true)
     }
 }

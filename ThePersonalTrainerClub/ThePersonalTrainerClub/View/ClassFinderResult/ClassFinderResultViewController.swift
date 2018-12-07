@@ -42,4 +42,8 @@ class ClassFinderResultViewController: BaseViewController, ClassFinderResultCont
     override func localizeView() {
         
     }
+    
+    // MARK: - ClassFinderResultContract.View methods
+    
+    // MARK: - Actions
 }

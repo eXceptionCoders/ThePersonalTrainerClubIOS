@@ -39,4 +39,7 @@ class ClassDetailViewController: BaseViewController, ClassDetailContract.View {
 
     }
 
+    // MARK: - ClassDetailContract.View methods
+    
+    // MARK: - Actions
 }
