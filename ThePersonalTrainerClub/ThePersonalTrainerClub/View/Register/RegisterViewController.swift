@@ -9,6 +9,9 @@
 import UIKit
 
 class RegisterViewController: BaseViewController, RegisterContract.View {
+    
+    // MARK: - Outlets
+    
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var nameTextField: UITextField!
@@ -21,9 +24,13 @@ class RegisterViewController: BaseViewController, RegisterContract.View {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var trainerLabel: UILabel!
     
+    // MARK: - Properties
+    
+    // MARK: - Presenter
+    
     lazy var presenter: RegisterContract.Presenter = RegisterViewPresenter(view: self, registerUseCase: RegisterUseCase(registerProvider: RegisterProvider(webService: WebService())))
     
-    private var originY: CGFloat = 0
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +54,8 @@ class RegisterViewController: BaseViewController, RegisterContract.View {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    // MARK: - BaseViewController methods
+    
     override func localizeView() {
         nameTextField.placeholder = NSLocalizedString("register_name_placeholder", comment: "")
         lastNameTextField.placeholder = NSLocalizedString("register_last_name_placeholder", comment: "")
@@ -66,6 +75,8 @@ class RegisterViewController: BaseViewController, RegisterContract.View {
     override func hideLoading() {
         activityIndicator.stopAnimating()
     }
+    
+    // MARK: - Actions
     
     @IBAction func isTrainerTapped(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected

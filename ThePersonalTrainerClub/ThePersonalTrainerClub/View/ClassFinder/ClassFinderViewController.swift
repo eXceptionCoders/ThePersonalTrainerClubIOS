@@ -9,6 +9,9 @@
 import UIKit
 
 class ClassFinderViewController: BaseViewController, ClassFinderContract.View {
+    
+    // MARK: - Outlets
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var activityLabel: UILabel!
     @IBOutlet weak var activityStripView: UIView!
@@ -20,11 +23,27 @@ class ClassFinderViewController: BaseViewController, ClassFinderContract.View {
     @IBOutlet weak var priceRangeSliderView: UIView!
     @IBOutlet weak var searchButton: DefaultButton!
     
+    // MARK: - Properties
+    
     let priceRangeSlider = RangeSlider(frame: CGRect.zero)
     var activityView: ActivityStripView!
     var locationView: LocationStripView!
     
+    // MARK: - Presenter
+    
     lazy var presenter: ClassFinderContract.Presenter = ClassFinderViewPresenter(view: self)
+    
+    // MARK: - Initialization
+    
+    init() {
+        super.init(nibName: nil, bundle: Bundle(for: type(of: self)))
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +51,7 @@ class ClassFinderViewController: BaseViewController, ClassFinderContract.View {
         title = NSLocalizedString("class_finder_title", comment: "")
         
         resetPriceRange()
-        priceRangeSliderView.addSubview(priceRangeSlider)
+        setupPriceRangeSliderView()
         
         localizeView()
         
@@ -42,6 +61,11 @@ class ClassFinderViewController: BaseViewController, ClassFinderContract.View {
         priceRangeSlider.addTarget(self, action: #selector(ClassFinderViewController.priceRangeSliderValueChanged(_:)), for: .valueChanged)
         
         presenter.fetchUser()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        refreshLocationsLayout()
     }
 
     override func viewDidLayoutSubviews() {
@@ -56,6 +80,8 @@ class ClassFinderViewController: BaseViewController, ClassFinderContract.View {
         })
     }
     
+    // MARK: - BaseViewController methods
+    
     override func localizeView() {
         activityLabel.text = NSLocalizedString("class_finder_activity_label", comment: "")
         locationLabel.text = NSLocalizedString("class_finder_location_label", comment: "")
@@ -64,12 +90,16 @@ class ClassFinderViewController: BaseViewController, ClassFinderContract.View {
         searchButton.setTitle(NSLocalizedString("class_finder_search_button", comment: ""), for: .normal)
     }
     
+    // MARK: - ClassFinderContract.View methods
+    
     func setUser(_ user: UserModel) {
         activityView.items = user.activities
         locationView.items = user.locations
         refreshLocationsHeight()
         resetInputs()
     }
+    
+    // MARK: - Helpers
     
     func getPriceLabel() -> String {
         if priceRangeSlider.lowerValue == priceRangeSlider.minimumValue && priceRangeSlider.upperValue == priceRangeSlider.maximumValue {
@@ -86,6 +116,8 @@ class ClassFinderViewController: BaseViewController, ClassFinderContract.View {
         
         return "\( round( priceRangeSlider.lowerValue ) ) € - \( round( priceRangeSlider.upperValue ) ) €"
     }
+    
+    // MARK: - Actions
     
     @objc func priceRangeSliderValueChanged(_ sender: RangeSlider) {
         priceLabel.text = String(format: NSLocalizedString("class_finder_price_label", comment: ""), getPriceLabel())
@@ -127,6 +159,25 @@ extension ClassFinderViewController {
         activityView.selectFirst()
         distanceSlider.value = 15
         resetPriceRange()
+    }
+    
+    func setupPriceRangeSliderView() {
+        priceRangeSliderView.addSubview(priceRangeSlider)
+        
+        priceRangeSlider.translatesAutoresizingMaskIntoConstraints = false
+        
+        let viewDict = ["priceRangeSlider": priceRangeSlider]
+        
+        // Horizontals
+        var constraints = NSLayoutConstraint.constraints(withVisualFormat: "|-0-[priceRangeSlider]-0-|", options: [], metrics: nil, views: viewDict)
+        
+        // Verticals
+        constraints.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "V:[priceRangeSlider]", options: [], metrics: nil, views: viewDict))
+        
+        constraints.append(NSLayoutConstraint(item: priceRangeSlider, attribute: .width, relatedBy: .equal, toItem: priceRangeSliderView, attribute: .width, multiplier: 1, constant: 0))
+        constraints.append(NSLayoutConstraint(item: priceRangeSlider, attribute: .height, relatedBy: .equal, toItem: priceRangeSliderView, attribute: .height, multiplier: 1, constant: 0))
+        
+        priceRangeSliderView.addConstraints(constraints)
     }
     
     func setupActivitiesView() -> ActivityStripView {

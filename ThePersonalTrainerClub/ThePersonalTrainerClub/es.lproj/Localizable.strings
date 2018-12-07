@@ -40,8 +40,10 @@
 "newclass_server_error" = "Ha ocurrido algún error";
 "newclass_class_created" = "Clase creada";
 
-"type_selection_title" = "Configuración";
+"type_selection_title" = "Usar como %@";
 "type_selection_title_label" = "Elige tu estado";
+"type_selection_trainer" = "entrenador";
+"type_selection_athlete" = "deportista";
 
 "trainer_management_title" = "Gestión";
 "trainer_management_trainer_label" = "Entrenador";

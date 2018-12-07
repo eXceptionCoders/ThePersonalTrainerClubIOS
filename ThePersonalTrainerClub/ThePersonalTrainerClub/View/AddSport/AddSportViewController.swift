@@ -9,12 +9,19 @@
 import UIKit
 
 class AddSportViewController: BaseViewController, AddSportContract.View {
+    
+    // MARK: - Outlets
+    
     @IBOutlet weak var sportsView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    // MARK: - Presenter
     
     lazy var presenter: AddSportContract.Presenter = AddSportViewPresenter(view: self,
                                                                            activityUseCase: ActivityUseCase(activityProvider: ActivityProvider(webService: WebService())),
                                                                            setActivitiesUseCase: SetActivityUseCase(activityProvider: SetActivitiesProvider(webService: WebService()), userProvider: UserProvider(webService: WebService())))
+    
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,14 +30,31 @@ class AddSportViewController: BaseViewController, AddSportContract.View {
         addDoneButton(action: #selector(doneButtonTapped(sender:)))
     }
     
+    
+    // MARK: - BaseViewController methods
+    
     override func localizeView() {
         title = NSLocalizedString("add_sport_title", comment: "")
     }
+    
+    override func showLoading() {
+        sportsView.isUserInteractionEnabled = false
+        activityIndicator.startAnimating()
+    }
+    
+    override func hideLoading() {
+        sportsView.isUserInteractionEnabled = true
+        activityIndicator.stopAnimating()
+    }
+    
+    // MARK: - Actions
     
     @objc func doneButtonTapped(sender: UIButton) {
         let selectedSports = (sportsView.subviews.first as! ActivityStripView).indexPathsForSelectedItems
         presenter.saveSports(indexPaths: selectedSports)
     }
+    
+    // MARK: - AddSportContract.View Methods
     
     func showError() {
         showAlertMessage(title: nil, message: NSLocalizedString("add_sport_error", comment: ""))
@@ -43,15 +67,7 @@ class AddSportViewController: BaseViewController, AddSportContract.View {
         refreshActivitiesHeight(itemsCount: sports.count)
     }
     
-    override func showLoading() {
-        sportsView.isUserInteractionEnabled = false
-        activityIndicator.startAnimating()
-    }
-    
-    override func hideLoading() {
-        sportsView.isUserInteractionEnabled = true
-        activityIndicator.stopAnimating()
-    }
+    // MARK: - Helpers
     
     private func setupActivitiesView() -> ActivityStripView {
         let collectionView = ActivityStripView.instantiate()

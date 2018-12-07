@@ -15,12 +15,16 @@ protocol HandleMapSearch {
 
 class AddLocationViewController: BaseViewController, AddLocationContract.View {
 
+    // MARK: - Outlets
+    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var setLocationTitleLabel: UILabel!
     @IBOutlet weak var locationDescriptionTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var currentLocationButton: DefaultButton!
     @IBOutlet weak var saveButton: DefaultButton!
+    
+    // MARK: - Properties
     
     let locationManager = CLLocationManager()
     var lastLocation: CLLocation? = nil
@@ -34,7 +38,11 @@ class AddLocationViewController: BaseViewController, AddLocationContract.View {
     var currentLatitude: Double? = nil
     var currentLongitude: Double? = nil
     
+    // MARK: - Presenter
+    
     lazy var presenter: AddLocationContract.Presenter = AddLocationViewPresenter(view: self, addLocationUseCase: AddLocationUseCase(provider: LocationProvider(webService: WebService())))
+    
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +70,8 @@ class AddLocationViewController: BaseViewController, AddLocationContract.View {
         definesPresentationContext = true
     }
     
+    // MARK: - BaseViewController methods
+    
     override func localizeView() {
         setLocationTitleLabel.text = NSLocalizedString("add_location_set_location_title", comment: "")
         locationDescriptionTextField.placeholder = NSLocalizedString("add_location_location_description_placeholder", comment: "")
@@ -69,7 +79,9 @@ class AddLocationViewController: BaseViewController, AddLocationContract.View {
         currentLocationButton.setTitle(NSLocalizedString("add_location_use_current_location_button_title", comment: ""), for: .normal)
         saveButton.setTitle(NSLocalizedString("add_location_save_button_title", comment: ""), for: .normal)
     }
-
+    
+    // MARK: - Actions
+    
     @IBAction func onCurrentLocationTapped(_ sender: Any) {
         if let location = lastLocation {
             geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
@@ -93,6 +105,8 @@ class AddLocationViewController: BaseViewController, AddLocationContract.View {
             showAlertMessage(title: nil, message: NSLocalizedString("add_location_on_save_error_message", comment: ""))
         }
     }
+    
+    // MARK: - Helpers
     
     func parseLocation(_ location: CLPlacemark) -> String {
         // put a space between "4" and "Melrose Place"

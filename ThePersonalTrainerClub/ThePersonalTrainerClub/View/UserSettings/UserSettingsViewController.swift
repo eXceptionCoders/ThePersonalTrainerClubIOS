@@ -10,11 +10,17 @@ import UIKit
 
 class UserSettingsViewController: BaseViewController, UserSettingsContract.View {
 
+    // MARK: - Outlets
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var lastnameLabel: UILabel!
     @IBOutlet weak var logoutButton: DefaultButton!
     
+    // MARK: - Presenter
+    
     lazy var presenter: UserSettingsContract.Presenter = UserSettingsViewPresenter(view: self)
+    
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +30,7 @@ class UserSettingsViewController: BaseViewController, UserSettingsContract.View 
         lastnameLabel.text = UserSettings.user?.lastName
     }
     
+    // MARK: - Actions
     
     @IBAction func logout(_ sender: Any) {
         presenter.onLogout()

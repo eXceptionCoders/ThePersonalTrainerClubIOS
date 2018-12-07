@@ -11,14 +11,20 @@ import MapKit
 
 class SearchLocationTableViewController: UITableViewController {
     
+    // MARK: - Properties
+    
     var handleMapSearchDelegate:HandleMapSearch? = nil
     
     var matchingItems:[MKMapItem] = []
     var mapView: MKMapView? = nil
     
+    // MARK: - Life Cycle
+    
     override func viewDidLoad() {
         self.tableView.register(SearchLocationTableViewCell.self, forCellReuseIdentifier: "cell")
     }
+    
+    // MARK: - UITableViewController methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return matchingItems.count
@@ -38,6 +44,8 @@ class SearchLocationTableViewController: UITableViewController {
         handleMapSearchDelegate?.dropPinZoomIn(placemark: selectedItem)
         dismiss(animated: true, completion: nil)
     }
+    
+    // MARK: - Helpers
     
     func parseAddress(selectedItem:MKPlacemark) -> String {
         // put a space between "4" and "Melrose Place"

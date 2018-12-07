@@ -40,8 +40,10 @@
 "newclass_server_error" = "Some error has occurred";
 "newclass_class_created" = "Class created successfully";
 
-"type_selection_title" = "Settings";
+"type_selection_title" = "Switch to %@";
 "type_selection_title_label" = "Choose your role";
+"type_selection_trainer" = "trainer";
+"type_selection_athlete" = "athlete";
 
 "trainer_management_title" = "Management";
 "trainer_management_trainer_label" = "Trainer";

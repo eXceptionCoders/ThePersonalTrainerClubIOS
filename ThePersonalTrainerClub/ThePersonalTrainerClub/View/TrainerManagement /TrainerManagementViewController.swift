@@ -10,6 +10,7 @@ import UIKit
 
 class TrainerManagementViewController: BaseViewController, TrainerManagementContract.View, LocationStripViewDelegate {
 
+    // MARK: - Outlets
     
     @IBOutlet weak var thumbnailView: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -24,11 +25,15 @@ class TrainerManagementViewController: BaseViewController, TrainerManagementCont
     @IBOutlet weak var lessonsView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    // MARK: - Properties
+    
     private let operationQueue = OperationQueue()
     
     private lazy var activityView: ActivityStripView = setupActivitiesView()
     private lazy var locationView: LocationStripView = setupLocationsView()
     private lazy var classesView: ClassStripView = setupLessonsView()
+    
+    // MARK: - Presenter
     
     lazy var presenter: TrainerManagementContract.Presenter = TrainerManagementViewPresenter(
         view: self,
@@ -38,6 +43,8 @@ class TrainerManagementViewController: BaseViewController, TrainerManagementCont
         ),
         removeLocationUseCase: RemoveLocationUseCase(provider: LocationProvider(webService: WebService()))
     )
+    
+    // MARK: - BaseViewController methods
     
     override func localizeView() {
         if (UserSettings.user?.coach ?? false) && UserSettings.showCoachView {
@@ -58,6 +65,16 @@ class TrainerManagementViewController: BaseViewController, TrainerManagementCont
             lessonsLabel.text = NSLocalizedString("athlete_management_lessons_label", comment: "")
         }
     }
+    
+    override func showLoading() {
+        activityIndicator.startAnimating()
+    }
+    
+    override func hideLoading() {
+        activityIndicator.stopAnimating()
+    }
+    
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,17 +102,6 @@ class TrainerManagementViewController: BaseViewController, TrainerManagementCont
         presenter.fetchUser()
     }
     
-    @objc func navigationButtonTapped(sender: UIButton) {
-        switch sender.tag {
-        case RightButtonType.RightButtonTypeLocation.hashValue:
-            presenter.onAddLocationTapped()
-        case RightButtonType.RightButtonTypeSport.hashValue:
-            presenter.onAddSportTapped()
-        default:
-            return
-        }
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         refreshLocationsLayout()
@@ -110,13 +116,7 @@ class TrainerManagementViewController: BaseViewController, TrainerManagementCont
         })
     }
     
-    override func showLoading() {
-        activityIndicator.startAnimating()
-    }
-    
-    override func hideLoading() {
-        activityIndicator.stopAnimating()
-    }
+    // MARK: - TrainerManagementContract.View methods
     
     func setUser(_ user: UserModel) {
         userNameLabel.text = "\(user.name) \(user.lastName)"
@@ -145,6 +145,33 @@ class TrainerManagementViewController: BaseViewController, TrainerManagementCont
         classesView.items = classes
         refreshLessonsHeight(count: classes.count)
         refreshLessonsLayout()
+    }
+    
+    // MARK: - Actions
+    
+    @objc func navigationButtonTapped(sender: UIButton) {
+        switch sender.tag {
+        case RightButtonType.RightButtonTypeLocation.hashValue:
+            presenter.onAddLocationTapped()
+        case RightButtonType.RightButtonTypeSport.hashValue:
+            presenter.onAddSportTapped()
+        default:
+            return
+        }
+    }
+    
+    // MARK: - LocationStripViewDelegate methods
+    
+    func onLocationTapped(_ model: LocationModel) {
+        let alertController = UIAlertController(title: NSLocalizedString("remove_location_title", comment: ""), message: NSLocalizedString(String(format: NSLocalizedString("remove_location_message", comment: ""), model.description), comment: ""), preferredStyle: .alert)
+        let removeAction = UIAlertAction(title: NSLocalizedString("remove_button_title", comment: ""), style: .destructive) { (_) in
+            self.presenter.onLocationTapped(location: model)
+        }
+        let cancelAction = UIAlertAction(title: NSLocalizedString("cancel_button_title", comment: ""), style: .cancel, handler: nil)
+        alertController.addAction(removeAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
 }
 
@@ -258,17 +285,5 @@ extension TrainerManagementViewController {
         }
         
         (locationView as! ClassStripView).invalidateLayout()
-    }
-    
-    func onLocationTapped(_ model: LocationModel) {
-        let alertController = UIAlertController(title: NSLocalizedString("remove_location_title", comment: ""), message: NSLocalizedString(String(format: NSLocalizedString("remove_location_message", comment: ""), model.description), comment: ""), preferredStyle: .alert)
-        let removeAction = UIAlertAction(title: NSLocalizedString("remove_button_title", comment: ""), style: .destructive) { (_) in
-            self.presenter.onLocationTapped(location: model)
-        }
-        let cancelAction = UIAlertAction(title: NSLocalizedString("cancel_button_title", comment: ""), style: .cancel, handler: nil)
-        alertController.addAction(removeAction)
-        alertController.addAction(cancelAction)
-        
-        present(alertController, animated: true, completion: nil)
     }
 }

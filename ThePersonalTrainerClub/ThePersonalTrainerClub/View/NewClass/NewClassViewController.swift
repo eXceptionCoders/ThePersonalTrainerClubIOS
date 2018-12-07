@@ -10,6 +10,8 @@ import UIKit
 
 class NewClassViewController: BaseViewController, NewClassContract.View {
     
+    // MARK: - Outlets
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var activityLabel: UILabel!
     @IBOutlet weak var activityStripView: UIView!
@@ -24,10 +26,14 @@ class NewClassViewController: BaseViewController, NewClassContract.View {
     @IBOutlet weak var saveButton: DefaultButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    // MARK: - Properties
+    
     var activityView: ActivityStripView!
     var locationView: LocationStripView!
     lazy var presenter: NewClassContract.Presenter = NewClassViewPresenter(view: self, newClassUseCase: NewClassUseCase(newClassProvider: ClassProvider(webService: WebService())))
 
+    // MARK: - BaseViewController methods
+    
     override func localizeView() {
         activityLabel.text = NSLocalizedString("newclass_whatactivity_label", comment: "")
         locationLabel.text = NSLocalizedString("newclass_where_label", comment: "")
@@ -37,6 +43,16 @@ class NewClassViewController: BaseViewController, NewClassContract.View {
         
         saveButton.setTitle(NSLocalizedString("newclass_save_button", comment: ""), for: .normal)
     }
+    
+    override func showLoading() {
+        activityIndicator.startAnimating()
+    }
+    
+    override func hideLoading() {
+        activityIndicator.stopAnimating()
+    }
+    
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,12 +87,16 @@ class NewClassViewController: BaseViewController, NewClassContract.View {
         })
     }
     
+    // MARK: - NewClassContract.View methods
+    
     func setUser(_ user: UserModel) {
         activityView.items = user.activities
         locationView.items = user.locations
         refreshLocationsHeight()
         resetInputs()
     }
+    
+    // MARK: - Actions
     
     @IBAction func assisntanceSliderValueChanged(_ sender: Any) {
         let fixed = roundf((sender as! UISlider).value);
@@ -117,14 +137,6 @@ class NewClassViewController: BaseViewController, NewClassContract.View {
             scrollView.contentInset =  UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
             //scrollView.isScrollEnabled = false
         }
-    }
-    
-    override func showLoading() {
-        activityIndicator.startAnimating()
-    }
-    
-    override func hideLoading() {
-        activityIndicator.stopAnimating()
     }
     
     @objc func dismissKeyboard(){

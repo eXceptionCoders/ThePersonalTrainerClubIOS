@@ -9,6 +9,9 @@
 import UIKit
 
 class LoginViewController: BaseViewController, LoginContract.View {
+    
+    // MARK: - Outlets
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -16,7 +19,11 @@ class LoginViewController: BaseViewController, LoginContract.View {
     @IBOutlet weak var registerButton: DefaultButton!
     @IBOutlet weak var loginButton: DefaultButton!
     
+    // MARK: - Presenter
+    
     lazy var presenter: LoginContract.Presenter = LoginViewPresenter(view: self, loginUseCase: LoginUseCase(loginProvider: LoginProvider(webService: WebService()), userProvider: UserProvider(webService: WebService())))
+    
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +50,8 @@ class LoginViewController: BaseViewController, LoginContract.View {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    // MARK: - BaseViewController methods
+    
     override func localizeView() {
         emailTextField.placeholder = NSLocalizedString("login_email_placeholder", comment: "")
         passwordTextField.placeholder = NSLocalizedString("login_password_placeholder", comment: "")
@@ -67,6 +76,8 @@ class LoginViewController: BaseViewController, LoginContract.View {
         
         activityIndicator.stopAnimating()
     }
+    
+    // MARK: - Actions
     
     @IBAction func registerButtonAction(_ sender: Any) {
         presenter.onRegister()

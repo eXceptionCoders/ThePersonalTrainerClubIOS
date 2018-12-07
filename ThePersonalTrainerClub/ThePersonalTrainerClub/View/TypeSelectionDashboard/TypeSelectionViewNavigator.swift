@@ -17,11 +17,19 @@ class TypeSelectionViewNavigator: TypeSelectionContract.Navigator {
     }
     
     func navigateToTrainerView() {
+        if (UserSettings.showCoachView) {
+            return
+        }
+        
         UserSettings.showCoachView = true
         navigateToMainView()
     }
     
     func navigateToClientView() {
+        if (!UserSettings.showCoachView) {
+            return
+        }
+        
         UserSettings.showCoachView = false
         navigateToMainView()
     }
