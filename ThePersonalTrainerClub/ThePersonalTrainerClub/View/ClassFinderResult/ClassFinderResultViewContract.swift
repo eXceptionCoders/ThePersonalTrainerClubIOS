@@ -15,7 +15,7 @@ enum ClassFinderResultContract {
 }
 
 protocol ClassFinderResultView: BaseContract.View {
-    func setClasses(_ classes: [ClassModel])
+    func setClasses(_ classes: [ClassModel], _ total: Int)
 }
 
 protocol ClassFinderResultPresenter: BaseContract.Presenter {

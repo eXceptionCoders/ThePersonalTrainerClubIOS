@@ -9,14 +9,14 @@
 import Foundation
 
 class AddLocationUseCase {
-    private var provider: LocationProvider
+    private var locationProvider: LocationProvider
     
-    init(provider: LocationProvider) {
-        self.provider = provider
+    init(locationProvider: LocationProvider) {
+        self.locationProvider = locationProvider
     }
     
     func addLocation(location: LocationModel, completion: @escaping (Bool?, Error?, [String:String]?) -> Void) {
-        provider.addLocation(model: location) { (success, error, errorResponse) in
+        locationProvider.addLocation(model: location) { (success, error, errorResponse) in
             if error != nil {
                 completion(nil, error, errorResponse)
             } else {

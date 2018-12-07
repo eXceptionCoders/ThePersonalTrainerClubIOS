@@ -98,6 +98,10 @@
 		6344A23221B9A15F00E2A65C /* ClassDetailViewNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6344A23121B9A15F00E2A65C /* ClassDetailViewNavigator.swift */; };
 		6344A23521B9B1C300E2A65C /* RangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6344A23421B9B1C300E2A65C /* RangeSlider.swift */; };
 		634AD02D21BAA19E006332DA /* ClassFinderQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634AD02C21BAA19E006332DA /* ClassFinderQuery.swift */; };
+		634AD02F21BAE1B6006332DA /* FindClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634AD02E21BAE1B6006332DA /* FindClasses.swift */; };
+		634AD03121BAF96A006332DA /* ClassEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634AD03021BAF96A006332DA /* ClassEntity.swift */; };
+		634AD03321BB05A3006332DA /* FindClassesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634AD03221BB05A3006332DA /* FindClassesModel.swift */; };
+		634AD03521BB0AA4006332DA /* FindClassesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634AD03421BB0AA4006332DA /* FindClassesUseCase.swift */; };
 		637303F721983F7F00E726E2 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637303F621983F7F00E726E2 /* UserSettings.swift */; };
 		637303FA219843A400E726E2 /* TrainerDashboardViewNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637303F9219843A400E726E2 /* TrainerDashboardViewNavigator.swift */; };
 		637303FC219843BA00E726E2 /* TrainerDashboardViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637303FB219843BA00E726E2 /* TrainerDashboardViewPresenter.swift */; };
@@ -261,6 +265,10 @@
 		6344A23121B9A15F00E2A65C /* ClassDetailViewNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassDetailViewNavigator.swift; sourceTree = "<group>"; };
 		6344A23421B9B1C300E2A65C /* RangeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeSlider.swift; sourceTree = "<group>"; };
 		634AD02C21BAA19E006332DA /* ClassFinderQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassFinderQuery.swift; sourceTree = "<group>"; };
+		634AD02E21BAE1B6006332DA /* FindClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindClasses.swift; sourceTree = "<group>"; };
+		634AD03021BAF96A006332DA /* ClassEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassEntity.swift; sourceTree = "<group>"; };
+		634AD03221BB05A3006332DA /* FindClassesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindClassesModel.swift; sourceTree = "<group>"; };
+		634AD03421BB0AA4006332DA /* FindClassesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindClassesUseCase.swift; sourceTree = "<group>"; };
 		637303F621983F7F00E726E2 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		637303F9219843A400E726E2 /* TrainerDashboardViewNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerDashboardViewNavigator.swift; sourceTree = "<group>"; };
 		637303FB219843BA00E726E2 /* TrainerDashboardViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerDashboardViewPresenter.swift; sourceTree = "<group>"; };
@@ -552,6 +560,7 @@
 				5E977F4F21B0406400DD6E50 /* SetActivityUseCase.swift */,
 				5E977F6D21B5E67300DD6E50 /* AddLocationUseCase.swift */,
 				6344A21021B9846F00E2A65C /* RemoveLocationUseCase.swift */,
+				634AD03421BB0AA4006332DA /* FindClassesUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -581,6 +590,8 @@
 				6373043E2198608500E726E2 /* LocationEntity.swift */,
 				637304402198697800E726E2 /* SportEntity.swift */,
 				5E977F4B21B03D9400DD6E50 /* SetSportRequest.swift */,
+				634AD02E21BAE1B6006332DA /* FindClasses.swift */,
+				634AD03021BAF96A006332DA /* ClassEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -596,6 +607,7 @@
 				633DA1CC2198A42C00BA028C /* UserModel.swift */,
 				633D77E521AB569C00A6FEE1 /* NewClassModel.swift */,
 				5E977F4D21B03E7F00DD6E50 /* SetActivitiesModel.swift */,
+				634AD03221BB05A3006332DA /* FindClassesModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -894,6 +906,7 @@
 				5EDB093A2194423C0000A280 /* LoginEntity.swift in Sources */,
 				5EDB09512194D0210000A280 /* LoginViewNavigator.swift in Sources */,
 				5EDB093F21944CFD0000A280 /* LoginModel.swift in Sources */,
+				634AD03321BB05A3006332DA /* FindClassesModel.swift in Sources */,
 				633D77DD21AAEC8800A6FEE1 /* UserSettingsViewController.swift in Sources */,
 				5E92C2E721AC804300699A37 /* AddLocationViewPresenter.swift in Sources */,
 				6344A22E21B9A12E00E2A65C /* ClassDetailViewContract.swift in Sources */,
@@ -916,6 +929,7 @@
 				6373043721985D4500E726E2 /* TrainerManagementUseCase.swift in Sources */,
 				637304082198467900E726E2 /* BaseTabBarViewController.swift in Sources */,
 				5EDB094D2194CDE50000A280 /* RegisterViewContract.swift in Sources */,
+				634AD02F21BAE1B6006332DA /* FindClasses.swift in Sources */,
 				5E977F6721B53B7100DD6E50 /* SearchLocationTableViewController.swift in Sources */,
 				5E92C2E921AC804F00699A37 /* AddLocationViewContract.swift in Sources */,
 				5EFB9E10219B495C00D37E6E /* DefaultButton.swift in Sources */,
@@ -941,6 +955,7 @@
 				5E92C2CC21A834CA00699A37 /* TypeSelectionViewController.swift in Sources */,
 				6373042D219850F700E726E2 /* ClassProvider.swift in Sources */,
 				5E977F5F21B1624900DD6E50 /* ClassStripView.swift in Sources */,
+				634AD03521BB0AA4006332DA /* FindClassesUseCase.swift in Sources */,
 				6373041D21984EBA00E726E2 /* NewClassViewPresenter.swift in Sources */,
 				633D77E221AAEF3400A6FEE1 /* UserSettingsViewNavigator.swift in Sources */,
 				6344A22821B9A0CC00E2A65C /* ClassFinderResultViewContract.swift in Sources */,
@@ -951,6 +966,7 @@
 				5E92C2D821AC7FDB00699A37 /* AddSportViewController.swift in Sources */,
 				633DA1CD2198A42C00BA028C /* UserModel.swift in Sources */,
 				6373041B21984EA800E726E2 /* NewClassViewNavigator.swift in Sources */,
+				634AD03121BAF96A006332DA /* ClassEntity.swift in Sources */,
 				6373040D21984DA300E726E2 /* TrainerManagementViewContract.swift in Sources */,
 				637304312198531C00E726E2 /* NewClassUseCase.swift in Sources */,
 				63FB2E7A21A1EE48006E0320 /* LocationStripCell.swift in Sources */,

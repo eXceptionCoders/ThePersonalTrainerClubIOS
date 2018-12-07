@@ -18,6 +18,7 @@ enum Endpoint {
     case userData(requestModel: UserRequest)
     // Class methods
     case newClass(requestModel: NewClassRequest)
+    case findClasses(requestModel: FindClasesRequest)
     // Activities
     case sports(requestModel: SportRequest)
     case setSports(requestModel: SetSportRequest)
@@ -76,6 +77,8 @@ private extension Endpoint {
             return .get
         case .newClass(_):
             return .post
+        case .findClasses(_):
+            return .get
         case .sports(_):
             return .get
         case .setSports(_):
@@ -100,6 +103,34 @@ private extension Endpoint {
             
         case .newClass(_):
             return "/api/v1/es/class/add"
+            
+        case .findClasses(let requestModel):
+            var params: [String] = [
+                "page=\(requestModel.page)",
+                "per_page=\(requestModel.perPage)"
+            ];
+            
+            if (!requestModel.sport.isEmpty) {
+                params.append("sport=\(requestModel.sport)")
+            }
+            
+            if (!requestModel.longitude.isZero && requestModel.longitude.isFinite) {
+                params.append("longitude=\(requestModel.longitude)")
+            }
+            
+            if (!requestModel.latitude.isZero && requestModel.latitude.isFinite) {
+                params.append("latitude=\(requestModel.latitude)")
+            }
+            
+            if (requestModel.distance != 0) {
+                params.append("distance=\(requestModel.distance)")
+            }
+            
+            if (!requestModel.price.isEmpty) {
+                params.append("price=\(requestModel.price)")
+            }
+            
+            return "/api/v1/es/class/find?\(params.joined(separator: "&"))"
             
         case .sports(_):
             return "/api/v1/es/sports"

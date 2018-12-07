@@ -25,7 +25,10 @@ class ClassFinderResultViewController: BaseViewController, ClassFinderResultCont
     
     // MARK: - Presenter
     
-    lazy var presenter: ClassFinderResultContract.Presenter = ClassFinderResultViewPresenter(view: self)
+    lazy var presenter: ClassFinderResultContract.Presenter = ClassFinderResultViewPresenter(
+        view: self,
+        findClassesUseCase: FindClassesUseCase(classProvider: ClassProvider(webService: WebService()))
+    )
     
     // MARK: - Initialization
     
@@ -65,11 +68,11 @@ class ClassFinderResultViewController: BaseViewController, ClassFinderResultCont
     
     // MARK: - ClassFinderResultContract.View methods
     
-    func setClasses(_ classes: [ClassModel]) {
-        matchesLabel.text = String(format: NSLocalizedString("class_finder_result_found", comment: ""), classes.count)
+    func setClasses(_ classes: [ClassModel], _ total: Int) {
+        matchesLabel.text = String(format: NSLocalizedString("class_finder_result_found", comment: ""), total)
         
-        matchesLabel.isHidden = classes.count == 0
-        notFoundLabel.isHidden = classes.count > 0
+        matchesLabel.isHidden = total == 0
+        notFoundLabel.isHidden = total > 0
         
         classesView.items = classes
         refreshLessonsLayout()
@@ -78,7 +81,6 @@ class ClassFinderResultViewController: BaseViewController, ClassFinderResultCont
     // MARK: - Actions
     
     // MARK: - Helpers
-    
 }
 
 extension ClassFinderResultViewController {

@@ -9,14 +9,14 @@
 import Foundation
 
 class RemoveLocationUseCase {
-    private var provider: LocationProvider
+    private var locationProvider: LocationProvider
     
-    init(provider: LocationProvider) {
-        self.provider = provider
+    init(locationProvider: LocationProvider) {
+        self.locationProvider = locationProvider
     }
     
     func removeLocation(location: LocationModel, completion: @escaping (Bool?, Error?, [String:String]?) -> Void) {
-        provider.deleteLocation(model: location) { (success, error, errorResponse) in
+        locationProvider.deleteLocation(model: location) { (success, error, errorResponse) in
             if error != nil {
                 completion(nil, error, errorResponse)
             } else {

@@ -33,7 +33,7 @@ class NewClassViewController: BaseViewController, NewClassContract.View {
     
     // MARK: - Presenter
     
-    lazy var presenter: NewClassContract.Presenter = NewClassViewPresenter(view: self, newClassUseCase: NewClassUseCase(newClassProvider: ClassProvider(webService: WebService())))
+    lazy var presenter: NewClassContract.Presenter = NewClassViewPresenter(view: self, newClassUseCase: NewClassUseCase(classProvider: ClassProvider(webService: WebService())))
 
     // MARK: - BaseViewController methods
     

@@ -10,14 +10,14 @@ import Foundation
 
 class NewClassUseCase {
     
-    private var newClassProvider: ClassProvider
+    private var classProvider: ClassProvider
     
-    init(newClassProvider: ClassProvider) {
-        self.newClassProvider = newClassProvider
+    init(classProvider: ClassProvider) {
+        self.classProvider = classProvider
     }
     
     func create(model: NewClassModel, completion: @escaping (Bool?, Error?, [String: String]?) -> Void) {
-        newClassProvider.create(model: model, completion: completion)
+        classProvider.create(model: model, completion: completion)
     }
     
 }

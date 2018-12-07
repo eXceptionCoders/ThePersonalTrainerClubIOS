@@ -95,5 +95,6 @@
 "class_finder_result_title" = "Classes";
 "class_finder_result_found" = "%d classes found";
 "class_finder_result_classes_not_found" = "Sorry, still there are not classes available with the criteria specified";
+"class_finder_result_server_error" = "Some error has occurred";
 
 "user_settings_title" = "User Settings";

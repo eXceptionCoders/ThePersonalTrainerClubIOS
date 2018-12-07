@@ -41,7 +41,7 @@ class TrainerManagementViewController: BaseViewController, TrainerManagementCont
             userProvider: UserProvider(webService: WebService()),
             classProvider: ClassProvider(webService: WebService())
         ),
-        removeLocationUseCase: RemoveLocationUseCase(provider: LocationProvider(webService: WebService()))
+        removeLocationUseCase: RemoveLocationUseCase(locationProvider: LocationProvider(webService: WebService()))
     )
     
     // MARK: - BaseViewController methods

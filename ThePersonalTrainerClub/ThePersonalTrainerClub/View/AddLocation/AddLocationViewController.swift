@@ -40,7 +40,7 @@ class AddLocationViewController: BaseViewController, AddLocationContract.View {
     
     // MARK: - Presenter
     
-    lazy var presenter: AddLocationContract.Presenter = AddLocationViewPresenter(view: self, addLocationUseCase: AddLocationUseCase(provider: LocationProvider(webService: WebService())))
+    lazy var presenter: AddLocationContract.Presenter = AddLocationViewPresenter(view: self, addLocationUseCase: AddLocationUseCase(locationProvider: LocationProvider(webService: WebService())))
     
     // MARK: - Life Cycle
     

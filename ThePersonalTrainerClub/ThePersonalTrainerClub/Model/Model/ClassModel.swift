@@ -18,6 +18,7 @@ struct ClassModel: Codable {
     let maxusers: Int
     let duration: Int
     let registered: Int?
+    let distance: Int?
 }
 
 struct TrainerModel: Decodable, Encodable {

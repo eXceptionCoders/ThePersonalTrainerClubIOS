@@ -89,36 +89,3 @@ private class UserProviderMapper {
         return user
     }
 }
-
-
-private class ClassProviderMapper {
-    class func mapEntityToModel(data: ClassEntity) -> ClassModel {
-        let classData = ClassModel(
-            id: data._id,
-            instructor: TrainerModel(
-                id: data.instructor._id,
-                name: data.instructor.name,
-                lastname: data.instructor.lastname,
-                thumbnail: data.instructor.thumbnail
-            ),
-            sport: ActivityModel(
-                id: data.sport._id,
-                name: data.sport.name,
-                icon: data.sport.icon,
-                category: data.sport.category ?? ""
-            ),
-            location: LocationModel(
-                type: data.location.type,
-                coordinates: data.location.coordinates,
-                description: data.place
-            ),
-            description: data.description,
-            price: data.price,
-            maxusers: data.maxusers,
-            duration: data.duration,
-            registered: data.registered
-        )
-        
-        return classData
-    }
-}
