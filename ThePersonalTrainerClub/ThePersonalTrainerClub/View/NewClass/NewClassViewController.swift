@@ -109,14 +109,14 @@ class NewClassViewController: BaseViewController, NewClassContract.View {
         let fixed = roundf((sender as! UISlider).value);
         (sender as! UISlider).setValue(fixed, animated: true)
         
-        assistanceLabel.text = String(format: NSLocalizedString("newclass_assistance_label", comment: ""), assistanceSlider.value)
+        updateAssistanceLabel()
     }
     
     @IBAction func priceSliderValueChanged(_ sender: Any) {
         let fixed = roundf((sender as! UISlider).value);
         (sender as! UISlider).setValue(fixed, animated: true)
         
-        priceLabel.text = String(format: NSLocalizedString("newclass_price_label", comment: ""), priceSlider.value)
+        updatePriceLabel()
     }
     
     @IBAction func saveClass(_ sender: Any) {
@@ -159,6 +159,17 @@ extension NewClassViewController {
         priceSlider.value = 15
         assistanceSlider.value = 20
         descriptionTextView.text = ""
+        
+        updateAssistanceLabel()
+        updatePriceLabel()
+    }
+    
+    func updateAssistanceLabel() {
+        assistanceLabel.text = String(format: NSLocalizedString("newclass_assistance_label", comment: ""), assistanceSlider.value)
+    }
+    
+    func updatePriceLabel() {
+        priceLabel.text = String(format: NSLocalizedString("newclass_price_label", comment: ""), priceSlider.value)
     }
     
     func setupActivitiesView() -> ActivityStripView {

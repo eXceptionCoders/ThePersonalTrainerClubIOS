@@ -61,7 +61,6 @@ class ClassFinderViewController: BaseViewController, ClassFinderContract.View {
         locationView = setupLocationsView()
         
         priceRangeSlider.addTarget(self, action: #selector(ClassFinderViewController.priceRangeSliderValueChanged(_:)), for: .valueChanged)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -131,11 +130,11 @@ class ClassFinderViewController: BaseViewController, ClassFinderContract.View {
     // MARK: - Actions
     
     @objc func priceRangeSliderValueChanged(_ sender: RangeSlider) {
-        priceLabel.text = String(format: NSLocalizedString("class_finder_price_label", comment: ""), getPriceLabel())
+        updatePriceLabel()
     }
 
     @IBAction func radioSliderValueChange(_ sender: UISlider) {
-        distanceLabel.text = String(format: NSLocalizedString("class_finder_distance_label", comment: ""), roundf( distanceSlider.value ))
+        updateDistanceLabel()
     }
 
     @IBAction func search(_ sender: Any) {
@@ -157,6 +156,14 @@ class ClassFinderViewController: BaseViewController, ClassFinderContract.View {
 }
 
 extension ClassFinderViewController {
+    func updatePriceLabel() {
+        priceLabel.text = String(format: NSLocalizedString("class_finder_price_label", comment: ""), getPriceLabel())
+    }
+    
+    func updateDistanceLabel() {
+        distanceLabel.text = String(format: NSLocalizedString("class_finder_distance_label", comment: ""), roundf( distanceSlider.value ))
+    }
+    
     func resetPriceRange() {
         priceRangeSlider.trackHighlightTintColor = UIColor.customOrange
         priceRangeSlider.maximumValue = 50;
@@ -176,6 +183,9 @@ extension ClassFinderViewController {
         
         distanceSlider.value = 15
         resetPriceRange()
+        
+        updatePriceLabel()
+        updateDistanceLabel()
     }
     
     func restoreLastQuery() {
@@ -183,12 +193,15 @@ extension ClassFinderViewController {
             return
         }
         
-        distanceSlider.value = Float( query.distance )
+        distanceSlider.value = Float( query.distance/1000 )
         priceRangeSlider.upperValue = Double( query.priceTo ?? 50 )
         priceRangeSlider.lowerValue = Double( query.priceFrom ?? 1 )
         
         activityView.selectItemAt(query.sportIndex)
         locationView.selectItemAt(query.locationIndex)
+        
+        updatePriceLabel()
+        updateDistanceLabel()
     }
     
     func setupPriceRangeSliderView() {
