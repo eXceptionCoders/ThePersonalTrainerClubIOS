@@ -10,8 +10,9 @@ import Foundation
 
 enum SetActivitiesError: Error {
     case notFound
-    case userPasswordNotFound
-    case incorrectEntry
+    case unauthorized
+    case forbiddenError
+    case unprocessableEntity
     case otherError
 }
 
@@ -26,10 +27,13 @@ class SetActivitiesProvider {
         webService.load(SetSportResponse.self, from: Endpoint.setSports(requestModel: SetActivitiesProviderMapper.mapModelToEntity(model: model))) { responseObject, error in
             if let error = error {
                 switch error {
+                    
                 case WebServiceError.unauthorized:
-                    completion(false, SetActivitiesError.userPasswordNotFound, responseObject?.error)
+                    completion(false, SetActivitiesError.unauthorized, responseObject?.error)
+                case WebServiceError.forbiddenError:
+                    completion(false, SetActivitiesError.forbiddenError, responseObject?.error)
                 case WebServiceError.unprocessableEntity:
-                    completion(false, SetActivitiesError.incorrectEntry, responseObject?.error)
+                    completion(false, SetActivitiesError.unprocessableEntity, responseObject?.error)
                 default:
                     completion(false, SetActivitiesError.otherError, responseObject?.error)
                 }

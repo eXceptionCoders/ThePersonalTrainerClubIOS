@@ -35,7 +35,7 @@ class LoginViewPresenter: BaseViewPresenter, LoginContract.Presenter {
                 switch error {
                 case LoginError.userPasswordNotFound:
                     message = NSLocalizedString("login_error_wrong_user", comment: "")
-                case LoginError.incorrectEntry:
+                case LoginError.unprocessableEntity:
                     message = NSLocalizedString("login_error_invalid_email", comment: "")
                 case LoginError.otherError:
                     message = NSLocalizedString("login_error_default", comment: "")

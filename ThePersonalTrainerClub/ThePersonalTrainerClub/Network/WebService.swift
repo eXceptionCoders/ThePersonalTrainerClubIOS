@@ -55,6 +55,11 @@ final class WebService {
                     e = WebServiceError.decodingError
                 }
                 
+                NotificationCenter.default.post(
+                    name: .WebServiceDidReceiveData,
+                    object: self,
+                    userInfo: ["statusCode" : httpResponse.statusCode])
+                
                 switch httpResponse.statusCode {
                 case 200, 201:
                     break
@@ -84,4 +89,8 @@ final class WebService {
         
         task?.resume()
     }
+}
+
+extension Notification.Name {
+    static let WebServiceDidReceiveData = NSNotification.Name("webServiceDidReceiveData")
 }

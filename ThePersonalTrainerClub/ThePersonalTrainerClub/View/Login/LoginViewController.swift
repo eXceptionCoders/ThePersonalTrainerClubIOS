@@ -23,6 +23,21 @@ class LoginViewController: BaseViewController, LoginContract.View {
     
     lazy var presenter: LoginContract.Presenter = LoginViewPresenter(view: self, loginUseCase: LoginUseCase(loginProvider: LoginProvider(webService: WebService()), userProvider: UserProvider(webService: WebService())))
     
+    // MARK: - Properties
+    
+    var sessionExpired = false
+    
+    // MARK: - Initialization
+    
+    init(sessionExpired: Bool = false) {
+        self.sessionExpired = sessionExpired
+        super.init(nibName: nil, bundle: Bundle(for: type(of: self)))
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -48,6 +63,15 @@ class LoginViewController: BaseViewController, LoginContract.View {
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if sessionExpired {
+            self.showAlertMessage(title: nil, message: NSLocalizedString("session_expired", comment: ""))
+            sessionExpired = false
+        }
     }
     
     // MARK: - BaseViewController methods

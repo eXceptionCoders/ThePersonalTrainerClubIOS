@@ -10,6 +10,8 @@ import Foundation
 
 enum UserError: Error {
     case notFound
+    case unauthorized
+    case forbiddenError
     case otherError
 }
 
@@ -26,6 +28,10 @@ class UserProvider {
                 switch error {
                 case WebServiceError.notFound:
                     completion(nil, UserError.notFound, responseObject?.error)
+                case WebServiceError.unauthorized:
+                    completion(nil, UserError.unauthorized, responseObject?.error)
+                case WebServiceError.forbiddenError:
+                    completion(nil, UserError.forbiddenError, responseObject?.error)
                 default:
                     completion(nil, UserError.otherError, responseObject?.error)
                 }

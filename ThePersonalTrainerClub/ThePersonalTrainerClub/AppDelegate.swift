@@ -18,6 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         window = UIWindow()
         
+        NotificationCenter.default.addObserver(self,
+           selector: #selector(webServiceDidReceiveData(_:)),
+           name: .WebServiceDidReceiveData,
+           object: nil)
+        
         if (UserSettings.token.isEmpty) {
             switchToLoginViewController()
         } else {
@@ -28,14 +33,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func switchToLoginViewController() {
-        let loginVC = LoginViewController().embedInNavigationController()
+    func switchToLoginViewController(sessionExpired: Bool = false) {
+        let loginVC = LoginViewController(sessionExpired: sessionExpired).embedInNavigationController()
         window?.rootViewController = loginVC
     }
     
     func switchToMainViewController() {
         let trainerDashboardVC = TrainerDashboardViewController()
         window?.rootViewController = trainerDashboardVC
+    }
+    
+    @objc
+    func webServiceDidReceiveData(_ notification: Notification) {
+        let statusCode = notification.userInfo?["statusCode"] as! Int
+        
+        switch statusCode {
+        case 401:
+            switchToLoginViewController(sessionExpired: true)
+            print("Session expired")
+        default:
+            print("Web Service: \(statusCode)")
+        }
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

@@ -11,7 +11,7 @@ import Foundation
 enum LoginError: Error {
     case notFound
     case userPasswordNotFound
-    case incorrectEntry
+    case unprocessableEntity
     case otherError
 }
 
@@ -28,8 +28,10 @@ class LoginProvider {
                 switch error {
                 case WebServiceError.unauthorized:
                     completion(false, LoginError.userPasswordNotFound, responseObject?.error)
+                case WebServiceError.forbiddenError:
+                    completion(false, LoginError.userPasswordNotFound, responseObject?.error)
                 case WebServiceError.unprocessableEntity:
-                    completion(false, LoginError.incorrectEntry, responseObject?.error)
+                    completion(false, LoginError.unprocessableEntity, responseObject?.error)
                 default:
                     completion(false, LoginError.otherError, responseObject?.error)
                 }

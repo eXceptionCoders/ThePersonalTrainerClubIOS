@@ -10,6 +10,8 @@ import Foundation
 
 class ActivityProvider {
     enum ActivityError: Error {
+        case unauthorized
+        case forbiddenError
         case otherError
     }
     
@@ -23,6 +25,10 @@ class ActivityProvider {
         webService.load(SportResponse.self, from: Endpoint.sports(requestModel: SportRequest())) { responseObject, error in
             if let error = error {
                 switch error {
+                case WebServiceError.unauthorized:
+                    completion(nil, ActivityError.unauthorized, responseObject?.error)
+                case WebServiceError.forbiddenError:
+                    completion(nil, ActivityError.forbiddenError, responseObject?.error)
                 default:
                     completion(nil, ActivityError.otherError, responseObject?.error)
                 }

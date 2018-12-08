@@ -71,6 +71,7 @@
 "without_locations_label" = "Por favor, registra las ubicaciones donde normalmente practicas deportes";
 "without_trainer_classes_label" = "Aún no has creado clases";
 "without_athlete_classes_label" = "Aún no has reservado clases";
+"session_expired" = "Su sesión ha expirado";
 
 "remove_location_title" = "Borrar ubicación";
 "remove_location_message" = "¿Quieres borrar la ubicación \"%@\"?";

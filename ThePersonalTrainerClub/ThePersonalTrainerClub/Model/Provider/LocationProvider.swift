@@ -10,6 +10,9 @@ import Foundation
 
 enum LocationError: Error {
     case notFound
+    case unauthorized
+    case forbiddenError
+    case unprocessableEntity
     case otherError
 }
 
@@ -24,10 +27,14 @@ class LocationProvider {
         webService.load(DeleteLocationResponse.self, from: Endpoint.deleteLocation(requestModel: LocationProviderMapper.mapModelToEntity(model: model))) { responseObject, error in
             if let error = error {
                 switch error {
+                case WebServiceError.unauthorized:
+                    completion(false, LocationError.unauthorized, responseObject?.error)
+                case WebServiceError.forbiddenError:
+                    completion(false, LocationError.forbiddenError, responseObject?.error)
                 case WebServiceError.unprocessableEntity:
-                    completion(false, error, responseObject?.error)
+                    completion(false, LocationError.unprocessableEntity, responseObject?.error)
                 default:
-                    completion(false, error, responseObject?.error)
+                    completion(false, LocationError.otherError, responseObject?.error)
                 }
             } else {
                 completion(true, nil, nil)
@@ -39,10 +46,14 @@ class LocationProvider {
         webService.load(AddLocationResponse.self, from: Endpoint.addLocation(requestModel: AddLocationProviderMapper.mapModelToEntity(model: model))) { responseObject, error in
             if let error = error {
                 switch error {
+                case WebServiceError.unauthorized:
+                    completion(false, LocationError.unauthorized, responseObject?.error)
+                case WebServiceError.forbiddenError:
+                    completion(false, LocationError.forbiddenError, responseObject?.error)
                 case WebServiceError.unprocessableEntity:
-                    completion(false, error, responseObject?.error)
+                    completion(false, LocationError.unprocessableEntity, responseObject?.error)
                 default:
-                    completion(false, error, responseObject?.error)
+                    completion(false, LocationError.otherError, responseObject?.error)
                 }
             } else {
                 completion(true, nil, nil)
