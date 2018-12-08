@@ -13,10 +13,11 @@ protocol HandleMapSearch {
     func dropPinZoomIn(placemark:MKPlacemark)
 }
 
-class AddLocationViewController: BaseViewController, AddLocationContract.View {
+class AddLocationViewController: BaseViewController, AddLocationContract.View, UITextFieldDelegate {
 
     // MARK: - Outlets
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var setLocationTitleLabel: UILabel!
     @IBOutlet weak var locationDescriptionTextField: UITextField!
@@ -52,6 +53,9 @@ class AddLocationViewController: BaseViewController, AddLocationContract.View {
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
         
+        locationDescriptionTextField.delegate = self
+        locationTextField.delegate = self
+        
         let locationSearchTable = SearchLocationTableViewController()
         locationSearchTable.mapView = mapView
         locationSearchTable.handleMapSearchDelegate = self
@@ -68,6 +72,9 @@ class AddLocationViewController: BaseViewController, AddLocationContract.View {
         resultSearchController?.hidesNavigationBarDuringPresentation = false
         resultSearchController?.dimsBackgroundDuringPresentation = true
         definesPresentationContext = true
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillShow), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     // MARK: - BaseViewController methods
@@ -106,6 +113,26 @@ class AddLocationViewController: BaseViewController, AddLocationContract.View {
         }
     }
     
+    @objc func keyboardWillShow(notification: NSNotification) {
+        scrollView.isScrollEnabled = true
+        var info = notification.userInfo
+        let keyboardSize = (info?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
+        let contentInsets : UIEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize!.height+16, right: 0.0)
+        
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        var info = notification.userInfo!
+        let keyboardSize = (info[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
+        let contentInsets : UIEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: -(keyboardSize!.height+16), right: 0.0)
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+        view.endEditing(true)
+        scrollView.isScrollEnabled = false
+    }
+    
     // MARK: - Helpers
     
     func parseLocation(_ location: CLPlacemark) -> String {
@@ -138,6 +165,15 @@ class AddLocationViewController: BaseViewController, AddLocationContract.View {
     
     func onLocationError() {
         print("")
+    }
+    
+    // MARK: - UITextFieldDelegate
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        //or
+        //self.view.endEditing(true)
+        return true
     }
 }
 
