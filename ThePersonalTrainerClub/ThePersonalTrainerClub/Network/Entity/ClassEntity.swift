@@ -26,5 +26,5 @@ struct TrainerEntity: Decodable, Encodable {
     let _id: String
     let name: String
     let lastname: String
-    let thumbnail: String
+    let thumbnail: String?
 }

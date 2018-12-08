@@ -46,11 +46,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     @objc
     func webServiceDidReceiveData(_ notification: Notification) {
         let statusCode = notification.userInfo?["statusCode"] as! Int
+        let endpoint = notification.userInfo?["endpoint"] as! Endpoint
+        
+        switch endpoint {
+        case .login(_):
+            return
+        default:
+            break
+        }
         
         switch statusCode {
         case 401:
             switchToLoginViewController(sessionExpired: true)
-            print("Session expired")
         default:
             print("Web Service: \(statusCode)")
         }

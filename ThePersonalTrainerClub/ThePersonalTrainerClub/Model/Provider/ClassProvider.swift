@@ -105,7 +105,7 @@ class ClassProviderMapper {
                 id: data.instructor._id,
                 name: data.instructor.name,
                 lastname: data.instructor.lastname,
-                thumbnail: data.instructor.thumbnail
+                thumbnail: data.instructor.thumbnail ?? ""
             ),
             sport: ActivityModel(
                 id: data.sport._id,

@@ -58,7 +58,10 @@ final class WebService {
                 NotificationCenter.default.post(
                     name: .WebServiceDidReceiveData,
                     object: self,
-                    userInfo: ["statusCode" : httpResponse.statusCode])
+                    userInfo: [
+                        "statusCode" : httpResponse.statusCode,
+                        "endpoint" : endpoint
+                    ])
                 
                 switch httpResponse.statusCode {
                 case 200, 201:
