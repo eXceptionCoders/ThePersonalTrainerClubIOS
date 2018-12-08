@@ -9,7 +9,7 @@
 import UIKit
 
 protocol LocationStripViewDelegate {
-    func onLocationTapped(_ model: LocationModel)
+    func locationStripViewDelegate (_ view: LocationStripView, didSelectLocation: LocationModel)
 }
 
 class LocationStripView: UIView, NibLoadableView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -101,6 +101,6 @@ class LocationStripView: UIView, NibLoadableView, UICollectionViewDelegate, UICo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let model = items[indexPath.row]
-        delegate?.onLocationTapped(model)
+        delegate?.locationStripViewDelegate(self, didSelectLocation: model)
     }
 }

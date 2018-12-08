@@ -155,10 +155,10 @@ class TrainerManagementViewController: BaseViewController, TrainerManagementCont
     
     // MARK: - LocationStripViewDelegate methods
     
-    func onLocationTapped(_ model: LocationModel) {
-        let alertController = UIAlertController(title: NSLocalizedString("remove_location_title", comment: ""), message: NSLocalizedString(String(format: NSLocalizedString("remove_location_message", comment: ""), model.description), comment: ""), preferredStyle: .alert)
+    func locationStripViewDelegate(_ view: LocationStripView, didSelectLocation: LocationModel) {
+        let alertController = UIAlertController(title: NSLocalizedString("remove_location_title", comment: ""), message: NSLocalizedString(String(format: NSLocalizedString("remove_location_message", comment: ""), didSelectLocation.description), comment: ""), preferredStyle: .alert)
         let removeAction = UIAlertAction(title: NSLocalizedString("remove_button_title", comment: ""), style: .destructive) { (_) in
-            self.presenter.onLocationTapped(location: model)
+            self.presenter.onLocationTapped(location: didSelectLocation)
         }
         let cancelAction = UIAlertAction(title: NSLocalizedString("cancel_button_title", comment: ""), style: .cancel, handler: nil)
         alertController.addAction(removeAction)

@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ActivityStripViewDelegate {
+    func activityStripViewDelegate (_ view: ActivityStripView, didSelectActivity: ActivityModel)
+}
+
 class ActivityStripView: UIView, NibLoadableView, UICollectionViewDelegate,  UICollectionViewDataSource {
 
     private enum Constants {
@@ -15,6 +19,7 @@ class ActivityStripView: UIView, NibLoadableView, UICollectionViewDelegate,  UIC
     }
     
     // MARK: - Outlets
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -34,6 +39,8 @@ class ActivityStripView: UIView, NibLoadableView, UICollectionViewDelegate,  UIC
             return collectionView.indexPathsForSelectedItems
         }
     }
+    
+    var delegate: ActivityStripViewDelegate?
     
     private var _items: [ActivityModel] = []
     private var _preselectedItems: [ActivityModel] = []
@@ -144,4 +151,8 @@ class ActivityStripView: UIView, NibLoadableView, UICollectionViewDelegate,  UIC
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let model = items[indexPath.row]
+        delegate?.activityStripViewDelegate(self, didSelectActivity: model)
+    }
 }
