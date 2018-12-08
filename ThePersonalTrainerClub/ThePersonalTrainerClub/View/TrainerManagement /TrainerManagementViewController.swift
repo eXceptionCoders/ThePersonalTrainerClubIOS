@@ -84,10 +84,7 @@ class TrainerManagementViewController: BaseViewController, TrainerManagementCont
             setUser(UserSettings.user!)
         }
 
-        thumbnailView.layer.cornerRadius = thumbnailView.frame.size.width / 2
-        thumbnailView.clipsToBounds = true
-        thumbnailView.layer.borderWidth = 3
-        thumbnailView.layer.borderColor = UIColor.customOrange.cgColor
+        thumbnailView.setupAsUserThumbnail()
         
         addRightButtons([.RightButtonTypeLocation, .RightButtonTypeSport], action: #selector(navigationButtonTapped(sender:)))
     }

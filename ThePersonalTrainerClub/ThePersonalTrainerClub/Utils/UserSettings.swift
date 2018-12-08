@@ -13,6 +13,12 @@ final class UserSettings {
     private static var _user: UserModel?;
     private static var _lastQuery: ClassFinderQuery?
     
+    private static var userKey: String {
+        get {
+            return user?.email ?? ""
+        }
+    }
+    
     static var token: String {
         get {
             let value = UserDefaults.standard.string(forKey: "token") ?? ""
@@ -36,7 +42,7 @@ final class UserSettings {
     static var lastQuery: ClassFinderQuery? {
         get {
             guard let data = _lastQuery else {
-                if let savedQuery = UserDefaults.standard.object(forKey: "query") as? Data {
+                if let savedQuery = UserDefaults.standard.object(forKey: "query-\(self.userKey)") as? Data {
                     let decoder = JSONDecoder()
                     if let loadedQuery = try? decoder.decode(ClassFinderQuery.self, from: savedQuery) {
                         _lastQuery = loadedQuery
@@ -57,10 +63,10 @@ final class UserSettings {
                 
                 let encoder = JSONEncoder()
                 if let encoded = try? encoder.encode(newValue) {
-                    UserDefaults.standard.set(encoded, forKey: "query")
+                    UserDefaults.standard.set(encoded, forKey: "query-\(self.userKey)")
                 }
             } else {
-                UserDefaults.standard.removeObject(forKey: "query")
+                UserDefaults.standard.removeObject(forKey: "query-\(self.userKey)")
                 _lastQuery = nil
             }
         }

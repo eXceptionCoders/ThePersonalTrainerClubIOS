@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ClassFinderResultViewController: BaseViewController, ClassFinderResultContract.View {
+class ClassFinderResultViewController: BaseViewController, ClassFinderResultContract.View, ClassStripViewDelegate {
 
     // MARK: - Outlets
     
@@ -81,13 +81,20 @@ class ClassFinderResultViewController: BaseViewController, ClassFinderResultCont
     // MARK: - Actions
     
     // MARK: - Helpers
+    
+    // MARK: - ClassStripViewDelegate methods
+    
+    func classStripViewDelegate(_ view: ClassStripView, didSelectClass: ClassModel) {
+        presenter.onClassTapped(didSelectClass)
+    }
+    
 }
 
 extension ClassFinderResultViewController {
     func setupLessonsView() -> ClassStripView {
         let collectionView = ClassStripView.instantiate()
         collectionView.showBookingButton = true
-        collectionView.allowSelection(false)
+        collectionView.delegate = self
         
         lessonsView.addSubview(collectionView)
         

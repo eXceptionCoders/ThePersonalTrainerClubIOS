@@ -98,4 +98,7 @@
 "class_finder_result_classes_not_found" = "Lo sentimos, todavía no hay clases disponibles con los criterios especificados.";
 "class_finder_result_server_error" = "Ha ocurrido algún error";
 
+"class_detail_title" = "Clase";
+"class_detail_trainer_laabel" = "Entrenador";
+
 "user_settings_title" = "Ajustes de usuario";

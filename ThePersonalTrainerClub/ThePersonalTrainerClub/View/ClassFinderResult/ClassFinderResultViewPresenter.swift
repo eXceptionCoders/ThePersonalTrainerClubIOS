@@ -10,8 +10,12 @@ import Foundation
 
 class ClassFinderResultViewPresenter: BaseViewPresenter, ClassFinderResultContract.Presenter {
     private var view: ClassFinderResultContract.View
+    
+    private lazy var navigator: ClassFinderResultContract.Navigator = ClassFinderResultViewNavigator(view: view)
+    
     private var findClassesUseCase: FindClassesUseCase
     
+    private var classes: [ClassModel] = []
     private var page = 0
     private var perPage = 20
     
@@ -55,15 +59,19 @@ class ClassFinderResultViewPresenter: BaseViewPresenter, ClassFinderResultContra
                 }
                 
                 self.view.showAlertMessage(title: nil, message: message)
-                self.view.setClasses([], 0)
+                
+                self.classes = []
+                self.view.setClasses(self.classes, 0)
             } else {
                 self._total = result?.total ?? 0
-                self.view.setClasses(result?.classes ?? [], result?.total ?? 0)
+                
+                self.classes = result?.classes ?? []
+                self.view.setClasses(self.classes, result?.total ?? 0)
             }
         }
     }
     
-    func onClassTapped() {
-        
+    func onClassTapped(_ data: ClassModel) {
+        self.navigator.navigateToClassDetail(model: data)
     }
 }

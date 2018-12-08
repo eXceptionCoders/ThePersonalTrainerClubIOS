@@ -51,19 +51,17 @@ class LocationStripView: UIView, NibLoadableView, UICollectionViewDelegate, UICo
     }
     
     func selectFirst() {
-        if collectionView.numberOfItems(inSection: 0) == 0 {
-            return
-        }
-        
-        collectionView.selectItem(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: UICollectionView.ScrollPosition.top)
+       selectItemAt(0)
     }
     
     func selectItemAt(_ row: Int) {
-        if collectionView.numberOfItems(inSection: 0) == 0 {
+        let numOfItems = collectionView.numberOfItems(inSection: 0)
+        
+        if numOfItems == 0 {
             return
         }
         
-        collectionView.selectItem(at: IndexPath(row: row, section: 0), animated: false, scrollPosition: UICollectionView.ScrollPosition.top)
+        collectionView.selectItem(at: IndexPath(row: min(row, numOfItems - 1), section: 0), animated: false, scrollPosition: UICollectionView.ScrollPosition.top)
     }
     
     // MARK: - Overrides

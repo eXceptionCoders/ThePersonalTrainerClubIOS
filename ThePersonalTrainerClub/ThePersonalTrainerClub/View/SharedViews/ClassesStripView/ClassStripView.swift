@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol ClassStripViewDelegate: class {
+    // should, will, did
+    func classStripViewDelegate (_ view: ClassStripView, didSelectClass: ClassModel)
+}
+
 class ClassStripView: UIView, NibLoadableView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     private enum Constants {
@@ -23,6 +28,10 @@ class ClassStripView: UIView, NibLoadableView, UICollectionViewDelegate, UIColle
     func allowSelection(_ allow: Bool) {
         collectionView.allowsSelection = allow
     }
+    
+    // MARK: - Delegates
+    
+    weak var delegate: ClassStripViewDelegate?
     
     // MARK: - Properties
     
@@ -57,7 +66,17 @@ class ClassStripView: UIView, NibLoadableView, UICollectionViewDelegate, UIColle
     }
     
     func selectFirst() {
-        collectionView.selectItem(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: UICollectionView.ScrollPosition.top)
+        selectItemAt(0)
+    }
+    
+    func selectItemAt(_ row: Int) {
+        let numOfItems = collectionView.numberOfItems(inSection: 0)
+        
+        if numOfItems == 0 {
+            return
+        }
+        
+        collectionView.selectItem(at: IndexPath(row: min(row, numOfItems - 1), section: 0), animated: false, scrollPosition: UICollectionView.ScrollPosition.top)
     }
     
     // MARK: - Overrides
@@ -86,7 +105,7 @@ class ClassStripView: UIView, NibLoadableView, UICollectionViewDelegate, UIColle
         cell.locationLabel.text = model.location.description
         cell.dateLabel.text = String(model.duration)
         cell.registeredLabel.text = "\(model.registered ?? 0)/\(model.maxusers)"
-        cell.priceLabel.text = "\(model.price)€"
+        cell.priceLabel.text = "\(model.price) €"
         cell.trainerLabel.text = "\(model.instructor.name) \(model.instructor.lastname)"
         cell.deleteButton.setTitle( !showBookingButton
             ? NSLocalizedString("cancel_button_title", comment: "")
@@ -124,6 +143,12 @@ class ClassStripView: UIView, NibLoadableView, UICollectionViewDelegate, UIColle
                 operationQueue.addOperation( downloadOperation )
             }
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let model = items[indexPath.row]
+        
+        delegate?.classStripViewDelegate(self, didSelectClass: model)
     }
     
     func collectionView(_ collectionView: UICollectionView,

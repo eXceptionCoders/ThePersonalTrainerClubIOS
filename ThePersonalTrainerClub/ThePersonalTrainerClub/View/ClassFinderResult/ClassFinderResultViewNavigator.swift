@@ -17,8 +17,11 @@ class ClassFinderResultViewNavigator: ClassFinderResultContract.Navigator {
         self.view = view
     }
     
-    func navigateToClassDetail() {
-        // TODO
+    func navigateToClassDetail(model: ClassModel) {
+        let classDetailViewController = ClassDetailViewController(model: model)
+        classDetailViewController.hidesBottomBarWhenPushed = true
+        
+        (view as! UIViewController).navigationController?.pushViewController(classDetailViewController, animated: true)
     }
     
     func popBack() {

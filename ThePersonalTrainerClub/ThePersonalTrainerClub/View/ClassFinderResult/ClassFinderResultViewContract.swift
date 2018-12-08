@@ -20,10 +20,10 @@ protocol ClassFinderResultView: BaseContract.View {
 
 protocol ClassFinderResultPresenter: BaseContract.Presenter {
     func fetchClasses(_ query: ClassFinderQuery)
-    func onClassTapped()
+    func onClassTapped(_ data: ClassModel)
 }
 
 protocol ClassFinderResultNavigator: BaseContract.Navigator {
     func popBack()
-    func navigateToClassDetail()
+    func navigateToClassDetail(model: ClassModel)
 }
