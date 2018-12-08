@@ -67,6 +67,11 @@
 "cancel_button_title" = "Cancel";
 "booking_button_title" = "Book";
 "trainer_title_label" = "Trainer";
+"without_activities_label" = "Please, you must indicate us what sports do you play";
+"without_locations_label" = "Please, register the location where do you usually play sports";
+"without_trainer_classes_label" = "You still haven't created any class";
+"without_athlete_classes_label" = "You still haven't booked any class";
+
 
 "remove_location_title" = "Delete location";
 "remove_location_message" = "Do you want to delete the \"%@\" location?";

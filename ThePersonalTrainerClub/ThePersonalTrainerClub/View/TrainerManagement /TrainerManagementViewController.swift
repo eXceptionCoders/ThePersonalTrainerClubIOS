@@ -117,7 +117,7 @@ class TrainerManagementViewController: BaseViewController, TrainerManagementCont
         activityView.items = user.activities
         locationView.items = user.locations
         
-        refreshLocationsHeight()
+        refreshLocationsHeight(count: user.locations.count)
         
         if !user.thumbnail.isEmpty {
             let downloadOperation = ImageDownloader(urlString: user.thumbnail, indexPath: nil) { success, indexPath, image, error in
@@ -218,10 +218,14 @@ extension TrainerManagementViewController {
         return collectionView
     }
     
-    func refreshLocationsHeight() {
+    func refreshLocationsHeight(count: Int) {
         let filteredConstraints = whereView.constraints.filter { $0.identifier == "locationsHeightConstraint" }
         if let constraint = filteredConstraints.first {
-            constraint.constant = CGFloat((UserSettings.user?.locations ?? []).count * 40 + 8)
+            if (count > 0) {
+                constraint.constant = CGFloat(count * 40 + 8)
+            } else {
+                constraint.constant = CGFloat(80)
+            }
         }
     }
     
@@ -239,6 +243,8 @@ extension TrainerManagementViewController {
     
     func setupLessonsView() -> ClassStripView {
         let collectionView = ClassStripView.instantiate()
+        collectionView.showWithoutClassesLabel = true
+        collectionView.withoutClassesLabelForTrainer = UserSettings.showCoachView
         collectionView.allowSelection(false)
         
         lessonsView.addSubview(collectionView)
@@ -264,7 +270,11 @@ extension TrainerManagementViewController {
     func refreshLessonsHeight(count: Int) {
         let filteredConstraints = lessonsView.constraints.filter { $0.identifier == "classHeightConstraint" }
         if let constraint = filteredConstraints.first {
-            constraint.constant = CGFloat(count * 185 + 8)
+            if count > 0 {
+                constraint.constant = CGFloat(count * 185 + 8)
+            } else {
+                constraint.constant = CGFloat(80)
+            }
         }
     }
     

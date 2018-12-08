@@ -67,6 +67,10 @@
 "cancel_button_title" = "Cancelar";
 "booking_button_title" = "Reservar";
 "trainer_title_label" = "Entrenador";
+"without_activities_label" = "Por favor, indicanos que deportes practicas";
+"without_locations_label" = "Por favor, registra las ubicaciones donde normalmente practicas deportes";
+"without_trainer_classes_label" = "Aún no has creado clases";
+"without_athlete_classes_label" = "Aún no has reservado clases";
 
 "remove_location_title" = "Borrar ubicación";
 "remove_location_message" = "¿Quieres borrar la ubicación \"%@\"?";

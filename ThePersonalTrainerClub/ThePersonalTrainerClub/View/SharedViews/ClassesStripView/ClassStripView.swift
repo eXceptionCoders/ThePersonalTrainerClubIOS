@@ -15,11 +15,12 @@ protocol ClassStripViewDelegate: class {
 
 class ClassStripView: UIView, NibLoadableView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    private enum Constants {
+    public enum Constants {
         static let height: CGFloat = 185
     }
     
     private let operationQueue = OperationQueue()
+    @IBOutlet weak var withoutClassesLabel: UILabel!
     
     // MARK: - Overrides
     
@@ -35,10 +36,33 @@ class ClassStripView: UIView, NibLoadableView, UICollectionViewDelegate, UIColle
     
     // MARK: - Properties
     
+    private var _showWithoutClassesLabel = false
+    var showWithoutClassesLabel: Bool {
+        get { return _showWithoutClassesLabel }
+        set {
+            _showWithoutClassesLabel = newValue
+        }
+    }
+    
+    private var _withoutClassesLabelForTrainer = false
+    var withoutClassesLabelForTrainer: Bool {
+        get { return _withoutClassesLabelForTrainer }
+        set {
+            _withoutClassesLabelForTrainer = newValue
+            
+            withoutClassesLabel.text = newValue
+                ? NSLocalizedString("without_trainer_classes_label", comment: "")
+                : NSLocalizedString("without_athlete_classes_label", comment: "")
+        }
+    }
+    
     var items: [ClassModel] {
         get { return _items }
         set {
             _items = newValue
+            
+            withoutClassesLabel.isHidden = !showWithoutClassesLabel || newValue.count > 0
+            
             collectionView.reloadSections(IndexSet(integer: 0))
         }
     }
@@ -87,6 +111,10 @@ class ClassStripView: UIView, NibLoadableView, UICollectionViewDelegate, UIColle
         // Register the cell
         collectionView.register(ClassStripCell.self)
         collectionView.allowsMultipleSelection = false
+        
+        withoutClassesLabel.text = withoutClassesLabelForTrainer
+            ? NSLocalizedString("without_trainer_classes_label", comment: "")
+            : NSLocalizedString("without_athlete_classes_label", comment: "")
     }
     
     // MARK: - UICollectionViewDatasource

@@ -24,18 +24,28 @@
                         <outlet property="delegate" destination="iN0-l3-epB" id="njk-Wk-T33"/>
                     </connections>
                 </collectionView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please, you must indicate us what sports do you play" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i18-lB-iAH">
+                    <rect key="frame" x="0.0" y="79.5" width="375" height="41"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="i18-lB-iAH" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="5kO-Z5-6wm"/>
                 <constraint firstItem="rff-ml-kqD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="DOT-0z-I4k"/>
+                <constraint firstItem="i18-lB-iAH" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="QVX-Yz-c31"/>
                 <constraint firstItem="rff-ml-kqD" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="WbS-LS-FbK"/>
                 <constraint firstItem="rff-ml-kqD" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="i3h-hD-Ygz"/>
+                <constraint firstItem="i18-lB-iAH" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="pij-pH-2kd"/>
                 <constraint firstItem="rff-ml-kqD" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="tiv-de-6Jm"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="collectionView" destination="rff-ml-kqD" id="yvi-e4-x7c"/>
+                <outlet property="withoutActivitiesLabel" destination="i18-lB-iAH" id="MQS-19-kF5"/>
             </connections>
             <point key="canvasLocation" x="20" y="-569.41529235382313"/>
         </view>

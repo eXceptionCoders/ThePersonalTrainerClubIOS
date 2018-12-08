@@ -23,13 +23,18 @@ class ActivityStripView: UIView, NibLoadableView, UICollectionViewDelegate,  UIC
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var withoutActivitiesLabel: UILabel!
     
     // MARK: - Properties
-    
+
+    private var _items: [ActivityModel] = []
     var items: [ActivityModel] {
         get { return _items }
         set {
             _items = newValue
+            
+            withoutActivitiesLabel.isHidden = newValue.count > 0
+            
             collectionView.reloadSections(IndexSet(integer: 0))
         }
     }
@@ -42,7 +47,6 @@ class ActivityStripView: UIView, NibLoadableView, UICollectionViewDelegate,  UIC
     
     var delegate: ActivityStripViewDelegate?
     
-    private var _items: [ActivityModel] = []
     private var _preselectedItems: [ActivityModel] = []
     private let operationQueue = OperationQueue()
 
@@ -74,6 +78,7 @@ class ActivityStripView: UIView, NibLoadableView, UICollectionViewDelegate,  UIC
         // Register the cell
         collectionView.register(ActivityStripCell.self)
         collectionView.allowsMultipleSelection = false
+        withoutActivitiesLabel.text = NSLocalizedString("without_activities_label", comment: "")
     }
     
     override func layoutSubviews() {
@@ -81,12 +86,10 @@ class ActivityStripView: UIView, NibLoadableView, UICollectionViewDelegate,  UIC
         
         if (!_preselectedItems.isEmpty) {
             for preselected in _preselectedItems {
-                //TODO: Cambiar name por id
-                if let i = items.firstIndex(where: {$0.name == preselected.name}) {
+                if let i = items.firstIndex(where: {$0.id == preselected.id}) {
                     collectionView.selectItem(at: IndexPath(row: i, section: 0), animated: false, scrollPosition: .top)
                 }
             }
-
         }
     }
     

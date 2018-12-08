@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,10 +24,19 @@
                         <outlet property="delegate" destination="FQl-dJ-HU2" id="kvO-vM-Fcp"/>
                     </connections>
                 </collectionView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You still haven't booked any class" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGx-Cw-okE">
+                    <rect key="frame" x="0.0" y="82" width="418" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="quW-oS-A7S" firstAttribute="width" secondItem="FQl-dJ-HU2" secondAttribute="width" id="6LG-tv-S1O"/>
+                <constraint firstItem="MGx-Cw-okE" firstAttribute="leading" secondItem="fL0-QH-IPX" secondAttribute="leading" id="C6V-Ed-OJb"/>
+                <constraint firstItem="MGx-Cw-okE" firstAttribute="centerY" secondItem="fL0-QH-IPX" secondAttribute="centerY" id="HXr-Xg-3du"/>
+                <constraint firstItem="MGx-Cw-okE" firstAttribute="centerX" secondItem="fL0-QH-IPX" secondAttribute="centerX" id="M4G-9V-89P"/>
                 <constraint firstItem="quW-oS-A7S" firstAttribute="height" secondItem="FQl-dJ-HU2" secondAttribute="height" id="X2L-z2-avP"/>
                 <constraint firstItem="quW-oS-A7S" firstAttribute="top" secondItem="fL0-QH-IPX" secondAttribute="top" id="eCK-7e-soC"/>
                 <constraint firstItem="fL0-QH-IPX" firstAttribute="bottom" secondItem="quW-oS-A7S" secondAttribute="bottom" id="r3c-kC-Mp1"/>
@@ -38,6 +47,7 @@
             <viewLayoutGuide key="safeArea" id="fL0-QH-IPX"/>
             <connections>
                 <outlet property="collectionView" destination="quW-oS-A7S" id="DDq-s1-Kj2"/>
+                <outlet property="withoutClassesLabel" destination="MGx-Cw-okE" id="EKR-cu-VKN"/>
             </connections>
             <point key="canvasLocation" x="73.599999999999994" y="-170.91454272863569"/>
         </view>

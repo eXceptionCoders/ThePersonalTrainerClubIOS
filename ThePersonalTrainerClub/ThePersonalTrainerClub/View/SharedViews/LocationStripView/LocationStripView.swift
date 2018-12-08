@@ -14,13 +14,14 @@ protocol LocationStripViewDelegate {
 
 class LocationStripView: UIView, NibLoadableView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-    private enum Constants {
+    public enum Constants {
         static let height: CGFloat = 40
     }
 
     // MARK: - Overrides
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var withoutLocationsLabel: UILabel!
     
     var delegate: LocationStripViewDelegate?
     
@@ -32,6 +33,9 @@ class LocationStripView: UIView, NibLoadableView, UICollectionViewDelegate, UICo
         get { return _items }
         set {
             _items = newValue
+            
+            withoutLocationsLabel.isHidden = newValue.count > 0
+            
             collectionView.reloadSections(IndexSet(integer: 0))
         }
     }
@@ -72,6 +76,7 @@ class LocationStripView: UIView, NibLoadableView, UICollectionViewDelegate, UICo
         // Register the cell
         collectionView.register(LocationStripCell.self)
         collectionView.allowsMultipleSelection = false
+        withoutLocationsLabel.text = NSLocalizedString("without_locations_label", comment: "")
     }
     
     // MARK: - UICollectionViewDatasource

@@ -24,20 +24,30 @@
                         <outlet property="delegate" destination="iN0-l3-epB" id="ni6-8e-SDR"/>
                     </connections>
                 </collectionView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please, register the location where do you usually play sports" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jn2-et-eyr">
+                    <rect key="frame" x="0.0" y="71.5" width="418" height="41"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="Jn2-et-eyr" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="2UL-v4-Quz"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="JPQ-o8-YQw" secondAttribute="bottom" id="2gJ-Q2-vhh"/>
                 <constraint firstItem="JPQ-o8-YQw" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="Jgl-3O-OH0"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="JPQ-o8-YQw" secondAttribute="trailing" id="Qmj-YA-5Mx"/>
                 <constraint firstItem="JPQ-o8-YQw" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="cu2-Pd-spg"/>
                 <constraint firstItem="JPQ-o8-YQw" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="dH2-GZ-DM4"/>
+                <constraint firstItem="Jn2-et-eyr" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="due-m2-P5v"/>
                 <constraint firstItem="JPQ-o8-YQw" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ftB-h0-Huz"/>
+                <constraint firstItem="Jn2-et-eyr" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="w8y-Tm-3hM"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="collectionView" destination="JPQ-o8-YQw" id="wFa-L1-CX6"/>
+                <outlet property="withoutLocationsLabel" destination="Jn2-et-eyr" id="Sb5-MB-ZqG"/>
             </connections>
             <point key="canvasLocation" x="73.599999999999994" y="-170.91454272863569"/>
         </view>

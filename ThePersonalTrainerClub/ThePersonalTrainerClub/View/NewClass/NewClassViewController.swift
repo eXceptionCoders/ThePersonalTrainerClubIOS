@@ -97,8 +97,10 @@ class NewClassViewController: BaseViewController, NewClassContract.View {
     func setUser(_ user: UserModel) {
         activityView.items = user.activities
         locationView.items = user.locations
-        refreshLocationsHeight()
+        refreshLocationsHeight(count: user.locations.count)
         resetInputs()
+        
+        saveButton.isEnabled = user.activities.count > 0 && user.locations.count > 0
     }
     
     // MARK: - Actions
@@ -205,10 +207,14 @@ extension NewClassViewController {
         return collectionView
     }
     
-    func refreshLocationsHeight() {
+    func refreshLocationsHeight(count: Int) {
         let filteredConstraints = locationStripView.constraints.filter { $0.identifier == "locationsHeightConstraint" }
         if let constraint = filteredConstraints.first {
-            constraint.constant = CGFloat((UserSettings.user?.locations ?? []).count * 40 + 8)
+            if count > 0 {
+                constraint.constant = CGFloat(count * 40 + 8)
+            } else {
+                constraint.constant = CGFloat(80)
+            }
         }
     }
     
