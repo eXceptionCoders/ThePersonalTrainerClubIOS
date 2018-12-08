@@ -23,7 +23,7 @@ class ClassDetailViewController: BaseViewController, ClassDetailContract.View {
     @IBOutlet weak var usersLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var descriptionTextView: UITextView!
     
     @IBOutlet weak var bookButton: DefaultButton!
     
@@ -64,7 +64,7 @@ class ClassDetailViewController: BaseViewController, ClassDetailContract.View {
         
         trainerNameLabel.text = "\(model.instructor.name) \(model.instructor.lastname)"
         
-        descriptionLabel.text = model.description
+        descriptionTextView.text = model.description
         
         if let icon = model.sport.icon {
             if !icon.isEmpty {
