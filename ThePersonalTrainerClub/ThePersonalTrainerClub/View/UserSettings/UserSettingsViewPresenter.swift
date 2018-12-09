@@ -24,7 +24,7 @@ class UserSettingsViewPresenter: BaseViewPresenter, UserSettingsContract.Present
             view.setUser(user)
         }
 
-        view.showLoading()
+        // view.showLoading()
         
         trainerManagementUseCase.fetchUser() { user, error, errorsMap in
             if let error = error {
@@ -33,7 +33,7 @@ class UserSettingsViewPresenter: BaseViewPresenter, UserSettingsContract.Present
                 self.view.setUser(data)
             }
             
-            self.view.hideLoading()
+            // self.view.hideLoading()
         }
     }
     
@@ -41,6 +41,8 @@ class UserSettingsViewPresenter: BaseViewPresenter, UserSettingsContract.Present
         view.showLoading()
         
         trainerManagementUseCase.setUserThumbnail(image) { (success, error, errorsMap) in
+            self.view.hideLoading()
+            
             if error != nil {
                 var message = String(format: NSLocalizedString("user_setting_server_error", comment: ""))
                 
@@ -48,7 +50,6 @@ class UserSettingsViewPresenter: BaseViewPresenter, UserSettingsContract.Present
                     message = String(format: "%@ \n%@: %@", message, key, detail)
                 }
                 
-                self.view.hideLoading()
                 self.view.showAlertMessage(title: nil, message: message)
             } else {
                 self.fetchUser()

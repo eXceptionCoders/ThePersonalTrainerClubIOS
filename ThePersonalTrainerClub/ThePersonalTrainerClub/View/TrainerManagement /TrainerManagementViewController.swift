@@ -110,7 +110,7 @@ class TrainerManagementViewController: BaseViewController, TrainerManagementCont
     }
     
     // MARK: - TrainerManagementContract.View methods
-    
+
     func setUser(_ user: UserModel) {
         userNameLabel.text = "\(user.name) \(user.lastName)"
         

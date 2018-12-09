@@ -38,13 +38,13 @@ class UserSettingsViewController: BaseViewController, UserSettingsContract.View 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        presenter.fetchUser()
         hideLoading()
         thumbnailImageView.setupAsUserThumbnail()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        presenter.fetchUser()
     }
     
     // MARK: - BaseViewController methods
@@ -63,12 +63,14 @@ class UserSettingsViewController: BaseViewController, UserSettingsContract.View 
     
     override func showLoading() {
         activityIndicator.startAnimating()
-        changeThumbnailButton.isUserInteractionEnabled = false
+        changeThumbnailButton.isEnabled = false
+        logoutButton.isEnabled = false
     }
     
     override func hideLoading() {
         activityIndicator.stopAnimating()
-        changeThumbnailButton.isUserInteractionEnabled = true
+        changeThumbnailButton.isEnabled = true
+        logoutButton.isEnabled = true
     }
     
     // MARK: - UserSettingsContract.View
