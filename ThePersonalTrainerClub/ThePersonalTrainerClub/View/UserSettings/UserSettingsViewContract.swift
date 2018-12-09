@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum UserSettingsContract {
     typealias View = UserSettingsView
@@ -15,10 +16,13 @@ enum UserSettingsContract {
 }
 
 protocol UserSettingsView: BaseContract.View {
+    func setUser(_ user: UserModel)
 }
 
 protocol UserSettingsPresenter: BaseContract.Presenter {
+    func setThumbnail(_ image: UIImage)
     func onLogout()
+    func fetchUser()
 }
 
 protocol UserSettingsNavigator: BaseContract.Navigator {

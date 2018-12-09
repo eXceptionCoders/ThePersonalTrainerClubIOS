@@ -8,6 +8,7 @@
 
 import Foundation
 
+// private var baseURL = "http://localhost:3000"
 private var baseURL = "https://thepersonaltrainerclubapi-dev.azurewebsites.net"
 
 enum Endpoint {
@@ -16,6 +17,7 @@ enum Endpoint {
     case register(requestModel: RegisterRequest)
     // User methods
     case userData(requestModel: UserRequest)
+    case setUserThumbnail(requestModel: SetUserThumbnailRequest)
     // Class methods
     case newClass(requestModel: NewClassRequest)
     case findClasses(requestModel: FindClasesRequest)
@@ -34,14 +36,36 @@ extension Endpoint {
         }
         
         var request = URLRequest(url: url)
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue(UserSettings.token, forHTTPHeaderField: "x-access-token")
+        let boundary = generateBoundaryString()
+        let token = UserSettings.token
+        
+        switch self.contentType {
+        case .form:
+            request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        default:
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        }
+        
+        request.setValue(token, forHTTPHeaderField: "x-access-token")
         
         request.httpMethod = self.method.rawValue
         
         do {
             if (self.method == HTTPMethod.post) {
                 switch self {
+                case .setUserThumbnail(let requestModel):
+                    var body = Data()
+                    let filename = "user-profile.jpg"
+                    let mimetype = "image/jpg"
+                    body.append(Data("--\(boundary)\r\n".utf8))
+                    body.append(Data("Content-Disposition: form-data; name=\"\(requestModel.imageKey)\"; filename=\"\(filename)\"\r\n".utf8))
+                    body.append(Data("Content-Type: \(mimetype)\r\n\r\n".utf8))
+                    body.append(requestModel.image)
+                    body.append(Data("\r\n".utf8))
+                    body.append(Data("--\(boundary)--\r\n".utf8))
+                    
+                    request.httpBody = body
+                    
                 case .newClass(let requestModel):
                     let postBody = try JSONEncoder().encode(requestModel)
                     request.httpBody = postBody
@@ -59,11 +83,20 @@ extension Endpoint {
         
         return request
     }
+    
+    func generateBoundaryString() -> String {
+        return "Boundary-\(NSUUID().uuidString)"
+    }
 }
 
 private enum HTTPMethod: String {
     case get = "GET"
     case post = "POST"
+}
+
+private enum HTTPContentType: String {
+    case json = "json"
+    case form = "form"
 }
 
 private extension Endpoint {
@@ -75,6 +108,8 @@ private extension Endpoint {
             return .post
         case .userData(_):
             return .get
+        case .setUserThumbnail(_):
+            return .post
         case .newClass(_):
             return .post
         case .findClasses(_):
@@ -90,6 +125,31 @@ private extension Endpoint {
         }
     }
     
+    var contentType: HTTPContentType {
+        switch self {
+        case .login(_):
+            return .json
+        case .register(_):
+            return .json
+        case .userData(_):
+            return .json
+        case .setUserThumbnail(_):
+            return .form
+        case .newClass(_):
+            return .json
+        case .findClasses(_):
+            return .json
+        case .sports(_):
+            return .json
+        case .setSports(_):
+            return .json
+        case .deleteLocation(_):
+            return .json
+        case .addLocation(_):
+            return .json
+        }
+    }
+    
     var path: String {
         switch self {
         case .login(_):
@@ -100,6 +160,9 @@ private extension Endpoint {
 
         case .userData(_):
             return "/api/v1/es/datauser"
+            
+        case .setUserThumbnail(_):
+            return "/api/v1/es/datauser/thumbnail"
             
         case .newClass(_):
             return "/api/v1/es/class/add"

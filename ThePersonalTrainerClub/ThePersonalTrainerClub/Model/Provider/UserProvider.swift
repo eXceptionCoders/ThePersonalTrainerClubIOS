@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum UserError: Error {
     case notFound
@@ -42,6 +43,25 @@ class UserProvider {
             } else {
                 completion(nil, UserError.otherError, responseObject?.error)
                 UserSettings.token = ""
+            }
+        }
+    }
+    
+    func setUserThumbnail(image: UIImage, completion: @escaping (Bool, Error?, [String: String]?) -> Void) {
+        webService.load(UserResponse.self, from: Endpoint.setUserThumbnail(requestModel: SetUserThumbnailRequest(
+            image: image.jpegData(compressionQuality: 1.0)!
+        ))) { responseObject, error in
+            if let error = error {
+                switch error {
+                case WebServiceError.unauthorized:
+                    completion(false, UserError.unauthorized, responseObject?.error)
+                case WebServiceError.forbiddenError:
+                    completion(false, UserError.forbiddenError, responseObject?.error)
+                default:
+                    completion(false, UserError.otherError, responseObject?.error)
+                }
+            } else {
+                completion(true, nil, nil)
             }
         }
     }

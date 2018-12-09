@@ -11,9 +11,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserSettingsViewController" customModule="ThePersonalTrainerClub" customModuleProvider="target">
             <connections>
-                <outlet property="lastnameLabel" destination="gp6-2o-MSP" id="bIS-gq-hIY"/>
+                <outlet property="activityIndicator" destination="4vC-pM-7nZ" id="F8E-WL-dKw"/>
+                <outlet property="changeThumbnailButton" destination="HDx-7v-48R" id="qu5-NI-amW"/>
                 <outlet property="logoutButton" destination="C34-wo-EWt" id="aAE-ma-Agw"/>
-                <outlet property="nameLabel" destination="rY3-aX-jVL" id="SPa-6u-3ix"/>
+                <outlet property="roleLabel" destination="zLm-xV-Ffa" id="qtg-JE-oq0"/>
+                <outlet property="thumbnailImageView" destination="2Cn-Hu-uKN" id="UoO-80-LM2"/>
+                <outlet property="userNameLabel" destination="6pc-1D-r5n" id="Z1f-QO-eq2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -29,28 +32,84 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="p6q-rh-naJ">
-                                    <rect key="frame" x="8" y="0.0" width="359" height="130"/>
+                                    <rect key="frame" x="16" y="16" width="343" height="264"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rY3-aX-jVL">
-                                            <rect key="frame" x="0.0" y="0.0" width="359" height="50"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QA1-Ty-bFr">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="64"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="nCz-EM-AaA">
+                                                    <rect key="frame" x="0.0" y="0.0" width="269" height="64"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entrenador" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLm-xV-Ffa">
+                                                            <rect key="frame" x="0.0" y="0.0" width="269" height="32"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hola adios" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6pc-1D-r5n">
+                                                            <rect key="frame" x="0.0" y="32" width="269" height="32"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OHN-XN-3Fm">
+                                                    <rect key="frame" x="269" y="0.0" width="10" height="64"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="10" id="Hsj-KX-3OY"/>
+                                                    </constraints>
+                                                </view>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UserMale" translatesAutoresizingMaskIntoConstraints="NO" id="2Cn-Hu-uKN">
+                                                    <rect key="frame" x="279" y="0.0" width="64" height="64"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="64" id="8MA-OB-veh"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="50" id="ooj-76-fV3"/>
+                                                <constraint firstAttribute="height" constant="64" id="399-nR-Tbn"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gp6-2o-MSP">
-                                            <rect key="frame" x="0.0" y="50" width="359" height="50"/>
+                                        </stackView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v6F-SX-aUV">
+                                            <rect key="frame" x="0.0" y="64" width="343" height="20"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="50" id="msT-0g-JyS"/>
+                                                <constraint firstAttribute="height" constant="20" id="786-DZ-Dy4"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        </view>
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e4w-V1-B0c">
+                                            <rect key="frame" x="0.0" y="84" width="343" height="30"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O55-h4-Gtl">
+                                                    <rect key="frame" x="0.0" y="0.0" width="193" height="30"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HDx-7v-48R" customClass="DefaultButton" customModule="ThePersonalTrainerClub" customModuleProvider="target">
+                                                    <rect key="frame" x="193" y="0.0" width="150" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="150" id="ktu-kG-8QH"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Change your photo"/>
+                                                    <connections>
+                                                        <action selector="changeThumbnail:" destination="-1" eventType="touchUpInside" id="tf5-xQ-Y2W"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="n5c-WE-tkg"/>
+                                            </constraints>
+                                        </stackView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PoP-yB-XIM">
+                                            <rect key="frame" x="0.0" y="114" width="343" height="120"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="120" id="nhT-wQ-zQk"/>
+                                            </constraints>
+                                        </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C34-wo-EWt" customClass="DefaultButton" customModule="ThePersonalTrainerClub" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="100" width="359" height="30"/>
+                                            <rect key="frame" x="0.0" y="234" width="343" height="30"/>
                                             <state key="normal" title="Logout"/>
                                             <connections>
                                                 <action selector="logout:" destination="-1" eventType="touchUpInside" id="C3B-kl-QoV"/>
@@ -61,9 +120,9 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="p6q-rh-naJ" firstAttribute="leading" secondItem="AC2-cY-Qar" secondAttribute="leading" constant="8" id="Dsy-Vk-cAm"/>
-                                <constraint firstAttribute="trailing" secondItem="p6q-rh-naJ" secondAttribute="trailing" constant="8" id="MaP-Di-Qe6"/>
-                                <constraint firstItem="p6q-rh-naJ" firstAttribute="top" secondItem="AC2-cY-Qar" secondAttribute="top" id="cJ9-Hi-qDd"/>
+                                <constraint firstItem="p6q-rh-naJ" firstAttribute="leading" secondItem="AC2-cY-Qar" secondAttribute="leading" constant="16" id="Dsy-Vk-cAm"/>
+                                <constraint firstAttribute="trailing" secondItem="p6q-rh-naJ" secondAttribute="trailing" constant="16" id="MaP-Di-Qe6"/>
+                                <constraint firstItem="p6q-rh-naJ" firstAttribute="top" secondItem="AC2-cY-Qar" secondAttribute="top" constant="16" id="cJ9-Hi-qDd"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -77,11 +136,16 @@
                         <constraint firstItem="AC2-cY-Qar" firstAttribute="top" secondItem="gzZ-qZ-SSg" secondAttribute="top" id="qcp-AD-GOV"/>
                     </constraints>
                 </scrollView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="4vC-pM-7nZ">
+                    <rect key="frame" x="177.5" y="333.5" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="gzZ-qZ-SSg" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="47T-vc-f0u"/>
                 <constraint firstItem="gzZ-qZ-SSg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="5SG-5S-kuA"/>
+                <constraint firstItem="4vC-pM-7nZ" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="GZ9-3C-rco"/>
+                <constraint firstItem="4vC-pM-7nZ" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="Lgt-PU-yAe"/>
                 <constraint firstItem="gzZ-qZ-SSg" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="UMN-i4-VYK"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="gzZ-qZ-SSg" secondAttribute="bottom" id="fN6-08-Wwh"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gzZ-qZ-SSg" secondAttribute="trailing" id="pfG-rg-DTk"/>
@@ -90,4 +154,7 @@
             <point key="canvasLocation" x="39.200000000000003" y="46.326836581709152"/>
         </view>
     </objects>
+    <resources>
+        <image name="UserMale" width="37.5" height="37.5"/>
+    </resources>
 </document>

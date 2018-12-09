@@ -72,6 +72,8 @@
 		630524F921974E20004C4179 /* RegisterEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630524F821974E20004C4179 /* RegisterEntity.swift */; };
 		630524FB21974E75004C4179 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630524FA21974E75004C4179 /* BaseResponse.swift */; };
 		630524FF21978B4B004C4179 /* RegisterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630524FE21978B4B004C4179 /* RegisterProvider.swift */; };
+		630BFE5721BD56D7007D8A66 /* SetUserThumbnailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630BFE5621BD56D7007D8A66 /* SetUserThumbnailRequest.swift */; };
+		630BFE5921BD728E007D8A66 /* SetUserThumbnailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630BFE5821BD728E007D8A66 /* SetUserThumbnailUseCase.swift */; };
 		633D77DD21AAEC8800A6FEE1 /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633D77DB21AAEC8800A6FEE1 /* UserSettingsViewController.swift */; };
 		633D77DE21AAEC8800A6FEE1 /* UserSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 633D77DC21AAEC8800A6FEE1 /* UserSettingsViewController.xib */; };
 		633D77E021AAEF2000A6FEE1 /* UserSettingsViewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633D77DF21AAEF2000A6FEE1 /* UserSettingsViewContract.swift */; };
@@ -240,6 +242,8 @@
 		630524F821974E20004C4179 /* RegisterEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEntity.swift; sourceTree = "<group>"; };
 		630524FA21974E75004C4179 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		630524FE21978B4B004C4179 /* RegisterProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProvider.swift; sourceTree = "<group>"; };
+		630BFE5621BD56D7007D8A66 /* SetUserThumbnailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUserThumbnailRequest.swift; sourceTree = "<group>"; };
+		630BFE5821BD728E007D8A66 /* SetUserThumbnailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUserThumbnailUseCase.swift; sourceTree = "<group>"; };
 		633D77DB21AAEC8800A6FEE1 /* UserSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsViewController.swift; sourceTree = "<group>"; };
 		633D77DC21AAEC8800A6FEE1 /* UserSettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserSettingsViewController.xib; sourceTree = "<group>"; };
 		633D77DF21AAEF2000A6FEE1 /* UserSettingsViewContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsViewContract.swift; sourceTree = "<group>"; };
@@ -564,6 +568,7 @@
 				5E977F6D21B5E67300DD6E50 /* AddLocationUseCase.swift */,
 				6344A21021B9846F00E2A65C /* RemoveLocationUseCase.swift */,
 				634AD03421BB0AA4006332DA /* FindClassesUseCase.swift */,
+				630BFE5821BD728E007D8A66 /* SetUserThumbnailUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -595,6 +600,7 @@
 				5E977F4B21B03D9400DD6E50 /* SetSportRequest.swift */,
 				634AD02E21BAE1B6006332DA /* FindClasses.swift */,
 				634AD03021BAF96A006332DA /* ClassEntity.swift */,
+				630BFE5621BD56D7007D8A66 /* SetUserThumbnailRequest.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -956,6 +962,7 @@
 				63FB2E6321A0A01C006E0320 /* NibLoadableView.swift in Sources */,
 				6373043F2198608500E726E2 /* LocationEntity.swift in Sources */,
 				5E92C2CC21A834CA00699A37 /* TypeSelectionViewController.swift in Sources */,
+				630BFE5721BD56D7007D8A66 /* SetUserThumbnailRequest.swift in Sources */,
 				6373042D219850F700E726E2 /* ClassProvider.swift in Sources */,
 				5E977F5F21B1624900DD6E50 /* ClassStripView.swift in Sources */,
 				634AD03521BB0AA4006332DA /* FindClassesUseCase.swift in Sources */,
@@ -975,6 +982,7 @@
 				63FB2E7A21A1EE48006E0320 /* LocationStripCell.swift in Sources */,
 				5EBC1C1921932A1300BCBBC7 /* BaseViewPresenter.swift in Sources */,
 				6344A23021B9A14700E2A65C /* ClassDetailViewPresenter.swift in Sources */,
+				630BFE5921BD728E007D8A66 /* SetUserThumbnailUseCase.swift in Sources */,
 				5E977F6321B267C100DD6E50 /* LocationProvider.swift in Sources */,
 				6344A21521B99E9F00E2A65C /* ClassFinderViewController.swift in Sources */,
 				630524FB21974E75004C4179 /* BaseResponse.swift in Sources */,

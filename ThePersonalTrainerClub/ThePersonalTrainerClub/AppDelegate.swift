@@ -57,6 +57,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         switch statusCode {
         case 401:
+            UserSettings.token = ""
+            UserSettings.user = nil
             switchToLoginViewController(sessionExpired: true)
         default:
             print("Web Service: \(statusCode)")

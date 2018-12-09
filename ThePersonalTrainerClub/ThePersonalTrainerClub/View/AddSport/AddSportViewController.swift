@@ -30,7 +30,6 @@ class AddSportViewController: BaseViewController, AddSportContract.View {
         addDoneButton(action: #selector(doneButtonTapped(sender:)))
     }
     
-    
     // MARK: - BaseViewController methods
     
     override func localizeView() {

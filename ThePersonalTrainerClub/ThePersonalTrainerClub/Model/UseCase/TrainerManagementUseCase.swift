@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class TrainerManagementUseCase {
     
@@ -20,5 +21,9 @@ class TrainerManagementUseCase {
     
     func fetchUser(completion: @escaping (UserModel?, Error?, [String: String]?) -> Void) {
         userProvider.fetchUser(completion: completion)
+    }
+    
+    func setUserThumbnail(_ image: UIImage, completion: @escaping (Bool, Error?, [String: String]?) -> Void) {
+        userProvider.setUserThumbnail(image: image, completion: completion)
     }
 }

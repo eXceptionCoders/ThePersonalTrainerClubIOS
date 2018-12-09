@@ -107,3 +107,4 @@
 "class_detail_trainer_laabel" = "Trainer";
 
 "user_settings_title" = "User Settings";
+"user_setting_server_error" = "Some error has occurred";
