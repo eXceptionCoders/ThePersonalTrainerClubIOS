@@ -171,6 +171,28 @@ class ClassStripView: UIView, NibLoadableView, UICollectionViewDelegate, UIColle
                 operationQueue.addOperation( downloadOperation )
             }
         }
+        
+        if !model.instructor.thumbnail.isEmpty {
+            let downloadOperation = ImageDownloader(urlString: model.instructor.thumbnail, indexPath: indexPath) { success, indexPath, image, error in
+                
+                if (!success) {
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    guard let path = indexPath else {
+                        return
+                    }
+                    
+                    guard let cell = collectionView.cellForItem(at: path) else {
+                        return
+                    }
+                    
+                    (cell as! ClassStripCell).thumbnailImageView.image = image
+                }
+            }
+            operationQueue.addOperation( downloadOperation )
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

@@ -12,6 +12,7 @@ class ClassStripCell: UICollectionViewCell, ReusableView, NibLoadableView {
     
     @IBOutlet weak var sportNameLabel: UILabel!
     @IBOutlet weak var sportIcon: UIImageView!
+    @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var registeredLabel: UILabel!
