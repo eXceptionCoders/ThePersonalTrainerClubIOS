@@ -29,15 +29,19 @@ class TypeSelectionViewController: BaseViewController, TypeSelectionContract.Vie
         let clientTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
 
         if UserSettings.showCoachView {
-            trainerImage.image = noir(trainerImage.image!)
+            // trainerImage.image = noir(trainerImage.image!)
+            trainerImage.alpha = 0.25
             
             clientImage.isUserInteractionEnabled = true
+            clientImage.alpha = 1
             clientImage.addGestureRecognizer(clientTapGestureRecognizer)
             clientImage.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
         } else {
-            clientImage.image = noir(clientImage.image!)
+            // clientImage.image = noir(clientImage.image!)
+            clientImage.alpha = 0.25
             
             trainerImage.isUserInteractionEnabled = true
+            trainerImage.alpha = 1
             trainerImage.addGestureRecognizer(trainerTapGestureRecognizer)
             trainerImage.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
         }
