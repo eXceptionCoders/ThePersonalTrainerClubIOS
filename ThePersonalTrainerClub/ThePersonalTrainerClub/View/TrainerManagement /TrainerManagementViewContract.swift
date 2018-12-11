@@ -24,9 +24,11 @@ protocol TrainerManagementPresenter: BaseContract.Presenter {
     func onLocationTapped(location: LocationModel)
     func onAddSportTapped()
     func onAddLocationTapped()
+    func onClassTapped(_ data: ClassModel)
 }
 
 protocol TrainerManagementNavigator: BaseContract.Navigator {
     func navigateToAddSport()
     func navigateToAddLocation()
+    func navigateToClassDetail(model: ClassModel)
 }

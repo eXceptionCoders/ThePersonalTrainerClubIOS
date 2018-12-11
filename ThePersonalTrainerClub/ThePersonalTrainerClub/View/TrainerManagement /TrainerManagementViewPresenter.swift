@@ -66,4 +66,8 @@ class TrainerManagementViewPresenter: BaseViewPresenter, TrainerManagementContra
             }
         }
     }
+    
+    func onClassTapped(_ data: ClassModel) {
+        self.navigator.navigateToClassDetail(model: data)
+    }
 }

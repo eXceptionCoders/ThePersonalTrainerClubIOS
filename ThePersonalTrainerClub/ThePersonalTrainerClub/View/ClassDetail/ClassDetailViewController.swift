@@ -29,6 +29,8 @@ class ClassDetailViewController: BaseViewController, ClassDetailContract.View {
     
     // MARK: - Properties
     
+    var withBookButton: Bool
+    
     // MARK: - Presenter
     
     lazy var presenter: ClassDetailContract.Presenter = ClassDetailViewPresenter()
@@ -40,7 +42,8 @@ class ClassDetailViewController: BaseViewController, ClassDetailContract.View {
     
     // MARK: - Initialization
     
-    init(model: ClassModel) {
+    init(model: ClassModel, withBookButton: Bool) {
+        self.withBookButton = withBookButton
         self.model = model
         super.init(nibName: nil, bundle: Bundle(for: type(of: self)))
     }
@@ -65,6 +68,7 @@ class ClassDetailViewController: BaseViewController, ClassDetailContract.View {
         trainerNameLabel.text = "\(model.instructor.name) \(model.instructor.lastname)"
         
         descriptionTextView.text = model.description
+        bookButton.isHidden = UserSettings.showCoachView || !self.withBookButton
         
         if let icon = model.sport.icon {
             if !icon.isEmpty {

@@ -18,7 +18,7 @@ class ClassFinderResultViewNavigator: ClassFinderResultContract.Navigator {
     }
     
     func navigateToClassDetail(model: ClassModel) {
-        let classDetailViewController = ClassDetailViewController(model: model)
+        let classDetailViewController = ClassDetailViewController(model: model, withBookButton: true)
         classDetailViewController.hidesBottomBarWhenPushed = true
         
         (view as! UIViewController).navigationController?.pushViewController(classDetailViewController, animated: true)

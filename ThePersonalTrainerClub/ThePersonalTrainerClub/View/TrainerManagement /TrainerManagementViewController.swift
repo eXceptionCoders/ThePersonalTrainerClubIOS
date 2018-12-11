@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TrainerManagementViewController: BaseViewController, TrainerManagementContract.View, LocationStripViewDelegate {
+class TrainerManagementViewController: BaseViewController, TrainerManagementContract.View, LocationStripViewDelegate, ClassStripViewDelegate {
 
     // MARK: - Outlets
     
@@ -166,6 +166,12 @@ class TrainerManagementViewController: BaseViewController, TrainerManagementCont
         
         present(alertController, animated: true, completion: nil)
     }
+    
+    // MARK: - ClassStripViewDelegate methods
+    
+    func classStripViewDelegate(_ view: ClassStripView, didSelectClass: ClassModel) {
+        presenter.onClassTapped(didSelectClass)
+    }
 }
 
 extension TrainerManagementViewController {
@@ -243,9 +249,10 @@ extension TrainerManagementViewController {
     
     func setupLessonsView() -> ClassStripView {
         let collectionView = ClassStripView.instantiate()
+        collectionView.delegate = self
         collectionView.showWithoutClassesLabel = true
         collectionView.withoutClassesLabelForTrainer = UserSettings.showCoachView
-        collectionView.allowSelection(false)
+        collectionView.allowSelection(true)
         
         lessonsView.addSubview(collectionView)
         

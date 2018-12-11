@@ -65,7 +65,7 @@ class ClassStripCell: UICollectionViewCell, ReusableView, NibLoadableView {
     // MARK: - Helpers
     
     private func markAsSelected() {
-        self.layer.borderColor = UIColor.customOrange.cgColor
+        // self.layer.borderColor = UIColor.customOrange.cgColor
     }
     
     private func marAsUnselected() {

@@ -28,4 +28,11 @@ class TrainerManagementViewNavigator: TrainerManagementContract.Navigator {
 
         (view as! UIViewController).navigationController?.pushViewController(addLocationViewController, animated: true)
     }
+    
+    func navigateToClassDetail(model: ClassModel) {
+        let classDetailViewController = ClassDetailViewController(model: model, withBookButton: false)
+        classDetailViewController.hidesBottomBarWhenPushed = true
+        
+        (view as! UIViewController).navigationController?.pushViewController(classDetailViewController, animated: true)
+    }
 }
