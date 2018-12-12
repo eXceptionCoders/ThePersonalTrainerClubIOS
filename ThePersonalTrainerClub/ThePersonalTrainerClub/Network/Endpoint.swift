@@ -21,6 +21,9 @@ enum Endpoint {
     // Class methods
     case newClass(requestModel: NewClassRequest)
     case findClasses(requestModel: FindClasesRequest)
+    case deleteClass(requestModel: DeleteClassRequest)
+    case deleteBooking(requestModel: DeleteBookingRequest)
+    case book(requestModel: BookingRequest)
     // Activities
     case sports(requestModel: SportRequest)
     case setSports(requestModel: SetSportRequest)
@@ -92,6 +95,7 @@ extension Endpoint {
 private enum HTTPMethod: String {
     case get = "GET"
     case post = "POST"
+    case delete = "DELETE"
 }
 
 private enum HTTPContentType: String {
@@ -114,6 +118,12 @@ private extension Endpoint {
             return .post
         case .findClasses(_):
             return .get
+        case .deleteClass(_):
+            return .delete
+        case .deleteBooking(_):
+            return .delete
+        case .book(_):
+            return .post
         case .sports(_):
             return .get
         case .setSports(_):
@@ -136,6 +146,12 @@ private extension Endpoint {
         case .setUserThumbnail(_):
             return .form
         case .newClass(_):
+            return .json
+        case .deleteClass(_):
+            return .json
+        case .deleteBooking(_):
+            return .json
+        case .book(_):
             return .json
         case .findClasses(_):
             return .json
@@ -195,6 +211,15 @@ private extension Endpoint {
             
             return "/api/v1/es/class/find?\(params.joined(separator: "&"))"
             
+        case .deleteClass(let requestModel):
+            return "/api/v1/es/class/\(requestModel.id)"
+            
+        case .deleteBooking(let requestModel):
+            return "/api/v1/es/booking/\(requestModel.id)"
+            
+        case .book(_):
+            return "/api/v1/es/booking/check"
+            
         case .sports(_):
             return "/api/v1/es/sports"
             
@@ -246,6 +271,11 @@ private extension Endpoint {
             return [requestModel.sports: requestModel.sports]
         */
 
+        case .book(let requestModel):
+            return [
+                requestModel.classIdKey: requestModel.classId
+            ]
+            
         case .deleteLocation(let requestModel):
             return [
                 requestModel.descriptionKey: requestModel.description,

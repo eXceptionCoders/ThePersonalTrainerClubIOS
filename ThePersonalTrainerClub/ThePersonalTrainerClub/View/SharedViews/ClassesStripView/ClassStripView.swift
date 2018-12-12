@@ -11,6 +11,10 @@ import UIKit
 protocol ClassStripViewDelegate: class {
     // should, will, did
     func classStripViewDelegate (_ view: ClassStripView, didSelectClass: ClassModel)
+    
+    func classStripViewDelegate (_ view: ClassStripView, didCancelClass: ClassModel)
+    
+    func classStripViewDelegate (_ view: ClassStripView, didBookClass: ClassModel)
 }
 
 class ClassStripView: UIView, NibLoadableView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -129,6 +133,7 @@ class ClassStripView: UIView, NibLoadableView, UICollectionViewDelegate, UIColle
         let row = indexPath.row
         let model = items[row]
         
+        cell.model = model
         cell.sportNameLabel.text = "\(model.sport.name.prefix(1).capitalized)\(model.sport.name.dropFirst())"
         cell.locationLabel.text = model.location.description
         cell.dateLabel.text = String(model.duration)
@@ -141,6 +146,8 @@ class ClassStripView: UIView, NibLoadableView, UICollectionViewDelegate, UIColle
             , for: .normal)
         cell.trainerTitleLabel.text = NSLocalizedString("trainer_title_label", comment: "")
   
+        cell.deleteButton.addTarget(self, action: #selector(onCellButtonClick), for: .touchUpInside)
+        
         return cell
     }
     
@@ -211,5 +218,17 @@ class ClassStripView: UIView, NibLoadableView, UICollectionViewDelegate, UIColle
         // let width = UIScreen.main.bounds.width
         let width = bounds.size.width
         return CGSize(width: width, height: CGFloat( height ))
+    }
+    
+    @objc func onCellButtonClick(sender: UIButton!) {
+        guard let cell = sender.superview?.superview?.superview as? ClassStripCell, let model = cell.model else {
+            return
+        }
+        
+        if showBookingButton {
+            delegate?.classStripViewDelegate(self, didBookClass: model)
+        } else {
+            delegate?.classStripViewDelegate(self, didCancelClass: model)
+        }
     }
 }

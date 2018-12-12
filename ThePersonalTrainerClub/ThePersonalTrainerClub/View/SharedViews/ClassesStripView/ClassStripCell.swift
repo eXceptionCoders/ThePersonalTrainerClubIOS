@@ -43,6 +43,14 @@ class ClassStripCell: UICollectionViewCell, ReusableView, NibLoadableView {
         }
     }
     
+    var _model: ClassModel?
+    var model: ClassModel? {
+        get { return _model }
+        set {
+            _model = newValue
+        }
+    }
+    
     // MARK: - Overrides
     
     override func awakeFromNib() {

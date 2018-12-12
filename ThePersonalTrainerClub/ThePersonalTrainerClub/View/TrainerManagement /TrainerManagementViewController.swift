@@ -39,7 +39,8 @@ class TrainerManagementViewController: BaseViewController, TrainerManagementCont
         view: self,
         trainerManagementUseCase: TrainerManagementUseCase(
             userProvider: UserProvider(webService: WebService()),
-            classProvider: ClassProvider(webService: WebService())
+            classProvider: ClassProvider(webService: WebService()),
+            bookingProvider: BookingProvider(webService: WebService())
         ),
         removeLocationUseCase: RemoveLocationUseCase(locationProvider: LocationProvider(webService: WebService()))
     )
@@ -171,6 +172,25 @@ class TrainerManagementViewController: BaseViewController, TrainerManagementCont
     
     func classStripViewDelegate(_ view: ClassStripView, didSelectClass: ClassModel) {
         presenter.onClassTapped(didSelectClass)
+    }
+    
+    func classStripViewDelegate (_ view: ClassStripView, didCancelClass: ClassModel) {
+        let title = UserSettings.showCoachView ? "remove_class_title" : "remove_booking_title"
+        let message = UserSettings.showCoachView ? "remove_class_message" : "remove_booking_message"
+        
+        let alertController = UIAlertController(title: NSLocalizedString( title, comment: ""), message: NSLocalizedString(String(format: NSLocalizedString(message, comment: ""), didCancelClass.sport.name), comment: ""), preferredStyle: .alert)
+        let removeAction = UIAlertAction(title: NSLocalizedString("remove_button_title", comment: ""), style: .destructive) { (_) in
+            self.presenter.onDeleteClass(didCancelClass)
+        }
+        let cancelAction = UIAlertAction(title: NSLocalizedString("cancel_button_title", comment: ""), style: .cancel, handler: nil)
+        alertController.addAction(removeAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func classStripViewDelegate (_ view: ClassStripView, didBookClass: ClassModel) {
+        
     }
 }
 

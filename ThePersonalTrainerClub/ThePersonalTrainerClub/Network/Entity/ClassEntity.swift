@@ -20,6 +20,7 @@ struct ClassEntity: Decodable, Encodable {
     let duration: Int
     let registered: Int?
     let distance: Double?
+    let booking: String?
 }
 
 struct TrainerEntity: Decodable, Encodable {

@@ -74,6 +74,10 @@
 		630524FF21978B4B004C4179 /* RegisterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630524FE21978B4B004C4179 /* RegisterProvider.swift */; };
 		630BFE5721BD56D7007D8A66 /* SetUserThumbnailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630BFE5621BD56D7007D8A66 /* SetUserThumbnailRequest.swift */; };
 		630BFE5921BD728E007D8A66 /* SetUserThumbnailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630BFE5821BD728E007D8A66 /* SetUserThumbnailUseCase.swift */; };
+		6324AD4A21C06075008ADE51 /* DeleteClassEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6324AD4921C06075008ADE51 /* DeleteClassEntity.swift */; };
+		6324AD4C21C06082008ADE51 /* DeleteBookingEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6324AD4B21C06082008ADE51 /* DeleteBookingEntity.swift */; };
+		6324AD4E21C0675C008ADE51 /* BookingEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6324AD4D21C0675C008ADE51 /* BookingEntity.swift */; };
+		6324AD5021C08238008ADE51 /* BookingProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6324AD4F21C08238008ADE51 /* BookingProvider.swift */; };
 		633D77DD21AAEC8800A6FEE1 /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633D77DB21AAEC8800A6FEE1 /* UserSettingsViewController.swift */; };
 		633D77DE21AAEC8800A6FEE1 /* UserSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 633D77DC21AAEC8800A6FEE1 /* UserSettingsViewController.xib */; };
 		633D77E021AAEF2000A6FEE1 /* UserSettingsViewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633D77DF21AAEF2000A6FEE1 /* UserSettingsViewContract.swift */; };
@@ -244,6 +248,10 @@
 		630524FE21978B4B004C4179 /* RegisterProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProvider.swift; sourceTree = "<group>"; };
 		630BFE5621BD56D7007D8A66 /* SetUserThumbnailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUserThumbnailRequest.swift; sourceTree = "<group>"; };
 		630BFE5821BD728E007D8A66 /* SetUserThumbnailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUserThumbnailUseCase.swift; sourceTree = "<group>"; };
+		6324AD4921C06075008ADE51 /* DeleteClassEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteClassEntity.swift; sourceTree = "<group>"; };
+		6324AD4B21C06082008ADE51 /* DeleteBookingEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteBookingEntity.swift; sourceTree = "<group>"; };
+		6324AD4D21C0675C008ADE51 /* BookingEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingEntity.swift; sourceTree = "<group>"; };
+		6324AD4F21C08238008ADE51 /* BookingProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingProvider.swift; sourceTree = "<group>"; };
 		633D77DB21AAEC8800A6FEE1 /* UserSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsViewController.swift; sourceTree = "<group>"; };
 		633D77DC21AAEC8800A6FEE1 /* UserSettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserSettingsViewController.xib; sourceTree = "<group>"; };
 		633D77DF21AAEF2000A6FEE1 /* UserSettingsViewContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsViewContract.swift; sourceTree = "<group>"; };
@@ -583,6 +591,7 @@
 				6373043A21985DCB00E726E2 /* UserProvider.swift */,
 				5E977F4921B03CC100DD6E50 /* SetActivitiesProvider.swift */,
 				5E977F6221B267C100DD6E50 /* LocationProvider.swift */,
+				6324AD4F21C08238008ADE51 /* BookingProvider.swift */,
 			);
 			path = Provider;
 			sourceTree = "<group>";
@@ -601,6 +610,9 @@
 				634AD02E21BAE1B6006332DA /* FindClasses.swift */,
 				634AD03021BAF96A006332DA /* ClassEntity.swift */,
 				630BFE5621BD56D7007D8A66 /* SetUserThumbnailRequest.swift */,
+				6324AD4921C06075008ADE51 /* DeleteClassEntity.swift */,
+				6324AD4B21C06082008ADE51 /* DeleteBookingEntity.swift */,
+				6324AD4D21C0675C008ADE51 /* BookingEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -938,6 +950,7 @@
 				6373043721985D4500E726E2 /* TrainerManagementUseCase.swift in Sources */,
 				637304082198467900E726E2 /* BaseTabBarViewController.swift in Sources */,
 				5EDB094D2194CDE50000A280 /* RegisterViewContract.swift in Sources */,
+				6324AD5021C08238008ADE51 /* BookingProvider.swift in Sources */,
 				634AD02F21BAE1B6006332DA /* FindClasses.swift in Sources */,
 				5E977F6721B53B7100DD6E50 /* SearchLocationTableViewController.swift in Sources */,
 				5E92C2E921AC804F00699A37 /* AddLocationViewContract.swift in Sources */,
@@ -955,6 +968,7 @@
 				63FB2E6721A0A07A006E0320 /* UICollectionView+Reusable.swift in Sources */,
 				63FB2E6121A09FF9006E0320 /* DateFormatter+Utils.swift in Sources */,
 				63FB2E8121A1F786006E0320 /* LocationStripView.swift in Sources */,
+				6324AD4C21C06082008ADE51 /* DeleteBookingEntity.swift in Sources */,
 				5E92C2EB21AC805D00699A37 /* AddLocationViewNavigator.swift in Sources */,
 				637303FC219843BA00E726E2 /* TrainerDashboardViewPresenter.swift in Sources */,
 				5E977F5021B0406400DD6E50 /* SetActivityUseCase.swift in Sources */,
@@ -965,6 +979,7 @@
 				630BFE5721BD56D7007D8A66 /* SetUserThumbnailRequest.swift in Sources */,
 				6373042D219850F700E726E2 /* ClassProvider.swift in Sources */,
 				5E977F5F21B1624900DD6E50 /* ClassStripView.swift in Sources */,
+				6324AD4A21C06075008ADE51 /* DeleteClassEntity.swift in Sources */,
 				634AD03521BB0AA4006332DA /* FindClassesUseCase.swift in Sources */,
 				6373041D21984EBA00E726E2 /* NewClassViewPresenter.swift in Sources */,
 				633D77E221AAEF3400A6FEE1 /* UserSettingsViewNavigator.swift in Sources */,
@@ -1001,6 +1016,7 @@
 				6373040F21984DBD00E726E2 /* TrainerManagementViewPresenter.swift in Sources */,
 				5E977F4821AFF1B600DD6E50 /* ActivityUseCase.swift in Sources */,
 				5E92C2E221AC802200699A37 /* AddLocationViewController.swift in Sources */,
+				6324AD4E21C0675C008ADE51 /* BookingEntity.swift in Sources */,
 				63FB2E7F21A1F681006E0320 /* LocationStipLayout.swift in Sources */,
 				5E977F4E21B03E7F00DD6E50 /* SetActivitiesModel.swift in Sources */,
 				5E92C2EF21AC807D00699A37 /* AddSportViewContract.swift in Sources */,

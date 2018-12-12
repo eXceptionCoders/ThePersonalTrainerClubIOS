@@ -78,6 +78,18 @@
 "remove_button_title" = "Delete";
 "remove_location_error" =  "Some error has occurred";
 
+"remove_class_title" = "Delete class";
+"remove_class_message" = "Do you want to delet the \"%@\" class?";
+"remove_class_error" =  "Some error has occurred";
+
+"remove_booking_title" = "Cancel booking";
+"remove_booking_message" = "Do you want to cancel the \"%@\" booking?";
+"remove_booking_error" = "Some error has occurred";
+
+"booking_title" = "Book class";
+"booking_message" = "Do you want to book the \"%@\" class?";
+"booking_error" = "Some error has occurred";
+
 "add_location_search_placeholder" = "Search for places";
 "add_location_set_location_title" = "Set new location";
 "add_location_location_description_placeholder" = "Location description";

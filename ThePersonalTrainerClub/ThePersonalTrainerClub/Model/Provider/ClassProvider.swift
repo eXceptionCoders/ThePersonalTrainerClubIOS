@@ -72,6 +72,26 @@ class ClassProvider {
             }
         }
     }
+    
+    func deleteClass(classId: String, completion: @escaping (Bool, Error?, [String: String]?) -> Void) {
+        webService.load(DeleteClassResponse.self, from: Endpoint.deleteClass(requestModel: DeleteClassRequest(id: classId) )) { responseObject, error in
+            if let error = error {
+                switch error {
+                    
+                case WebServiceError.unauthorized:
+                    completion(false, ClassError.unauthorized, responseObject?.error)
+                case WebServiceError.forbiddenError:
+                    completion(false, ClassError.forbiddenError, responseObject?.error)
+                case WebServiceError.unprocessableEntity:
+                    completion(false, ClassError.unprocessableEntity, responseObject?.error)
+                default:
+                    completion(false, ClassError.otherError, responseObject?.error)
+                }
+            } else {
+                completion(true, nil, nil)
+            }
+        }
+    }
 }
 
 class ClassProviderMapper {
@@ -123,7 +143,8 @@ class ClassProviderMapper {
             maxusers: data.maxusers,
             duration: data.duration,
             registered: data.registered,
-            distance: nil
+            distance: nil,
+            booking: data.booking
         )
         
         return classData

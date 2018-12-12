@@ -87,7 +87,14 @@ class ClassFinderResultViewController: BaseViewController, ClassFinderResultCont
     func classStripViewDelegate(_ view: ClassStripView, didSelectClass: ClassModel) {
         presenter.onClassTapped(didSelectClass)
     }
+        
+    func classStripViewDelegate (_ view: ClassStripView, didCancelClass: ClassModel) {
+        
+    }
     
+    func classStripViewDelegate (_ view: ClassStripView, didBookClass: ClassModel) {
+        
+    }
 }
 
 extension ClassFinderResultViewController {

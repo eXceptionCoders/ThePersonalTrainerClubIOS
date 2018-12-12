@@ -25,7 +25,8 @@ class UserSettingsViewController: BaseViewController, UserSettingsContract.View 
         view: self,
         trainerManagementUseCase: TrainerManagementUseCase(
             userProvider: UserProvider(webService: WebService()),
-            classProvider: ClassProvider(webService: WebService())
+            classProvider: ClassProvider(webService: WebService()),
+            bookingProvider: BookingProvider(webService: WebService())
         )
     )
     

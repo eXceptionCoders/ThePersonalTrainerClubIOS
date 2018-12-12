@@ -9,5 +9,7 @@
 import Foundation
 
 class ClassDetailViewPresenter: BaseViewPresenter, ClassDetailContract.Presenter {
-
+    func book(_ class: String) {
+        
+    }
 }

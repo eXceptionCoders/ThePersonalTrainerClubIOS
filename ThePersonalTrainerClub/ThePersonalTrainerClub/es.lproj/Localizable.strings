@@ -78,6 +78,18 @@
 "remove_button_title" = "Borrar";
 "remove_location_error" = "Ha ocurrido algún error";
 
+"remove_class_title" = "Borrar clase";
+"remove_class_message" = "Quieres borrar la clase \"%@\"?";
+"remove_class_error" =  "Ha ocurrido algún error";
+
+"remove_booking_title" = "Cancelar reserva";
+"remove_booking_message" = "Quires cancelar la reserva \"%@\"?";
+"remove_booking_error" = "Ha ocurrido algún error";
+
+"booking_title" = "Reservar clase";
+"booking_message" = "Quieres reservar la clase \"%@\"?";
+"booking_error" = "Ha ocurrido algún error";
+
 "add_location_search_placeholder" = "Busca ubicaciones";
 "add_location_set_location_title" = "Añadir una nueva ubicación";
 "add_location_location_description_placeholder" = "Descripción";

@@ -19,6 +19,7 @@ struct ClassModel: Codable {
     let duration: Int
     let registered: Int?
     let distance: Int?
+    let booking: String?
 }
 
 struct TrainerModel: Decodable, Encodable {

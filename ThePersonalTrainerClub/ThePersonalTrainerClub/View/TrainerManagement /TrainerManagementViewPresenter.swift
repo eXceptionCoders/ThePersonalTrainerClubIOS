@@ -70,4 +70,47 @@ class TrainerManagementViewPresenter: BaseViewPresenter, TrainerManagementContra
     func onClassTapped(_ data: ClassModel) {
         self.navigator.navigateToClassDetail(model: data)
     }
+    
+    func onDeleteClass(_ data: ClassModel) {
+        if !UserSettings.showCoachView {
+            guard let bookingId = data.booking else {
+                return
+            }
+
+            view.showLoading()
+            
+            trainerManagementUseCase.deleteBooking(bookId: bookingId) { (succes, error, errorsMap) in
+                
+                self.view.hideLoading()
+                if error != nil {
+                    var message = String(format: NSLocalizedString("remove_location_error", comment: ""))
+                    
+                    for (key, detail) in errorsMap ?? [:] {
+                        message = String(format: "%@ \n%@: %@", message, key, detail)
+                    }
+                    
+                    self.view.showAlertMessage(title: nil, message: message)
+                } else {
+                    self.fetchUser()
+                }
+            }
+        } else {
+            view.showLoading()
+            trainerManagementUseCase.deleteClass(classId: data.id) { (succes, error, errorsMap) in
+                
+                self.view.hideLoading()
+                if error != nil {
+                    var message = String(format: NSLocalizedString("remove_location_error", comment: ""))
+                    
+                    for (key, detail) in errorsMap ?? [:] {
+                        message = String(format: "%@ \n%@: %@", message, key, detail)
+                    }
+                    
+                    self.view.showAlertMessage(title: nil, message: message)
+                } else {
+                    self.fetchUser()
+                }
+            }
+        }
+    }
 }
