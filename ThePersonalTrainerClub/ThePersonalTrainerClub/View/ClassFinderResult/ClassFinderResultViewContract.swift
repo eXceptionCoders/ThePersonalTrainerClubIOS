@@ -21,6 +21,7 @@ protocol ClassFinderResultView: BaseContract.View {
 protocol ClassFinderResultPresenter: BaseContract.Presenter {
     func fetchClasses(_ query: ClassFinderQuery)
     func onClassTapped(_ data: ClassModel)
+    func book(_ classId: String)
 }
 
 protocol ClassFinderResultNavigator: BaseContract.Navigator {

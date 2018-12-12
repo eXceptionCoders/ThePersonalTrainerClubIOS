@@ -33,7 +33,14 @@ class ClassDetailViewController: BaseViewController, ClassDetailContract.View {
     
     // MARK: - Presenter
     
-    lazy var presenter: ClassDetailContract.Presenter = ClassDetailViewPresenter()
+    lazy var presenter: ClassDetailContract.Presenter = ClassDetailViewPresenter(
+        view: self,
+        trainerManagementUseCase: TrainerManagementUseCase(
+            userProvider: UserProvider(webService: WebService()),
+            classProvider: ClassProvider(webService: WebService()),
+            bookingProvider: BookingProvider(webService: WebService())
+        )
+    )
     
     // MARK: - Properties
     
@@ -113,4 +120,18 @@ class ClassDetailViewController: BaseViewController, ClassDetailContract.View {
     // MARK: - ClassDetailContract.View methods
     
     // MARK: - Actions
+    
+    @IBAction func book(_ sender: Any) {
+        let alertController = UIAlertController(title: NSLocalizedString("booking_title", comment: ""), message: String(format: NSLocalizedString("booking_message", comment: ""), model.sport.name), preferredStyle: .alert)
+        
+        let removeAction = UIAlertAction(title: NSLocalizedString("booking_button_title", comment: ""), style: .destructive) { (_) in
+            self.presenter.book(self.model.id)
+        }
+        
+        let cancelAction = UIAlertAction(title: NSLocalizedString("cancel_button_title", comment: ""), style: .cancel, handler: nil)
+        alertController.addAction(removeAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
 }

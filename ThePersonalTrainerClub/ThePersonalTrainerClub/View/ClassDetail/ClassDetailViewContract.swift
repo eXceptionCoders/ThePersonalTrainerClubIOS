@@ -19,7 +19,7 @@ protocol ClassDetailView: BaseContract.View {
 }
 
 protocol ClassDetailPresenter: BaseContract.Presenter {
-    func book(_ class: String)
+    func book(_ classId: String)
 }
 
 protocol ClassDetailNavigator: BaseContract.Navigator {

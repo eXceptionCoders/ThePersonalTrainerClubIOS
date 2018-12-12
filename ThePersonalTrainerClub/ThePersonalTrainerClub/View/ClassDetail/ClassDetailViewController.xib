@@ -245,6 +245,9 @@
                                 <constraint firstAttribute="height" constant="30" id="yJi-Vz-XEe"/>
                             </constraints>
                             <state key="normal" title="Book"/>
+                            <connections>
+                                <action selector="book:" destination="-1" eventType="touchUpInside" id="uMi-Le-xGp"/>
+                            </connections>
                         </button>
                     </subviews>
                 </stackView>

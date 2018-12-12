@@ -27,6 +27,11 @@ class ClassFinderResultViewController: BaseViewController, ClassFinderResultCont
     
     lazy var presenter: ClassFinderResultContract.Presenter = ClassFinderResultViewPresenter(
         view: self,
+        trainerManagementUseCase: TrainerManagementUseCase(
+            userProvider: UserProvider(webService: WebService()),
+            classProvider: ClassProvider(webService: WebService()),
+            bookingProvider: BookingProvider(webService: WebService())
+        ),
         findClassesUseCase: FindClassesUseCase(classProvider: ClassProvider(webService: WebService()))
     )
     
@@ -87,13 +92,23 @@ class ClassFinderResultViewController: BaseViewController, ClassFinderResultCont
     func classStripViewDelegate(_ view: ClassStripView, didSelectClass: ClassModel) {
         presenter.onClassTapped(didSelectClass)
     }
-        
+    
     func classStripViewDelegate (_ view: ClassStripView, didCancelClass: ClassModel) {
         
     }
     
     func classStripViewDelegate (_ view: ClassStripView, didBookClass: ClassModel) {
+        let alertController = UIAlertController(title: NSLocalizedString("booking_title", comment: ""), message: String(format: NSLocalizedString("booking_message", comment: ""), didBookClass.sport.name), preferredStyle: .alert)
         
+        let removeAction = UIAlertAction(title: NSLocalizedString("booking_button_title", comment: ""), style: .destructive) { (_) in
+            self.presenter.book(didBookClass.id)
+        }
+        
+        let cancelAction = UIAlertAction(title: NSLocalizedString("cancel_button_title", comment: ""), style: .cancel, handler: nil)
+        alertController.addAction(removeAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
 }
 

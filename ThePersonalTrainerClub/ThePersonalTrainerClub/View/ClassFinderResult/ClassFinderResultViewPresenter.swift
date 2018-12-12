@@ -13,6 +13,7 @@ class ClassFinderResultViewPresenter: BaseViewPresenter, ClassFinderResultContra
     
     private lazy var navigator: ClassFinderResultContract.Navigator = ClassFinderResultViewNavigator(view: view)
     
+    private var trainerManagementUseCase: TrainerManagementUseCase
     private var findClassesUseCase: FindClassesUseCase
     
     private var classes: [ClassModel] = []
@@ -24,8 +25,9 @@ class ClassFinderResultViewPresenter: BaseViewPresenter, ClassFinderResultContra
         get { return _total }
     }
     
-    init(view: ClassFinderResultContract.View, findClassesUseCase: FindClassesUseCase) {
+    init(view: ClassFinderResultContract.View, trainerManagementUseCase: TrainerManagementUseCase, findClassesUseCase: FindClassesUseCase) {
         self.view = view
+        self.trainerManagementUseCase = trainerManagementUseCase
         self.findClassesUseCase = findClassesUseCase
     }
     
@@ -73,5 +75,24 @@ class ClassFinderResultViewPresenter: BaseViewPresenter, ClassFinderResultContra
     
     func onClassTapped(_ data: ClassModel) {
         self.navigator.navigateToClassDetail(model: data)
+    }
+    
+    func book(_ classId: String) {
+        view.showLoading()
+        trainerManagementUseCase.book(classId: classId) { (succes, error, errorsMap) in
+            
+            self.view.hideLoading()
+            if error != nil {
+                var message = String(format: NSLocalizedString("booking_error", comment: ""))
+                
+                for (key, detail) in errorsMap ?? [:] {
+                    message = String(format: "%@ \n%@: %@", message, key, detail)
+                }
+                
+                self.view.showAlertMessage(title: nil, message: message)
+            } else {
+                self.view.showAlertMessage(title: nil, message: NSLocalizedString("booking_done", comment: ""))
+            }
+        }
     }
 }

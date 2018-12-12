@@ -83,7 +83,7 @@ class TrainerManagementViewPresenter: BaseViewPresenter, TrainerManagementContra
                 
                 self.view.hideLoading()
                 if error != nil {
-                    var message = String(format: NSLocalizedString("remove_location_error", comment: ""))
+                    var message = String(format: NSLocalizedString("remove_class_error", comment: ""))
                     
                     for (key, detail) in errorsMap ?? [:] {
                         message = String(format: "%@ \n%@: %@", message, key, detail)
@@ -100,7 +100,7 @@ class TrainerManagementViewPresenter: BaseViewPresenter, TrainerManagementContra
                 
                 self.view.hideLoading()
                 if error != nil {
-                    var message = String(format: NSLocalizedString("remove_location_error", comment: ""))
+                    var message = String(format: NSLocalizedString("remove_booking_error", comment: ""))
                     
                     for (key, detail) in errorsMap ?? [:] {
                         message = String(format: "%@ \n%@: %@", message, key, detail)
